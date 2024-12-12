@@ -1,0 +1,42 @@
+@import url('https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400..800;1,400..800&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+/* Heading */
+h1{
+    font-size: 40px;
+    color: #12132D;
+    font-family: EB garamond;
+    font-weight: 800;
+}
+
+/* Normal Text */
+p{
+    color: #707070;
+    font-size: 16px;
+    font-family: Poppins;
+}
+
+/* Common buttons */
+button{
+    background-color:  #797DFC;
+    color: white;
+}
+
+/* Title */
+h2{
+    color:  #12132D;
+    font-size: 32px;
+    font-family: EB garamond;
+    font-weight: 800;
+}
+
+/* Sub title */
+h3{
+    font-size: 18px;
+    font-weight: bold;
+}
+
+/* Common bg */
+.bg{
+    background-color: #797DFC;
+    color: white;
+}

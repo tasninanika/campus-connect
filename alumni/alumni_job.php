@@ -505,7 +505,7 @@
                             >Logo</label
                           >
                           <input
-                              class="w-full rounded-lg border border-stroke bg-gray px-5 pl-4 py-2 font-medium text-black focus:border-gray-800 focus-visible:outline-none dark:border-strokedark dark:bg-meta-4 dark:text-white dark:focus:border-primary" required
+                              class="w-full text-gray-400 font-semibold text-sm bg-white border file:cursor-pointer cursor-pointer file:border-0 file:py-3 file:px-4 file:mr-4 file:bg-gray-100 file:hover:bg-gray-200 file:text-gray-500 rounded" required
                               type="file"
                               name="logo"
                               id="logo"

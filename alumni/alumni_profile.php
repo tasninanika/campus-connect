@@ -303,7 +303,8 @@
               <!-- ====== Profile Section Start -->
               <div
                 class="overflow-hidden rounded-sm border border-stroke bg-white shadow-default dark:border-strokedark dark:bg-boxdark"
-              >
+                >
+                <form action="">
                 <div class="relative z-1 h-72 md:h-65">
                   <img
                     src="../images/cover.png"
@@ -331,7 +332,7 @@
                           viewBox="0 0 14 14"
                           fill="none"
                           xmlns="http://www.w3.org/2000/svg"
-                        >
+                          >
                           <path
                             fill-rule="evenodd"
                             clip-rule="evenodd"
@@ -353,13 +354,13 @@
                 <div class="px-4 pb-6 text-center lg:pb-8 xl:pb-11.5">
                   <div
                     class="relative z-30 mx-auto lg:-mt-24 h-30 w-full max-w-30 rounded-full bg-white/20 p-1 backdrop-blur sm:h-44 sm:max-w-44 sm:p-3"
-                  >
+                    >
                     <div class="relative drop-shadow-2">
-                    <img src="../images/upload/<?php echo $row["id_photo"]; ?>" alt="User Image" class="lg:-mt-3 lg:-ml-3 rounded-full object-cover h-44 w-44 max-w-sm">
+                    <img src="../upload/images/<?php echo $row["id_photo"]; ?>" alt="User Image" class="lg:-mt-3 lg:-ml-3 rounded-full object-cover h-44 w-44 max-w-sm">
                     <label
                         for="profile"
                         class="absolute bottom-0 right-0 flex h-8.5 w-8.5 cursor-pointer items-center justify-center rounded-full bg-primary text-white hover:bg-opacity-90 sm:bottom-2 sm:right-2"
-                      >
+                        >
                         <svg
                           class="fill-current bg-[#0E675C]"
                           width="14"
@@ -367,7 +368,7 @@
                           viewBox="0 0 14 14"
                           fill="none"
                           xmlns="http://www.w3.org/2000/svg"
-                        >
+                          >
                           <path
                             fill-rule="evenodd"
                             clip-rule="evenodd"
@@ -387,9 +388,10 @@
                           id="profile"
                           class="sr-only"
                         />
-                      </label>
-                    </div>
+                    </label>
                   </div>
+                </div>
+                </form>
                   <?php
 							$a=$_SESSION['alumni_id'];
 							

@@ -129,7 +129,7 @@
                 <i class="fas fa-solid fa-question mr-3"></i>    
                 Post Job 
             </a> 
-            <a href="alumni_blog" class="flex items-center text-white opacity-75 hover:opacity-100 py-4 pl-6 nav-item">
+            <a href="alumni_blog.php" class="flex items-center text-white opacity-75 hover:opacity-100 py-4 pl-6 nav-item">
                 <i class="fas fa-solid fa-question mr-3"></i>    
                 Post Blog 
             </a> 
@@ -312,7 +312,7 @@
                     class="border-b border-stroke px-4 py-4 dark:border-strokedark"
                     >
                     <h3 class="font-medium text-black dark:text-white">
-                      Job Information
+                      Study Materials
                     </h3>
                   </div>
                   <div class="p-5">
@@ -379,6 +379,7 @@
                     <div class="p-5">
                         <!-- first -->
                         <div class="mb-6">
+                            <h3 class="mb-3 block text-sm font-medium text-black dark:text-white">Upload File</h3>
                         <label for="uploadFile1"
                                 class="bg-white text-gray-500 font-semibold text-base rounded max-w-md h-52 flex flex-col items-center justify-center cursor-pointer border-2 border-gray-300 border-dashed mx-auto font-[sans-serif]">
                                 <svg xmlns="http://www.w3.org/2000/svg" class="w-11 mb-2 fill-gray-500" viewBox="0 0 32 32">

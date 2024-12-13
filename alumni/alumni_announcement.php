@@ -129,7 +129,7 @@
                 <i class="fas fa-solid fa-question mr-3"></i>    
                 Post Job 
             </a> 
-            <a href="alumni_blog" class="flex items-center text-white py-4 pl-6 nav-item">
+            <a href="alumni_blog.php" class="flex items-center text-white py-4 pl-6 nav-item">
                 <i class="fas fa-solid fa-question mr-3"></i>    
                 Post Blog 
             </a> 

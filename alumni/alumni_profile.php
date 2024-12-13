@@ -304,7 +304,7 @@
               <div
                 class="overflow-hidden rounded-sm border border-stroke bg-white shadow-default dark:border-strokedark dark:bg-boxdark"
                 >
-                <form action="change_profile.php" method="POST" enctype="multipart/form-data"">
+                <form action="change_picture.php" method="POST" enctype="multipart/form-data">
                 <div class="relative z-1 h-72 md:h-65">
                   <img
                     src="../images/cover.png"

@@ -391,8 +391,6 @@
                                     data-original="#000000" />
                                 </svg><span id="fileNamePlaceholder" class="text-center text-sm text-gray-400">No file selected</span>
                                 <input type="file" id="uploadFile1" name="fileToUpload" class="hidden" />
-
-                                <input type="file" id="uploadFile1" name="fileToUpload" class="hidden" />
                                 <p class="text-xs font-medium text-gray-400 mt-2">PNG, JPG, SVG, WEBP, PDF, DOCX, XLSX are Allowed.</p>
                             </label>
                         </div>                        

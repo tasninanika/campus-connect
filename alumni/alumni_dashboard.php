@@ -59,7 +59,7 @@
     </style>
 </head>
 <body class="bg-gray-100 font-family-karla flex">
-  <aside class="relative h-screen w-96 hidden sm:block shadow-xl bg-gray-800">
+    <aside class="relative h-screen w-96 hidden sm:block shadow-xl bg-gray-800">
         <div class="p-10 mb-10 border-b border-gray-500">
             <a class="text-white text-base font-bold font-garamond hover:text-gray-300">Welcome,</a>
             <?php
@@ -183,7 +183,7 @@
             </div>
             <div x-data="{ isOpen: false }" class="relative w-1/2 flex justify-end">
                 <button @click="isOpen = !isOpen" class="realtive z-10 w-14 h-14 rounded-full overflow-hidden border-4 border-gray-700 hover:border-gray-300 focus:border-gray-300 focus:outline-none">
-                <img src="../images/upload/<?php echo $row['id_photo']; ?>" alt="User Image" class="w-14 h-14 rounded-full">
+                <img src="../upload/images/<?php echo $row['id_photo']; ?>" alt="User Image" class="w-14 h-14 rounded-full">
                 </button>
                 <button x-show="isOpen" @click="isOpen = false" class="h-full w-full fixed inset-0 cursor-default"></button>
                 <div x-show="isOpen" class="absolute w-32 bg-white rounded-lg shadow-lg py-2 mt-16">

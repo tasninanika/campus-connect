@@ -316,7 +316,7 @@
                     </h3>
                   </div>
                   <div class="p-5">
-                  <form action="post_job.php" method="POST">
+                  <form action="upload_resources.php" method="POST" enctype="multipart/form-data">
                         <!-- first -->
                         <div class="mb-6">
                           <label
@@ -389,12 +389,13 @@
                                     <path
                                     d="M20.293 19.707a1 1 0 0 0 1.414-1.414l-5-5a1 1 0 0 0-1.414 0l-5 5a1 1 0 0 0 1.414 1.414L15 16.414V29a1 1 0 0 0 2 0V16.414z"
                                     data-original="#000000" />
-                                </svg>
-                                Upload file
+                                </svg><span id="fileNamePlaceholder" class="text-center text-sm text-gray-400">No file selected</span>
+                                <input type="file" id="uploadFile1" name="fileToUpload" class="hidden" />
 
-                                <input type="file" id="uploadFile1" name="file" class="hidden" />
-                                <p class="text-xs font-medium text-gray-400 mt-2">PNG, JPG SVG, and WEBP are Allowed.</p>
-                            </label>                                                    
+                                <input type="file" id="uploadFile1" name="fileToUpload" class="hidden" />
+                                <p class="text-xs font-medium text-gray-400 mt-2">PNG, JPG, SVG, WEBP, PDF, DOCX, XLSX are Allowed.</p>
+                            </label>
+                             <!-- File name display -->
                         </div>                        
                         <!-- button -->
                         <div class="flex justify-end gap-4">
@@ -426,6 +427,13 @@
     <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script>
     <!-- Font Awesome -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/js/all.min.js" integrity="sha256-KzZiKy0DWYsnwMF+X1DvQngQ2/FxF7MF3Ff72XcpuPs=" crossorigin="anonymous"></script>
+    <script>
+    document.getElementById("uploadFile1").addEventListener("change", function () {
+        const fileName = this.files[0]?.name || "No file selected"; // Get file name or default text
+        const fileNamePlaceholder = document.getElementById("fileNamePlaceholder");
+        fileNamePlaceholder.textContent = fileName; // Set the file name in the placeholder span
+    });
+</script>
 </body>
 </html>
 <?php

@@ -6,7 +6,7 @@
 		
 		if(isset($_FILES["fileToUpload"]["name"]) && $_FILES["fileToUpload"]["name"] != ''){
 			//echo 123;exit;
-			$target_dir = "./images/upload/";
+			$target_dir = "./upload/images/";
 			$newName = date('YmdHis_');
 			$newName .= basename($_FILES["fileToUpload"]["name"]);
 			$target_file = $target_dir . $newName;

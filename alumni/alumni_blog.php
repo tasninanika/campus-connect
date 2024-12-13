@@ -345,6 +345,20 @@
                               id="type"
                             />                                                     
                         </div>
+                        <!-- 2nd -->
+                        <div class="mb-6">
+                          <label
+                            class="mb-3 block text-sm font-medium text-black dark:text-white"
+                            for=""
+                            >Picture</label
+                          >
+                          <input
+                              class="w-full rounded-lg border border-stroke bg-gray px-5 py-2 font-medium text-black focus:border-gray-800 focus-visible:outline-none dark:border-strokedark dark:bg-meta-4 dark:text-white dark:focus:border-primary"
+                              type="file"
+                              name="blog_picture"
+                              id="blog_picture"
+                            />                                                     
+                        </div>
                         <!-- Description -->
                         <div class="mb-6 flex flex-col gap-5 sm:flex-row">
                             <div class="w-full">

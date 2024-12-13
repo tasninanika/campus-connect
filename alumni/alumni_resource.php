@@ -302,7 +302,118 @@
             <!-- Breadcrumb End -->
 
             <!-- ====== Form Elements Section Start -->
-            
+            <div class="grid grid-cols-1 gap-9 sm:grid-cols-2">
+              <div class="grid grid-cols-1 gap-9">
+                <!-- Input Fields -->
+                <div
+                  class="rounded-sm border border-stroke bg-white shadow-default dark:border-strokedark dark:bg-boxdark"
+                  >
+                  <div
+                    class="border-b border-stroke px-4 py-4 dark:border-strokedark"
+                    >
+                    <h3 class="font-medium text-black dark:text-white">
+                      Job Information
+                    </h3>
+                  </div>
+                  <div class="p-5">
+                  <form action="post_job.php" method="POST">
+                        <!-- first -->
+                        <div class="mb-6">
+                          <label
+                            class="mb-3 block text-sm font-medium text-black dark:text-white"
+                            for=""
+                            >Title</label
+                          >
+                          <input
+                              class="w-full rounded-lg border border-stroke bg-gray px-5 pl-4 py-2 font-medium text-black focus:border-gray-800 focus-visible:outline-none dark:border-strokedark dark:bg-meta-4 dark:text-white dark:focus:border-primary" required
+                              type="text"
+                              name="title"
+                              id="title"
+                            />                                                     
+                        </div>
+                        <!-- 2nd -->
+                        <div class="mb-6 flex flex-col gap-5 sm:flex-row">
+                          <div class="w-full">
+                            <label
+                              class="mb-3 block text-sm font-medium text-black dark:text-white"
+                              for="fname"
+                              >Type</label
+                            >
+                            <div class="relative">
+                              <input
+                                class="w-full rounded-lg border border-stroke bg-gray py-2 pl-4 pr-4.5 font-medium text-black focus:border-gray-800 focus-visible:outline-none dark:border-strokedark dark:bg-meta-4 dark:text-white dark:focus:border-primary" required
+                                type="text"
+                                name="type"
+                                id="type"
+                                />                             
+                            </div>
+                          </div>
+                        </div>                
+                        <!-- Description -->
+                        <div class="mb-6 flex flex-col gap-5 sm:flex-row">
+                            <div class="w-full">
+                            <label
+                            class="mb-3 block text-sm font-medium text-black dark:text-white"
+                            >
+                            Description
+                            </label>
+                            <textarea
+                            rows="6"
+                            name="description"
+                            id="description"
+                            placeholder=""
+                            class="w-full rounded-lg border-[1.5px] border-stroke bg-transparent pl-4 px-5 py-3 font-normal text-black outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary" required
+                            ></textarea>
+                            <!-- <textarea id="editor"></textarea> -->
+                        </div>
+                      </div>
+                  </div>
+                </div>
+              </div>
+            <!-- 2nd form -->
+              <div class="flex flex-col gap-9">
+                <!-- Textarea Fields -->
+                <div
+                  class="rounded-sm border border-stroke bg-white shadow-default dark:border-strokedark dark:bg-boxdark"
+                    >
+                    <div class="p-5">
+                        <!-- first -->
+                        <div class="mb-6">
+                        <label for="uploadFile1"
+                                class="bg-white text-gray-500 font-semibold text-base rounded max-w-md h-52 flex flex-col items-center justify-center cursor-pointer border-2 border-gray-300 border-dashed mx-auto font-[sans-serif]">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="w-11 mb-2 fill-gray-500" viewBox="0 0 32 32">
+                                    <path
+                                    d="M23.75 11.044a7.99 7.99 0 0 0-15.5-.009A8 8 0 0 0 9 27h3a1 1 0 0 0 0-2H9a6 6 0 0 1-.035-12 1.038 1.038 0 0 0 1.1-.854 5.991 5.991 0 0 1 11.862 0A1.08 1.08 0 0 0 23 13a6 6 0 0 1 0 12h-3a1 1 0 0 0 0 2h3a8 8 0 0 0 .75-15.956z"
+                                    data-original="#000000" />
+                                    <path
+                                    d="M20.293 19.707a1 1 0 0 0 1.414-1.414l-5-5a1 1 0 0 0-1.414 0l-5 5a1 1 0 0 0 1.414 1.414L15 16.414V29a1 1 0 0 0 2 0V16.414z"
+                                    data-original="#000000" />
+                                </svg>
+                                Upload file
+
+                                <input type="file" id="uploadFile1" name="file" class="hidden" />
+                                <p class="text-xs font-medium text-gray-400 mt-2">PNG, JPG SVG, and WEBP are Allowed.</p>
+                            </label>                                                    
+                        </div>                        
+                        <!-- button -->
+                        <div class="flex justify-end gap-4">
+                          <button
+                            class="flex justify-center rounded-lg border border-stroke px-6 py-2 font-medium text-black hover:shadow-1 dark:border-strokedark dark:text-white"
+                            type="submit"
+                          ><svg class="w-5 h-6 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+                            Cancel
+                          </button>
+                          <button
+                            class="flex justify-center rounded-lg bg-gradient-to-r from-[#0E675C] to-black px-8 py-2 font-medium text-white hover:bg-opacity-90"
+                            type="submit">
+                            Create
+                          </button>
+                        </div>
+                    </div>
+                </div>
+              </div>
+            </form>
+            </div>
             <!-- ====== Form Elements Section End -->
           </div>
         </main>

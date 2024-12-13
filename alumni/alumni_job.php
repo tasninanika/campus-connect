@@ -309,10 +309,10 @@
                 <!-- Input Fields -->
                 <div
                   class="rounded-sm border border-stroke bg-white shadow-default dark:border-strokedark dark:bg-boxdark"
-                >
+                  >
                   <div
                     class="border-b border-stroke px-4 py-4 dark:border-strokedark"
-                  >
+                    >
                     <h3 class="font-medium text-black dark:text-white">
                       Job Information
                     </h3>

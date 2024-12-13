@@ -323,8 +323,8 @@
                             </div>
                             <div class="block p-6 rounded-lg shadow-lg bg-gray-100 max-w-screen ml-6 mb-10">
                                 <div class="flex justify-between mb-4">
-                                <a href="#!" class="font-medium text-purple-600 hover:text-purple-700 focus:text-purple-800 duration-300 transition ease-in-out text-sm"><?php echo $announcement_title; ?></a>
-                                <a href="#!" class="font-medium text-purple-600 hover:text-purple-700 focus:text-purple-800 duration-300 transition ease-in-out text-sm"><?php echo $posted_date; ?></a>
+                                <h3 class="font-medium text-purple-600 hover:text-purple-700 focus:text-purple-800 duration-300 transition ease-in-out text-sm"><?php echo $announcement_title; ?></h3>
+                                <h3 class="font-medium text-purple-600 hover:text-purple-700 focus:text-purple-800 duration-300 transition ease-in-out text-sm"><?php echo $posted_date; ?></h3>
                                 </div>
                                 <p class="text-gray-700 mb-6"><?php echo $content; ?></p>
                             </div>

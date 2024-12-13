@@ -6,6 +6,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Retrieve user ID from session
     $alumni_id = $_SESSION['alumni_id'];
     
+    
 
     // Get POST data and sanitize
     $blog_id = uniqid('Blog');

@@ -6,58 +6,47 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $alumni_id = $_SESSION['alumni_id'];
     $newName = "";
 
-    // Check if a file is uploaded and no upload errors
     if (isset($_FILES["fileToUpload"]) && $_FILES["fileToUpload"]["error"] == UPLOAD_ERR_OK) {
-
-        // Define paths for images and documents
+        // Directories for images
         $base_dir = "../upload/";
         $image_dir = $base_dir . "images/";
-        $document_dir = $base_dir . "documents/";
 
-        // Ensure the image directory exists
+        // Ensure the directory exists and is writable
         if (!is_dir($image_dir)) {
             mkdir($image_dir, 0755, true);
         }
 
-        // Get the original file name and assign a unique name based on the current time
+        // Get file info
         $originalName = basename($_FILES["fileToUpload"]["name"]);
-        $newName = date('YmdHis_') . $originalName;
+        $newName = date('YmdHis_') . $originalName;  // Create a unique file name
         $fileType = strtolower(pathinfo($newName, PATHINFO_EXTENSION));
 
-        // Debug: Output file type for troubleshooting
-        echo "File type: " . $fileType . "<br>";
-
-        // Validate file types (image formats allowed)
+        // Set target directory based on file type (images only in this case)
         $allowedImageTypes = ["jpg", "jpeg", "png", "gif"];
-        $allowedDocumentTypes = ["pdf", "docx", "xlsx"];
-        $allowedFileTypes = array_merge($allowedImageTypes, $allowedDocumentTypes);
-
         if (!in_array($fileType, $allowedImageTypes)) {
-            echo "Error: Invalid image file type. Allowed types are: jpg, jpeg, png, gif.";
+            echo "Error: Invalid file type. Only jpg, jpeg, png, and gif are allowed.";
             exit;
         }
 
-        // Check file size (limit 20MB)
-        if ($_FILES["fileToUpload"]["size"] > 20000000) {
+        // File size check (limit to 20 MB)
+        if ($_FILES["fileToUpload"]["size"] > 20000000) { // 20 MB limit
             echo "Error: File size exceeds 20 MB.";
             exit;
         }
 
-        // Move the uploaded file to the appropriate directory
+        // Set target file path
         $target_file = $image_dir . $newName;
-        if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $target_file)) {
-            // Successfully uploaded the image
-            echo "File uploaded successfully!<br>";
-        } else {
-            echo "Error: Unable to upload the file. Please check directory permissions.";
+
+        // Move uploaded file to the target directory
+        if (!move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $target_file)) {
+            echo "Error: Unable to save file.";
             exit;
         }
     } else {
-        // If no image is uploaded, fall back to the existing image name in the POST data
         $newName = $_POST['image'] ?? '';
     }
 
-    // Ensure that we have a valid filename
+    // If the file name is empty, show an error
     if (empty($newName)) {
         echo "Error: File name is empty.";
         exit;

@@ -179,7 +179,7 @@
             </div>
             <div x-data="{ isOpen: false }" class="relative w-1/2 flex z-10 justify-end">
                 <button @click="isOpen = !isOpen" class="realtive z-10 w-14 h-14 rounded-full overflow-hidden border-4 border-gray-700 hover:border-gray-300 focus:border-gray-300 focus:outline-none">
-                <img src="../images/upload/<?php echo $row["id_photo"]; ?>" alt="User Image" class="w-14 h-14 rounded-full">
+                <img src="../upload/images/<?php echo $row["id_photo"]; ?>" alt="User Image" class="w-14 h-14 rounded-full">
                 </button>
                 <button x-show="isOpen" @click="isOpen = false" class="h-full w-full fixed inset-0 cursor-default"></button>
                 <div x-show="isOpen" class="absolute w-32 bg-white rounded-lg shadow-lg py-2 mt-16">
@@ -320,7 +320,7 @@
                     >
                       <input
                         type="file"
-                        name="cover"
+                        name="fileToUpload"
                         id="cover"
                         class="sr-only"
                       />
@@ -384,7 +384,7 @@
                         </svg>
                         <input
                           type="file"
-                          name="profile"
+                          name="fileToUpload"
                           id="profile"
                           class="sr-only"
                         />

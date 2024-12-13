@@ -395,7 +395,6 @@
                                 <input type="file" id="uploadFile1" name="fileToUpload" class="hidden" />
                                 <p class="text-xs font-medium text-gray-400 mt-2">PNG, JPG, SVG, WEBP, PDF, DOCX, XLSX are Allowed.</p>
                             </label>
-                             <!-- File name display -->
                         </div>                        
                         <!-- button -->
                         <div class="flex justify-end gap-4">

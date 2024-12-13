@@ -304,36 +304,36 @@
             <!-- ====== announcement Section Start -->
             <h3 class="text-2xl text-gray-700 font-bold mb-6 ml-3">Latest Announcement</h3>
             <?php 
-    $sql = "SELECT * FROM announcement";
-    $query = mysqli_query($db, $sql);
+                $sql = "SELECT * FROM announcement";
+                $query = mysqli_query($db, $sql);
 
-    if(mysqli_num_rows($query) > 0) {
-      while ($rows = mysqli_fetch_assoc($query)) {
-        $announcement_title = $rows['title'];
-        $content = $rows['content'];
-        $posted_date = $rows['created_at']; ?>
-            <ol >
-            <!-- 1 -->
-            <li class="border-l-2 border-[#797DFC]">
-                <div class="md:flex flex-start">
-                <div class="bg-[#797DFC] w-10 h-6 flex items-center justify-center rounded-full -ml-3">
-                    <svg aria-hidden="true" focusable="false" data-prefix="fas" class="text-white w-3 h-3" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
-                    <path fill="currentColor" d="M0 464c0 26.5 21.5 48 48 48h352c26.5 0 48-21.5 48-48V192H0v272zm64-192c0-8.8 7.2-16 16-16h288c8.8 0 16 7.2 16 16v64c0 8.8-7.2 16-16 16H80c-8.8 0-16-7.2-16-16v-64zM400 64h-48V16c0-8.8-7.2-16-16-16h-32c-8.8 0-16 7.2-16 16v48H160V16c0-8.8-7.2-16-16-16h-32c-8.8 0-16 7.2-16 16v48H48C21.5 64 0 85.5 0 112v48h448v-48c0-26.5-21.5-48-48-48z"></path>
-                    </svg>
-                </div>
-                <div class="block p-6 rounded-lg shadow-lg bg-gray-100 max-w-screen ml-6 mb-10">
-                    <div class="flex justify-between mb-4">
-                    <a href="#!" class="font-medium text-purple-600 hover:text-purple-700 focus:text-purple-800 duration-300 transition ease-in-out text-sm"><?php echo $announcement_title; ?></a>
-                    <a href="#!" class="font-medium text-purple-600 hover:text-purple-700 focus:text-purple-800 duration-300 transition ease-in-out text-sm"><?php echo $posted_date; ?></a>
-                    </div>
-                    <p class="text-gray-700 mb-6"><?php echo $content; ?></p>
-                </div>
-                </div>
-            </li>
-            </ol>
-            <?php
-      }
-    }?>
+                if(mysqli_num_rows($query) > 0) {
+                while ($rows = mysqli_fetch_assoc($query)) {
+                    $announcement_title = $rows['title'];
+                    $content = $rows['content'];
+                    $posted_date = $rows['created_at']; ?>
+                        <ol >
+                        <!-- 1 -->
+                        <li class="border-l-2 border-[#797DFC]">
+                            <div class="md:flex flex-start">
+                            <div class="bg-[#797DFC] w-10 h-6 flex items-center justify-center rounded-full -ml-3">
+                                <svg aria-hidden="true" focusable="false" data-prefix="fas" class="text-white w-3 h-3" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
+                                <path fill="currentColor" d="M0 464c0 26.5 21.5 48 48 48h352c26.5 0 48-21.5 48-48V192H0v272zm64-192c0-8.8 7.2-16 16-16h288c8.8 0 16 7.2 16 16v64c0 8.8-7.2 16-16 16H80c-8.8 0-16-7.2-16-16v-64zM400 64h-48V16c0-8.8-7.2-16-16-16h-32c-8.8 0-16 7.2-16 16v48H160V16c0-8.8-7.2-16-16-16h-32c-8.8 0-16 7.2-16 16v48H48C21.5 64 0 85.5 0 112v48h448v-48c0-26.5-21.5-48-48-48z"></path>
+                                </svg>
+                            </div>
+                            <div class="block p-6 rounded-lg shadow-lg bg-gray-100 max-w-screen ml-6 mb-10">
+                                <div class="flex justify-between mb-4">
+                                <a href="#!" class="font-medium text-purple-600 hover:text-purple-700 focus:text-purple-800 duration-300 transition ease-in-out text-sm"><?php echo $announcement_title; ?></a>
+                                <a href="#!" class="font-medium text-purple-600 hover:text-purple-700 focus:text-purple-800 duration-300 transition ease-in-out text-sm"><?php echo $posted_date; ?></a>
+                                </div>
+                                <p class="text-gray-700 mb-6"><?php echo $content; ?></p>
+                            </div>
+                            </div>
+                        </li>
+                        </ol>
+                        <?php
+                }
+                }?>
             <!-- ====== announcement Section End -->
           </div>
         </main>

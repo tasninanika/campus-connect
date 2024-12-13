@@ -315,10 +315,10 @@
                 </div>
                 <div class="block p-6 rounded-lg shadow-lg bg-gray-100 max-w-screen ml-6 mb-10">
                     <div class="flex justify-between mb-4">
-                    <a href="#!" class="font-medium text-purple-600 hover:text-purple-700 focus:text-purple-800 duration-300 transition ease-in-out text-sm">Exciting News</a>
-                    <a href="#!" class="font-medium text-purple-600 hover:text-purple-700 focus:text-purple-800 duration-300 transition ease-in-out text-sm">12 / 01 / 2022</a>
+                    <a href="#!" class="font-medium text-purple-600 hover:text-purple-700 focus:text-purple-800 duration-300 transition ease-in-out text-sm"><?php echo $row['title']; ?></a>
+                    <a href="#!" class="font-medium text-purple-600 hover:text-purple-700 focus:text-purple-800 duration-300 transition ease-in-out text-sm"><?php echo $row['created_at']; ?></a>
                     </div>
-                    <p class="text-gray-700 mb-6">Libero expedita explicabo eius fugiat quia aspernatur autem laudantium error architecto recusandae natus sapiente sit nam eaque, consectetur porro molestiae ipsam an deleniti.</p>
+                    <p class="text-gray-700 mb-6"><?php echo $row['content']; ?></p>
                 </div>
                 </div>
             </li>

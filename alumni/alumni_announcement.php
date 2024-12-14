@@ -67,7 +67,7 @@
 				if($row = mysqli_fetch_array($result)) {
 							?>
                     <h1 class="text-4xl font-garamond font-bold text-white dark:text-gray-800">
-                    <?php echo $row['first_Name'];?> <?php echo $row['last_Name'];?></h1>
+                    <?php echo $row['first_Name'];?></h1>
                 <?php
 							}
 				?>           

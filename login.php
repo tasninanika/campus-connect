@@ -14,6 +14,7 @@
         .font-poppins{
             font-family: Poppins;
         }
+
     </style>
     <script>
     function preventBack() {
@@ -184,23 +185,19 @@
     });
 
     // toggle
-    document.addEventListener('DOMContentLoaded', function() {
-    const togglePassword = document.getElementById('togglePassword');
-    const passwordField = document.getElementById('password');
+    document.addEventListener('DOMContentLoaded', function () {
+        const togglePassword = document.getElementById('togglePassword');
+        const passwordField = document.getElementById('password');        
 
-    togglePassword.addEventListener('click', function() {
-        // Toggle the type attribute
-        const type = passwordField.getAttribute('type') === 'password' ? 'text' : 'password';
-        passwordField.setAttribute('type', type);
-
-        // Optional: Toggle the eye icon
-        if (type === 'password') {
-            this.setAttribute('fill', '#333'); // Change to the "hidden" icon
-        } else {
-            this.setAttribute('fill', '#555'); // Change to the "visible" icon
-        }
+        // Hide/Show the eye icon based on input value
+        passwordField.addEventListener('input', function () {
+            if (passwordField.value.trim() === '') {
+                togglePassword.style.display = 'block';
+            } else {
+                togglePassword.style.display = 'none';
+            }
+        });
     });
-});
     </script>
 </body>
 </html>

@@ -177,7 +177,7 @@
 
     <div class="w-full flex flex-col h-screen overflow-y-hidden">
         <!-- Desktop Header -->
-        <header class="sticky top-0 z-999 w-full items-center bg-white py-4 px-6 hidden sm:flex">
+        <header class="sticky top-0 z-999 w-full items-center bg-white shadow py-4 px-6 hidden sm:flex">
             <div class="w-1/2">
             <h1 class="mb-36 lg:mb-0 -ml-10 lg:-ml-0 lg:text-4xl font-garamond flex multicolor-text"><img src="images/logo (2).png" alt="" class="lg:w-14 w-14 -mt-1">CampusConnect</h1>
             </div>

@@ -171,7 +171,7 @@
         </nav>       
     </aside> 
     <!-- header -->
-    <div class="w-full h-screen relative flex flex-col overflow-y-auto overflow-x-hidden">
+    <div class="w-full h-screen relative flex flex-col">
         <!-- Desktop Header -->
         <header class="sticky top-0 z-999 w-full items-center bg-white py-4 px-6 hidden sm:flex">
             <div class="w-1/2">
@@ -278,7 +278,7 @@
             </nav>
         </header>
     <!-- profile -->
-    <main>
+    <main class="overflow-y-auto overflow-x-hidden">
           <div class="lg:mx-10 mx-auto max-w-screen-2xl my-5 p-4 md:p-6 2xl:p-10">
             <div class="mx-auto max-w-242.5">
               <!-- Breadcrumb Start -->

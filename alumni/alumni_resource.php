@@ -172,7 +172,7 @@
         </nav>       
     </aside> 
 
-    <div class="w-full flex flex-col h-screen overflow-y-auto overflow-x-hidden">
+    <div class="w-full flex flex-col h-screen">
         <!-- Desktop Header -->
         <header class="sticky top-0 z-999 w-full items-center bg-white py-4 px-6 hidden sm:flex">
             <div class="w-1/2">

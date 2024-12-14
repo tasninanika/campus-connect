@@ -182,22 +182,22 @@
             input.classList.add('valid');
             input.classList.remove('invalid');
         }
-    });
-
-    // toggle
-    document.addEventListener('DOMContentLoaded', function () {
-        const togglePassword = document.getElementById('togglePassword');
-        const passwordField = document.getElementById('password');        
-
-        // Hide/Show the eye icon based on input value
-        passwordField.addEventListener('input', function () {
-            if (passwordField.value.trim() === '') {
-                togglePassword.style.display = 'block';
-            } else {
-                togglePassword.style.display = 'none';
-            }
         });
-    });
+
+        // toggle
+        document.addEventListener('DOMContentLoaded', function () {
+            const togglePassword = document.getElementById('togglePassword');
+            const passwordField = document.getElementById('password');        
+
+            // Hide/Show the eye icon based on input value
+            passwordField.addEventListener('input', function () {
+                if (passwordField.value.trim() === '') {
+                    togglePassword.style.display = 'block';
+                } else {
+                    togglePassword.style.display = 'none';
+                }
+            });
+        });
     </script>
 </body>
 </html>

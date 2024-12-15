@@ -59,7 +59,7 @@
     </style>
 </head>
 <body class="bg-gray-100 font-family-karla flex">
-    <aside class="relative h-screen w-96 hidden sm:block shadow-xl bg-gray-800">
+    <aside class="relative h-screen w-[350px] hidden sm:block shadow-xl bg-gray-800">
         <div class="p-10 mb-10 border-b border-gray-500">
             <a class="text-white text-base font-bold font-garamond hover:text-gray-300">Welcome,</a>
             <?php

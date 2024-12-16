@@ -56,10 +56,117 @@
         .active-nav-link { background: #0E675C; }
         .nav-item:hover { background: #6abab0b0; }
         .account-link:hover { background: #0E675C; }
+
+        /* Compiled dark classes from Tailwind */
+  .dark .dark\:divide-gray-700 > :not([hidden]) ~ :not([hidden]) {
+    border-color: rgba(55, 65, 81);
+  }
+  .dark .dark\:bg-gray-50 {
+    background-color: rgba(249, 250, 251);
+  }
+  .dark .dark\:bg-gray-100 {
+    background-color: rgba(243, 244, 246);
+  }
+  .dark .dark\:bg-gray-600 {
+    background-color: rgba(75, 85, 99);
+  }
+  .dark .dark\:bg-gray-700 {
+    background-color: rgba(55, 65, 81);
+  }
+  .dark .dark\:bg-gray-800 {
+    background-color: rgba(31, 41, 55);
+  }
+  .dark .dark\:bg-gray-900 {
+    background-color: rgba(17, 24, 39);
+  }
+  .dark .dark\:bg-red-700 {
+    background-color: rgba(185, 28, 28);
+  }
+  .dark .dark\:bg-green-700 {
+    background-color: rgba(4, 120, 87);
+  }
+  .dark .dark\:hover\:bg-gray-200:hover {
+    background-color: rgba(229, 231, 235);
+  }
+  .dark .dark\:hover\:bg-gray-600:hover {
+    background-color: rgba(75, 85, 99);
+  }
+  .dark .dark\:hover\:bg-gray-700:hover {
+    background-color: rgba(55, 65, 81);
+  }
+  .dark .dark\:hover\:bg-gray-900:hover {
+    background-color: rgba(17, 24, 39);
+  }
+  .dark .dark\:border-gray-100 {
+    border-color: rgba(243, 244, 246);
+  }
+  .dark .dark\:border-gray-400 {
+    border-color: rgba(156, 163, 175);
+  }
+  .dark .dark\:border-gray-500 {
+    border-color: rgba(107, 114, 128);
+  }
+  .dark .dark\:border-gray-600 {
+    border-color: rgba(75, 85, 99);
+  }
+  .dark .dark\:border-gray-700 {
+    border-color: rgba(55, 65, 81);
+  }
+  .dark .dark\:border-gray-900 {
+    border-color: rgba(17, 24, 39);
+  }
+  .dark .dark\:hover\:border-gray-800:hover {
+    border-color: rgba(31, 41, 55);
+  }
+  .dark .dark\:text-white {
+    color: rgba(255, 255, 255);
+  }
+  .dark .dark\:text-gray-50 {
+    color: rgba(249, 250, 251);
+  }
+  .dark .dark\:text-gray-100 {
+    color: rgba(243, 244, 246);
+  }
+  .dark .dark\:text-gray-200 {
+    color: rgba(229, 231, 235);
+  }
+  .dark .dark\:text-gray-400 {
+    color: rgba(156, 163, 175);
+  }
+  .dark .dark\:text-gray-500 {
+    color: rgba(107, 114, 128);
+  }
+  .dark .dark\:text-gray-700 {
+    color: rgba(55, 65, 81);
+  }
+  .dark .dark\:text-gray-800 {
+    color: rgba(31, 41, 55);
+  }
+  .dark .dark\:text-red-100 {
+    color: rgba(254, 226, 226);
+  }
+  .dark .dark\:text-green-100 {
+    color: rgba(209, 250, 229);
+  }
+  .dark .dark\:text-blue-400 {
+    color: rgba(96, 165, 250);
+  }
+  .dark .group:hover .dark\:group-hover\:text-gray-500 {
+    color: rgba(107, 114, 128);
+  }
+  .dark .group:focus .dark\:group-focus\:text-gray-700 {
+    color: rgba(55, 65, 81);
+  }
+  .dark .dark\:hover\:text-gray-100:hover {
+    color: rgba(243, 244, 246);
+  }
+  .dark .dark\:hover\:text-blue-500:hover {
+    color: rgba(59, 130, 246);
+  }
     </style>
 </head>
-<body class="bg-gray-100 dark:bg-violet-300 font-family-karla flex">
-    <aside class="relative h-screen w-[350px] hidden sm:block shadow-xl bg-gray-800">
+<body class="bg-gray-100 font-family-karla flex" x-data="setup()" :class="{ 'dark': isDark }">
+    <aside class="relative h-screen w-[350px] hidden sm:block shadow-xl bg-gray-800 dark:bg-[#24303f]">
         <div class="p-10 mb-10 border-b border-gray-500">
             <a class="text-white text-base font-bold font-garamond hover:text-gray-300">Welcome,</a>
             <?php
@@ -203,7 +310,7 @@
         </nav>       
     </aside> 
 
-    <div class="w-full flex flex-col h-screen overflow-y-hidden">
+    <div class="w-full flex flex-col h-screen overflow-y-hidden dark:bg-gray-900">
         <!-- Desktop Header -->
         <header class="sticky top-0 z-999 w-full items-center bg-white dark:bg-gray-800 shadow py-4 px-6 hidden sm:flex">
             <div class="w-1/2">
@@ -218,8 +325,8 @@
               >
                 <svg
                   x-show="isDark"
-                  width="24"
-                  height="24"
+                  width="16"
+                  height="16"
                   class="fill-current text-gray-700 group-hover:text-gray-500 group-focus:text-gray-700 dark:text-gray-700 dark:group-hover:text-gray-500 dark:group-focus:text-gray-700"
                   xmlns="http://www.w3.org/2000/svg"
                   fill="none"
@@ -235,8 +342,8 @@
                 </svg>
                 <svg
                   x-show="!isDark"
-                  width="24"
-                  height="24"
+                  width="16"
+                  height="16"
                   class="fill-current text-gray-700 group-hover:text-gray-500 group-focus:text-gray-700 dark:text-gray-700 dark:group-hover:text-gray-500 dark:group-focus:text-gray-700"
                   xmlns="http://www.w3.org/2000/svg"
                   fill="none"
@@ -458,7 +565,7 @@
             </nav>
         </header>
         <!-- main start -->
-        <main class="overflow-auto">
+        <main class="overflow-auto dark:bg-gray-900">
         <div class="lg:mx-10 mx-auto max-w-screen-2xl my-5 p-4 md:p-6 2xl:p-10">
             <div class="mx-auto max-w-242.5">
               <!-- Breadcrumb Start -->
@@ -614,7 +721,29 @@
     <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script>
     <!-- Font Awesome -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/js/all.min.js" integrity="sha256-KzZiKy0DWYsnwMF+X1DvQngQ2/FxF7MF3Ff72XcpuPs=" crossorigin="anonymous"></script>
+    <script>
+    const setup = () => {
+      const getTheme = () => {
+        if (window.localStorage.getItem('dark')) {
+          return JSON.parse(window.localStorage.getItem('dark'))
+        }
+        return !!window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches
+      }
 
+      const setTheme = (value) => {
+        window.localStorage.setItem('dark', value)
+      }
+
+      return {
+        loading: true,
+        isDark: getTheme(),
+        toggleTheme() {
+          this.isDark = !this.isDark
+          setTheme(this.isDark)
+        },
+      }
+    }
+  </script>
 </body>
 </html>
 <?php

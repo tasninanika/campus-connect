@@ -595,9 +595,9 @@
               <div
                 class="rounded-sm border border-gray-700  bg-white shadow-xl  dark:bg-gray-800"
                 >
-               <div class="py-6 px-8">
+               <div class="py-4 px-6">
                 <div
-                  class="flex h-20 w-12 items-center justify-center rounded-full bg-meta-2 dark:bg-meta-4"
+                  class="flex h-10 w-10 items-center justify-center rounded-full bg-meta-2 dark:bg-meta-4"
                 >
                 <svg
                     class="fill-current"

@@ -566,112 +566,47 @@
             </nav>
         </header>
         <!-- main start -->
-        <main class="overflow-auto dark:bg-gray-900">
-        <div class="lg:mx-10 mx-auto max-w-screen-2xl my-5 p-4 md:p-6 2xl:p-10">
-            <div class="mx-auto max-w-242.5">
-              <!-- Breadcrumb Start -->
-              <div
-                class="mb-6 flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between"
-                >
-                <h2 class="text-title-md2 font-bold text-black dark:text-white">
-                  Dashboard
-                </h2>
-
-                <nav>
-                  <ol class="flex items-center gap-2">
-                    <li>
-                      <a class="font-medium dark:text-white" href="user_dashboard.php">Dashboard /</a>
-                    </li>
-                    <li class="text-[#0E675C] dark:text-white">Home</li>
-                  </ol>
-                </nav>
-              </div>
-              <!-- Breadcrumb End -->
-          <div class="mx-auto max-w-screen-2xl p-4 my-8  md:p-6 2xl:p-10 bg-red-200">
+        <main>
+          <div class="mx-auto max-w-screen-2xl p-4 md:p-6 2xl:p-10 lg:mt-5 lg:ml-5">
             <div
-              class="grid grid-cols-1 gap-4 md:grid-cols-2 md:gap-6 xl:grid-cols-3 2xl:gap-8 bg-red-400"
-                >
-              <!-- Card Item 1 Start -->
+              class="grid grid-cols-1 gap-4 md:grid-cols-2 md:gap-6 xl:grid-cols-4 2xl:gap-7.5"
+            >
+              <!-- Card Item Start -->
               <div
-                class="rounded-sm border border-gray-700  bg-white shadow-xl  dark:bg-gray-800 h-40 w-64"
+                class="rounded-sm border border-stroke bg-white px-7.5 py-6 shadow-default dark:border-strokedark dark:bg-boxdark"
                 >
-               <div class="">
                 <div
-                  class="flex h-20 w-12 items-center justify-center rounded-full bg-meta-2 dark:bg-meta-4"
+                  class="flex h-14 w-10 items-center justify-center rounded-full bg-meta-2 dark:bg-meta-4"
                 >
-                <svg
-                    class="fill-current"
-                    width="40"
-                    height="40"
-                    viewBox="0 0 20 22"
-                    fill="none"
-                    xmlns="http://www.w3.org/2000/svg"
-                >
-                    <path
-                        d="M9.0002 7.79065C11.0814 7.79065 12.7689 6.1594 12.7689 4.1344C12.7689 2.1094 11.0814 0.478149 9.0002 0.478149C6.91895 0.478149 5.23145 2.1094 5.23145 4.1344C5.23145 6.1594 6.91895 7.79065 9.0002 7.79065ZM9.0002 1.7719C10.3783 1.7719 11.5033 2.84065 11.5033 4.16252C11.5033 5.4844 10.3783 6.55315 9.0002 6.55315C7.62207 6.55315 6.49707 5.4844 6.49707 4.16252C6.49707 2.84065 7.62207 1.7719 9.0002 1.7719Z"
-                        fill=""
-                    />
-                    <path
-                        d="M10.8283 9.05627H7.17207C4.16269 9.05627 1.71582 11.5313 1.71582 14.5406V16.875C1.71582 17.2125 1.99707 17.5219 2.3627 17.5219C2.72832 17.5219 3.00957 17.2407 3.00957 16.875V14.5406C3.00957 12.2344 4.89394 10.3219 7.22832 10.3219H10.8564C13.1627 10.3219 15.0752 12.2063 15.0752 14.5406V16.875C15.0752 17.2125 15.3564 17.5219 15.7221 17.5219C16.0877 17.5219 16.3689 17.2407 16.3689 16.875V14.5406C16.2846 11.5313 13.8377 9.05627 10.8283 9.05627Z"
-                        fill=""
-                    />
-                </svg>
+                  <!-- svg -->
                 </div>
-
-                <div class="mt-1 flex items-end justify-between">
+                <div class="mt-4 flex items-end justify-between">
                   <div>
                     <h4
-                      class="text-3xl font-bold text-black dark:text-white"
+                      class="text-title-md font-bold text-black dark:text-white"
                     >
-                     Profile
+                      $3.456K
                     </h4>
+                    <span class="text-sm font-medium">Total views</span>
                   </div>
-                </div>
-               </div> 
-                <div class="mr-3 mb-2">
-                  <span> <a href="u_profile.php"
-                    class="flex justify-end items-center hover:text-green-900 gap-1 text-sm font-medium text-meta-3"
+
+                  <span
+                    class="flex items-center gap-1 text-sm font-medium text-meta-3"
                   >
-                    More info
-                    <i class="fas fa-solid fa-arrow-right fa-sm"></i></a>
-                  </span>
-                </div>
-              </div>
-              <!-- Card Item End -->
-
-              <!-- Card Item 2 Start -->
-              <div
-                class="rounded-sm border border-stroke bg-white hover:bg-gray-200 shadow-xl dark:border-strokedark dark:bg-boxdark"
-                >
-               <div class="py-6 px-8">
-                <div
-                  class="flex h-20 w-12 items-center justify-center rounded-full bg-meta-2 dark:bg-meta-4"
-                >
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="40" height="40" color="#000000" fill="none">
-                    <path d="M6 8L6 16" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
-                    <path d="M18 16V12C18 9.17156 18 7.75735 17.1213 6.87867C16.2426 5.99999 14.8284 5.99999 12 5.99999L11 5.99999M11 5.99999C11 5.29976 12.9943 3.99152 13.5 3.49999M11 5.99999C11 6.70022 12.9943 8.00846 13.5 8.49999" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
-                    <circle cx="6" cy="18" r="2" stroke="currentColor" stroke-width="1.5" />
-                    <circle cx="6" cy="6" r="2" stroke="currentColor" stroke-width="1.5" />
-                    <circle cx="18" cy="18" r="2" stroke="currentColor" stroke-width="1.5" />
-                </svg>
-                </div>
-
-                <div class="mt-1 flex items-end justify-between">
-                  <div>
-                    <h4
-                      class="text-3xl font-bold text-black dark:text-white"
+                    0.43%
+                    <svg
+                      class="fill-meta-3"
+                      width="10"
+                      height="11"
+                      viewBox="0 0 10 11"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
                     >
-                     Booking
-                    </h4>
-                  </div>
-                </div>
-               </div> 
-                <div class="mr-3 mb-2">
-                  <span> <a href="u_booking.php"
-                    class="flex justify-end items-center hover:text-green-900 gap-1 text-sm font-medium text-meta-3"
-                  >
-                    More info
-                    <i class="fas fa-solid fa-arrow-right fa-sm"></i></a>
+                      <path
+                        d="M4.35716 2.47737L0.908974 5.82987L5.0443e-07 4.94612L5 0.0848689L10 4.94612L9.09103 5.82987L5.64284 2.47737L5.64284 10.0849L4.35716 10.0849L4.35716 2.47737Z"
+                        fill=""
+                      />
+                    </svg>
                   </span>
                 </div>
               </div>
@@ -679,39 +614,123 @@
 
               <!-- Card Item Start -->
               <div
-                class="rounded-sm border border-stroke bg-white hover:bg-gray-200 shadow-xl dark:border-strokedark dark:bg-boxdark"
+                class="rounded-sm border border-stroke bg-white px-7.5 py-6 shadow-default dark:border-strokedark dark:bg-boxdark"
                 >
-               <div class="py-6 px-8">
                 <div
-                  class="flex h-20 w-12 items-center justify-center rounded-full bg-meta-2 dark:bg-meta-4"
+                  class="flex h-11.5 w-11.5 items-center justify-center rounded-full bg-meta-2 dark:bg-meta-4"
                 >
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="40" height="40" color="#000000" fill="none">
-                    <path d="M15.5 12C15.5 13.933 13.933 15.5 12 15.5C10.067 15.5 8.5 13.933 8.5 12C8.5 10.067 10.067 8.5 12 8.5C13.933 8.5 15.5 10.067 15.5 12Z" stroke="currentColor" stroke-width="1.5" />
-                    <path d="M21.011 14.0965C21.5329 13.9558 21.7939 13.8854 21.8969 13.7508C22 13.6163 22 13.3998 22 12.9669V11.0332C22 10.6003 22 10.3838 21.8969 10.2493C21.7938 10.1147 21.5329 10.0443 21.011 9.90358C19.0606 9.37759 17.8399 7.33851 18.3433 5.40087C18.4817 4.86799 18.5509 4.60156 18.4848 4.44529C18.4187 4.28902 18.2291 4.18134 17.8497 3.96596L16.125 2.98673C15.7528 2.77539 15.5667 2.66972 15.3997 2.69222C15.2326 2.71472 15.0442 2.90273 14.6672 3.27873C13.208 4.73448 10.7936 4.73442 9.33434 3.27864C8.95743 2.90263 8.76898 2.71463 8.60193 2.69212C8.43489 2.66962 8.24877 2.77529 7.87653 2.98663L6.15184 3.96587C5.77253 4.18123 5.58287 4.28891 5.51678 4.44515C5.45068 4.6014 5.51987 4.86787 5.65825 5.4008C6.16137 7.3385 4.93972 9.37763 2.98902 9.9036C2.46712 10.0443 2.20617 10.1147 2.10308 10.2492C2 10.3838 2 10.6003 2 11.0332V12.9669C2 13.3998 2 13.6163 2.10308 13.7508C2.20615 13.8854 2.46711 13.9558 2.98902 14.0965C4.9394 14.6225 6.16008 16.6616 5.65672 18.5992C5.51829 19.1321 5.44907 19.3985 5.51516 19.5548C5.58126 19.7111 5.77092 19.8188 6.15025 20.0341L7.87495 21.0134C8.24721 21.2247 8.43334 21.3304 8.6004 21.3079C8.76746 21.2854 8.95588 21.0973 9.33271 20.7213C10.7927 19.2644 13.2088 19.2643 14.6689 20.7212C15.0457 21.0973 15.2341 21.2853 15.4012 21.3078C15.5682 21.3303 15.7544 21.2246 16.1266 21.0133L17.8513 20.034C18.2307 19.8187 18.4204 19.711 18.4864 19.5547C18.5525 19.3984 18.4833 19.132 18.3448 18.5991C17.8412 16.6616 19.0609 14.6226 21.011 14.0965Z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" />
-                </svg>
+                  <svg
+                    class="fill-primary dark:fill-white"
+                    width="20"
+                    height="22"
+                    viewBox="0 0 20 22"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M11.7531 16.4312C10.3781 16.4312 9.27808 17.5312 9.27808 18.9062C9.27808 20.2812 10.3781 21.3812 11.7531 21.3812C13.1281 21.3812 14.2281 20.2812 14.2281 18.9062C14.2281 17.5656 13.0937 16.4312 11.7531 16.4312ZM11.7531 19.8687C11.2375 19.8687 10.825 19.4562 10.825 18.9406C10.825 18.425 11.2375 18.0125 11.7531 18.0125C12.2687 18.0125 12.6812 18.425 12.6812 18.9406C12.6812 19.4219 12.2343 19.8687 11.7531 19.8687Z"
+                      fill=""
+                    />
+                    <path
+                      d="M5.22183 16.4312C3.84683 16.4312 2.74683 17.5312 2.74683 18.9062C2.74683 20.2812 3.84683 21.3812 5.22183 21.3812C6.59683 21.3812 7.69683 20.2812 7.69683 18.9062C7.69683 17.5656 6.56245 16.4312 5.22183 16.4312ZM5.22183 19.8687C4.7062 19.8687 4.2937 19.4562 4.2937 18.9406C4.2937 18.425 4.7062 18.0125 5.22183 18.0125C5.73745 18.0125 6.14995 18.425 6.14995 18.9406C6.14995 19.4219 5.73745 19.8687 5.22183 19.8687Z"
+                      fill=""
+                    />
+                    <path
+                      d="M19.0062 0.618744H17.15C16.325 0.618744 15.6031 1.23749 15.5 2.06249L14.95 6.01562H1.37185C1.0281 6.01562 0.684353 6.18749 0.443728 6.46249C0.237478 6.73749 0.134353 7.11562 0.237478 7.45937C0.237478 7.49374 0.237478 7.49374 0.237478 7.52812L2.36873 13.9562C2.50623 14.4375 2.9531 14.7812 3.46873 14.7812H12.9562C14.2281 14.7812 15.3281 13.8187 15.5 12.5469L16.9437 2.26874C16.9437 2.19999 17.0125 2.16562 17.0812 2.16562H18.9375C19.35 2.16562 19.7281 1.82187 19.7281 1.37499C19.7281 0.928119 19.4187 0.618744 19.0062 0.618744ZM14.0219 12.3062C13.9531 12.8219 13.5062 13.2 12.9906 13.2H3.7781L1.92185 7.56249H14.7094L14.0219 12.3062Z"
+                      fill=""
+                    />
+                  </svg>
                 </div>
 
-                <div class="mt-1 flex items-end justify-between">
+                <div class="mt-4 flex items-end justify-between">
                   <div>
                     <h4
-                      class="text-3xl font-bold text-black dark:text-white"
+                      class="text-title-md font-bold text-black dark:text-white"
                     >
-                     Settings
+                      $45,2K
                     </h4>
+                    <span class="text-sm font-medium">Total Profit</span>
                   </div>
-                </div>
-               </div> 
-                <div class="mr-3 mb-2">
-                  <span> <a href="settings.php"
-                    class="flex justify-end items-center hover:text-green-800 gap-1 text-sm font-medium text-meta-3"
+
+                  <span
+                    class="flex items-center gap-1 text-sm font-medium text-meta-3"
                   >
-                    More info
-                    <i class="fas fa-solid fa-arrow-right fa-sm"></i></a>
+                    4.35%
+                    <svg
+                      class="fill-meta-3"
+                      width="10"
+                      height="11"
+                      viewBox="0 0 10 11"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M4.35716 2.47737L0.908974 5.82987L5.0443e-07 4.94612L5 0.0848689L10 4.94612L9.09103 5.82987L5.64284 2.47737L5.64284 10.0849L4.35716 10.0849L4.35716 2.47737Z"
+                        fill=""
+                      />
+                    </svg>
                   </span>
                 </div>
               </div>
               <!-- Card Item End -->
-            </div>
+
+              <!-- Card Item Start -->
+              <div
+                class="rounded-sm border border-stroke bg-white px-7.5 py-6 shadow-default dark:border-strokedark dark:bg-boxdark"
+                >
+                <div
+                  class="flex h-11.5 w-11.5 items-center justify-center rounded-full bg-meta-2 dark:bg-meta-4"
+                >
+                  <svg
+                    class="fill-primary dark:fill-white"
+                    width="22"
+                    height="22"
+                    viewBox="0 0 22 22"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M21.1063 18.0469L19.3875 3.23126C19.2157 1.71876 17.9438 0.584381 16.3969 0.584381H5.56878C4.05628 0.584381 2.78441 1.71876 2.57816 3.23126L0.859406 18.0469C0.756281 18.9063 1.03128 19.7313 1.61566 20.3844C2.20003 21.0375 2.99066 21.3813 3.85003 21.3813H18.1157C18.975 21.3813 19.8 21.0031 20.35 20.3844C20.9 19.7656 21.2094 18.9063 21.1063 18.0469ZM19.2157 19.3531C18.9407 19.6625 18.5625 19.8344 18.15 19.8344H3.85003C3.43753 19.8344 3.05941 19.6625 2.78441 19.3531C2.50941 19.0438 2.37191 18.6313 2.44066 18.2188L4.12503 3.43751C4.19378 2.71563 4.81253 2.16563 5.56878 2.16563H16.4313C17.1532 2.16563 17.7719 2.71563 17.875 3.43751L19.5938 18.2531C19.6282 18.6656 19.4907 19.0438 19.2157 19.3531Z"
+                      fill=""
+                    />
+                    <path
+                      d="M14.3345 5.29375C13.922 5.39688 13.647 5.80938 13.7501 6.22188C13.7845 6.42813 13.8189 6.63438 13.8189 6.80625C13.8189 8.35313 12.547 9.625 11.0001 9.625C9.45327 9.625 8.1814 8.35313 8.1814 6.80625C8.1814 6.6 8.21577 6.42813 8.25015 6.22188C8.35327 5.80938 8.07827 5.39688 7.66577 5.29375C7.25327 5.19063 6.84077 5.46563 6.73765 5.87813C6.6689 6.1875 6.63452 6.49688 6.63452 6.80625C6.63452 9.2125 8.5939 11.1719 11.0001 11.1719C13.4064 11.1719 15.3658 9.2125 15.3658 6.80625C15.3658 6.49688 15.3314 6.1875 15.2626 5.87813C15.1595 5.46563 14.747 5.225 14.3345 5.29375Z"
+                      fill=""
+                    />
+                  </svg>
+                </div>
+
+                <div class="mt-4 flex items-end justify-between">
+                  <div>
+                    <h4
+                      class="text-title-md font-bold text-black dark:text-white"
+                    >
+                      2.450
+                    </h4>
+                    <span class="text-sm font-medium">Total Product</span>
+                  </div>
+
+                  <span
+                    class="flex items-center gap-1 text-sm font-medium text-meta-3"
+                  >
+                    2.59%
+                    <svg
+                      class="fill-meta-3"
+                      width="10"
+                      height="11"
+                      viewBox="0 0 10 11"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M4.35716 2.47737L0.908974 5.82987L5.0443e-07 4.94612L5 0.0848689L10 4.94612L9.09103 5.82987L5.64284 2.47737L5.64284 10.0849L4.35716 10.0849L4.35716 2.47737Z"
+                        fill=""
+                      />
+                    </svg>
+                  </span>
+                </div>
+              </div>
+              <!-- Card Item End -->
             </div>
           </div>
         </main>

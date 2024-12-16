@@ -317,33 +317,34 @@
             <h1 class="mb-36 lg:mb-0 -ml-10 lg:-ml-0 lg:text-4xl font-garamond flex dark:text-white multicolor-text"><img src="images/logo (2).png" alt="" class="lg:w-14 w-14 -mt-1"></h1>
             </div>
             <div class="w-1/2 flex justify-end gap-4">
-            <div>
+            <div class="pt-2">
               <button
                 aria-hidden="true"
                 @click="toggleTheme"
-                class="group p-2 transition-colors duration-200 rounded-full shadow-md bg-blue-200 hover:bg-blue-200 dark:bg-gray-50 dark:hover:bg-gray-200 text-gray-900 focus:outline-none"
+                class="group p-2 transition-colors duration-200 rounded-full bg-gray-100 border hover:bg-blue-200 dark:bg-gray-50 dark:hover:bg-gray-200 text-gray-900 focus:outline-none"
               >
                 <svg
                   x-show="isDark"
-                  width="16"
-                  height="16"
+                  width="20"
+                  height="20"
                   class="fill-current text-gray-700 group-hover:text-gray-500 group-focus:text-gray-700 dark:text-gray-700 dark:group-hover:text-gray-500 dark:group-focus:text-gray-700"
                   xmlns="http://www.w3.org/2000/svg"
                   fill="none"
                   viewBox="0 0 24 24"
-                  stroke=""
+                  stroke="purple"
                 >
                   <path
                     stroke-linecap="round"
                     stroke-linejoin="round"
                     stroke-width="2"
                     d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z"
+                    fill="white"
                   />
                 </svg>
                 <svg
                   x-show="!isDark"
-                  width="16"
-                  height="16"
+                  width="20"
+                  height="20"
                   class="fill-current text-gray-700 group-hover:text-gray-500 group-focus:text-gray-700 dark:text-gray-700 dark:group-hover:text-gray-500 dark:group-focus:text-gray-700"
                   xmlns="http://www.w3.org/2000/svg"
                   fill="none"
@@ -383,12 +384,12 @@
                     width="18"
                     height="18"
                     viewBox="0 0 18 18"
-                    fill="none"
+                    fill=""
                     xmlns="http://www.w3.org/2000/svg"
                     >
                     <path
                       d="M16.1999 14.9343L15.6374 14.0624C15.5249 13.8937 15.4687 13.7249 15.4687 13.528V7.67803C15.4687 6.01865 14.7655 4.47178 13.4718 3.31865C12.4312 2.39053 11.0812 1.7999 9.64678 1.6874V1.1249C9.64678 0.787402 9.36553 0.478027 8.9999 0.478027C8.6624 0.478027 8.35303 0.759277 8.35303 1.1249V1.65928C8.29678 1.65928 8.24053 1.65928 8.18428 1.6874C4.92178 2.05303 2.4749 4.66865 2.4749 7.79053V13.528C2.44678 13.8093 2.39053 13.9499 2.33428 14.0343L1.7999 14.9343C1.63115 15.2155 1.63115 15.553 1.7999 15.8343C1.96865 16.0874 2.2499 16.2562 2.55928 16.2562H8.38115V16.8749C8.38115 17.2124 8.6624 17.5218 9.02803 17.5218C9.36553 17.5218 9.6749 17.2405 9.6749 16.8749V16.2562H15.4687C15.778 16.2562 16.0593 16.0874 16.228 15.8343C16.3968 15.553 16.3968 15.2155 16.1999 14.9343ZM3.23428 14.9905L3.43115 14.653C3.5999 14.3718 3.68428 14.0343 3.74053 13.6405V7.79053C3.74053 5.31553 5.70928 3.23428 8.3249 2.95303C9.92803 2.78428 11.503 3.2624 12.6562 4.2749C13.6687 5.1749 14.2312 6.38428 14.2312 7.67803V13.528C14.2312 13.9499 14.3437 14.3437 14.5968 14.7374L14.7655 14.9905H3.23428Z"
-                      fill="currentColor"
+                      fill="purple"
                     />
                   </svg>
                 </a>
@@ -579,9 +580,9 @@
                 <nav>
                   <ol class="flex items-center gap-2">
                     <li>
-                      <a class="font-medium" href="user_dashboard.php">Dashboard /</a>
+                      <a class="font-medium dark:text-white" href="user_dashboard.php">Dashboard /</a>
                     </li>
-                    <li class="text-[#0E675C]">Home</li>
+                    <li class="text-[#0E675C] dark:text-white">Home</li>
                   </ol>
                 </nav>
               </div>
@@ -592,7 +593,7 @@
                 >
               <!-- Card Item 1 Start -->
               <div
-                class="rounded-sm border border-stroke bg-white hover:bg-gray-200 shadow-xl dark:border-strokedark dark:bg-boxdark"
+                class="rounded-sm border border-gray-700  bg-white shadow-xl  dark:bg-gray-800"
                 >
                <div class="py-6 px-8">
                 <div

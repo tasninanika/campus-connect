@@ -165,7 +165,7 @@
   }
     </style>
 </head>
-<body class="bg-gray-100 font-family-karla flex" x-data="setup()" :class="{ 'dark': isDark }">
+<body class="bg-slate-100 font-family-karla flex" x-data="setup()" :class="{ 'dark': isDark }">
     <aside class="relative h-screen w-[350px] hidden sm:block shadow-xl bg-gray-800 dark:bg-[#24303f]">
         <div class="p-10 mb-10 border-b border-gray-500">
             <a class="text-white text-base font-bold font-garamond hover:text-gray-300">Welcome,</a>
@@ -312,7 +312,7 @@
 
     <div class="w-full flex flex-col h-screen overflow-y-hidden dark:bg-gray-900">
         <!-- Desktop Header -->
-        <header class="sticky top-0 z-999 w-full items-center bg-white dark:bg-gray-800 shadow py-4 px-6 hidden sm:flex">
+        <header class="sticky top-0 z-999 w-full items-center bg-white dark:bg-gray-800 shadow py-3 px-6 hidden sm:flex">
             <div class="w-1/2">
             <h1 class="mb-36 lg:mb-0 -ml-10 lg:-ml-0 lg:text-4xl font-garamond flex dark:text-white multicolor-text"><img src="images/logo (2).png" alt="" class="lg:w-14 w-14 -mt-1"></h1>
             </div>
@@ -587,17 +587,17 @@
                 </nav>
               </div>
               <!-- Breadcrumb End -->
-          <div class="mx-auto max-w-screen-2xl p-4 my-8  md:p-6 2xl:p-10">
+          <div class="mx-auto max-w-screen-2xl p-4 my-8  md:p-6 2xl:p-10 bg-red-200">
             <div
-              class="grid grid-cols-1 gap-4 md:grid-cols-2 md:gap-6 xl:grid-cols-3 2xl:gap-8"
+              class="grid grid-cols-1 gap-4 md:grid-cols-2 md:gap-6 xl:grid-cols-3 2xl:gap-8 bg-red-400"
                 >
               <!-- Card Item 1 Start -->
               <div
-                class="rounded-sm border border-gray-700  bg-white shadow-xl  dark:bg-gray-800"
+                class="rounded-sm border border-gray-700  bg-white shadow-xl  dark:bg-gray-800 h-40 w-64"
                 >
-               <div class="py-4 px-6">
+               <div class="">
                 <div
-                  class="flex h-10 w-10 items-center justify-center rounded-full bg-meta-2 dark:bg-meta-4"
+                  class="flex h-20 w-12 items-center justify-center rounded-full bg-meta-2 dark:bg-meta-4"
                 >
                 <svg
                     class="fill-current"

@@ -58,7 +58,7 @@
         .account-link:hover { background: #0E675C; }
     </style>
 </head>
-<body class="bg-gray-100 font-family-karla flex">
+<body class="bg-gray-100 dark:bg-violet-300 font-family-karla flex">
     <aside class="relative h-screen w-[350px] hidden sm:block shadow-xl bg-gray-800">
         <div class="p-10 mb-10 border-b border-gray-500">
             <a class="text-white text-base font-bold font-garamond hover:text-gray-300">Welcome,</a>
@@ -177,54 +177,17 @@
 
     <div class="w-full flex flex-col h-screen overflow-y-hidden">
         <!-- Desktop Header -->
-        <header class="sticky top-0 z-999 w-full items-center bg-white shadow py-4 px-6 hidden sm:flex">
+        <header class="sticky top-0 z-999 w-full items-center bg-white dark:bg-gray-800 shadow py-4 px-6 hidden sm:flex">
             <div class="w-1/2">
-            <h1 class="mb-36 lg:mb-0 -ml-10 lg:-ml-0 lg:text-4xl font-garamond flex multicolor-text"><img src="images/logo (2).png" alt="" class="lg:w-14 w-14 -mt-1">CampusConnect</h1>
+            <h1 class="mb-36 lg:mb-0 -ml-10 lg:-ml-0 lg:text-4xl font-garamond flex dark:text-white multicolor-text"><img src="images/logo (2).png" alt="" class="lg:w-14 w-14 -mt-1">CampusConnect</h1>
             </div>
             <div class="flex justify-end gap-3 2xsm:gap-7">
                 <ul class="flex justify-end gap-2 2xsm:gap-4">
                 <li>
                   <!-- Dark Mode Toggler -->
-                  <button 
-                    title="Toggle Theme" 
-                    onclick="theme()"
-                    class="
-                        w-12 
-                        h-6 
-                        rounded-full 
-                        p-1 
-                        bg-gray-400 
-                        dark:bg-gray-600 
-                        relative 
-                        transition-colors 
-                        duration-500 
-                        ease-in
-                        focus:outline-none 
-                        focus:ring-2 
-                        focus:ring-blue-700 
-                        dark:focus:ring-blue-600 
-                        focus:border-transparent
-                      ">
-                      <div id="toggle"
-                        class="
-                            rounded-full 
-                            w-4 
-                            h-4 
-                            bg-blue-600 
-                            dark:bg-blue-500 
-                            relative 
-                            ml-0 
-                            dark:ml-6 
-                            pointer-events-none 
-                            transition-all 
-                            duration-300 
-                            ease-out
-                        ">
-                      </div>
-                    </button>
+  
                   <!-- Dark Mode Toggler -->
                 </li>
-
                   <!-- Notification Menu Area -->
                   <li
                     class="relative"
@@ -596,12 +559,7 @@
     <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script>
     <!-- Font Awesome -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/js/all.min.js" integrity="sha256-KzZiKy0DWYsnwMF+X1DvQngQ2/FxF7MF3Ff72XcpuPs=" crossorigin="anonymous"></script>
-    <script>
-   function theme(event) {
-       console.log('theme')
-      document.documentElement.classList.toggle('dark')
-    }
-  </script>
+
 </body>
 </html>
 <?php

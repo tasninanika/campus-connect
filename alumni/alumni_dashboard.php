@@ -569,7 +569,7 @@
         <main>
           <div class="mx-auto max-w-screen-2xl p-4 md:p-6 2xl:p-10 lg:mt-5 lg:ml-5">
             <div
-              class="grid grid-cols-1 gap-4 md:grid-cols-2 md:gap-6 xl:grid-cols-4 2xl:gap-7.5"
+              class="grid grid-cols-1 gap-4 md:grid-cols-2 md:gap-6 xl:grid-cols-4 2xl:gap-10"
             >
               <!-- Card Item Start -->
               <div
@@ -587,11 +587,11 @@
                     >
                       02
                     </h4>
-                    <span class="text-sm font-medium">Total blogs</span>
+                    <span class="text-sm font-medium dark:text-white">Total blogs</span>
                   </div>
 
                   <span
-                    class="flex items-center gap-1 text-sm font-medium text-meta-3"
+                    class="flex items-center gap-1 text-sm font-medium text-meta-3 dark:text-white"
                     >
                     0.43%
                   </span>
@@ -616,11 +616,11 @@
                     >
                       01
                     </h4>
-                    <span class="text-sm font-medium">Total Post</span>
+                    <span class="text-sm font-medium dark:text-white">Total Post</span>
                   </div>
 
                   <span
-                    class="flex items-center gap-1 text-sm font-medium text-meta-3"
+                    class="flex items-center gap-1 text-sm font-medium text-meta-3 dark:text-white"
                     >
                     4.35%
                   </span>
@@ -645,11 +645,11 @@
                     >
                       02
                     </h4>
-                    <span class="text-sm font-medium">Total resources</span>
+                    <span class="text-sm dark:text-white font-medium">Total resources</span>
                   </div>
 
                   <span
-                    class="flex items-center gap-1 text-sm font-medium text-meta-3"
+                    class="flex items-center gap-1 text-sm font-medium text-meta-3 dark:text-white"
                   >
                     2.59%
                   </span>

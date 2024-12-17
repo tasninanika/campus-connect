@@ -752,10 +752,12 @@
                                   <div class="flex-grow flex justify-between items-center">
                                     <div class="self-center">
                                       <h3 class="font-medium text-gray-800 hover:text-gray-900 dark:text-gray-50 dark:hover:text-gray-100" style="outline: none;"><?php echo $row["title"]; ?></h3> 
+                                      <?php echo date('d M, Y', strtotime($row["created_at"])); ?>
                                     </div>
                                     <div class="flex-shrink-0 ml-2">
                                       <a class="flex items-center font-medium text-purple-500 hover:text-blue-600 dark:text-purple-400 dark:hover:text-blue-500" href="#0" style="outline: none;">
-                                        View<span><svg width="20" height="20" viewBox="0 0 20 20" fill="currentColor" class="transform transition-transform duration-500 ease-in-out"><path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd"></path></svg></span>
+                                      <span><svg xmlns="http://www.w3.org/2000/svg" height="14" width="14" viewBox="0 0 512 512"><!--!Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--><path fill="#B197FC" d="M441 58.9L453.1 71c9.4 9.4 9.4 24.6 0 33.9L424 134.1 377.9 88 407 58.9c9.4-9.4 24.6-9.4 33.9 0zM209.8 256.2L344 121.9 390.1 168 255.8 302.2c-2.9 2.9-6.5 5-10.4 6.1l-58.5 16.7 16.7-58.5c1.1-3.9 3.2-7.5 6.1-10.4zM373.1 25L175.8 222.2c-8.7 8.7-15 19.4-18.3 31.1l-28.6 100c-2.4 8.4-.1 17.4 6.1 23.6s15.2 8.5 23.6 6.1l100-28.6c11.8-3.4 22.5-9.7 31.1-18.3L487 138.9c28.1-28.1 28.1-73.7 0-101.8L474.9 25C446.8-3.1 401.2-3.1 373.1 25zM88 64C39.4 64 0 103.4 0 152L0 424c0 48.6 39.4 88 88 88l272 0c48.6 0 88-39.4 88-88l0-112c0-13.3-10.7-24-24-24s-24 10.7-24 24l0 112c0 22.1-17.9 40-40 40L88 464c-22.1 0-40-17.9-40-40l0-272c0-22.1 17.9-40 40-40l112 0c13.3 0 24-10.7 24-24s-10.7-24-24-24L88 64z"/></svg></span>
+                                      Edit
                                       </a>
                                     </div>
                                   </div>
@@ -774,29 +776,52 @@
                     }
                     ?>
                 <!-- resource -->
+                <!-- job -->
                 <div class="px-4 bg-gray-100 dark:bg-gray-600 text-gray-500 dark:text-gray-100 align-middle border border-solid border-gray-200 dark:border-gray-500 py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left">
-                  Resources
+                  Job Post
                 </div>
-                <ul class="my-1">
-                  <li class="flex px-4">
-                    <div class="w-9 h-9 rounded-full flex-shrink-0 bg-green-500 my-2 mr-3">
-                      <svg class="w-9 h-9 fill-current text-light-blue-50" viewBox="0 0 36 36"><path d="M23 11v2.085c-2.841.401-4.41 2.462-5.8 4.315-1.449 1.932-2.7 3.6-5.2 3.6h-1v2h1c3.5 0 5.253-2.338 6.8-4.4 1.449-1.932 2.7-3.6 5.2-3.6h3l-4-4zM15.406 16.455c.066-.087.125-.162.194-.254.314-.419.656-.872 1.033-1.33C15.475 13.802 14.038 13 12 13h-1v2h1c1.471 0 2.505.586 3.406 1.455zM24 21c-1.471 0-2.505-.586-3.406-1.455-.066.087-.125.162-.194.254-.316.422-.656.873-1.028 1.328.959.878 2.108 1.573 3.628 1.788V25l4-4h-3z"></path></svg>
-                    </div>
-                    <div class="flex-grow flex items-center border-gray-100 text-sm text-gray-600 dark:text-gray-50 py-2">
-                      <div class="flex-grow flex justify-between items-center">
-                        <div class="self-center">
-                          <a class="font-medium text-gray-800 hover:text-gray-900 dark:text-gray-50 dark:hover:text-gray-100" href="#0" style="outline: none;">240+</a> users have subscribed to <a class="font-medium text-gray-800 dark:text-gray-50 dark:hover:text-gray-100" href="#0" style="outline: none;">Newsletter #1</a>
+                <?php
+                    $a = $_SESSION['alumni_id'];
+
+                    // Fetch jobs only for the currently logged-in alumni
+                    $result = mysqli_query($db, "SELECT * FROM resources WHERE u_id = '$a' ORDER BY created_at DESC LIMIT 2");
+
+                    if (mysqli_num_rows($result) > 0) {
+                        // If there are job posts, display them
+                        while ($row = mysqli_fetch_array($result)) {
+                            ?>
+                            <ul class="my-1">
+                              <li class="flex px-4">
+                                <div class="flex-grow flex items-center border-gray-100 dark:border-gray-400 text-sm text-gray-600 dark:text-gray-100 py-2">
+                                  <div class="flex-grow flex justify-between items-center">
+                                    <div class="self-center">
+                                      <h3 class="font-medium text-gray-800 hover:text-gray-900 dark:text-gray-50 dark:hover:text-gray-100" style="outline: none;"><?php echo $row["title"]; ?></h3> 
+                                      <p class="line-clamp-2"><?php echo $row["content"]; ?></p>
+                                      <?php if (!empty($row["file_path"])) { ?>
+                                          <a href="download.php?file=<?php echo urlencode(basename($row["file_path"])); ?>" class="text-blue-500 hover:text-blue-600 dark:text-blue-400 dark:hover:text-blue-500">
+                                              Download File
+                                          </a>
+                                      <?php } ?>
+                                    </div>
+                                    <div class="flex-shrink-0 ml-2">
+                                      <a class="flex items-center font-medium text-purple-500 hover:text-blue-600 dark:text-purple-400 dark:hover:text-blue-500" href="#0" style="outline: none;">  View<span><svg width="20" height="20" viewBox="0 0 20 20" fill="currentColor" class="transform transition-transform duration-500 ease-in-out"><path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd"></path></svg></span>
+                                      </a>
+                                    </div>
+                                  </div>
+                                </div>
+                              </li>
+                            </ul>
+                            <?php
+                        }
+                    } else {
+                        // If no job posts exist, display a message
+                        ?>
+                        <div class="text-center py-4 text-gray-500 dark:text-gray-400">
+                            <p>No posts available. Create a new post to get started.</p>
                         </div>
-                        <div class="flex-shrink-0 ml-2">
-                          <a class="flex items-center font-medium text-blue-500 hover:text-blue-600 dark:text-blue-400 dark:hover:text-blue-500" href="#0" style="outline: none;">
-                            View<span><svg width="20" height="20" viewBox="0 0 20 20" fill="currentColor" class="transform transition-transform duration-500 ease-in-out"><path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd"></path></svg></span>
-                          </a>
-                        </div>
-                      </div>
-                    </div>
-                  </li>
-                </ul>
-              </div>
+                        <?php
+                    }
+                    ?>
             </div>
           </div>
           <!-- ./Recent Activities -->

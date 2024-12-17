@@ -797,11 +797,21 @@
                                     <div class="self-center">
                                       <h3 class="font-medium text-gray-800 hover:text-gray-900 dark:text-gray-50 dark:hover:text-gray-100" style="outline: none;"><?php echo $row["title"]; ?></h3> 
                                       <p class="line-clamp-2"><?php echo $row["content"]; ?></p>
-                                      <?php if (!empty($row["file"])) { ?>
-                                          <a href="download.php?file=<?php echo urlencode(basename($row["file"])); ?>" class="text-blue-500 hover:text-blue-600 dark:text-blue-400 dark:hover:text-blue-500">
-                                              Download File
-                                          </a>
-                                      <?php } ?>
+                                      <!-- Display file download link if file_path exists -->
+                                      <?php if (!empty($row["file"])) { 
+                                          $filePath = $row["file"];
+                                          $fileExtension = pathinfo($filePath, PATHINFO_EXTENSION); // Get the file extension
+
+                                          // Check if it's an image file
+                                          if (in_array(strtolower($fileExtension), ['jpg', 'jpeg', 'png', 'gif'])) { ?>
+                                              <a href="download.php?image=<?php echo urlencode(basename($filePath)); ?>" class="text-blue-500 hover:text-blue-600 dark:text-blue-400 dark:hover:text-blue-500">
+                                              <?php echo $row["file"]; ?>
+                                              </a>
+                                          <?php } else { ?>
+                                              <a href="download.php?file=<?php echo urlencode(basename($filePath)); ?>" class="text-blue-500 hover:text-blue-600 dark:text-blue-400 dark:hover:text-blue-500">
+                                              <?php echo $row["file"]; ?>                                              </a>
+                                          <?php } 
+                                      } ?>
                                     </div>
                                     <div class="flex-shrink-0 ml-2">
                                       <a class="flex items-center font-medium text-purple-500 hover:text-blue-600 dark:text-purple-400 dark:hover:text-blue-500" href="#0" style="outline: none;">  View<span><svg width="20" height="20" viewBox="0 0 20 20" fill="currentColor" class="transform transition-transform duration-500 ease-in-out"><path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd"></path></svg></span>

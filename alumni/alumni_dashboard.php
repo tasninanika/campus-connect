@@ -163,6 +163,9 @@
   .dark .dark\:hover\:text-blue-500:hover {
     color: rgba(59, 130, 246);
   }
+  .dark .dark\:text-purple-400 {
+    color: rgb(216 180 254);
+  }
     </style>
 </head>
 <body class="bg-slate-100 font-family-karla flex" x-data="setup()" :class="{ 'dark': isDark }">
@@ -659,7 +662,7 @@
             </div>
             <div class="grid grid-cols-1 lg:grid-cols-2 py-8 gap-4">
     
-          <!-- Social Traffic -->
+          <!-- Recent Activities part1 -->
           <div class="relative flex flex-col min-w-0 mb-4 lg:mb-0 break-words bg-gray-50 dark:bg-gray-800 w-full shadow-lg rounded">
             <div class="rounded-t mb-0 px-0 border-0">
               <div class="flex flex-wrap items-center px-4 py-2">
@@ -755,63 +758,59 @@
               </div>
             </div>
           </div>
-          <!-- ./Social Traffic -->
+          <!-- end -->
     
-          <!-- Recent Activities -->
+          <!-- Recent Activities part 2 -->
           <div class="relative flex flex-col min-w-0 break-words bg-gray-50 dark:bg-gray-800 w-full shadow-lg rounded">
-          <?php
-							$a=$_SESSION['alumni_id'];
-							
-							$result = mysqli_query($db,"SELECT * FROM job,alumni WHERE job.u_id=alumni.alumni_id ORDER BY job.created_at DESC LIMIT 3");
-							
-							while($row = mysqli_fetch_array($result)) {
-							?>
             <div class="rounded-t mb-0 px-0 border-0">
               <div class="block w-full">
+                <!-- job -->
                 <div class="px-4 bg-gray-100 dark:bg-gray-600 text-gray-500 dark:text-gray-100 align-middle border border-solid border-gray-200 dark:border-gray-500 py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left">
                   Job Post
                 </div>
-                <ul class="my-1">
-                  <li class="flex px-4">
-                    <div class="flex-shrink-0 my-2 mr-3">
-                    <img src="../upload/images/<?php echo $row["logo"]; ?>" alt="User Image" class="h-9 w-9 rounded-full">
-                    </div>
-                    <div class="flex-grow flex items-center border-b border-gray-100 dark:border-gray-400 text-sm text-gray-600 dark:text-gray-100 py-2">
-                      <div class="flex-grow flex justify-between items-center">
-                        <div class="self-center">
-                          <h3 class="font-medium text-gray-800 hover:text-gray-900 dark:text-gray-50 dark:hover:text-gray-100" style="outline: none;"><?php echo $row["title"]; ?></h3> 
+                <?php
+                    $a = $_SESSION['alumni_id'];
+
+                    // Fetch jobs only for the currently logged-in alumni
+                    $result = mysqli_query($db, "SELECT * FROM job WHERE u_id = '$a' ORDER BY created_at DESC LIMIT 3");
+
+                    if (mysqli_num_rows($result) > 0) {
+                        // If there are job posts, display them
+                        while ($row = mysqli_fetch_array($result)) {
+                            ?>
+                            <ul class="my-1">
+                              <li class="flex px-4">
+                                <div class="flex-shrink-0 my-2 mr-3">
+                                  <img src="../upload/images/<?php echo $row["logo"]; ?>" alt="User Image" class="h-9 w-9 rounded-full">
+                                </div>
+                                <div class="flex-grow flex items-center border-gray-100 dark:border-gray-400 text-sm text-gray-600 dark:text-gray-100 py-2">
+                                  <div class="flex-grow flex justify-between items-center">
+                                    <div class="self-center">
+                                      <h3 class="font-medium text-gray-800 hover:text-gray-900 dark:text-gray-50 dark:hover:text-gray-100" style="outline: none;"><?php echo $row["title"]; ?></h3> 
+                                    </div>
+                                    <div class="flex-shrink-0 ml-2">
+                                      <a class="flex items-center font-medium text-purple-500 hover:text-blue-600 dark:text-purple-400 dark:hover:text-blue-500" href="#0" style="outline: none;">
+                                        View<span><svg width="20" height="20" viewBox="0 0 20 20" fill="currentColor" class="transform transition-transform duration-500 ease-in-out"><path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd"></path></svg></span>
+                                      </a>
+                                    </div>
+                                  </div>
+                                </div>
+                              </li>
+                            </ul>
+                            <?php
+                        }
+                    } else {
+                        // If no job posts exist, display a message
+                        ?>
+                        <div class="text-center py-4 text-gray-500 dark:text-gray-400">
+                            <p>No posts available. Create a new post to get started.</p>
                         </div>
-                        <div class="flex-shrink-0 ml-2">
-                          <a class="flex items-center font-medium text-blue-500 hover:text-blue-600 dark:text-blue-400 dark:hover:text-blue-500" href="#0" style="outline: none;">
-                            View<span><svg width="20" height="20" viewBox="0 0 20 20" fill="currentColor" class="transform transition-transform duration-500 ease-in-out"><path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd"></path></svg></span>
-                          </a>
-                        </div>
-                      </div>
-                    </div>
-                  </li>
-                  <li class="flex px-4">
-                    <div class="w-9 h-9 rounded-full flex-shrink-0 bg-red-500 my-2 mr-3">
-                      <svg class="w-9 h-9 fill-current text-red-50" viewBox="0 0 36 36"><path d="M25 24H11a1 1 0 01-1-1v-5h2v4h12v-4h2v5a1 1 0 01-1 1zM14 13h8v2h-8z"></path></svg>
-                    </div>
-                    <div class="flex-grow flex items-center border-gray-100 text-sm text-gray-600 dark:text-gray-50 py-2">
-                      <div class="flex-grow flex justify-between items-center">
-                        <div class="self-center">
-                          The post <a class="font-medium text-gray-800 dark:text-gray-50 dark:hover:text-gray-100" href="#0" style="outline: none;">Post Name</a> was removed by <a class="font-medium text-gray-800 hover:text-gray-900 dark:text-gray-50 dark:hover:text-gray-100" href="#0" style="outline: none;">Nick Mark</a>
-                        </div>
-                        <div class="flex-shrink-0 ml-2">
-                          <a class="flex items-center font-medium text-blue-500 hover:text-blue-600 dark:text-blue-400 dark:hover:text-blue-500" href="#0" style="outline: none;">
-                            View<span><svg width="20" height="20" viewBox="0 0 20 20" fill="currentColor" class="transform transition-transform duration-500 ease-in-out"><path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd"></path></svg></span>
-                          </a>
-                        </div>
-                      </div>
-                    </div>
-                    <?php
-                }
-                ?>
-                  </li>
-                </ul>
+                        <?php
+                    }
+                    ?>
+                <!-- resource -->
                 <div class="px-4 bg-gray-100 dark:bg-gray-600 text-gray-500 dark:text-gray-100 align-middle border border-solid border-gray-200 dark:border-gray-500 py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left">
-                  Yesterday
+                  Resources
                 </div>
                 <ul class="my-1">
                   <li class="flex px-4">

@@ -762,7 +762,7 @@
           <?php
 							$a=$_SESSION['alumni_id'];
 							
-							$result = mysqli_query($db,"SELECT * FROM job,alumni WHERE job.u_id=alumni.alumni_id");
+							$result = mysqli_query($db,"SELECT * FROM job,alumni WHERE job.u_id=alumni.alumni_id ORDER BY job.created_at DESC LIMIT 3");
 							
 							while($row = mysqli_fetch_array($result)) {
 							?>
@@ -773,13 +773,13 @@
                 </div>
                 <ul class="my-1">
                   <li class="flex px-4">
-                    <div class="w-9 h-9 rounded-full flex-shrink-0 bg-indigo-500 my-2 mr-3">
-                    <img src="../upload/images/<?php echo $row["logo"]; ?>" alt="User Image">
+                    <div class="flex-shrink-0 my-2 mr-3">
+                    <img src="../upload/images/<?php echo $row["logo"]; ?>" alt="User Image" class="h-9 w-9 rounded-full">
                     </div>
                     <div class="flex-grow flex items-center border-b border-gray-100 dark:border-gray-400 text-sm text-gray-600 dark:text-gray-100 py-2">
                       <div class="flex-grow flex justify-between items-center">
                         <div class="self-center">
-                          <a class="font-medium text-gray-800 hover:text-gray-900 dark:text-gray-50 dark:hover:text-gray-100" href="#0" style="outline: none;">Nick Mark</a> mentioned <a class="font-medium text-gray-800 dark:text-gray-50 dark:hover:text-gray-100" href="#0" style="outline: none;">Sara Smith</a> in a new post
+                          <h3 class="font-medium text-gray-800 hover:text-gray-900 dark:text-gray-50 dark:hover:text-gray-100" style="outline: none;"><?php echo $row["title"]; ?></h3> 
                         </div>
                         <div class="flex-shrink-0 ml-2">
                           <a class="flex items-center font-medium text-blue-500 hover:text-blue-600 dark:text-blue-400 dark:hover:text-blue-500" href="#0" style="outline: none;">

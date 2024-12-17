@@ -583,9 +583,9 @@
               <nav>
                 <ol class="flex items-center gap-2">
                   <li>
-                    <a class="font-medium" href="index.html">Dashboard /</a>
+                    <a class="font-medium dark:text-white" href="index.html">Dashboard /</a>
                   </li>
-                  <li class="font-medium text-primary">Resources</li>
+                  <li class="font-medium dark:text-white">Resources</li>
                 </ol>
               </nav>
             </div>
@@ -596,10 +596,10 @@
               <div class="grid grid-cols-1 gap-9">
                 <!-- Input Fields -->
                 <div
-                  class="rounded-sm border border-stroke bg-white shadow-default dark:border-strokedark dark:bg-boxdark"
+                  class="rounded-sm border border-stroke bg-white shadow-default dark:border-gray-700 dark:bg-gray-800"
                   >
                   <div
-                    class="border-b border-stroke px-4 py-4 dark:border-strokedark"
+                    class="border-b border-stroke px-4 py-4 dark:border-gray-700"
                     >
                     <h3 class="font-medium text-black dark:text-white">
                       Study Materials
@@ -615,7 +615,7 @@
                             >Title</label
                           >
                           <input
-                              class="w-full rounded-lg border border-stroke bg-gray px-5 pl-4 py-2 font-medium text-black focus:border-gray-800 focus-visible:outline-none dark:border-strokedark dark:bg-meta-4 dark:text-white dark:focus:border-primary" required
+                              class="w-full rounded-lg border border-stroke bg-gray px-5 pl-4 py-2 font-medium text-black focus:border-gray-800 focus-visible:outline-none dark:border-strokedark dark:bg- dark:text-white dark:focus:border-primary" required
                               type="text"
                               name="title"
                               id="title"
@@ -652,7 +652,7 @@
                             name="content"
                             id="content"
                             placeholder=""
-                            class="w-full rounded-lg border-[1.5px] border-stroke bg-transparent pl-4 px-5 py-3 font-normal text-black outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary" required
+                            class="w-full rounded-lg border-[1.5px] border-stroke bg-transparent pl-4 px-5 py-3 font-normal text-black outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-gray-700 dark:bg-form-input dark:text-white dark:focus:border-primary" required
                             ></textarea>
                             <!-- <textarea id="editor"></textarea> -->
                         </div>
@@ -664,14 +664,14 @@
               <div class="flex flex-col gap-9">
                 <!-- Textarea Fields -->
                 <div
-                  class="rounded-sm border border-stroke bg-white shadow-default dark:border-strokedark dark:bg-boxdark"
+                  class="rounded-sm border border-stroke bg-white shadow-default dark:border-gray-700 dark:bg-gray-800"
                     >
                     <div class="p-5">
                         <!-- first -->
                         <div class="mb-6">
                             <h3 class="mb-3 block text-sm font-medium text-black dark:text-white">Upload File</h3>
                         <label for="uploadFile1"
-                                class="bg-white text-gray-500 font-semibold text-base rounded max-w-md h-52 flex flex-col items-center justify-center cursor-pointer border-2 border-gray-300 border-dashed mx-auto font-[sans-serif]">
+                                class="bg-white text-gray-500 font-semibold text-base rounded max-w-md h-52 flex flex-col items-center justify-center cursor-pointer border-2 border-gray-300 border-dashed mx-auto font-[sans-serif] dark:bg-gray-800 dark:border-gray-700">
                                 <svg xmlns="http://www.w3.org/2000/svg" class="w-11 mb-2 fill-gray-500" viewBox="0 0 32 32">
                                     <path
                                     d="M23.75 11.044a7.99 7.99 0 0 0-15.5-.009A8 8 0 0 0 9 27h3a1 1 0 0 0 0-2H9a6 6 0 0 1-.035-12 1.038 1.038 0 0 0 1.1-.854 5.991 5.991 0 0 1 11.862 0A1.08 1.08 0 0 0 23 13a6 6 0 0 1 0 12h-3a1 1 0 0 0 0 2h3a8 8 0 0 0 .75-15.956z"

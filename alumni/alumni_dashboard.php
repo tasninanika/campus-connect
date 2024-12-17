@@ -350,7 +350,7 @@
                         this.unreadCount = 0; // Red dot hide
                     });
             }
-        }" x-init="fetchUnreadCount(); setInterval(fetchUnreadCount, 5000)" class="relative">
+            }" x-init="fetchUnreadCount(); setInterval(fetchUnreadCount, 5000)" class="relative">
             <a
                 class="relative flex h-9 w-9 items-center justify-center rounded-full top-2 border border-gray-300 bg-gray-100 hover:text-primary dark:border-strokedark dark:bg-meta-4 dark:text-white"
                 href="#"
@@ -437,8 +437,8 @@
             </div>
         </div>
 
-              <!-- Profile Dropdown -->
-              <div x-data="{ isOpen: false }" class="relative">
+        <!-- Profile Dropdown -->
+        <div x-data="{ isOpen: false }" class="relative">
                 <button
                   @click="isOpen = !isOpen"
                   class="relative z-10 w-12 h-12 rounded-full overflow-hidden border-2 border-gray-700 hover:border-gray-300 focus:outline-none"
@@ -476,8 +476,8 @@
                   </a>
                 </div>
               </div>
-            </div>
-        </header>
+        </div>
+      </header>
 
         <!-- Mobile Header & Nav -->
         <header x-data="{ isOpen: false }" class="w-full bg-gray-800 py-5 px-6 sm:hidden">

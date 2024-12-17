@@ -24,6 +24,8 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Karla:ital,wght@0,200..800;1,200..800&family=Montserrat:ital,wght@0,600;1,600&display=swap" rel="stylesheet">
+    <!-- ck rich text editor -->
+    <script src="https://cdn.ckeditor.com/ckeditor5/39.0.0/classic/ckeditor.js"></script>
     <script>
         tailwind.config = {
           theme: {
@@ -50,14 +52,123 @@
             color: transparent;
         }
         .font-family-karla { font-family: karla; }
-        .active-nav-link { background: #0E675C; }
-        .nav-item:hover { background: #6abab0b0; }
+        .active-nav-link { background: #374151; }
+        .nav-item:hover { background: #374151; }
         .account-link:hover { background: #0E675C; }
+        /* Compiled dark classes from Tailwind */
+  .dark .dark\:divide-gray-700 > :not([hidden]) ~ :not([hidden]) {
+    border-color: rgba(55, 65, 81);
+  }
+  .dark .dark\:bg-gray-50 {
+    background-color: rgba(249, 250, 251);
+  }
+  .dark .dark\:bg-gray-100 {
+    background-color: rgba(243, 244, 246);
+  }
+  .dark .dark\:bg-gray-600 {
+    background-color: rgba(75, 85, 99);
+  }
+  .dark .dark\:bg-gray-700 {
+    background-color: rgba(55, 65, 81);
+  }
+  .dark .dark\:bg-gray-800 {
+    background-color: rgba(31, 41, 55);
+  }
+  .dark .dark\:bg-gray-900 {
+    background-color: rgba(17, 24, 39);
+  }
+  .dark .dark\:bg-red-700 {
+    background-color: rgba(185, 28, 28);
+  }
+  .dark .dark\:bg-green-700 {
+    background-color: rgba(4, 120, 87);
+  }
+  .dark .dark\:hover\:bg-gray-200:hover {
+    background-color: rgba(229, 231, 235);
+  }
+  .dark .dark\:hover\:bg-gray-600:hover {
+    background-color: rgba(75, 85, 99);
+  }
+  .dark .dark\:hover\:bg-gray-700:hover {
+    background-color: rgba(55, 65, 81);
+  }
+  .dark .dark\:hover\:bg-gray-900:hover {
+    background-color: rgba(17, 24, 39);
+  }
+  .dark .dark\:border-gray-100 {
+    border-color: rgba(243, 244, 246);
+  }
+  .dark .dark\:border-gray-400 {
+    border-color: rgba(156, 163, 175);
+  }
+  .dark .dark\:border-gray-500 {
+    border-color: rgba(107, 114, 128);
+  }
+  .dark .dark\:border-gray-600 {
+    border-color: rgba(75, 85, 99);
+  }
+  .dark .dark\:border-gray-700 {
+    border-color: rgba(55, 65, 81);
+  }
+  .dark .dark\:border-gray-900 {
+    border-color: rgba(17, 24, 39);
+  }
+  .dark .dark\:hover\:border-gray-800:hover {
+    border-color: rgba(31, 41, 55);
+  }
+  .dark .dark\:text-white {
+    color: rgba(255, 255, 255);
+  }
+  .dark .dark\:text-gray-50 {
+    color: rgba(249, 250, 251);
+  }
+  .dark .dark\:text-gray-100 {
+    color: rgba(243, 244, 246);
+  }
+  .dark .dark\:text-gray-200 {
+    color: rgba(229, 231, 235);
+  }
+  .dark .dark\:text-gray-400 {
+    color: rgba(156, 163, 175);
+  }
+  .dark .dark\:text-gray-500 {
+    color: rgba(107, 114, 128);
+  }
+  .dark .dark\:text-gray-700 {
+    color: rgba(55, 65, 81);
+  }
+  .dark .dark\:text-gray-800 {
+    color: rgba(31, 41, 55);
+  }
+  .dark .dark\:text-red-100 {
+    color: rgba(254, 226, 226);
+  }
+  .dark .dark\:text-green-100 {
+    color: rgba(209, 250, 229);
+  }
+  .dark .dark\:text-blue-400 {
+    color: rgba(96, 165, 250);
+  }
+  .dark .group:hover .dark\:group-hover\:text-gray-500 {
+    color: rgba(107, 114, 128);
+  }
+  .dark .group:focus .dark\:group-focus\:text-gray-700 {
+    color: rgba(55, 65, 81);
+  }
+  .dark .dark\:hover\:text-gray-100:hover {
+    color: rgba(243, 244, 246);
+  }
+  .dark .dark\:hover\:text-blue-500:hover {
+    color: rgba(59, 130, 246);
+  }
+  .dark .dark\:text-purple-400 {
+    color: rgb(216 180 254);
+  }
     </style>
 </head>
-<body class="bg-gray-100 font-family-karla flex">
-    <aside class="relative h-screen w-96 hidden sm:block shadow-xl bg-gray-800">
-        <div class="p-10 mb-10 border-b border-gray-500">
+<body class="bg-gray-100 font-family-karla flex" x-data="setup()" :class="{ 'dark': isDark }">
+    <aside class="relative h-screen w-[350px] hidden sm:block shadow-xl bg-gray-800">
+        <div class="p-8 mb-5 ">
             <a class="text-white text-base font-bold font-garamond hover:text-gray-300">Welcome,</a>
             <?php
 			    $a=$_SESSION['alumni_id'];
@@ -66,16 +177,16 @@
 							
 				if($row = mysqli_fetch_array($result)) {
 							?>
-                    <h1 class="text-4xl font-garamond font-bold text-white dark:text-gray-800">
+                    <h1 class="text-4xl font-garamond font-bold text-white dark:text-white">
                     <?php echo $row['first_Name'];?></h1>
                 <?php
 							}
 				?>           
         </div>
-        <nav class="text-white text-base font-semibold pt-3">
-            <h3 class="mb-4 ml-6 text-sm font-medium text-[#cbd1d3]">MENU</h3>
+        <nav class="text-white text-base  pt-3">
+            <h3 class="mb-4 ml-7 text-base font-medium text-slate-400">MENU</h3>
             
-            <a href="alumni_dashboard.php" class="flex items-center text-white gap-2.5 py-4 pl-6 nav-item">
+            <a href="alumni_dashboard.php" class="flex items-center text-white gap-2.5 py-2 px-3 ml-4 mr-4 my-1 nav-item">
                 <svg
                     class="fill-current"
                     width="18"
@@ -104,7 +215,26 @@
                 Dashboard
             </a>
             
-            <a href="alumni_profile.php" class="flex items-center text-white opacity-75 hover:opacity-100 gap-2.5 py-4 pl-6 nav-item">
+            <a href="alumni_job.php" class="flex items-center text-white py-2 px-3 ml-4 mr-4 my-1 nav-item">
+                <i class="fas fa-solid fa-question mr-3"></i>    
+                Post Job 
+            </a> 
+            <a href="alumni_blog.php" class="flex items-center text-white  py-2 px-3 ml-4 mr-4 my-1 active-nav-link">
+                <i class="fas fa-solid fa-question mr-3"></i>    
+                Post Blog 
+            </a> 
+            <a href="alumni_announcement.php" class="flex items-center text-white py-2 px-3 ml-4 mr-4 my-1 nav-item">
+                <i class="fas fa-solid fa-question mr-3"></i>    
+                See Announcement 
+            </a> 
+            <a href="alumni_resource.php" class="flex items-center text-white py-2 px-3 ml-4 mr-4 my-1 nav-item">
+                <i class="fas fa-solid fa-question mr-3"></i>    
+                Resources
+            </a> 
+            <!-- Others Group -->
+      <div>
+        <h3 class="mb-4 ml-7 mt-6 text-base font-medium text-slate-400">OTHERS</h3>
+            <a href="alumni_profile.php" class="flex items-center text-white gap-2.5 py-2 px-3 ml-4 mr-4 my-1 nav-item">
                 <svg
                     class="fill-current"
                     width="18"
@@ -124,26 +254,8 @@
                 </svg>
                 Profile
             </a>
-            
-            <a href="alumni_job.php" class="flex items-center text-white opacity-75 hover:opacity-100 py-4 pl-6 nav-item">
-                <i class="fas fa-solid fa-question mr-3"></i>    
-                Post Job 
-            </a> 
-            <a href="alumni_blog" class="flex items-center text-white opacity-75 hover:opacity-100 py-4 pl-6 active-nav-link">
-                <i class="fas fa-solid fa-question mr-3"></i>    
-                Post Blog 
-            </a> 
-            <a href="alumni_announcement.php" class="flex items-center text-white opacity-75 hover:opacity-100 py-4 pl-6 nav-item">
-                <i class="fas fa-solid fa-question mr-3"></i>    
-                See Announcement 
-            </a> 
-            <a href="alumni_resource.php" class="flex items-center text-white opacity-75 hover:opacity-100 py-4 pl-6 nav-item">
-                <i class="fas fa-solid fa-question mr-3"></i>    
-                Resources
-            </a> 
-            
             <details class="group">
-                <summary class="flex items-center text-white opacity-75 hover:opacity-100 py-4 pl-6 nav-item cursor-pointer">
+                <summary class="flex items-center text-white py-2 px-3 ml-4 mr-4 my-1 nav-item cursor-pointer">
                     <i class="fas fa-align-left mr-3"></i>
                     Pages 
                     <svg
@@ -164,32 +276,210 @@
                     
                 </summary>
                 <ul class="bg-gray-800 mt-2 pl-12">
-                    <li><a href="alumni_settings.php" class="text-white opacity-75 hover:opacity-100 py-2 block">Settings</a></li>
+                    <li><a href="alumni_settings.php" class="text-white opacity-75 hover:opacity-100 py-2 block">Edit Profile</a></li>
                     <li><a href="alumni_changePass.php" class="text-white opacity-75 hover:opacity-100 py-2 block">Change Password</a></li>
                     <!-- Add more items as needed -->
                 </ul>
             </details>
+      </div>
         </nav>       
     </aside> 
 
-    <div class="w-full flex flex-col h-screen overflow-y-auto overflow-x-hidden">
+    <div class="w-full flex flex-col h-screen overflow-y-auto overflow-x-hidden dark:bg-gray-900">
         <!-- Desktop Header -->
-        <header class="sticky top-0 z-999 w-full items-center shadow bg-white py-4 px-6 hidden sm:flex">
+        <header class="sticky top-0 z-999 w-full items-center bg-white dark:bg-gray-800 shadow pt-5 px-6 hidden sm:flex">
             <div class="w-1/2">
-            <h1 class="mb-36 lg:mb-0 -ml-10 lg:-ml-0 lg:text-4xl font-garamond flex multicolor-text"><img src="images/logo (2).png" alt="" class="lg:w-14 w-14 -mt-1">CampusConnect</h1>
+            <h1 class="mb-36 lg:mb-0 -ml-10 lg:-ml-0 lg:text-4xl font-garamond flex dark:text-white multicolor-text"><img src="images/logo (2).png" alt="" class="lg:w-14 w-14 -mt-1"></h1>
             </div>
-            <div x-data="{ isOpen: false }" class="relative w-1/2 flex justify-end">
-                <button @click="isOpen = !isOpen" class="realtive z-10 w-14 h-14 rounded-full overflow-hidden border-4 border-gray-700 hover:border-gray-300 focus:border-gray-300 focus:outline-none">
-                <img src="../upload/images/<?php echo $row['id_photo']; ?>" alt="User Image" class="w-14 h-14 rounded-full">
+            <div class="w-1/2 flex justify-end gap-4">
+            <div class="pt-2">
+              <button
+                aria-hidden="true"
+                @click="toggleTheme"
+                class="group p-2 transition-colors duration-200 rounded-full bg-gray-100 border hover:bg-blue-200 dark:bg-gray-50 dark:hover:bg-gray-200 text-gray-900 focus:outline-none"
+              >
+                <svg
+                  x-show="isDark"
+                  width="20"
+                  height="20"
+                  class="fill-current text-gray-700 group-hover:text-gray-500 group-focus:text-gray-700 dark:text-gray-700 dark:group-hover:text-gray-500 dark:group-focus:text-gray-700"
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="purple"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z"
+                    fill="white"
+                  />
+                </svg>
+                <svg
+                  x-show="!isDark"
+                  width="20"
+                  height="20"
+                  class="fill-current text-gray-700 group-hover:text-gray-500 group-focus:text-gray-700 dark:text-gray-700 dark:group-hover:text-gray-500 dark:group-focus:text-gray-700"
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke=""
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"
+                  />
+                </svg>
+              </button>
+            </div>
+        <!-- Notification Dropdown -->
+        <div x-data="{ 
+            dropdownOpen: false, 
+            unreadCount: 0,
+            fetchUnreadCount() {
+                fetch('check_unread.php')
+                    .then(res => res.json())
+                    .then(data => {
+                        this.unreadCount = data.unread_count;
+                    });
+            },
+            markAsRead() {
+                fetch('mark_as_read.php', { method: 'POST' })
+                    .then(() => {
+                        this.unreadCount = 0; // Red dot hide
+                    });
+            }
+            }" x-init="fetchUnreadCount(); setInterval(fetchUnreadCount, 5000)" class="relative">
+            <a
+                class="relative flex h-9 w-9 items-center justify-center rounded-full top-2 border border-gray-300 bg-gray-100 hover:text-primary dark:border-strokedark dark:bg-meta-4 dark:text-white"
+                href="#"
+                @click.prevent="dropdownOpen = !dropdownOpen; notifying = false"
+            >
+            
+                <!-- Notification Bell -->
+                <a href="#" 
+                @click.prevent="dropdownOpen = !dropdownOpen; markAsRead();" 
+                class="relative flex h-9 w-9 -top-7 items-center justify-center rounded-full border border-gray-300 bg-gray-100 hover:text-primary dark:border-strokedark dark:bg-meta-4 dark:text-white">
+
+                  <!-- Notification Dot (Single Red Dot with Animation) -->
+                  <span 
+                      x-show="unreadCount > 0"
+                      class="absolute -top-1 right-0 z-10 h-2 w-2 rounded-full bg-red-500"
+                  >
+                      <span 
+                          class="absolute -z-1 inline-flex h-full w-full animate-ping rounded-full bg-red-500 opacity-75"
+                      ></span>
+                  </span>
+
+                  <!-- Bell Icon -->
+                  <svg
+                      class="fill-current duration-300 ease-in-out"
+                      width="18"
+                      height="18"
+                      viewBox="0 0 18 18"
+                      xmlns="http://www.w3.org/2000/svg"
+                  >
+                      <path
+                          d="M16.1999 14.9343L15.6374 14.0624C15.5249 13.8937 15.4687 13.7249 15.4687 13.528V7.67803C15.4687 6.01865 14.7655 4.47178 13.4718 3.31865C12.4312 2.39053 11.0812 1.7999 9.64678 1.6874V1.1249C9.64678 0.787402 9.36553 0.478027 8.9999 0.478027C8.6624 0.478027 8.35303 0.759277 8.35303 1.1249V1.65928C8.29678 1.65928 8.24053 1.65928 8.18428 1.6874C4.92178 2.05303 2.4749 4.66865 2.4749 7.79053V13.528C2.44678 13.8093 2.39053 13.9499 2.33428 14.0343L1.7999 14.9343C1.63115 15.2155 1.63115 15.553 1.7999 15.8343C1.96865 16.0874 2.2499 16.2562 2.55928 16.2562H8.38115V16.8749C8.38115 17.2124 8.6624 17.5218 9.02803 17.5218C9.36553 17.5218 9.6749 17.2405 9.6749 16.8749V16.2562H15.4687C15.778 16.2562 16.0593 16.0874 16.228 15.8343C16.3968 15.553 16.3968 15.2155 16.1999 14.9343ZM3.23428 14.9905L3.43115 14.653C3.5999 14.3718 3.68428 14.0343 3.74053 13.6405V7.79053C3.74053 5.31553 5.70928 3.23428 8.3249 2.95303C9.92803 2.78428 11.503 3.2624 12.6562 4.2749C13.6687 5.1749 14.2312 6.38428 14.2312 7.67803V13.528C14.2312 13.9499 14.3437 14.3437 14.5968 14.7374L14.7655 14.9905H3.23428Z"
+                          fill="purple"
+                      />
+                  </svg>
+              </a>
+
+
+            <!-- Notification Dropdown -->
+            <div
+                x-show="dropdownOpen"
+                @click.outside="dropdownOpen = false"
+                class="absolute right-0 mt-2 w-80 rounded-lg border border-gray-400 bg-white shadow-lg dark:border-gray-700 dark:bg-gray-800"
+                x-transition
+            >
+                <!-- Header -->
+                <div class="px-4 py-3 border-b border-gray-200 dark:border-gray-700">
+                    <h5 class="text-sm font-semibold text-gray-800 dark:text-gray-200">
+                        Notifications
+                    </h5>
+                </div>
+
+                <!-- Notification List -->
+                <ul class="max-h-56 overflow-y-auto divide-y divide-gray-200 dark:divide-gray-700">
+                    <?php 
+                    $sql = "SELECT * FROM announcement ORDER BY created_at DESC LIMIT 3";
+                    $query = mysqli_query($db, $sql);
+
+                    if(mysqli_num_rows($query) > 0) {
+                        while ($rows = mysqli_fetch_assoc($query)) {
+                            $announcement_title = $rows['title'];
+                            $posted_date = $rows['created_at']; 
+                    ?>
+                        <li>
+                            <a
+                                href="#"
+                                class="block px-4 py-3 transition-all hover:bg-gray-100 dark:hover:bg-gray-700"
+                            >
+                                <p class="text-sm font-medium text-gray-700 dark:text-gray-200">
+                                    <?php echo htmlspecialchars($announcement_title); ?>
+                                </p>
+                                <span class="block text-xs text-gray-500 dark:text-gray-400">
+                                    <?php echo date('d M, Y', strtotime($posted_date)); ?>
+                                </span>
+                            </a>
+                        </li>
+                    <?php
+                        }
+                    } else { ?>
+                        <li class="px-4 py-3 text-sm text-gray-500 dark:text-gray-400">
+                            No new notifications.
+                        </li>
+                    <?php } ?>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Profile Dropdown -->
+        <div x-data="{ isOpen: false }" class="relative">
+                <button
+                  @click="isOpen = !isOpen"
+                  class="relative z-10 w-12 h-12 rounded-full overflow-hidden border-2 border-gray-700 hover:border-gray-300 focus:outline-none"
+                >
+                  <img
+                    src="../upload/images/<?php echo $row['id_photo']; ?>"
+                    alt="User Profile"
+                    class="w-full h-full object-cover"
+                  />
                 </button>
                 <button x-show="isOpen" @click="isOpen = false" class="h-full w-full fixed inset-0 cursor-default"></button>
-                <div x-show="isOpen" class="absolute w-32 bg-white rounded-lg shadow-lg py-2 mt-16">
-                    <a href="../index.php" class="block px-4 py-2 account-link hover:text-white">Home</a>
-                    <a href="../alumni/alumni_settings.php" class="block px-4 py-2 account-link hover:text-white">Settings</a>
-                    <a href="../logout.php" class="block px-4 py-2 account-link hover:text-white">Sign Out</a>
+                <div
+                  x-show="isOpen"
+                  @click.outside="isOpen = false"
+                  class="absolute right-0 mt-2 w-48 rounded-xl border border-gray-400 dark:border-gray-700 bg-white shadow-lg dark:bg-gray-800"
+                  x-transition
+                  >
+                  <a
+                    href="../index.php"
+                    class="block mx-2 px-2 my-1 py-1 rounded-lg text-sm dark:text-gray-200 hover:bg-gray-200 dark:hover:bg-gray-700"
+                  >
+                    Home
+                  </a>
+                  <a
+                    href="../alumni/alumni_settings.php"
+                    class="block mx-2 px-2 my-1 py-1 rounded-lg text-sm dark:text-gray-200 hover:bg-gray-200 dark:hover:bg-gray-700"
+                  >
+                    Settings
+                  </a>
+                  <a
+                    href="../logout.php"
+                    class="block mx-2 px-2 my-1 py-1 rounded-lg text-sm dark:text-gray-200 hover:bg-gray-200 dark:hover:bg-gray-700"
+                  >
+                    Sign Out
+                  </a>
                 </div>
-            </div>
-        </header>
+              </div>
+        </div>
+      </header>
 
         <!-- Mobile Header & Nav -->
         <header x-data="{ isOpen: false }" class="w-full bg-gray-800 py-5 px-6 sm:hidden">
@@ -405,6 +695,29 @@
     <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script>
     <!-- Font Awesome -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/js/all.min.js" integrity="sha256-KzZiKy0DWYsnwMF+X1DvQngQ2/FxF7MF3Ff72XcpuPs=" crossorigin="anonymous"></script>
+    <script>
+    const setup = () => {
+      const getTheme = () => {
+        if (window.localStorage.getItem('dark')) {
+          return JSON.parse(window.localStorage.getItem('dark'))
+        }
+        return !!window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches
+      }
+
+      const setTheme = (value) => {
+        window.localStorage.setItem('dark', value)
+      }
+
+      return {
+        loading: true,
+        isDark: getTheme(),
+        toggleTheme() {
+          this.isDark = !this.isDark
+          setTheme(this.isDark)
+        },
+      }
+    }
+  </script>
 </body>
 </html>
 <?php

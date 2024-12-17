@@ -176,8 +176,8 @@
 							}
 				?>           
         </div>
-        <nav class="text-white text-lg  pt-3">
-            <h3 class="mb-4 ml-6 text-base font-medium text-slate-400">MENU</h3>
+        <nav class="text-white text-base  pt-3">
+            <h3 class="mb-4 ml-7 text-base font-medium text-slate-400">MENU</h3>
             
             <a href="alumni_dashboard.php" class="flex items-center text-white gap-2.5 py-2 px-3 ml-4 mr-4 my-1 active-nav-link">
                 <svg
@@ -207,7 +207,26 @@
                 </svg>
                 Dashboard
             </a>
-  
+            
+            <a href="alumni_job.php" class="flex items-center text-white py-2 px-3 ml-4 mr-4 my-1 nav-item">
+                <i class="fas fa-solid fa-question mr-3"></i>    
+                Post Job 
+            </a> 
+            <a href="alumni_blog.php" class="flex items-center text-white  py-2 px-3 ml-4 mr-4 my-1 nav-item">
+                <i class="fas fa-solid fa-question mr-3"></i>    
+                Post Blog 
+            </a> 
+            <a href="alumni_announcement.php" class="flex items-center text-white py-2 px-3 ml-4 mr-4 my-1 nav-item">
+                <i class="fas fa-solid fa-question mr-3"></i>    
+                See Announcement 
+            </a> 
+            <a href="alumni_resource.php" class="flex items-center text-white py-2 px-3 ml-4 mr-4 my-1 nav-item">
+                <i class="fas fa-solid fa-question mr-3"></i>    
+                Resources
+            </a> 
+            <!-- Others Group -->
+      <div>
+        <h3 class="mb-4 ml-7 mt-6 text-base font-medium text-slate-400">OTHERS</h3>
             <a href="alumni_profile.php" class="flex items-center text-white gap-2.5 py-2 px-3 ml-4 mr-4 my-1 nav-item">
                 <svg
                     class="fill-current"
@@ -228,24 +247,6 @@
                 </svg>
                 Profile
             </a>
-            
-            <a href="alumni_job.php" class="flex items-center text-white py-2 px-3 ml-4 mr-4 my-1 nav-item">
-                <i class="fas fa-solid fa-question mr-3"></i>    
-                Post Job 
-            </a> 
-            <a href="alumni_blog.php" class="flex items-center text-white  py-2 px-3 ml-4 mr-4 my-1 nav-item">
-                <i class="fas fa-solid fa-question mr-3"></i>    
-                Post Blog 
-            </a> 
-            <a href="alumni_announcement.php" class="flex items-center text-white py-2 px-3 ml-4 mr-4 my-1 nav-item">
-                <i class="fas fa-solid fa-question mr-3"></i>    
-                See Announcement 
-            </a> 
-            <a href="alumni_resource.php" class="flex items-center text-white py-2 px-3 ml-4 mr-4 my-1 nav-item">
-                <i class="fas fa-solid fa-question mr-3"></i>    
-                Resources
-            </a> 
-            
             <details class="group">
                 <summary class="flex items-center text-white py-2 px-3 ml-4 mr-4 my-1 nav-item cursor-pointer">
                     <i class="fas fa-align-left mr-3"></i>
@@ -268,11 +269,12 @@
                     
                 </summary>
                 <ul class="bg-gray-800 mt-2 pl-12">
-                    <li><a href="alumni_settings.php" class="text-white py-2 block">Settings</a></li>
-                    <li><a href="alumni_changePass.php" class="text-white py-2 block">Change Password</a></li>
+                    <li><a href="alumni_settings.php" class="text-white opacity-75 hover:opacity-100 py-2 block">Edit Profile</a></li>
+                    <li><a href="alumni_changePass.php" class="text-white opacity-75 hover:opacity-100 py-2 block">Change Password</a></li>
                     <!-- Add more items as needed -->
                 </ul>
             </details>
+      </div>
         </nav>       
     </aside> 
 
@@ -364,44 +366,51 @@
                 <div
                   x-show="dropdownOpen"
                   @click.outside="dropdownOpen = false"
-                  class="absolute right-0 mt-2 w-72 rounded-lg border border-gray-300 bg-white shadow-lg dark:border-strokedark dark:bg-boxdark"
+                  class="absolute right-0 mt-2 w-80 rounded-lg border border-gray-400 bg-white shadow-lg dark:border-gray-700 dark:bg-gray-800"
                   x-transition
                 >
-                  <div class="px-4 py-3">
-                    <h5 class="text-sm font-medium text-bodydark2">Notifications</h5>
+                  <!-- Header -->
+                  <div class="px-4 py-3 border-b border-gray-200 dark:border-gray-700">
+                    <h5 class="text-sm font-semibold text-gray-800 dark:text-gray-200">
+                      Notifications
+                    </h5>
                   </div>
-                  <ul class="max-h-56 overflow-y-auto">
-                    <li>
-                      <a
-                        href="#"
-                        class="block px-4 py-2 text-sm hover:bg-gray-200 dark:hover:bg-meta-4"
-                      >
-                        New message received
-                        <span class="block text-xs text-gray-500">12 May, 2025</span>
-                      </a>
-                    </li>
-                    <li>
-                      <a
-                        href="#"
-                        class="block px-4 py-2 text-sm hover:bg-gray-200 dark:hover:bg-meta-4"
-                      >
-                        System maintenance alert
-                        <span class="block text-xs text-gray-500">24 Feb, 2025</span>
-                      </a>
-                    </li>
-                    <li>
-                      <a
-                        href="#"
-                        class="block px-4 py-2 text-sm hover:bg-gray-200 dark:hover:bg-meta-4"
-                      >
-                        Update available for download
-                        <span class="block text-xs text-gray-500">04 Jan, 2025</span>
-                      </a>
-                    </li>
+
+                  <!-- Notification List -->
+                  <ul class="max-h-56 overflow-y-auto divide-y divide-gray-200 dark:divide-gray-700">
+                    <?php 
+                    $sql = "SELECT * FROM announcement ORDER BY created_at DESC LIMIT 3";
+                    $query = mysqli_query($db, $sql);
+
+                    if(mysqli_num_rows($query) > 0) {
+                      while ($rows = mysqli_fetch_assoc($query)) {
+                        $announcement_title = $rows['title'];
+                        $posted_date = $rows['created_at']; 
+                    ?>
+                      <li>
+                        <a
+                          href="#"
+                          class="block px-4 py-3 transition-all hover:bg-gray-100 dark:hover:bg-gray-700"
+                        >
+                          <p class="text-sm font-medium text-gray-700 dark:text-gray-200">
+                            <?php echo htmlspecialchars($announcement_title); ?>
+                          </p>
+                          <span class="block text-xs text-gray-500 dark:text-gray-400">
+                            <?php echo date('d M, Y', strtotime($posted_date)); ?>
+                          </span>
+                        </a>
+                      </li>
+                    <?php
+                      }
+                    } else { ?>
+                      <li class="px-4 py-3 text-sm text-gray-500 dark:text-gray-400">
+                        No new notifications.
+                      </li>
+                    <?php } ?>
                   </ul>
                 </div>
-              </div>
 
+              </div>
               <!-- Profile Dropdown -->
               <div x-data="{ isOpen: false }" class="relative">
                 <button
@@ -418,24 +427,24 @@
                 <div
                   x-show="isOpen"
                   @click.outside="isOpen = false"
-                  class="absolute right-0 mt-2 w-48 rounded-lg border border-gray-300 bg-white shadow-lg dark:border-strokedark dark:bg-boxdark"
+                  class="absolute right-0 mt-2 w-48 rounded-xl border border-gray-400 dark:border-gray-700 bg-white shadow-lg dark:bg-gray-800"
                   x-transition
                   >
                   <a
                     href="../index.php"
-                    class="block px-4 py-2 text-sm hover:bg-gray-200 dark:hover:bg-meta-4"
+                    class="block mx-2 px-2 my-1 py-1 rounded-lg text-sm dark:text-gray-200 hover:bg-gray-200 dark:hover:bg-gray-700"
                   >
                     Home
                   </a>
                   <a
                     href="../alumni/alumni_settings.php"
-                    class="block px-4 py-2 text-sm hover:bg-gray-200 dark:hover:bg-meta-4"
+                    class="block mx-2 px-2 my-1 py-1 rounded-lg text-sm dark:text-gray-200 hover:bg-gray-200 dark:hover:bg-gray-700"
                   >
                     Settings
                   </a>
                   <a
                     href="../logout.php"
-                    class="block px-4 py-2 text-sm hover:bg-gray-200 dark:hover:bg-meta-4"
+                    class="block mx-2 px-2 my-1 py-1 rounded-lg text-sm dark:text-gray-200 hover:bg-gray-200 dark:hover:bg-gray-700"
                   >
                     Sign Out
                   </a>

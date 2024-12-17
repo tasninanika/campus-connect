@@ -583,9 +583,9 @@
               <nav>
                 <ol class="flex items-center gap-2">
                   <li>
-                    <a class="font-medium" href="index.html">Dashboard /</a>
+                    <a class="font-medium dark:text-white" href="index.html">Dashboard /</a>
                   </li>
-                  <li class="font-medium text-primary">Settings</li>
+                  <li class="font-medium dark:text-white">Settings</li>
                 </ol>
               </nav>
             </div>
@@ -607,12 +607,12 @@
 							?>
                 <div class="col-span-5 xl:col-span-3">
                   <div
-                    class="rounded-sm border border-stroke bg-white shadow-default dark:border-strokedark dark:bg-boxdark"
+                    class="rounded-sm border border-stroke bg-white shadow-default dark:border-gray-700 dark:bg-gray-800"
                   >
                     <div
-                      class="border-b border-stroke px-7 py-4 dark:border-strokedark"
+                      class="border-b border-gray-700 px-7 py-4 dark:border-strokedark"
                     >
-                      <h3 class="font-medium text-black dark:text-white">
+                      <h3 class="font-medium dark:text-white">
                         Personal Information
                       </h3>
                     </div>

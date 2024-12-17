@@ -583,9 +583,9 @@
               <nav>
                 <ol class="flex items-center gap-2">
                   <li>
-                    <a class="font-medium" href="index.html">Dashboard /</a>
+                    <a class="font-medium dark:text-white" href="index.html">Dashboard /</a>
                   </li>
-                  <li class="font-medium text-primary">Blog</li>
+                  <li class="font-medium dark:text-white">Blog</li>
                 </ol>
               </nav>
             </div>
@@ -596,10 +596,10 @@
               <div class="grid grid-cols-1 gap-9">
                 <!-- Input Fields -->
                 <div
-                  class="rounded-sm border border-stroke bg-white shadow-default dark:border-strokedark dark:bg-boxdark"
+                  class="rounded-sm border border-stroke bg-white shadow-default dark:border-gray-700 dark:bg-gray-800"
                 >
                   <div
-                    class="border-b border-stroke px-4 py-4 dark:border-strokedark"
+                    class="border-b border-stroke px-4 py-4 dark:border-gray-700"
                   >
                     <h3 class="font-medium text-black dark:text-white">
                       Blog
@@ -661,7 +661,7 @@
                             rows="6"
                             name="description"
                               id="description"
-                            class="w-full rounded-lg border-[1.5px] border-stroke bg-transparent px-5 py-3 font-normal text-black outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary"
+                            class="w-full rounded-lg border-[1.5px] border-stroke bg-transparent px-5 py-3 font-normal text-black outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-gray-700 dark:bg-form-input dark:text-white dark:focus:border-primary"
                             ></textarea>
                             </div>
                         </div>

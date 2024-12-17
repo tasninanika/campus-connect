@@ -234,7 +234,7 @@
             <!-- Others Group -->
       <div>
         <h3 class="mb-4 ml-7 mt-6 text-base font-medium text-slate-400">OTHERS</h3>
-            <a href="alumni_profile.php" class="flex items-center text-white gap-2.5 py-2 px-3 ml-4 mr-4 my-1 active-nav-link">
+            <a href="alumni_profile.php" class="flex items-center text-white gap-2.5 py-2 px-3 ml-4 mr-4 my-1 nav-item">
                 <svg
                     class="fill-current"
                     width="18"
@@ -255,7 +255,7 @@
                 Profile
             </a>
             <details class="group">
-                <summary class="flex items-center text-white py-2 px-3 ml-4 mr-4 my-1 nav-item cursor-pointer">
+                <summary class="flex items-center text-white py-2 px-3 ml-4 mr-4 my-1 active-nav-link cursor-pointer">
                     <i class="fas fa-align-left mr-3"></i>
                     Pages 
                     <svg
@@ -583,9 +583,9 @@
               <nav>
                 <ol class="flex items-center gap-2">
                   <li>
-                    <a class="font-medium" href="index.html">Dashboard /</a>
+                    <a class="font-medium dark:text-white" href="index.html">Dashboard /</a>
                   </li>
-                  <li class="font-medium text-primary">Settings</li>
+                  <li class="font-medium dark:text-white">Settings</li>
                 </ol>
               </nav>
             </div>
@@ -594,10 +594,10 @@
              <div class="grid grid-cols-5 gap-8">
 						<div class="col-span-5 xl:col-span-3">
                   <div
-                    class="rounded-sm border border-stroke bg-white shadow-default dark:border-strokedark dark:bg-boxdark"
+                    class="rounded-sm border border-stroke bg-white shadow-default dark:border-gray-700 dark:bg-gray-800"
                   >
                     <div
-                      class="border-b border-stroke px-7 py-4 dark:border-strokedark"
+                      class="border-b border-stroke px-7 py-4 dark:border-gray-700"
                     >
                       <h3 class="font-medium text-black dark:text-white">
                         Change Password
@@ -689,7 +689,7 @@
                               >Current Password</label
                             >
                               <input
-                                class="w-full rounded-lg border border-stroke bg-gray py-2 pl-4 pr-4.5 font-medium text-black focus:border-gray-800 focus-visible:outline-none dark:border-strokedark dark:bg-meta-4 dark:text-white dark:focus:border-primary"
+                                class="w-full rounded-lg border border-stroke bg-gray py-2 pl-4 pr-4.5 font-medium text-black focus:border-gray-800 focus-visible:outline-none dark:border-gray-700 dark:bg-gray-500 dark:text-white dark:focus:border-primary"
                                 type="password" name="current"  required id="inputPassword" 
                                 />                                                       
                           </div>                        

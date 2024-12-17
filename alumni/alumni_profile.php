@@ -581,9 +581,9 @@
                 <nav>
                   <ol class="flex items-center gap-2">
                     <li>
-                      <a class="font-medium" href="user_dashboard.php">Dashboard /</a>
+                      <a class="font-medium dark:text-white" href="user_dashboard.php">Dashboard /</a>
                     </li>
-                    <li class="text-[#0E675C]">Profile</li>
+                    <li class="dark:text-white">Profile</li>
                   </ol>
                 </nav>
               </div>
@@ -591,7 +591,7 @@
 
               <!-- ====== Profile Section Start -->
               <div
-                class="overflow-hidden rounded-sm border border-stroke bg-white shadow-default dark:border-strokedark dark:bg-boxdark"
+                class="overflow-hidden rounded-sm border border-stroke bg-white shadow-default dark:border-gray-700 dark:bg-gray-800"
                 >
                 <div class="relative z-1 h-72 md:h-65">
                   <img
@@ -685,13 +685,13 @@
                       class="mb-1.5 text-3xl font-bold text-gray-800 dark:text-white"
                     > <?php echo $row['first_Name'];?> <?php echo $row['last_Name'];?>
                     </h3>
-                    <p class="font-medium">ID: <?php echo $row['class_id'];?></p>
-                    <p class="font-medium">Batch: <?php echo $row['batch'];?></p>
-                    <p class="font-medium">Department: <?php echo $row['department'];?></p>
-                    <p class="font-medium">Email: <?php echo $_SESSION['email'];?></p>
-                    <p class="font-medium">Contact No: <?php echo $row['contact_number'];?></p>
-                    <p class="font-medium">City: <?php echo $row['city'];?></p>
-                    <p class="font-medium">Address: <?php echo $row['full_address'];?></p>
+                    <p class="font-medium dark:text-white">ID: <?php echo $row['class_id'];?></p>
+                    <p class="font-medium dark:text-white">Batch: <?php echo $row['batch'];?></p>
+                    <p class="font-medium dark:text-white">Department: <?php echo $row['department'];?></p>
+                    <p class="font-medium dark:text-white">Email: <?php echo $_SESSION['email'];?></p>
+                    <p class="font-medium dark:text-white">Contact No: <?php echo $row['contact_number'];?></p>
+                    <p class="font-medium dark:text-white">City: <?php echo $row['city'];?></p>
+                    <p class="font-medium dark:text-white">Address: <?php echo $row['full_address'];?></p>
                       <?php
 							}
 						?>

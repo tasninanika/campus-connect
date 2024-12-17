@@ -583,16 +583,16 @@
               <nav>
                 <ol class="flex items-center gap-2">
                   <li>
-                    <a class="font-medium" href="index.html">Dashboard /</a>
+                    <a class="font-medium dark:text-white" href="index.html">Dashboard /</a>
                   </li>
-                  <li class="font-medium text-primary">Announcement</li>
+                  <li class="font-medium dark:text-white">Announcement</li>
                 </ol>
               </nav>
             </div>
             <!-- Breadcrumb End -->
 
             <!-- ====== announcement Section Start -->
-            <h3 class="text-2xl text-gray-700 font-bold mb-6 ml-3">Latest Announcement</h3>
+            <h3 class="text-2xl text-gray-700 font-bold mb-6 ml-3 dark:text-white">Latest Announcement</h3>
             <?php 
                 $sql = "SELECT * FROM announcement";
                 $query = mysqli_query($db, $sql);
@@ -611,12 +611,12 @@
                                 <path fill="currentColor" d="M0 464c0 26.5 21.5 48 48 48h352c26.5 0 48-21.5 48-48V192H0v272zm64-192c0-8.8 7.2-16 16-16h288c8.8 0 16 7.2 16 16v64c0 8.8-7.2 16-16 16H80c-8.8 0-16-7.2-16-16v-64zM400 64h-48V16c0-8.8-7.2-16-16-16h-32c-8.8 0-16 7.2-16 16v48H160V16c0-8.8-7.2-16-16-16h-32c-8.8 0-16 7.2-16 16v48H48C21.5 64 0 85.5 0 112v48h448v-48c0-26.5-21.5-48-48-48z"></path>
                                 </svg>
                             </div>
-                            <div class="block p-6 rounded-lg shadow-lg bg-gray-100 max-w-screen ml-6 mb-10">
+                            <div class="block p-6 rounded-lg shadow-lg bg-gray-100 max-w-screen ml-6 mb-10 dark:bg-gray-800">
                                 <div class="flex justify-between mb-4">
                                 <h3 class="font-medium text-purple-600 hover:text-purple-700 focus:text-purple-800 duration-300 transition ease-in-out text-sm"><?php echo $announcement_title; ?></h3>
-                                <h3 class="font-medium text-purple-600 hover:text-purple-700 focus:text-purple-800 duration-300 transition ease-in-out text-sm"><?php echo $posted_date; ?></h3>
+                                <h3 class="font-medium text-purple-600 hover:text-purple-700 focus:text-purple-800 duration-300 transition ease-in-out text-sm dark:text-white"><?php echo $posted_date; ?></h3>
                                 </div>
-                                <p class="text-gray-700 mb-6"><?php echo $content; ?></p>
+                                <p class="text-gray-700 mb-6 dark:text-white"><?php echo $content; ?></p>
                             </div>
                             </div>
                         </li>

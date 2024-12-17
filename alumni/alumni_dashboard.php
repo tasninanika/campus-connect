@@ -797,8 +797,8 @@
                                     <div class="self-center">
                                       <h3 class="font-medium text-gray-800 hover:text-gray-900 dark:text-gray-50 dark:hover:text-gray-100" style="outline: none;"><?php echo $row["title"]; ?></h3> 
                                       <p class="line-clamp-2"><?php echo $row["content"]; ?></p>
-                                      <?php if (!empty($row["file_path"])) { ?>
-                                          <a href="download.php?file=<?php echo urlencode(basename($row["file_path"])); ?>" class="text-blue-500 hover:text-blue-600 dark:text-blue-400 dark:hover:text-blue-500">
+                                      <?php if (!empty($row["file"])) { ?>
+                                          <a href="download.php?file=<?php echo urlencode(basename($row["file"])); ?>" class="text-blue-500 hover:text-blue-600 dark:text-blue-400 dark:hover:text-blue-500">
                                               Download File
                                           </a>
                                       <?php } ?>

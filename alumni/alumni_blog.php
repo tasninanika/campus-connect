@@ -276,7 +276,7 @@
                 See Announcement 
             </a> 
             <details class="group relative">
-              <summary class="flex items-center justify-between text-white py-2 px-4 mx-4 my-2 active-nav-link cursor-pointer">
+              <summary class="flex items-center justify-between text-white py-2 px-4 mx-4 my-2 nav-item cursor-pointer">
                 <i class="fas fa-align-left mr-3"></i>
                 <span class="flex-1">Resources</span>
                 <svg

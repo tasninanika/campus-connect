@@ -207,7 +207,34 @@
                 </svg>
                 Dashboard
             </a>
-            
+            <details class="group relative dropdown">
+              <summary class="flex items-center text-white py-2 px-3 ml-4 mr-4 my-1 nav-item cursor-pointer">
+                <i class="fas fa-align-left mr-3"></i>
+                Job
+                <svg
+                  class="ml-auto fill-current transition-transform group-open:rotate-180"
+                  width="20"
+                  height="20"
+                  viewBox="0 0 20 20"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    fill-rule="evenodd"
+                    clip-rule="evenodd"
+                    d="M4.41107 6.9107C4.73651 6.58527 5.26414 6.58527 5.58958 6.9107L10.0003 11.3214L14.4111 6.91071C14.7365 6.58527 15.2641 6.58527 15.5896 6.91071C15.915 7.23614 15.915 7.76378 15.5896 8.08922L10.5896 13.0892C10.2641 13.4147 9.73651 13.4147 9.41107 13.0892L4.41107 8.08922C4.08563 7.76378 4.08563 7.23614 4.41107 6.9107Z"
+                    fill="currentColor"
+                  />
+                </svg>
+              </summary>
+              <ul class="bg-gray-800 mt-2 pl-12 hidden group-open:block">
+                <li>
+                  <a href="alumni_settings.php" class="text-white opacity-75 hover:opacity-100 py-2 block">Write Post</a>
+                </li>
+                <li>
+                  <a href="alumni_changePass.php" class="text-white opacity-75 hover:opacity-100 py-2 block">Posted Job</a>
+                </li>
+              </ul>
+            </details>
             <a href="alumni_job.php" class="flex items-center text-white py-2 px-3 ml-4 mr-4 my-1 nav-item">
                 <i class="fas fa-solid fa-question mr-3"></i>    
                 Post Job 
@@ -247,35 +274,37 @@
                 </svg>
                 Profile
             </a>
-            <details class="group">
-                <summary class="flex items-center text-white py-2 px-3 ml-4 mr-4 my-1 nav-item cursor-pointer">
-                    <i class="fas fa-align-left mr-3"></i>
-                    Pages 
-                    <svg
-                        class="absolute right-4 bottom-[298px] -translate-y-1/2 fill-current group-open:rotate-180"
-                        width="20"
-                        height="20"
-                        viewBox="0 0 20 20"
-                        fill="none"
-                        xmlns="http://www.w3.org/2000/svg"
-                        >
-                        <path
-                            fill-rule="evenodd"
-                            clip-rule="evenodd"
-                            d="M4.41107 6.9107C4.73651 6.58527 5.26414 6.58527 5.58958 6.9107L10.0003 11.3214L14.4111 6.91071C14.7365 6.58527 15.2641 6.58527 15.5896 6.91071C15.915 7.23614 15.915 7.76378 15.5896 8.08922L10.5896 13.0892C10.2641 13.4147 9.73651 13.4147 9.41107 13.0892L4.41107 8.08922C4.08563 7.76378 4.08563 7.23614 4.41107 6.9107Z"
-                            fill=""
-                        />
-                    </svg>
-                    
-                </summary>
-                <ul class="bg-gray-800 mt-2 pl-12">
-                    <li><a href="alumni_settings.php" class="text-white opacity-75 hover:opacity-100 py-2 block">Edit Profile</a></li>
-                    <li><a href="alumni_changePass.php" class="text-white opacity-75 hover:opacity-100 py-2 block">Change Password</a></li>
-                    <!-- Add more items as needed -->
-                </ul>
+            <details class="group relative dropdown">
+              <summary class="flex items-center text-white py-2 px-3 ml-4 mr-4 my-1 nav-item cursor-pointer">
+                <i class="fas fa-align-left mr-3"></i>
+                Pages
+                <svg
+                  class="ml-auto fill-current transition-transform group-open:rotate-180"
+                  width="20"
+                  height="20"
+                  viewBox="0 0 20 20"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    fill-rule="evenodd"
+                    clip-rule="evenodd"
+                    d="M4.41107 6.9107C4.73651 6.58527 5.26414 6.58527 5.58958 6.9107L10.0003 11.3214L14.4111 6.91071C14.7365 6.58527 15.2641 6.58527 15.5896 6.91071C15.915 7.23614 15.915 7.76378 15.5896 8.08922L10.5896 13.0892C10.2641 13.4147 9.73651 13.4147 9.41107 13.0892L4.41107 8.08922C4.08563 7.76378 4.08563 7.23614 4.41107 6.9107Z"
+                    fill="currentColor"
+                  />
+                </svg>
+              </summary>
+              <ul class="bg-gray-800 mt-2 pl-12 hidden group-open:block">
+                <li>
+                  <a href="alumni_settings.php" class="text-white opacity-75 hover:opacity-100 py-2 block">Edit Profile</a>
+                </li>
+                <li>
+                  <a href="alumni_changePass.php" class="text-white opacity-75 hover:opacity-100 py-2 block">Change Password</a>
+                </li>
+                <!-- Add more items as needed -->
+              </ul>
             </details>
       </div>
-        </nav>       
+      </nav>       
     </aside> 
 
     <div class="w-full flex flex-col h-screen overflow-y-auto overflow-x-hidden dark:bg-gray-900">
@@ -837,7 +866,7 @@
     <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script>
     <!-- Font Awesome -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/js/all.min.js" integrity="sha256-KzZiKy0DWYsnwMF+X1DvQngQ2/FxF7MF3Ff72XcpuPs=" crossorigin="anonymous"></script>
-    <script>
+  <script>
     const setup = () => {
       const getTheme = () => {
         if (window.localStorage.getItem('dark')) {
@@ -860,7 +889,24 @@
       }
     }
   </script>
-  
+  <!-- dropdown -->
+  <script>
+  // Select all <details> elements
+  const dropdowns = document.querySelectorAll('.dropdown');
+
+  dropdowns.forEach((dropdown) => {
+    dropdown.addEventListener('toggle', (event) => {
+      if (dropdown.open) {
+        // Close all other dropdowns
+        dropdowns.forEach((otherDropdown) => {
+          if (otherDropdown !== dropdown && otherDropdown.open) {
+            otherDropdown.open = false;
+          }
+        });
+      }
+    });
+  });
+</script>
 
 </body>
 </html>

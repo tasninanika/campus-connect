@@ -296,7 +296,7 @@
               </summary>
               <ul class="bg-gray-800 mt-2 pl-12 hidden group-open:block">
                 <li>
-                  <a href="alumni_resources.php" class="text-white opacity-75 hover:opacity-100 py-2 block">Share resources</a>
+                  <a href="alumni_resource.php" class="text-white opacity-75 hover:opacity-100 py-2 block">Share resources</a>
                 </li>
                 <li>
                   <a href="posted_resources.php" class="text-white opacity-75 hover:opacity-100 py-2 block">Posted resources</a>

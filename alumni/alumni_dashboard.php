@@ -228,17 +228,17 @@
               </summary>
               <ul class="bg-gray-800 mt-2 pl-12 hidden group-open:block">
                 <li>
-                  <a href="alumni_settings.php" class="text-white opacity-75 hover:opacity-100 py-2 block">Write Post</a>
+                  <a href="alumni_job.php" class="text-white opacity-75 hover:opacity-100 py-2 block">Write Post</a>
                 </li>
                 <li>
-                  <a href="alumni_changePass.php" class="text-white opacity-75 hover:opacity-100 py-2 block">Posted Job</a>
+                  <a href="posted_job.php" class="text-white opacity-75 hover:opacity-100 py-2 block">Posted Job</a>
                 </li>
               </ul>
             </details>
             <details class="group relative">
               <summary class="flex items-center justify-between text-white py-2 px-4 mx-4 my-2 nav-item cursor-pointer">
                 <i class="fas fa-align-left mr-3"></i>
-                <span class="flex-1">Job</span>
+                <span class="flex-1">Blogs</span>
                 <svg
                   class="ml-auto fill-current transition-transform group-open:rotate-180"
                   width="20"
@@ -256,22 +256,13 @@
               </summary>
               <ul class="bg-gray-800 mt-2 pl-12 hidden group-open:block">
                 <li>
-                  <a href="alumni_settings.php" class="text-white opacity-75 hover:opacity-100 py-2 block">Write Post</a>
+                  <a href="alumni_blog.php" class="text-white opacity-75 hover:opacity-100 py-2 block">Write blogs</a>
                 </li>
                 <li>
-                  <a href="alumni_changePass.php" class="text-white opacity-75 hover:opacity-100 py-2 block">Posted Job</a>
+                  <a href="posted_blogs.php" class="text-white opacity-75 hover:opacity-100 py-2 block">Posted blogs</a>
                 </li>
               </ul>
             </details>
-
-            <a href="alumni_job.php" class="flex items-center text-white py-2 px-3 ml-4 mr-4 my-1 nav-item">
-                <i class="fas fa-solid fa-question mr-3"></i>    
-                Post Job 
-            </a> 
-            <a href="alumni_blog.php" class="flex items-center text-white  py-2 px-3 ml-4 mr-4 my-1 nav-item">
-                <i class="fas fa-solid fa-question mr-3"></i>    
-                Post Blog 
-            </a> 
             <a href="alumni_announcement.php" class="flex items-center text-white py-2 px-3 ml-4 mr-4 my-1 nav-item">
                 <i class="fas fa-solid fa-question mr-3"></i>    
                 See Announcement 

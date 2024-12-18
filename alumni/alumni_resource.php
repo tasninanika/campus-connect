@@ -273,7 +273,7 @@
             </details> 
             <a href="alumni_announcement.php" class="flex items-center text-white py-2 px-3 ml-4 mr-4 my-1 nav-item">
                 <i class="fas fa-solid fa-question mr-3"></i>    
-                See Announcement 
+                Announcement 
             </a> 
             <details class="group relative">
               <summary class="flex items-center justify-between text-white py-2 px-4 mx-4 my-2 active-nav-link cursor-pointer">

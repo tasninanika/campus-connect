@@ -273,7 +273,7 @@
             </details> 
             <a href="alumni_announcement.php" class="flex items-center text-white py-2 px-3 ml-4 mr-4 my-1 nav-item">
                 <i class="fas fa-solid fa-question mr-3"></i>    
-                See Announcement 
+                Announcement 
             </a> 
             <details class="group relative">
               <summary class="flex items-center justify-between text-white py-2 px-4 mx-4 my-2 nav-item cursor-pointer">
@@ -296,7 +296,7 @@
               </summary>
               <ul class="bg-gray-800 mt-2 pl-12 hidden group-open:block">
                 <li>
-                  <a href="alumni_resources.php" class="text-white opacity-75 hover:opacity-100 py-2 block">Share resources</a>
+                  <a href="alumni_resource.php" class="text-white opacity-75 hover:opacity-100 py-2 block">Share resources</a>
                 </li>
                 <li>
                   <a href="posted_resources.php" class="text-white opacity-75 hover:opacity-100 py-2 block">Posted resources</a>

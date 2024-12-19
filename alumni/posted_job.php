@@ -650,7 +650,7 @@
               class="mb-6 flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between"
             >
               <h2 class="text-title-md2 font-bold text-black dark:text-white">
-                Job
+                My posts
               </h2>
 
               <nav>
@@ -695,13 +695,10 @@
                                 </div>
                                 </div>
                                 <!-- Date (bottom right corner) -->
-                                <span class="absolute bottom-4 right-4 text-sm">                                      <?php echo date('d M, Y', strtotime($created_at)); ?>
+                                <span class="absolute bottom-4 right-4 text-sm">                        <?php echo date('d M, Y', strtotime($created_at)); ?>
                                 </span>
                             </div>
                             </div>
-
-
-
                         <?php
                 }
                 }?>

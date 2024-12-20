@@ -648,11 +648,10 @@
             <!-- Breadcrumb Start -->
             <div
               class="mb-6 flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between"
-            >
+              >
               <h2 class="text-title-md2 font-bold text-black dark:text-white">
                 My posts
               </h2>
-
               <nav>
                 <ol class="flex items-center gap-2">
                   <li>
@@ -679,26 +678,30 @@
                     $location = $rows['location'];
                     $logo = $rows['logo'];
                     $created_at = $rows['created_at']; ?>
-                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-10">
                             <!-- Card 1 -->
-                            <div class=" border-2 border-gray-400 bg-slate-200 rounded-lg  p-4 relative">
+                            <div class="border-2 border-gray-400 bg-slate-200 rounded-lg p-4 relative">
                                 <!-- Card Content with Flexbox -->
                                 <div class="flex items-center space-x-4 flex-row-reverse">
-                                <!-- Image -->
-                                <img src="../upload/images/<?php echo $logo; ?>" alt="Logo" class="w-20 h-20 object-cover rounded-full -mt-20">
-                                <!-- Title and Details -->
-                                <div>
-                                    <h2 class="text-xl font-semibold text-black dark:text-white"><?php echo $job_title; ?></h2>
-                                    <p class=" mt-2 font-bold"><?php echo $company_name; ?></p>
-                                    <p class="text-gray-700 mt-2 text-base"><?php echo $location; ?></p>
-                                    <p class="text-gray-700 mt-2 text-base"><?php echo $experience; ?></p>
-                                </div>
+                                    <!-- Image -->
+                                    <img src="../upload/images/<?php echo $logo; ?>" alt="Logo" class="w-16 h-16 object-cover rounded-full -mt-20">
+                                    <!-- Title and Details -->
+                                    <div>
+                                        <h2 class="text-xl font-semibold text-black dark:text-white leading-tight break-words">
+                                            <?php echo $job_title; ?>
+                                        </h2>
+                                        <p class="mt-2 font-bold"><?php echo $company_name; ?></p>
+                                        <p class="text-gray-700 mt-2 text-base"><?php echo $location; ?></p>
+                                        <p class="text-gray-700 mt-2 text-base"><?php echo $experience; ?></p>
+                                    </div>
                                 </div>
                                 <!-- Date (bottom right corner) -->
-                                <span class="absolute bottom-4 right-4 text-sm">                        <?php echo date('d M, Y', strtotime($created_at)); ?>
+                                <span class="absolute bottom-4 right-4 text-sm">
+                                    <?php echo date('d M, Y', strtotime($created_at)); ?>
                                 </span>
                             </div>
-                            </div>
+                        </div>
+
                         <?php
                 }
                 }?>

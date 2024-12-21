@@ -759,6 +759,7 @@
                                                               type="text"
                                                               name="title"
                                                               id="title"
+                                                              value="<?php echo $job_title; ?>"
                                                             />                                                     
                                                         </div>
                                                         <!-- 2nd -->

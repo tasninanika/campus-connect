@@ -712,10 +712,26 @@
                                       </div>
                                     </div>
                                 </div>
-                                <!-- Date (bottom right corner) -->
-                                <span class="absolute bottom-4 right-4 text-sm dark:text-white flex items-center space-x-2 gap-2">
-                                <svg xmlns="http://www.w3.org/2000/svg" height="14" width="12.25" viewBox="0 0 448 512"><!--!Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--><path fill="#82878c" d="M128 0c17.7 0 32 14.3 32 32l0 32 128 0 0-32c0-17.7 14.3-32 32-32s32 14.3 32 32l0 32 48 0c26.5 0 48 21.5 48 48l0 48L0 160l0-48C0 85.5 21.5 64 48 64l48 0 0-32c0-17.7 14.3-32 32-32zM0 192l448 0 0 272c0 26.5-21.5 48-48 48L48 512c-26.5 0-48-21.5-48-48L0 192zm80 64c-8.8 0-16 7.2-16 16l0 96c0 8.8 7.2 16 16 16l96 0c8.8 0 16-7.2 16-16l0-96c0-8.8-7.2-16-16-16l-96 0z"/></svg><?php echo date('d M, Y', strtotime($created_at)); ?>
-                                </span>
+                                <div class="absolute bottom-4 right-4 text-sm dark:text-white flex flex-col items-end gap-2">
+  <!-- Date -->
+  <span class="flex items-center space-x-2 gap-2">
+    <svg xmlns="http://www.w3.org/2000/svg" height="14" width="12.25" viewBox="0 0 448 512">
+      <path fill="#82878c" d="M128 0c17.7 0 32 14.3 32 32l0 32 128 0 0-32c0-17.7 14.3-32 32-32s32 14.3 32 32l0 32 48 0c26.5 0 48 21.5 48 48l0 48L0 160l0-48C0 85.5 21.5 64 48 64l48 0 0-32c0-17.7 14.3-32 32-32zM0 192l448 0 0 272c0 26.5-21.5 48-48 48L48 512c-26.5 0-48-21.5-48-48L0 192zm80 64c-8.8 0-16 7.2-16 16l0 96c0 8.8 7.2 16 16 16l96 0c8.8 0 16-7.2 16-16l0-96c0-8.8-7.2-16-16-16l-96 0z" />
+    </svg>
+    <?php echo date('d M, Y', strtotime($created_at)); ?>
+  </span>
+
+  <!-- Buttons -->
+  <div class="flex gap-2">
+    <button class="px-4 py-1 text-sm font-medium text-white bg-blue-500 hover:bg-blue-600 rounded-md">
+      Edit
+    </button>
+    <button class="px-4 py-1 text-sm font-medium text-white bg-red-500 hover:bg-red-600 rounded-md">
+      Delete
+    </button>
+  </div>
+</div>
+
                             </div>
                         </div>
 

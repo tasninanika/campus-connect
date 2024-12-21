@@ -732,8 +732,262 @@
                                           <!-- modal -->
                                           <dialog id="my_modal_2" class="modal">
                                             <div class="modal-box">
-                                              <h3 class="text-lg font-bold">Hello!</h3>
-                                              <p class="py-4">Press ESC key or click outside to close</p>
+                                            <div class="grid grid-cols-1 gap-9">
+                                              <div class="grid grid-cols-1 gap-9">
+                                                <!-- Input Fields -->
+                                                <div
+                                                  class="rounded-sm border border-stroke bg-white shadow-default dark:border-gray-700 dark:bg-gray-800"
+                                                  >
+                                                  <div
+                                                    class="border-b border-stroke px-4 py-4 dark:border-gray-700"
+                                                    >
+                                                    <h3 class="font-medium text-black dark:text-white">
+                                                      Job Information
+                                                    </h3>
+                                                  </div>
+                                                  <div class="p-5">
+                                                  <form action="post_job.php" method="POST" enctype="multipart/form-data">
+                                                        <!-- first -->
+                                                        <div class="mb-6">
+                                                          <label
+                                                            class="mb-3 block text-sm font-medium text-black dark:text-white"
+                                                            for=""
+                                                            >Title</label
+                                                          >
+                                                          <input
+                                                              class="w-full rounded-lg border border-stroke bg-gray px-5 pl-4 py-2 font-medium text-black focus:border-gray-800 focus-visible:outline-none dark:border-strokedark dark:bg-meta-4 dark:text-white dark:focus:border-primary" required
+                                                              type="text"
+                                                              name="title"
+                                                              id="title"
+                                                            />                                                     
+                                                        </div>
+                                                        <!-- 2nd -->
+                                                        <div class="mb-6 flex flex-col gap-5 sm:flex-row">
+                                                          <div class="w-full sm:w-1/2">
+                                                            <label
+                                                              class="mb-3 block text-sm font-medium text-black dark:text-white"
+                                                              for="fname"
+                                                              >Type</label
+                                                            >
+                                                            <div class="relative">
+                                                              <input
+                                                                class="w-full rounded-lg border border-stroke bg-gray py-2 pl-4 pr-4.5 font-medium text-black focus:border-gray-800 focus-visible:outline-none dark:border-strokedark dark:bg-meta-4 dark:text-white dark:focus:border-primary" required
+                                                                type="text"
+                                                                name="type"
+                                                                id="type"
+                                                                />                             
+                                                            </div>
+                                                          </div>
+                                                          <!-- type -->
+                                                          <div class="w-full sm:w-1/2">
+                                                            <label
+                                                              class="mb-3 block text-sm font-medium text-black dark:text-white"
+                                                              for="lname"
+                                                              >Category</label
+                                                            >
+                                                              <input
+                                                                class="w-full rounded-lg border border-stroke bg-gray py-2 pl-4 pr-4.5 font-medium text-black focus:border-gray-800 focus-visible:outline-none dark:border-strokedark dark:bg-meta-4 dark:text-white dark:focus:border-primary"
+                                                                type="text"
+                                                                name="category"
+                                                                id="category"                            
+                                                              />                          
+                                                            
+                                                          </div>
+                                                        </div>
+                                                        <!-- 3rd -->
+                                                        <div class="mb-6 flex flex-col gap-5 sm:flex-row">
+                                                          <div class="w-full sm:w-1/2">
+                                                            <label
+                                                              class="mb-3 block text-sm font-medium text-black dark:text-white"
+                                                              for="fname"
+                                                              >Department</label
+                                                            >
+                                                            <div class="relative">
+                                                              <input
+                                                                class="w-full rounded-lg border border-stroke bg-gray py-2 pl-4 pr-4.5 font-medium text-black focus:border-gray-800 focus-visible:outline-none dark:border-strokedark dark:bg-meta-4 dark:text-white dark:focus:border-primary" required
+                                                                type="text"
+                                                                name="department"
+                                                                id="department"
+                                                                />                             
+                                                            </div>
+                                                          </div>
+                                                          <!-- department -->
+                                                          <div class="w-full sm:w-1/2">
+                                                            <label
+                                                              class="mb-3 block text-sm font-medium text-black dark:text-white"
+                                                              for="lname"
+                                                              >Experience</label
+                                                            >
+                                                              <input
+                                                                class="w-full rounded-lg border border-stroke bg-gray py-2 pl-4 pr-4.5 font-medium text-black focus:border-gray-800 focus-visible:outline-none dark:border-strokedark dark:bg-meta-4 dark:text-white dark:focus:border-primary"
+                                                                type="text"
+                                                                name="experience"
+                                                                id="experience"
+                                                                placeholder="" 
+                                                                value=""                               
+                                                              />                          
+                                                            
+                                                          </div>
+                                                        </div>
+                                                        <!-- 4th -->
+                                                        <div class="mb-6 flex flex-col gap-5 sm:flex-row">
+                                                          <div class="w-full sm:w-1/2">
+                                                            <label
+                                                              class="mb-3 block text-sm font-medium text-black dark:text-white"
+                                                              for="fname"
+                                                              >Qualifications</label
+                                                            >
+                                                            <div class="relative">
+                                                              <input
+                                                                class="w-full rounded-lg border border-stroke bg-gray py-2 pl-4 pr-4.5 font-medium text-black focus:border-gray-800 focus-visible:outline-none dark:border-strokedark dark:bg-meta-4 dark:text-white dark:focus:border-primary" required
+                                                                type="text"
+                                                                name="qualification"
+                                                                id="qualification"
+                                                                />                             
+                                                            </div>
+                                                          </div>
+                                                          <!-- quali -->
+                                                          <div class="w-full sm:w-1/2">
+                                                            <label
+                                                              class="mb-3 block text-sm font-medium text-black dark:text-white"
+                                                              for="lname"
+                                                              >Salary</label
+                                                            >
+                                                              <input
+                                                                class="w-full rounded-lg border border-stroke bg-gray py-2 pl-4 pr-4.5 font-medium text-black focus:border-gray-800 focus-visible:outline-none dark:border-strokedark dark:bg-meta-4 dark:text-white dark:focus:border-primary"
+                                                                type="text"
+                                                                name="salary"
+                                                                id="salary"
+                                                              />                          
+                                                            
+                                                          </div>
+                                                        </div>
+                                                        <!-- Description -->
+                                                        <div class="mb-6 flex flex-col gap-5 sm:flex-row">
+                                                            <div class="w-full">
+                                                            <label
+                                                            class="mb-3 block text-sm font-medium text-black dark:text-white"
+                                                            >
+                                                            Description
+                                                            </label>
+                                                            <textarea
+                                                            rows="6"
+                                                            name="description"
+                                                            id="description"
+                                                            placeholder=""
+                                                            class="w-full rounded-lg border-[1.5px] border-stroke bg-transparent pl-4 px-5 py-3 font-normal text-black outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-gray-700 dark:bg-form-input dark:text-white dark:focus:border-primary" required
+                                                            ></textarea>
+                                                            <!-- <textarea id="editor"></textarea> -->
+                                                        </div>
+                                                      </div>
+                                                  </div>
+                                                </div>
+                                              </div>
+                                            <!-- 2nd form -->
+                                              <div class="flex flex-col gap-9">
+                                                <!-- Textarea Fields -->
+                                                <div
+                                                  class="rounded-sm border border-stroke bg-white shadow-default dark:border-gray-700 dark:bg-gray-800"
+                                                    >
+                                                  <div
+                                                    class="border-b border-stroke px-4 py-4 dark:border-gray-700"
+                                                    >
+                                                    <h3 class="font-medium text-black dark:text-white">
+                                                      Company Information
+                                                    </h3>
+                                                  </div>
+                                                    <div class="p-5">
+                                                        <!-- first -->
+                                                        <div class="mb-6">
+                                                          <label
+                                                            class="mb-3 block text-sm font-medium text-black dark:text-white"
+                                                            for="num"
+                                                            >Company Name</label
+                                                          >
+                                                          <input
+                                                              class="w-full rounded-lg border border-stroke bg-gray px-5 pl-4 py-2 font-medium text-black focus:border-gray-800 focus-visible:outline-none dark:border-strokedark dark:bg-meta-4 dark:text-white dark:focus:border-primary" required
+                                                              type="text"
+                                                              name="company_name"
+                                                              id="company_name"
+                                                            />                                                     
+                                                        </div>
+                                                        <!-- 2nd -->
+                                                        <div class="mb-6">
+                                                          <label
+                                                            class="mb-3 block text-sm font-medium text-black dark:text-white"
+                                                            for="num"
+                                                            >Location</label
+                                                          >
+                                                          <input
+                                                              class="w-full rounded-lg border border-stroke bg-gray px-5 pl-4 py-2 font-medium text-black focus:border-gray-800 focus-visible:outline-none dark:border-strokedark dark:bg-meta-4 dark:text-white dark:focus:border-primary" required
+                                                              type="text"
+                                                              name="location"
+                                                              id="location"
+                                                            />                                                     
+                                                        </div>
+                                                        <!-- 3rd -->
+                                                        <div class="mb-6">
+                                                          <label
+                                                            class="mb-3 block text-sm font-medium text-black dark:text-white"
+                                                            for="num"
+                                                            >Logo</label
+                                                          >
+                                                          <input
+                                                              class="w-full text-gray-400 font-semibold text-sm bg-white border file:cursor-pointer cursor-pointer file:border-0 file:py-3 file:px-4 file:mr-4 file:bg-gray-100 file:hover:bg-gray-200 file:text-gray-500 rounded" required
+                                                              type="file"
+                                                              name="fileToUpload"
+                                                              id="logo"
+                                                            />                                                     
+                                                        </div>
+                                                        <!-- 4th -->
+                                                        <div class="mb-6">
+                                                          <label
+                                                            class="mb-3 block text-sm font-medium text-black dark:text-white"
+                                                            for="num"
+                                                            >Job URL</label
+                                                          >
+                                                          <input
+                                                              class="w-full rounded-lg border border-stroke bg-gray px-5 pl-4 py-2 font-medium text-black focus:border-gray-800 focus-visible:outline-none dark:border-strokedark dark:bg-meta-4 dark:text-white dark:focus:border-primary" required
+                                                              type="text"
+                                                              name="apply_info"
+                                                              id="apply_info"
+                                                            />                                                     
+                                                        </div>
+                                                        <!-- Description -->
+                                                        <div class="mb-6 flex flex-col gap-5 sm:flex-row">
+                                                            <div class="w-full">
+                                                            <label
+                                                            class="mb-3 block text-sm font-medium text-black dark:text-white"
+                                                            >
+                                                            Description
+                                                            </label>
+                                                            <textarea
+                                                            rows="6"
+                                                            name="com_description"
+                                                            id="com_description"
+                                                            class="w-full rounded-lg border-[1.5px] border-stroke bg-transparent pl-4 px-5 py-3 font-normal text-black outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-gray-700 dark:bg-form-input dark:text-white dark:focus:border-primary" required
+                                                            ></textarea>
+                                                        </div>
+                                                        </div>
+                                                        <!-- button -->
+                                                        <div class="flex justify-end gap-4">
+                                                          <button
+                                                            class="flex justify-center rounded-lg border border-stroke px-6 py-2 font-medium text-black hover:shadow-1 dark:border-strokedark dark:text-white"
+                                                            type="submit"
+                                                          ><svg class="w-5 h-6 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+                                                            Cancel
+                                                          </button>
+                                                          <button
+                                                            class="flex justify-center rounded-lg bg-gradient-to-r from-[#0E675C] to-black px-8 py-2 font-medium text-white hover:bg-opacity-90"
+                                                            type="submit">
+                                                            Create
+                                                          </button>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                              </div>
+                                            </form>
+                                            </div>
                                             </div>
                                             <form method="dialog" class="modal-backdrop">
                                               <button>close</button>

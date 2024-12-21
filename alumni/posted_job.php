@@ -731,7 +731,7 @@
                                           </a>
                                           <!-- modal -->
                                           <dialog id="my_modal_2" class="modal">
-                                            <div class="modal-box">
+                                            <div class="modal-box  w-11/12 max-w-5xl">
                                             <div class="grid grid-cols-1 gap-9">
                                               <div class="grid grid-cols-1 gap-9">
                                                 <!-- Input Fields -->
@@ -980,7 +980,7 @@
                                                           <button
                                                             class="flex justify-center rounded-lg bg-gradient-to-r from-[#0E675C] to-black px-8 py-2 font-medium text-white hover:bg-opacity-90"
                                                             type="submit">
-                                                            Create
+                                                            Update
                                                           </button>
                                                         </div>
                                                     </div>

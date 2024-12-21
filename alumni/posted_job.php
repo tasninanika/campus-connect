@@ -678,51 +678,69 @@
                     $location = $rows['location'];
                     $logo = $rows['logo'];
                     $created_at = $rows['created_at']; ?>
-                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-10">
-                            <!-- Card 1 -->
-                            <div class="border-2 border-gray-400 bg-slate-200 rounded-lg p-4 relative dark:bg-gray-700">
-                                <!-- Card Content with Flexbox -->
-                                <div class="flex items-center space-x-4 flex-row-reverse">
-                                    <!-- Image -->
-                                    <img src="../upload/images/<?php echo $logo; ?>" alt="Logo" class="w-16 h-16 object-cover rounded-full -mt-20">
-                                    <!-- Title and Details -->
-                                    <div>
-                                        <h2 class="text-xl font-semibold text-blue-900 dark:text-white leading-tight break-words">
-                                            <?php echo $job_title; ?>
-                                        </h2>
-                                        <p class="mt-2 font-bold dark:text-white"><?php echo $company_name; ?></p>
-                                        <div class="text-gray-700 mt-2 text-base dark:text-white flex flex-col gap-2">
-                                        <!-- First Icon with Text -->
-                                        <div class="flex items-center gap-2">
-                                          <svg xmlns="http://www.w3.org/2000/svg" height="14" width="14" viewBox="0 0 384 512">
-                                            <!--!Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.-->
-                                            <path fill="#808285" d="M215.7 499.2C267 435 384 279.4 384 192C384 86 298 0 192 0S0 86 0 192c0 87.4 117 243 168.3 307.2c12.3 15.3 35.1 15.3 47.4 0zM192 128a64 64 0 1 1 0 128 64 64 0 1 1 0-128z" />
-                                          </svg>
-                                          <span><?php echo $location; ?></span>
-                                        </div>
-
-                                        <!-- Second Icon with Text -->
-                                        <div class="flex items-center gap-2">
-                                          <svg xmlns="http://www.w3.org/2000/svg" height="14" width="14" viewBox="0 0 576 512">
-                                            <!--!Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.-->
-                                            <path fill="#7c8083" d="M256 0l64 0c17.7 0 32 14.3 32 32l0 64c0 17.7-14.3 32-32 32l-64 0c-17.7 0-32-14.3-32-32l0-64c0-17.7 14.3-32 32-32zM64 64l128 0 0 48c0 26.5 21.5 48 48 48l96 0c26.5 0 48-21.5 48-48l0-48 128 0c35.3 0 64 28.7 64 64l0 320c0 35.3-28.7 64-64 64L64 512c-35.3 0-64-28.7-64-64L0 128C0 92.7 28.7 64 64 64zM176 437.3c0 5.9 4.8 10.7 10.7 10.7l202.7 0c5.9 0 10.7-4.8 10.7-10.7c0-29.5-23.9-53.3-53.3-53.3l-117.3 0c-29.5 0-53.3 23.9-53.3 53.3zM288 352a64 64 0 1 0 0-128 64 64 0 1 0 0 128z" />
-                                          </svg>
-                                          <span><?php echo $experience; ?></span>
-                                        </div>
-                                      </div>
-                                    </div>
-                                </div>
-                                <div class="absolute bottom-4 right-4 text-sm dark:text-white flex flex-col items-end gap-2">
-                                <!-- Date -->
-                                <span class="flex items-center space-x-2 gap-2">
-                                  <svg xmlns="http://www.w3.org/2000/svg" height="14" width="12.25" viewBox="0 0 448 512">
-                                    <path fill="#82878c" d="M128 0c17.7 0 32 14.3 32 32l0 32 128 0 0-32c0-17.7 14.3-32 32-32s32 14.3 32 32l0 32 48 0c26.5 0 48 21.5 48 48l0 48L0 160l0-48C0 85.5 21.5 64 48 64l48 0 0-32c0-17.7 14.3-32 32-32zM0 192l448 0 0 272c0 26.5-21.5 48-48 48L48 512c-26.5 0-48-21.5-48-48L0 192zm80 64c-8.8 0-16 7.2-16 16l0 96c0 8.8 7.2 16 16 16l96 0c8.8 0 16-7.2 16-16l0-96c0-8.8-7.2-16-16-16l-96 0z" />
-                                  </svg>
-                                  <?php echo date('d M, Y', strtotime($created_at)); ?>
-                                </span>
+                        <div class="grid grid-cols-1 gap-10">
+                          <!-- Card 1 -->
+                          <div class="flex items-center rounded border-b border-gray-400 shadow-lg px-4 dark:border-gray-400 py-4 relative">
+                              <!-- Image Section -->
+                              <div class="absolute top-4 right-4">
+                                  <img src="../upload/images/<?php echo $logo; ?>" alt="User Image" class="h-14 w-14 rounded-full">
                               </div>
-                            </div>
-                        </div>
+                              <!-- Content Section -->
+                              <div class="flex-grow flex items-center text-gray-600 dark:text-gray-100">
+                                  <div class="flex-grow flex justify-between items-center">
+                                      <!-- Title and Content -->
+                                      <div class="self-start">
+                                          <h3 class="font-medium text-xl text-purple-600 hover:text-gray-900 dark:text-gray-50 dark:hover:text-gray-100" style="outline: none;">
+                                              <?php echo $job_title; ?>
+                                          </h3>
+                                          <h3 class="font-bold text-lg text-gray-800 hover:text-gray-900 dark:text-gray-50 dark:hover:text-gray-100" style="outline: none;">
+                                              <?php echo $company_name; ?>
+                                          </h3>
+                                          <p class="text-gray-500 dark:text-gray-300 text-base">
+                                              <?php echo $description; ?>
+                                          </p>
+                                          <!-- First Icon with Text -->
+                                          <div class="flex items-center gap-2">
+                                              <svg xmlns="http://www.w3.org/2000/svg" height="12" width="12" viewBox="0 0 384 512">
+                                                  <path fill="#808285" d="M215.7 499.2C267 435 384 279.4 384 192C384 86 298 0 192 0S0 86 0 192c0 87.4 117 243 168.3 307.2c12.3 15.3 35.1 15.3 47.4 0zM192 128a64 64 0 1 1 0 128 64 64 0 1 1 0-128z" />
+                                              </svg>
+                                              <span class="text-sm"><?php echo $location; ?></span>
+                                          </div>
+
+                                          <!-- Second Icon with Text -->
+                                          <div class="flex items-center gap-2">
+                                              <svg xmlns="http://www.w3.org/2000/svg" height="12" width="12" viewBox="0 0 576 512">
+                                                  <path fill="#7c8083" d="M256 0l64 0c17.7 0 32 14.3 32 32l0 64c0 17.7-14.3 32-32 32l-64 0c-17.7 0-32-14.3-32-32l0-64c0-17.7 14.3-32 32-32zM64 64l128 0 0 48c0 26.5 21.5 48 48 48l96 0c26.5 0 48-21.5 48-48l0-48 128 0c35.3 0 64 28.7 64 64l0 320c0 35.3-28.7 64-64 64L64 512c-35.3 0-64-28.7-64-64L0 128C0 92.7 28.7 64 64 64zM176 437.3c0 5.9 4.8 10.7 10.7 10.7l202.7 0c5.9 0 10.7-4.8 10.7-10.7c0-29.5-23.9-53.3-53.3-53.3l-117.3 0c-29.5 0-53.3 23.9-53.3 53.3zM288 352a64 64 0 1 0 0-128 64 64 0 1 0 0 128z" />
+                                              </svg>
+                                              <span class="text-sm"><?php echo $experience; ?></span>
+                                          </div>
+                                          <span class="flex items-center text-xs space-x-2 gap-2">
+                                              <svg xmlns="http://www.w3.org/2000/svg" height="12" width="12.25" viewBox="0 0 448 512">
+                                                  <path fill="#82878c" d="M128 0c17.7 0 32 14.3 32 32l0 32 128 0 0-32c0-17.7 14.3-32 32-32s32 14.3 32 32l0 32 48 0c26.5 0 48 21.5 48 48l0 48L0 160l0-48C0 85.5 21.5 64 48 64l48 0 0-32c0-17.7 14.3-32 32-32zM0 192l448 0 0 272c0 26.5-21.5 48-48 48L48 512c-26.5 0-48-21.5-48-48L0 192zm80 64c-8.8 0-16 7.2-16 16l0 96c0 8.8 7.2 16 16 16l96 0c8.8 0 16-7.2 16-16l0-96c0-8.8-7.2-16-16-16l-96 0z" />
+                                              </svg>
+                                              <?php echo date('d M, Y', strtotime($created_at)); ?>
+                                          </span>
+                                      </div>
+                                      <!-- Edit and Delete Buttons -->
+                                      <div class="absolute bottom-4 right-4 flex items-center space-x-4">
+                                          <a class="flex items-center font-medium text-purple-500 hover:text-blue-600 dark:text-purple-400 dark:hover:text-blue-500 gap-1" href="#0" style="outline: none;">
+                                              <svg xmlns="http://www.w3.org/2000/svg" height="14" width="14" viewBox="0 0 512 512">
+                                                  <path fill="#B197FC" d="M441 58.9L453.1 71c9.4 9.4 9.4 24.6 0 33.9L424 134.1 377.9 88 407 58.9c9.4-9.4 24.6-9.4 33.9 0zM209.8 256.2L344 121.9 390.1 168 255.8 302.2c-2.9 2.9-6.5 5-10.4 6.1l-58.5 16.7 16.7-58.5c1.1-3.9 3.2-7.5 6.1-10.4zM373.1 25L175.8 222.2c-8.7 8.7-15 19.4-18.3 31.1l-28.6 100c-2.4 8.4-.1 17.4 6.1 23.6s15.2 8.5 23.6 6.1l100-28.6c11.8-3.4 22.5-9.7 31.1-18.3L487 138.9c28.1-28.1 28.1-73.7 0-101.8L474.9 25C446.8-3.1 401.2-3.1 373.1 25zM88 64C39.4 64 0 103.4 0 152L0 424c0 48.6 39.4 88 88 88l272 0c48.6 0 88-39.4 88-88l0-112c0-13.3-10.7-24-24-24s-24 10.7-24 24l0 112c0 22.1-17.9 40-40 40L88 464c-22.1 0-40-17.9-40-40l0-272c0-22.1 17.9-40 40-40l112 0c13.3 0 24-10.7 24-24s-10.7-24-24-24L88 64z" />
+                                              </svg>
+                                              Edit
+                                          </a>
+                                          <a class="flex items-center font-medium text-purple-500 hover:text-blue-600 dark:text-purple-400 dark:hover:text-blue-500 gap-1" href="#0" style="outline: none;">
+                                              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" height="14" width="14">
+                                                  <path fill="#a176c1" d="M135.2 17.7L128 32 32 32C14.3 32 0 46.3 0 64S14.3 96 32 96l384 0c17.7 0 32-14.3 32-32s-14.3-32-32-32l-96 0-7.2-14.3C307.4 6.8 296.3 0 284.2 0L163.8 0c-12.1 0-23.2 6.8-28.6 17.7zM416 128L32 128 53.2 467c1.6 25.3 22.6 45 47.9 45l245.8 0c25.3 0 46.3-19.7 47.9-45L416 128z" />
+                                              </svg>
+                                              Delete
+                                          </a>
+                                      </div>
+                                  </div>
+                              </div>
+                          </div>
+                      </div>
+
                         <?php
                 }
                 }?>

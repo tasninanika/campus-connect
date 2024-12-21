@@ -672,11 +672,18 @@
                 if(mysqli_num_rows($query) > 0) {
                 while ($rows = mysqli_fetch_assoc($query)) {
                     $job_title = $rows['title'];
-                    $description = $rows['description'];
+                    $type = $rows['type'];
+                    $category = $rows['category'];
+                    $department = $rows['department'];
                     $company_name = $rows['company_name'];
-                    $experience = $rows['experience'];
-                    $location = $rows['location'];
                     $logo = $rows['logo'];
+                    $experience = $rows['experience'];
+                    $qualification = $rows['qualification'];
+                    $location = $rows['location'];
+                    $salary = $rows['salary'];
+                    $description = $rows['description'];
+                    $com_description = $rows['com_description'];
+                    $apply_info = $rows['apply_info'];
                     $created_at = $rows['created_at']; ?>
                         <div class="grid grid-cols-1 gap-10">
                           <!-- Card 1 -->
@@ -776,10 +783,11 @@
                                                                 type="text"
                                                                 name="type"
                                                                 id="type"
+                                                                value="<?php echo $type; ?>"
                                                                 />                             
                                                             </div>
                                                           </div>
-                                                          <!-- type -->
+                                                          <!-- category -->
                                                           <div class="w-full sm:w-1/2">
                                                             <label
                                                               class="mb-3 block text-sm font-medium text-black dark:text-white"
@@ -790,7 +798,8 @@
                                                                 class="w-full rounded-lg border border-stroke bg-gray py-2 pl-4 pr-4.5 font-medium text-black focus:border-gray-800 focus-visible:outline-none dark:border-strokedark dark:bg-meta-4 dark:text-white dark:focus:border-primary"
                                                                 type="text"
                                                                 name="category"
-                                                                id="category"                            
+                                                                id="category"
+                                                                value="<?php echo $category; ?>"                            
                                                               />                          
                                                             
                                                           </div>
@@ -809,6 +818,7 @@
                                                                 type="text"
                                                                 name="department"
                                                                 id="department"
+                                                                value="<?php echo $department; ?>"
                                                                 />                             
                                                             </div>
                                                           </div>
@@ -825,8 +835,7 @@
                                                                 name="experience"
                                                                 id="experience"
                                                                 placeholder="" 
-                                                                value=""                               
-                                                              />                          
+                                                                value="<?php echo $experience; ?>"/>                          
                                                             
                                                           </div>
                                                         </div>
@@ -844,6 +853,7 @@
                                                                 type="text"
                                                                 name="qualification"
                                                                 id="qualification"
+                                                                value="<?php echo $qualification; ?>"
                                                                 />                             
                                                             </div>
                                                           </div>
@@ -859,6 +869,7 @@
                                                                 type="text"
                                                                 name="salary"
                                                                 id="salary"
+                                                                value="<?php echo $salary; ?>"
                                                               />                          
                                                             
                                                           </div>
@@ -876,8 +887,9 @@
                                                             name="description"
                                                             id="description"
                                                             placeholder=""
+                                                            value="<?php echo $description; ?>"
                                                             class="w-full rounded-lg border-[1.5px] border-stroke bg-transparent pl-4 px-5 py-3 font-normal text-black outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-gray-700 dark:bg-form-input dark:text-white dark:focus:border-primary" required
-                                                            ></textarea>
+                                                            ><?php echo $description; ?></textarea>
                                                             <!-- <textarea id="editor"></textarea> -->
                                                         </div>
                                                       </div>
@@ -910,6 +922,7 @@
                                                               type="text"
                                                               name="company_name"
                                                               id="company_name"
+                                                              value="<?php echo $company_name; ?>"
                                                             />                                                     
                                                         </div>
                                                         <!-- 2nd -->
@@ -924,22 +937,11 @@
                                                               type="text"
                                                               name="location"
                                                               id="location"
+                                                              value="<?php echo $location; ?>"
                                                             />                                                     
                                                         </div>
                                                         <!-- 3rd -->
-                                                        <div class="mb-6">
-                                                          <label
-                                                            class="mb-3 block text-sm font-medium text-black dark:text-white"
-                                                            for="num"
-                                                            >Logo</label
-                                                          >
-                                                          <input
-                                                              class="w-full text-gray-400 font-semibold text-sm bg-white border file:cursor-pointer cursor-pointer file:border-0 file:py-3 file:px-4 file:mr-4 file:bg-gray-100 file:hover:bg-gray-200 file:text-gray-500 rounded" required
-                                                              type="file"
-                                                              name="fileToUpload"
-                                                              id="logo"
-                                                            />                                                     
-                                                        </div>
+                                                        
                                                         <!-- 4th -->
                                                         <div class="mb-6">
                                                           <label
@@ -952,6 +954,8 @@
                                                               type="text"
                                                               name="apply_info"
                                                               id="apply_info"
+                                                              value="<?php echo $apply_info; ?>"
+
                                                             />                                                     
                                                         </div>
                                                         <!-- Description -->
@@ -967,7 +971,7 @@
                                                             name="com_description"
                                                             id="com_description"
                                                             class="w-full rounded-lg border-[1.5px] border-stroke bg-transparent pl-4 px-5 py-3 font-normal text-black outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-gray-700 dark:bg-form-input dark:text-white dark:focus:border-primary" required
-                                                            ></textarea>
+                                                            ><?php echo $com_description; ?></textarea>
                                                         </div>
                                                         </div>
                                                         <!-- button -->

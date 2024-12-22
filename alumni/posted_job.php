@@ -753,7 +753,7 @@
                                                     </h3>
                                                   </div>
                                                   <div class="p-5">
-                                                  <form action="post_job.php" method="POST" enctype="multipart/form-data">
+                                                  <form action="update_job.php" method="POST" enctype="multipart/form-data">
                                                         <!-- first -->
                                                         <div class="mb-6">
                                                           <label

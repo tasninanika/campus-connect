@@ -976,12 +976,28 @@
                                                         </div>
                                                         <!-- button -->
                                                         <div class="flex justify-end gap-4">
-                                                          <button
-                                                            class="flex justify-center rounded-lg border border-stroke px-6 py-2 font-medium text-black hover:shadow-1 dark:border-strokedark dark:text-white"
-                                                            type="submit"
-                                                          ><svg class="w-5 h-6 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
-                                                            Cancel
-                                                          </button>
+                                                        <button
+  class="flex justify-center rounded-lg border border-stroke px-6 py-2 font-medium text-black hover:shadow-1 dark:border-strokedark dark:text-white"
+  type="button"
+  onclick="closeModal()"
+>
+  <svg
+    class="w-5 h-6 mr-2"
+    fill="none"
+    stroke="currentColor"
+    viewBox="0 0 24 24"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <path
+      stroke-linecap="round"
+      stroke-linejoin="round"
+      stroke-width="2"
+      d="M6 18L18 6M6 6l12 12"
+    ></path>
+  </svg>
+  Cancel
+</button>
+
                                                           <button
                                                             class="flex justify-center rounded-lg bg-gradient-to-r from-purple-400 to-black px-8 py-2 font-medium text-white hover:bg-opacity-90"
                                                             type="submit">
@@ -1023,6 +1039,7 @@
     <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script>
     <!-- Font Awesome -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/js/all.min.js" integrity="sha256-KzZiKy0DWYsnwMF+X1DvQngQ2/FxF7MF3Ff72XcpuPs=" crossorigin="anonymous"></script>
+    <!-- dark mode -->
     <script>
     const setup = () => {
       const getTheme = () => {
@@ -1062,6 +1079,14 @@
       }
     });
   });
+</script>
+<!-- cancel button -->
+<script>
+  function closeModal() {
+    // Example: If using a modal with an ID 'myModal'
+    const modal = document.getElementById('my_modal_2');
+    modal.style.display = 'none';
+  }
 </script>
 </body>
 </html>

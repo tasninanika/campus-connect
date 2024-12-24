@@ -738,7 +738,7 @@
                                               Edit
                                           </a>
                                           <!-- modal -->
-                                          <dialog id="my_modal_2" class="modal fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-50 hidden">
+                                          <dialog id="my_modal_2" class="modal">
                                             <div class="modal-box  w-11/12 max-w-5xl dark:bg-gray-800">
                                             <div class="grid grid-cols-1 gap-9">
                                               <div class="grid grid-cols-1 gap-9">
@@ -977,27 +977,6 @@
                                                         </div>
                                                         <!-- button -->
                                                         <div class="flex justify-end gap-4">
-                                                        <button
-                                                          class="flex justify-center rounded-lg border border-stroke px-6 py-2 font-medium text-black hover:shadow-1 dark:border-strokedark dark:text-white"
-                                                          type="button"
-                                                          onclick="closeModal()"
-                                                          >
-                                                          <svg
-                                                            class="w-5 h-6 mr-2"
-                                                            fill="none"
-                                                            stroke="currentColor"
-                                                            viewBox="0 0 24 24"
-                                                            xmlns="http://www.w3.org/2000/svg"
-                                                            >
-                                                            <path
-                                                              stroke-linecap="round"
-                                                              stroke-linejoin="round"
-                                                              stroke-width="2"
-                                                              d="M6 18L18 6M6 6l12 12"
-                                                            ></path>
-                                                          </svg>
-                                                          Cancel
-                                                        </button>
                                                           <!-- update -->
                                                           <button
                                                             class="flex justify-center rounded-lg bg-gradient-to-r from-purple-400 to-black px-8 py-2 font-medium text-white hover:bg-opacity-90"
@@ -1081,49 +1060,7 @@
     });
   });
 </script>
-<!-- cancel button -->
-<script>
-  function closeModal(event) {
-    if (event) {
-      event.preventDefault();
-    }
 
-    // Find the modal and hide it
-    const modal = document.getElementById('my_modal_2');
-    if (modal) {
-      modal.style.display = 'none';
-      modal.style.zIndex = '-1'; // Ensure modal is below other content
-    }
-
-    // Enable clicks on other elements (important part)
-    const overlay = document.getElementById('modal-overlay');
-    if (overlay) {
-      overlay.style.pointerEvents = 'none'; // Disable interaction with the overlay
-    }
-
-    // Reset body overflow (if modal was opened)
-    document.body.style.overflow = '';
-    
-    console.log("Modal closed");
-  }
-
-  function openModal() {
-    const modal = document.getElementById('my_modal_2');
-    const overlay = document.getElementById('modal-overlay');
-
-    if (modal) {
-      modal.style.display = 'flex';
-      modal.style.zIndex = '999'; // Set higher z-index when open
-    }
-
-    // Enable interaction with the overlay and disable background scroll
-    if (overlay) {
-      overlay.style.pointerEvents = 'auto'; // Enable clicks on the overlay
-    }
-
-    document.body.style.overflow = 'hidden'; // Disable scrolling when modal is open
-  }
-</script>
 
 
 </body>

@@ -55,6 +55,7 @@
         .active-nav-link { background: #374151; }
         .nav-item:hover { background: #374151; }
         .account-link:hover { background: #0E675C; }
+  
         /* Compiled dark classes from Tailwind */
   .dark .dark\:divide-gray-700 > :not([hidden]) ~ :not([hidden]) {
     border-color: rgba(55, 65, 81);
@@ -737,7 +738,7 @@
                                               Edit
                                           </a>
                                           <!-- modal -->
-                                          <dialog id="my_modal_2" class="modal">
+                                          <dialog id="my_modal_2" class="modal fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-50 hidden">
                                             <div class="modal-box  w-11/12 max-w-5xl dark:bg-gray-800">
                                             <div class="grid grid-cols-1 gap-9">
                                               <div class="grid grid-cols-1 gap-9">
@@ -1082,12 +1083,49 @@
 </script>
 <!-- cancel button -->
 <script>
-  function closeModal() {
-    // Example: If using a modal with an ID 'myModal'
+  function closeModal(event) {
+    if (event) {
+      event.preventDefault();
+    }
+
+    // Find the modal and hide it
     const modal = document.getElementById('my_modal_2');
-    modal.style.display = 'none';
+    if (modal) {
+      modal.style.display = 'none';
+      modal.style.zIndex = '-1'; // Ensure modal is below other content
+    }
+
+    // Enable clicks on other elements (important part)
+    const overlay = document.getElementById('modal-overlay');
+    if (overlay) {
+      overlay.style.pointerEvents = 'none'; // Disable interaction with the overlay
+    }
+
+    // Reset body overflow (if modal was opened)
+    document.body.style.overflow = '';
+    
+    console.log("Modal closed");
+  }
+
+  function openModal() {
+    const modal = document.getElementById('my_modal_2');
+    const overlay = document.getElementById('modal-overlay');
+
+    if (modal) {
+      modal.style.display = 'flex';
+      modal.style.zIndex = '999'; // Set higher z-index when open
+    }
+
+    // Enable interaction with the overlay and disable background scroll
+    if (overlay) {
+      overlay.style.pointerEvents = 'auto'; // Enable clicks on the overlay
+    }
+
+    document.body.style.overflow = 'hidden'; // Disable scrolling when modal is open
   }
 </script>
+
+
 </body>
 </html>
 <?php

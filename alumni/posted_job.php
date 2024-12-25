@@ -268,7 +268,7 @@
                   <a href="alumni_blog.php" class="text-white opacity-75 hover:opacity-100 py-2 block">Write blogs</a>
                 </li>
                 <li>
-                  <a href="posted_blogs.php" class="text-white opacity-75 hover:opacity-100 py-2 block">Posted blogs</a>
+                  <a href="posted_blog.php" class="text-white opacity-75 hover:opacity-100 py-2 block">Posted blogs</a>
                 </li>
               </ul>
             </details> 

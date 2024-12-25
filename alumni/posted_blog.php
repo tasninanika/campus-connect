@@ -706,265 +706,105 @@
                                               Edit
                                           </a>
                                           <!-- modal -->
-                                          <dialog id="jobModal<?php echo $job_id; ?>" class="modal">
+                                          <dialog id="blogModal<?php echo $blog_id; ?>" class="modal">
                                             <div class="modal-box  w-11/12 max-w-5xl dark:bg-gray-800">
-                                            <div class="grid grid-cols-1 gap-9">
-                                              <div class="grid grid-cols-1 gap-9">
-                                                <!-- Input Fields -->
-                                                <div
-                                                  class="rounded-sm border border-stroke bg-white shadow-default dark:border-gray-700 dark:bg-gray-800"
-                                                  >
-                                                  <div
-                                                    class="border-b border-stroke px-4 py-4 dark:border-gray-700"
+                                                <div class="grid grid-cols-1 gap-9">
+                                                    <!-- Input Fields -->
+                                                    <div
+                                                    class="rounded-sm border border-stroke bg-white shadow-default dark:border-gray-700 dark:bg-gray-800"
                                                     >
-                                                    <h3 class="font-medium text-black dark:text-white">
-                                                      Job Information
-                                                    </h3>
-                                                  </div>
-                                                  <div class="p-5">
-                                                  <form action="update_job.php" method="POST" enctype="multipart/form-data">
-                                                  <input type="hidden" name="job_id" value="<?php echo $job_id; ?>"> <!-- Pass the job_id -->
-                                                        <!-- first -->
-                                                        <div class="mb-6">
-                                                          <label
-                                                            class="mb-3 block text-sm font-medium text-black dark:text-white"
-                                                            for=""
-                                                            >Title</label
-                                                          >
-                                                          <input
-                                                              class="w-full rounded-lg border border-stroke bg-gray px-5 pl-4 py-2 font-medium text-black focus:border-gray-800 focus-visible:outline-none dark:border-strokedark dark:bg-gray-800 dark:text-white dark:border-gray-700" required
-                                                              type="text"
-                                                              name="title"
-                                                              id="title"
-                                                              value="<?php echo $job_title; ?>"
-                                                            />                                                     
-                                                        </div>
-                                                        <!-- 2nd -->
-                                                        <div class="mb-6 flex flex-col gap-5 sm:flex-row">
-                                                          <div class="w-full sm:w-1/2">
+                                                    <div
+                                                        class="border-b border-stroke px-4 py-4 dark:border-gray-700"
+                                                    >
+                                                        <h3 class="font-medium text-black dark:text-white">
+                                                        Blog
+                                                        </h3>
+                                                    </div>
+                                                    <div class="p-5">
+                                                    <form action="post_blog.php" method="POST" enctype="multipart/form-data">
+                                                            <!-- first -->
+                                                            <div class="mb-6">
                                                             <label
-                                                              class="mb-3 block text-sm font-medium text-black dark:text-white"
-                                                              for="fname"
-                                                              >Type</label
+                                                                class="mb-3 block text-sm font-medium text-black dark:text-white"
+                                                                for=""
+                                                                >Title</label
                                                             >
-                                                            <div class="relative">
-                                                              <input
-                                                                class="w-full rounded-lg border border-stroke bg-gray py-2 pl-4 pr-4.5 font-medium text-black focus:border-gray-800 focus-visible:outline-none dark:text-white dark:bg-gray-800 dark:border-gray-700" required
+                                                            <input
+                                                                class="w-full rounded-lg border border-stroke bg-gray px-5 py-2 font-medium text-black focus:border-gray-800 focus-visible:outline-none dark:border-strokedark dark:bg-meta-4 dark:text-white dark:focus:border-primary"
+                                                                type="text"
+                                                                name="title"
+                                                                id="title"
+                                                                />                                                     
+                                                            </div>
+                                                            <!-- 2nd -->
+                                                            <div class="mb-6">
+                                                            <label
+                                                                class="mb-3 block text-sm font-medium text-black dark:text-white"
+                                                                for=""
+                                                                >Type</label
+                                                            >
+                                                            <input
+                                                                class="w-full rounded-lg border border-stroke bg-gray px-5 py-2 font-medium text-black focus:border-gray-800 focus-visible:outline-none dark:border-strokedark dark:bg-meta-4 dark:text-white dark:focus:border-primary"
                                                                 type="text"
                                                                 name="type"
                                                                 id="type"
-                                                                value="<?php echo $type; ?>"
-                                                                />                             
+                                                                />                                                     
                                                             </div>
-                                                          </div>
-                                                          <!-- category -->
-                                                          <div class="w-full sm:w-1/2">
+                                                            <!-- 2nd -->
+                                                            <div class="mb-6">
                                                             <label
-                                                              class="mb-3 block text-sm font-medium text-black dark:text-white"
-                                                              for="lname"
-                                                              >Category</label
+                                                                class="mb-3 block text-sm font-medium text-black dark:text-white"
+                                                                for=""
+                                                                >Picture</label
                                                             >
-                                                              <input
-                                                                class="w-full rounded-lg border border-stroke bg-gray py-2 pl-4 pr-4.5 font-medium text-black focus:border-gray-800 focus-visible:outline-none dark:border-strokedark dark:border-gray-700 dark:text-white dark:bg-gray-800"
-                                                                type="text"
-                                                                name="category"
-                                                                id="category"
-                                                                value="<?php echo $category; ?>"                            
-                                                              />                          
-                                                            
-                                                          </div>
-                                                        </div>
-                                                        <!-- 3rd -->
-                                                        <div class="mb-6 flex flex-col gap-5 sm:flex-row">
-                                                          <div class="w-full sm:w-1/2">
-                                                            <label
-                                                              class="mb-3 block text-sm font-medium text-black dark:text-white"
-                                                              for="fname"
-                                                              >Department</label
-                                                            >
-                                                            <div class="relative">
-                                                              <input
-                                                                class="w-full rounded-lg border border-stroke bg-gray py-2 pl-4 pr-4.5 font-medium text-black focus:border-gray-800 focus-visible:outline-none dark:border-strokedark dark:bg-gray-800 dark:text-white dark:border-gray-700" required
-                                                                type="text"
-                                                                name="department"
-                                                                id="department"
-                                                                value="<?php echo $department; ?>"
-                                                                />                             
+                                                            <input
+                                                                class="w-full text-gray-400 font-semibold text-sm bg-white border file:cursor-pointer cursor-pointer file:border-0 file:py-3 file:px-4 file:mr-4 file:bg-gray-100 file:hover:bg-gray-200 file:text-gray-500 rounded"
+                                                                type="file"
+                                                                name="fileToUpload"
+                                                                id="fileToUpload"
+                                                                />                                                     
                                                             </div>
-                                                          </div>
-                                                          <!-- department -->
-                                                          <div class="w-full sm:w-1/2">
-                                                            <label
-                                                              class="mb-3 block text-sm font-medium text-black dark:text-white"
-                                                              for="lname"
-                                                              >Experience</label
-                                                            >
-                                                              <input
-                                                                class="w-full rounded-lg border border-stroke bg-gray py-2 pl-4 pr-4.5 font-medium text-black focus:border-gray-800 focus-visible:outline-none dark:border-strokedark dark:bg-gray-800 dark:text-white dark:border-gray-700"
-                                                                type="text"
-                                                                name="experience"
-                                                                id="experience"
-                                                                placeholder="" 
-                                                                value="<?php echo $experience; ?>"/>                          
-                                                            
-                                                          </div>
-                                                        </div>
-                                                        <!-- 4th -->
-                                                        <div class="mb-6 flex flex-col gap-5 sm:flex-row">
-                                                          <div class="w-full sm:w-1/2">
-                                                            <label
-                                                              class="mb-3 block text-sm font-medium text-black dark:text-white"
-                                                              for="fname"
-                                                              >Qualifications</label
-                                                            >
-                                                            <div class="relative">
-                                                              <input
-                                                                class="w-full rounded-lg border border-stroke bg-gray py-2 pl-4 pr-4.5 font-medium text-black focus:border-gray-800 focus-visible:outline-none dark:border-strokedark dark:bg-gray-800 dark:text-white dark:border-gray-700" required
-                                                                type="text"
-                                                                name="qualification"
-                                                                id="qualification"
-                                                                value="<?php echo $qualification; ?>"
-                                                                />                             
+                                                            <!-- Description -->
+                                                            <div class="mb-6 flex flex-col gap-5 sm:flex-row">
+                                                                <div class="w-full">
+                                                                <label
+                                                                class="mb-3 block text-sm font-medium text-black dark:text-white"
+                                                                >
+                                                                Description
+                                                                </label>
+                                                                <textarea
+                                                                rows="6"
+                                                                name="description"
+                                                                id="description"
+                                                                class="w-full rounded-lg border-[1.5px] border-stroke bg-transparent px-5 py-3 font-normal text-black outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-gray-700 dark:bg-form-input dark:text-white dark:focus:border-primary"
+                                                                ></textarea>
+                                                                </div>
                                                             </div>
-                                                          </div>
-                                                          <!-- quali -->
-                                                          <div class="w-full sm:w-1/2">
-                                                            <label
-                                                              class="mb-3 block text-sm font-medium text-black dark:text-white"
-                                                              for="lname"
-                                                              >Salary</label
-                                                            >
-                                                              <input
-                                                                class="w-full rounded-lg border border-stroke bg-gray py-2 pl-4 pr-4.5 font-medium text-black focus:border-gray-800 focus-visible:outline-none dark:border-strokedark dark:bg-gray-800 dark:text-white dark:border-gray-700"
-                                                                type="text"
-                                                                name="salary"
-                                                                id="salary"
-                                                                value="<?php echo $salary; ?>"
-                                                              />                          
-                                                            
-                                                          </div>
-                                                        </div>
-                                                        <!-- Description -->
-                                                        <div class="mb-6 flex flex-col gap-5 sm:flex-row">
-                                                            <div class="w-full">
-                                                            <label
-                                                            class="mb-3 block text-sm font-medium text-black dark:text-white"
-                                                            >
-                                                            Description
-                                                            </label>
-                                                            <textarea
-                                                            rows="6"
-                                                            name="description"
-                                                            id="description"
-                                                            placeholder=""
-                                                            value="<?php echo $description; ?>"
-                                                            class="w-full rounded-lg border-[1.5px] border-stroke bg-transparent pl-4 px-5 py-3 font-normal text-black outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-gray-700 dark:bg-form-input dark:text-white dark:focus:border-primary" required
-                                                            ><?php echo $description; ?></textarea>
-                                                            <!-- <textarea id="editor"></textarea> -->
-                                                        </div>
-                                                      </div>
-                                                  </div>
-                                                </div>
-                                              </div>
-                                            <!-- 2nd form -->
-                                              <div class="flex flex-col gap-9">
-                                                <!-- Textarea Fields -->
-                                                <div
-                                                  class="rounded-sm border border-stroke bg-white shadow-default dark:border-gray-700 dark:bg-gray-800"
-                                                    >
-                                                  <div
-                                                    class="border-b border-stroke px-4 py-4 dark:border-gray-700"
-                                                    >
-                                                    <h3 class="font-medium text-black dark:text-white">
-                                                      Company Information
-                                                    </h3>
-                                                  </div>
-                                                    <div class="p-5">
-                                                        <!-- first -->
-                                                        <div class="mb-6">
-                                                          <label
-                                                            class="mb-3 block text-sm font-medium text-black dark:text-white"
-                                                            for="num"
-                                                            >Company Name</label
-                                                          >
-                                                          <input
-                                                              class="w-full rounded-lg border border-stroke bg-gray px-5 pl-4 py-2 font-medium text-black focus:border-gray-800 focus-visible:outline-none dark:border-strokedark dark:bg-gray-800 dark:text-white dark:border-gray-700" required
-                                                              type="text"
-                                                              name="company_name"
-                                                              id="company_name"
-                                                              value="<?php echo $company_name; ?>"
-                                                            />                                                     
-                                                        </div>
-                                                        <!-- 2nd -->
-                                                        <div class="mb-6">
-                                                          <label
-                                                            class="mb-3 block text-sm font-medium text-black dark:text-white"
-                                                            for="num"
-                                                            >Location</label
-                                                          >
-                                                          <input
-                                                              class="w-full rounded-lg border border-stroke bg-gray px-5 pl-4 py-2 font-medium text-black focus:border-gray-800 focus-visible:outline-none dark:border-strokedark dark:border-gray-700 dark:text-white dark:bg-gray-800" required
-                                                              type="text"
-                                                              name="location"
-                                                              id="location"
-                                                              value="<?php echo $location; ?>"
-                                                            />                                                     
-                                                        </div>
-                                                        <!-- 3rd -->
-                                                        
-                                                        <!-- 4th -->
-                                                        <div class="mb-6">
-                                                          <label
-                                                            class="mb-3 block text-sm font-medium text-black dark:text-white"
-                                                            for="num"
-                                                            >Job URL</label
-                                                          >
-                                                          <input
-                                                              class="w-full rounded-lg border border-stroke bg-gray px-5 pl-4 py-2 font-medium text-black focus:border-gray-800 focus-visible:outline-none dark:border-strokedark dark:bg-gray-800 dark:text-white dark:border-gray-700" required
-                                                              type="text"
-                                                              name="apply_info"
-                                                              id="apply_info"
-                                                              value="<?php echo $apply_info; ?>"
-
-                                                            />                                                     
-                                                        </div>
-                                                        <!-- Description -->
-                                                        <div class="mb-6 flex flex-col gap-5 sm:flex-row">
-                                                            <div class="w-full">
-                                                            <label
-                                                            class="mb-3 block text-sm font-medium text-black dark:text-white"
-                                                            >
-                                                            Description
-                                                            </label>
-                                                            <textarea
-                                                            rows="6"
-                                                            name="com_description"
-                                                            id="com_description"
-                                                            class="w-full rounded-lg border-[1.5px] border-stroke bg-transparent pl-4 px-5 py-3 font-normal text-black outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-gray-700 dark:bg-form-input dark:text-white dark:focus:border-primary" required
-                                                            ><?php echo $com_description; ?></textarea>
-                                                        </div>
-                                                        </div>
-                                                        <!-- button -->
-                                                        <div class="flex justify-end gap-4">
-                                                          <!-- update -->
-                                                          <button
-                                                            class="flex justify-center rounded-lg bg-gradient-to-r from-purple-400 to-black px-8 py-2 font-medium text-white hover:bg-opacity-90"
-                                                            type="submit">
-                                                            Update
-                                                          </button>
-                                                        </div>
+                                                            <!-- button -->
+                                                            <div class="flex justify-end gap-4">
+                                                            <button
+                                                                class="flex justify-center rounded-lg border border-stroke px-6 py-2 font-medium text-black hover:shadow-1 dark:border-strokedark dark:text-white"
+                                                                type="submit"
+                                                            ><svg class="w-5 h-6 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+                                                                Cancel
+                                                            </button>
+                                                            <button
+                                                                class="flex justify-center rounded-lg bg-gradient-to-r from-[#0E675C] to-black px-8 py-2 font-medium text-white hover:bg-opacity-90"
+                                                                type="submit">
+                                                                Create
+                                                            </button>
+                                                            </div>
+                                                    </div>
                                                     </div>
                                                 </div>
-                                              </div>
-                                            </form>
-                                            </div>
-                                            </div>
+                                                </form>
+                                                </div>
                                             <form method="dialog" class="modal-backdrop">
                                               <button>close</button>
                                             </form>
                                           </dialog>
-                                          <a class="flex items-center font-medium text-purple-500 hover:text-blue-600 dark:text-purple-400 dark:hover:text-blue-500 gap-1" href="delete_job.php?job_id=<?php echo urlencode($job_id); ?>" 
-                                          onclick="return confirm('Are you sure you want to delete this job?');" style="outline: none;">
+                                          <a class="flex items-center font-medium text-purple-500 hover:text-blue-600 dark:text-purple-400 dark:hover:text-blue-500 gap-1" href="delete_blog.php?blog_id=<?php echo urlencode($blog_id); ?>" 
+                                          onclick="return confirm('Are you sure you want to delete this blog?');" style="outline: none;">
                                               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" height="14" width="14">
                                                   <path fill="#a176c1" d="M135.2 17.7L128 32 32 32C14.3 32 0 46.3 0 64S14.3 96 32 96l384 0c17.7 0 32-14.3 32-32s-14.3-32-32-32l-96 0-7.2-14.3C307.4 6.8 296.3 0 284.2 0L163.8 0c-12.1 0-23.2 6.8-28.6 17.7zM416 128L32 128 53.2 467c1.6 25.3 22.6 45 47.9 45l245.8 0c25.3 0 46.3-19.7 47.9-45L416 128z" />
                                               </svg>
@@ -1042,14 +882,14 @@
 <!-- modal -->
 <script>
   // Open modal by dynamically targeting the modal ID (using job_id as a string)
-function openModal(jobId) {
-    const modal = document.getElementById('jobModal' + jobId); // jobId is a string
+function openModal(blogId) {
+    const modal = document.getElementById('blogModal' + blogId); // blogId is a string
     modal.showModal(); // Opens the modal
 }
 
 // Close modal
-function closeModal(jobId) {
-    const modal = document.getElementById('jobModal' + jobId); // jobId is a string
+function closeModal(blogId) {
+    const modal = document.getElementById('blogModal' + blogId); // blogId is a string
     modal.close(); // Closes the modal
 }
 

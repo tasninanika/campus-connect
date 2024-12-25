@@ -217,7 +217,7 @@
             </a>
             
             <details class="group relative">
-              <summary class="flex items-center justify-between text-white py-2 px-4 mx-4 my-2 active-nav-link cursor-pointer">
+              <summary class="flex items-center justify-between text-white py-2 px-4 mx-4 my-2 nav-item cursor-pointer">
                 <i class="fas fa-align-left mr-3"></i>
                 <span class="flex-1">Job</span>
                 <svg
@@ -245,7 +245,7 @@
               </ul>
             </details>
             <details class="group relative">
-              <summary class="flex items-center justify-between text-white py-2 px-4 mx-4 my-2 nav-item cursor-pointer">
+              <summary class="flex items-center justify-between text-white py-2 px-4 mx-4 my-2 active-nav-link cursor-pointer">
                 <i class="fas fa-align-left mr-3"></i>
                 <span class="flex-1">Blogs</span>
                 <svg
@@ -268,7 +268,7 @@
                   <a href="alumni_blog.php" class="text-white opacity-75 hover:opacity-100 py-2 block">Write blogs</a>
                 </li>
                 <li>
-                  <a href="posted_blogs.php" class="text-white opacity-75 hover:opacity-100 py-2 block">Posted blogs</a>
+                  <a href="posted_blog.php" class="text-white opacity-75 hover:opacity-100 py-2 block">Posted blogs</a>
                 </li>
               </ul>
             </details> 

@@ -667,7 +667,7 @@
             <!-- ====== announcement Section Start -->
             <h3 class="text-2xl text-gray-700 font-bold mb-6 ml-3 dark:text-white">Latest Announcement</h3>
             <?php 
-                $sql = "SELECT * FROM announcement";
+                $sql = "SELECT * FROM announcement ORDER BY created_at DESC";
                 $query = mysqli_query($db, $sql);
 
                 if(mysqli_num_rows($query) > 0) {

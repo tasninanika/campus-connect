@@ -667,7 +667,7 @@
             <!-- ====== announcement Section Start -->
             <!-- <h3 class="text-2xl text-gray-700 font-bold mb-6 ml-3 dark:text-white">My Posts</h3> -->
             <?php 
-                $sql = "SELECT * FROM job";
+                $sql = "SELECT * FROM job ORDER BY created_at DESC";
                 $query = mysqli_query($db, $sql);
 
                 if(mysqli_num_rows($query) > 0) {

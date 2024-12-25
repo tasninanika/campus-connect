@@ -666,6 +666,8 @@
 
             <!-- ====== announcement Section Start -->
             <!-- <h3 class="text-2xl text-gray-700 font-bold mb-6 ml-3 dark:text-white">My Posts</h3> -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-5 mt-5">
+
             <?php 
             $a = $_SESSION['alumni_id'];
 
@@ -690,9 +692,8 @@
                     $com_description = $rows['com_description'];
                     $apply_info = $rows['apply_info'];
                     $created_at = $rows['created_at']; ?>
-                        <div class="grid grid-cols-1 gap-10">
                           <!-- Card 1 -->
-                          <div class="flex items-center rounded border-b border-gray-300 shadow-lg px-6 dark:border-gray-400 py-4 relative dark:bg-gray-800">
+                          <div class="flex items-center rounded-xl border border-gray-300  px-6 dark:border-gray-400 py-4 relative dark:bg-gray-800">
                               <!-- Image Section -->
                               <div class="absolute top-4 right-4">
                                   <img src="../upload/images/<?php echo $logo; ?>" alt="User Image" class="h-14 w-14 rounded-full">
@@ -1010,20 +1011,21 @@
                                   </div>
                               </div>
                           </div>
-                      </div>
+                      
                         <?php
                 }
                 }
                 else {
                   // If no job posts exist, display a message
                   ?>
-                  <div class="text-center py-4 text-gray-500 dark:text-gray-400">
+                  <div class="flex justify-center block min-h-screen max-w-screen overflow-hidden text-gray-500 dark:text-gray-400">
                       <p>No posts available. Create a new post to get started.</p>
                   </div>
                   <?php
               }
               ?>
-            <!-- ====== announcement Section End -->
+              
+            <!-- ====== job end -->
           </div>
         </main>
         <!-- ===== Main Content End ===== -->

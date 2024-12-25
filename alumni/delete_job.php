@@ -2,37 +2,39 @@
 session_start();
 include("../db_con/dbCon.php");
 
-// Check if job_id is provided in the URL
-if (isset($_GET['job_id'])) {
-    $job_id = $_GET['job_id'];
+// Check if job_id is passed in the URL
+if (isset($_GET['job_id']) && !empty($_GET['job_id'])) {
+    $job_id = $_GET['job_id']; // Use the job_id as a string
 
-    // Fetch the logo image name from the database to delete the file later
-    $sql = "SELECT logo FROM job WHERE job_id = '$job_id'";
-    $result = mysqli_query($db, $sql);
+    // Prepare the DELETE query
+    $sql = "DELETE FROM job WHERE job_id = ?";
 
-    if (mysqli_num_rows($result) > 0) {
-        $row = mysqli_fetch_assoc($result);
-        $logo = $row['logo']; // Get the logo file name
+    // Initialize the prepared statement
+    if ($stmt = mysqli_prepare($db, $sql)) {
+        // Bind the job_id as a string parameter
+        mysqli_stmt_bind_param($stmt, "s", $job_id);
 
-        // Delete the job post from the database
-        $delete_sql = "DELETE FROM job WHERE job_id = '$job_id'";
-        if (mysqli_query($db, $delete_sql)) {
-            // Check if the image exists and delete the file
-            $image_path = "../upload/images/" . $logo;
-            if (file_exists($image_path)) {
-                unlink($image_path); // Delete the image from the server
-            }
-
-            // Redirect to the job listing page
-            header("Location: alumni_job.php?success=Job deleted successfully");
-            exit();
+        // Execute the statement
+        if (mysqli_stmt_execute($stmt)) {
+            // Redirect to the job list page with a success message
+            header("Location: posted_job.php?msg=Job deleted successfully");
+            exit; // Ensure no further code executes after redirect
         } else {
+            // Handle execution error
             echo "Error deleting job: " . mysqli_error($db);
         }
+
+        // Close the statement
+        mysqli_stmt_close($stmt);
     } else {
-        echo "Job not found!";
+        // Handle preparation error
+        echo "Error preparing statement: " . mysqli_error($db);
     }
 } else {
-    echo "Invalid request!";
+    // Error message if job_id is not passed or invalid
+    echo "Invalid or missing job ID!";
 }
+
+// Close the database connection
+mysqli_close($db);
 ?>

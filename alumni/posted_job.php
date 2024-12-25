@@ -667,7 +667,10 @@
             <!-- ====== announcement Section Start -->
             <!-- <h3 class="text-2xl text-gray-700 font-bold mb-6 ml-3 dark:text-white">My Posts</h3> -->
             <?php 
-                $sql = "SELECT * FROM job ORDER BY created_at DESC";
+            $a = $_SESSION['alumni_id'];
+
+            // Fetch jobs only for the currently logged-in alumni
+                $sql = "SELECT * FROM job WHERE u_id = '$a' ORDER BY created_at DESC";
                 $query = mysqli_query($db, $sql);
 
                 if(mysqli_num_rows($query) > 0) {
@@ -732,7 +735,7 @@
                                       </div>
                                       <!-- Edit and Delete Buttons -->
                                       <div class="absolute bottom-4 right-4 flex items-center space-x-4">
-                                          <a class="flex items-center font-medium text-purple-500 hover:text-blue-600 dark:text-purple-400 dark:hover:text-blue-500 gap-1" href="#0" style="outline: none;" href="javascript:void(0);" onclick="openModal(<?php echo $job_id; ?>)">
+                                          <a class="flex items-center font-medium text-purple-500 hover:text-blue-600 dark:text-purple-400 dark:hover:text-blue-500 gap-1" href="#0" style="outline: none;" href="javascript:void(0);" onclick="openModal('<?php echo $job_id; ?>')">
                                               <svg xmlns="http://www.w3.org/2000/svg" height="14" width="14" viewBox="0 0 512 512">
                                                   <path fill="#B197FC" d="M441 58.9L453.1 71c9.4 9.4 9.4 24.6 0 33.9L424 134.1 377.9 88 407 58.9c9.4-9.4 24.6-9.4 33.9 0zM209.8 256.2L344 121.9 390.1 168 255.8 302.2c-2.9 2.9-6.5 5-10.4 6.1l-58.5 16.7 16.7-58.5c1.1-3.9 3.2-7.5 6.1-10.4zM373.1 25L175.8 222.2c-8.7 8.7-15 19.4-18.3 31.1l-28.6 100c-2.4 8.4-.1 17.4 6.1 23.6s15.2 8.5 23.6 6.1l100-28.6c11.8-3.4 22.5-9.7 31.1-18.3L487 138.9c28.1-28.1 28.1-73.7 0-101.8L474.9 25C446.8-3.1 401.2-3.1 373.1 25zM88 64C39.4 64 0 103.4 0 152L0 424c0 48.6 39.4 88 88 88l272 0c48.6 0 88-39.4 88-88l0-112c0-13.3-10.7-24-24-24s-24 10.7-24 24l0 112c0 22.1-17.9 40-40 40L88 464c-22.1 0-40-17.9-40-40l0-272c0-22.1 17.9-40 40-40l112 0c13.3 0 24-10.7 24-24s-10.7-24-24-24L88 64z" />
                                               </svg>
@@ -756,6 +759,7 @@
                                                   </div>
                                                   <div class="p-5">
                                                   <form action="update_job.php" method="POST" enctype="multipart/form-data">
+                                                  <input type="hidden" name="job_id" value="<?php echo $job_id; ?>"> <!-- Pass the job_id -->
                                                         <!-- first -->
                                                         <div class="mb-6">
                                                           <label
@@ -1009,7 +1013,16 @@
                       </div>
                         <?php
                 }
-                }?>
+                }
+                else {
+                  // If no job posts exist, display a message
+                  ?>
+                  <div class="text-center py-4 text-gray-500 dark:text-gray-400">
+                      <p>No posts available. Create a new post to get started.</p>
+                  </div>
+                  <?php
+              }
+              ?>
             <!-- ====== announcement Section End -->
           </div>
         </main>
@@ -1061,12 +1074,20 @@
     });
   });
 </script>
+<!-- modal -->
 <script>
-    // Function to show and hide modals
-    function closeModal(modalId) {
-        const modal = document.getElementById(modalId);
-        modal.classList.add('hidden');
-    }
+  // Open modal by dynamically targeting the modal ID (using job_id as a string)
+function openModal(jobId) {
+    const modal = document.getElementById('jobModal' + jobId); // jobId is a string
+    modal.showModal(); // Opens the modal
+}
+
+// Close modal
+function closeModal(jobId) {
+    const modal = document.getElementById('jobModal' + jobId); // jobId is a string
+    modal.close(); // Closes the modal
+}
+
 </script>
 
 

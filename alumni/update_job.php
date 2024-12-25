@@ -5,6 +5,7 @@ include("../db_con/dbCon.php");
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Retrieve user ID from session
     $alumni_id = $_SESSION['alumni_id'];
+    $job_id = mysqli_real_escape_string($db, $_POST['job_id']);
 
     // Get POST data and sanitize
     $job_title = mysqli_real_escape_string($db, $_POST['title']);
@@ -34,7 +35,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 description = '$description',
                 com_description = '$com_description',
                 apply_info = '$apply_info'
-            WHERE u_id = '$alumni_id'";
+             WHERE job_id = '$job_id' AND u_id = '$alumni_id'";
 
     // Execute the query
     $result = mysqli_query($db, $sql) or die(mysqli_error($db));

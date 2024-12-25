@@ -672,67 +672,30 @@
             $a = $_SESSION['alumni_id'];
 
             // Fetch jobs only for the currently logged-in alumni
-                $sql = "SELECT * FROM job WHERE u_id = '$a' ORDER BY created_at DESC";
+                $sql = "SELECT * FROM blog WHERE u_id = '$a' ORDER BY created_at DESC";
                 $query = mysqli_query($db, $sql);
 
                 if(mysqli_num_rows($query) > 0) {
                 while ($rows = mysqli_fetch_assoc($query)) {
-                    $job_id = $rows['job_id'];
-                    $job_title = $rows['title'];
+                    $blog_id = $rows['blog_id'];
+                    $title = $rows['title'];
                     $type = $rows['type'];
-                    $category = $rows['category'];
-                    $department = $rows['department'];
-                    $company_name = $rows['company_name'];
-                    $logo = $rows['logo'];
-                    $experience = $rows['experience'];
-                    $qualification = $rows['qualification'];
-                    $location = $rows['location'];
-                    $salary = $rows['salary'];
                     $description = $rows['description'];
-                    $com_description = $rows['com_description'];
-                    $apply_info = $rows['apply_info'];
                     $created_at = $rows['created_at']; ?>
                           <!-- Card 1 -->
                           <div class="flex items-center rounded-xl border border-gray-300  px-6 dark:border-gray-400 py-4 relative dark:bg-gray-800">
-                              <!-- Image Section -->
-                              <div class="absolute top-4 right-4">
-                                  <img src="../upload/images/<?php echo $logo; ?>" alt="User Image" class="h-14 w-14 rounded-full">
-                              </div>
                               <!-- Content Section -->
                               <div class="flex-grow flex items-center text-gray-600 dark:text-gray-100">
                                   <div class="flex-grow flex justify-between items-center">
                                       <!-- Title and Content -->
                                       <div class="self-start">
-                                          <h3 class="font-medium text-xl text-purple-600 hover:text-gray-900 dark:text-purple-400 dark:hover:text-gray-100" style="outline: none;">
-                                              <?php echo $job_title; ?>
-                                          </h3>
-                                          <h3 class="font-bold text-lg text-gray-800 hover:text-gray-900 dark:text-gray-50 dark:hover:text-gray-100 mt-1" style="outline: none;">
-                                              <?php echo $company_name; ?>
-                                          </h3>
-                                          <p class="text-gray-500 dark:text-gray-100 text-base mt-1">
-                                              <?php echo $description; ?>
-                                          </p>
-                                          <!-- First Icon with Text -->
-                                          <div class="flex items-center gap-2">
-                                              <svg xmlns="http://www.w3.org/2000/svg" height="12" width="12" viewBox="0 0 384 512">
-                                                  <path fill="#808285" d="M215.7 499.2C267 435 384 279.4 384 192C384 86 298 0 192 0S0 86 0 192c0 87.4 117 243 168.3 307.2c12.3 15.3 35.1 15.3 47.4 0zM192 128a64 64 0 1 1 0 128 64 64 0 1 1 0-128z" />
-                                              </svg>
-                                              <span class="text-sm mt-1"><?php echo $location; ?></span>
-                                          </div>
-
-                                          <!-- Second Icon with Text -->
-                                          <div class="flex items-center gap-2">
-                                              <svg xmlns="http://www.w3.org/2000/svg" height="12" width="12" viewBox="0 0 576 512">
-                                                  <path fill="#7c8083" d="M256 0l64 0c17.7 0 32 14.3 32 32l0 64c0 17.7-14.3 32-32 32l-64 0c-17.7 0-32-14.3-32-32l0-64c0-17.7 14.3-32 32-32zM64 64l128 0 0 48c0 26.5 21.5 48 48 48l96 0c26.5 0 48-21.5 48-48l0-48 128 0c35.3 0 64 28.7 64 64l0 320c0 35.3-28.7 64-64 64L64 512c-35.3 0-64-28.7-64-64L0 128C0 92.7 28.7 64 64 64zM176 437.3c0 5.9 4.8 10.7 10.7 10.7l202.7 0c5.9 0 10.7-4.8 10.7-10.7c0-29.5-23.9-53.3-53.3-53.3l-117.3 0c-29.5 0-53.3 23.9-53.3 53.3zM288 352a64 64 0 1 0 0-128 64 64 0 1 0 0 128z" />
-                                              </svg>
-                                              <span class="text-sm mt-1"><?php echo $experience; ?></span>
-                                          </div>
-                                          <span class="flex items-center text-sm mt-1 space-x-2 gap-2">
-                                              <svg xmlns="http://www.w3.org/2000/svg" height="12" width="12.25" viewBox="0 0 448 512">
-                                                  <path fill="#82878c" d="M128 0c17.7 0 32 14.3 32 32l0 32 128 0 0-32c0-17.7 14.3-32 32-32s32 14.3 32 32l0 32 48 0c26.5 0 48 21.5 48 48l0 48L0 160l0-48C0 85.5 21.5 64 48 64l48 0 0-32c0-17.7 14.3-32 32-32zM0 192l448 0 0 272c0 26.5-21.5 48-48 48L48 512c-26.5 0-48-21.5-48-48L0 192zm80 64c-8.8 0-16 7.2-16 16l0 96c0 8.8 7.2 16 16 16l96 0c8.8 0 16-7.2 16-16l0-96c0-8.8-7.2-16-16-16l-96 0z" />
-                                              </svg>
-                                              <?php echo date('d M, Y', strtotime($created_at)); ?>
-                                          </span>
+                                      <h3 class="font-medium text-gray-800 hover:text-gray-900 dark:text-gray-50 dark:hover:text-gray-100" style="outline: none;"><?php echo $title; ?></h3>
+                                      <p class="line-clamp-3"><?php echo $description; ?></p>
+                                      <a href="blog.php?blog_id=<?php echo $blog_id; ?>" 
+                                        class="text-blue-500 hover:text-blue-600 dark:text-blue-400 dark:hover:text-blue-500 text-sm font-medium mt-1 block">
+                                        Read More
+                                      </a>
+                                      <?php echo date('d M, Y', strtotime($created_at)); ?>
                                       </div>
                                       <!-- Edit and Delete Buttons -->
                                       <div class="absolute bottom-4 right-4 flex items-center space-x-4">

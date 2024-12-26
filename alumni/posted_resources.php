@@ -248,7 +248,7 @@
               </ul>
             </details>
             <details class="group relative">
-              <summary class="flex items-center justify-between text-white py-2 px-4 mx-4 my-2 active-nav-link cursor-pointer">
+              <summary class="flex items-center justify-between text-white py-2 px-4 mx-4 my-2 nav-item cursor-pointer">
                 <i class="fas fa-align-left mr-3"></i>
                 <span class="flex-1">Blogs</span>
                 <svg
@@ -280,7 +280,7 @@
                 See Announcement 
             </a> 
             <details class="group relative">
-              <summary class="flex items-center justify-between text-white py-2 px-4 mx-4 my-2 nav-item cursor-pointer">
+              <summary class="flex items-center justify-between text-white py-2 px-4 mx-4 my-2 active-nav-link cursor-pointer">
                 <i class="fas fa-align-left mr-3"></i>
                 <span class="flex-1">Resources</span>
                 <svg
@@ -684,6 +684,7 @@
                     $title = $rows['title'];
                     $type = $rows['type'];
                     $description = $rows['content'];
+                    $file = $rows['file'];
                     $created_at = $rows['created_at']; ?>
                           <!-- Card 1 -->
                           <div class="flex items-center rounded-xl border border-gray-300  px-6 dark:border-gray-400 py-4 relative dark:bg-gray-800">
@@ -693,11 +694,27 @@
                                       <!-- Title and Content -->
                                       <div class="self-start">
                                       <h3 class="font-medium text-gray-800 hover:text-gray-900 dark:text-gray-50 dark:hover:text-gray-100" style="outline: none;"><?php echo $title; ?></h3>
-                                      <p class="line-clamp-3"><?php echo $description; ?></p>
+                                      <p class="line-clamp-2"><?php echo $description; ?></p>
                                       <a href="resources.php?resources_id=<?php echo $resources_id; ?>" 
                                         class="text-blue-500 hover:text-blue-600 dark:text-blue-400 dark:hover:text-blue-500 text-sm font-medium mt-1 block">
                                         Read More
                                       </a>
+                                      <p>
+                                      <!-- Display file download link if file_path exists -->
+                                      <?php if (!empty($file)) { 
+                                          $filePath = $file;
+                                          $fileExtension = pathinfo($filePath, PATHINFO_EXTENSION); // Get the file extension
+
+                                          // Check if it's an image file
+                                          if (in_array(strtolower($fileExtension), ['jpg', 'jpeg', 'png', 'gif'])) { ?>
+                                              <a href="download.php?image=<?php echo urlencode(basename($filePath)); ?>" class="text-blue-500 hover:text-blue-600 dark:text-blue-400 dark:hover:text-blue-500">
+                                              <?php echo $file; ?>
+                                              </a>
+                                          <?php } else { ?>
+                                              <a href="download.php?file=<?php echo urlencode(basename($filePath)); ?>" class="text-blue-500 hover:text-blue-600 dark:text-blue-400 dark:hover:text-blue-500">
+                                              <?php echo $file; ?>                                              </a>
+                                          <?php } 
+                                      } ?></p>
                                       <?php echo date('d M, Y', strtotime($created_at)); ?>
                                       </div>
                                       <!-- Edit and Delete Buttons -->
@@ -720,7 +737,7 @@
                                                         class="border-b border-stroke px-4 py-4 dark:border-gray-700"
                                                     >
                                                         <h3 class="font-medium text-black dark:text-white">
-                                                        Blog
+                                                        Resources
                                                         </h3>
                                                     </div>
                                                     <div class="p-5">
@@ -790,7 +807,7 @@
                                             </form>
                                           </dialog>
                                           <a class="flex items-center font-medium text-purple-500 hover:text-blue-600 dark:text-purple-400 dark:hover:text-blue-500 gap-1" href="delete_blog.php?resources_id=<?php echo urlencode($resources_id); ?>" 
-                                          onclick="return confirm('Are you sure you want to delete this blog?');" style="outline: none;">
+                                          onclick="return confirm('Are you sure you want to delete this post?');" style="outline: none;">
                                               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" height="14" width="14">
                                                   <path fill="#a176c1" d="M135.2 17.7L128 32 32 32C14.3 32 0 46.3 0 64S14.3 96 32 96l384 0c17.7 0 32-14.3 32-32s-14.3-32-32-32l-96 0-7.2-14.3C307.4 6.8 296.3 0 284.2 0L163.8 0c-12.1 0-23.2 6.8-28.6 17.7zM416 128L32 128 53.2 467c1.6 25.3 22.6 45 47.9 45l245.8 0c25.3 0 46.3-19.7 47.9-45L416 128z" />
                                               </svg>
@@ -868,14 +885,14 @@
 <!-- modal -->
 <script>
   // Open modal by dynamically targeting the modal ID (using job_id as a string)
-    function openModal(blogId) {
-        const modal = document.getElementById('blogModal' + blogId); // blogId is a string
+    function openModal(resourcesId) {
+        const modal = document.getElementById('resourcesModal' + resourcesId); // blogId is a string
         modal.showModal(); // Opens the modal
     }
 
     // Close modal
-    function closeModal(blogId) {
-        const modal = document.getElementById('blogModal' + blogId); // blogId is a string
+    function closeModal(resourcesId) {
+        const modal = document.getElementById('resourcesModal' + resourcesId); // blogId is a string
         modal.close(); // Closes the modal
     }
 

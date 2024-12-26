@@ -725,6 +725,7 @@
                                                     </div>
                                                     <div class="p-5">
                                                     <form action="update_blog.php" method="POST" enctype="multipart/form-data">
+                                                    <input type="hidden" name="blog_id" value="<?php echo $blog_id; ?>"> <!-- Pass the blog_id -->
                                                             <!-- first -->
                                                             <div class="mb-6">
                                                             <label
@@ -737,6 +738,7 @@
                                                                 type="text"
                                                                 name="title"
                                                                 id="title"
+                                                                value="<?php echo $title; ?>"
                                                                 />                                                     
                                                             </div>
                                                             <!-- 2nd -->
@@ -751,6 +753,7 @@
                                                                 type="text"
                                                                 name="type"
                                                                 id="type"
+                                                                value="<?php echo $type; ?>"
                                                                 />                                                     
                                                             </div>
                                                             <!-- Description -->
@@ -766,7 +769,7 @@
                                                                 name="description"
                                                                 id="description"
                                                                 class="w-full rounded-lg border-[1.5px] border-stroke bg-transparent px-5 py-3 font-normal text-black outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-gray-700 dark:bg-form-input dark:text-white dark:focus:border-primary"
-                                                                ></textarea>
+                                                                ><?php echo $description; ?></textarea>
                                                                 </div>
                                                             </div>
                                                             <!-- button -->

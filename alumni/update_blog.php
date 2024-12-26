@@ -16,7 +16,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $sql = "UPDATE blog
             SET title = '$blog_title',
                 type = '$type',
-                description = '$description',
+                description = '$description'
              WHERE blog_id = '$blog_id' AND u_id = '$alumni_id'";
 
     // Execute the query

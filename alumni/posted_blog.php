@@ -721,7 +721,7 @@
                                                         </h3>
                                                     </div>
                                                     <div class="p-5">
-                                                    <form action="post_blog.php" method="POST" enctype="multipart/form-data">
+                                                    <form action="update_blog.php" method="POST" enctype="multipart/form-data">
                                                             <!-- first -->
                                                             <div class="mb-6">
                                                             <label

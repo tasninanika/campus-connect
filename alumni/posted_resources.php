@@ -694,11 +694,24 @@
                                       <!-- Title and Content -->
                                       <div class="self-start">
                                       <h3 class="font-medium text-gray-800 hover:text-gray-900 dark:text-gray-50 dark:hover:text-gray-100" style="outline: none;"><?php echo $title; ?></h3>
-                                      <p class="line-clamp-2"><?php echo $description; ?></p>
+                                      <?php
+                                      $characterLimit = 100; // Approximate character count for 2 lines
+                                          $isLongDescription = strlen($description) > $characterLimit;
+
+                                          // Prepare truncated text for the first 2 lines
+                                          $truncatedDescription = $isLongDescription ? substr($description, 0, $characterLimit) . '...' : $description;
+                                      ?>
+
+                                      <p class="line-clamp-2">
+                                          <?php echo $isLongDescription ? $truncatedDescription : $description; ?>
+                                      </p>
+
+                                      <?php if ($isLongDescription): ?>
                                       <a href="resources.php?resources_id=<?php echo $material_id; ?>" 
                                         class="text-blue-500 hover:text-blue-600 dark:text-blue-400 dark:hover:text-blue-500 text-sm font-medium mt-1 block">
                                         Read More
                                       </a>
+                                      <?php endif; ?>
                                       <p>
                                       <!-- Display file download link if file_path exists -->
                                       <?php if (!empty($file)) { 

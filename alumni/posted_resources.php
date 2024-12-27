@@ -708,7 +708,7 @@
 
                                       <?php if ($isLongDescription): ?>
                                       <a href="resources.php?resources_id=<?php echo $material_id; ?>" 
-                                        class="text-blue-500 hover:text-blue-600 dark:text-blue-400 dark:hover:text-blue-500 text-sm font-medium mt-1 block">
+                                        class="text-blue-500 hover:text-blue-600 dark:text-blue-400 dark:hover:text-blue-500 text-sm font-medium  block mb-1">
                                         Read More
                                       </a>
                                       <?php endif; ?>
@@ -796,8 +796,8 @@
                                                                 </label>
                                                                 <textarea
                                                                 rows="6"
-                                                                name="description"
-                                                                id="description"
+                                                                name="content"
+                                                                id="content"
                                                                 class="w-full rounded-lg border-[1.5px] border-stroke bg-transparent px-5 py-3 font-normal text-black outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-gray-700 dark:bg-form-input dark:text-white dark:focus:border-primary"
                                                                 ><?php echo $description; ?></textarea>
                                                                 </div>
@@ -819,7 +819,7 @@
                                               <button>close</button>
                                             </form>
                                           </dialog>
-                                          <a class="flex items-center font-medium text-purple-500 hover:text-blue-600 dark:text-purple-400 dark:hover:text-blue-500 gap-1" href="delete_blog.php?resources_id=<?php echo urlencode($material_id); ?>" 
+                                          <a class="flex items-center font-medium text-purple-500 hover:text-blue-600 dark:text-purple-400 dark:hover:text-blue-500 gap-1" href="delete_resources.php?material_id=<?php echo urlencode($material_id); ?>" 
                                           onclick="return confirm('Are you sure you want to delete this post?');" style="outline: none;">
                                               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" height="14" width="14">
                                                   <path fill="#a176c1" d="M135.2 17.7L128 32 32 32C14.3 32 0 46.3 0 64S14.3 96 32 96l384 0c17.7 0 32-14.3 32-32s-14.3-32-32-32l-96 0-7.2-14.3C307.4 6.8 296.3 0 284.2 0L163.8 0c-12.1 0-23.2 6.8-28.6 17.7zM416 128L32 128 53.2 467c1.6 25.3 22.6 45 47.9 45l245.8 0c25.3 0 46.3-19.7 47.9-45L416 128z" />

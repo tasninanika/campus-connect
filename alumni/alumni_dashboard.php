@@ -289,7 +289,7 @@
               </summary>
               <ul class="bg-gray-800 mt-2 pl-12 hidden group-open:block">
                 <li>
-                  <a href="alumni_resource.php" class="text-white opacity-75 hover:opacity-100 py-2 block">Share resources</a>
+                  <a href="alumni_resources.php" class="text-white opacity-75 hover:opacity-100 py-2 block">Share resources</a>
                 </li>
                 <li>
                   <a href="posted_resources.php" class="text-white opacity-75 hover:opacity-100 py-2 block">Posted resources</a>
@@ -649,13 +649,25 @@
                 >
                   <!-- svg -->
                 </div>
+                <?php
+                  $alumni_id = $_SESSION['alumni_id'];
+                  // Query to count the number of blog posts
+                  $query = "SELECT COUNT(*) as total_blogs FROM blog WHERE u_id = ?";
+                  $stmt = $db->prepare($query);
+                  $stmt->bind_param("i", $alumni_id);
+                  $stmt->execute();
+                  $result = $stmt->get_result();
+                  $totalBlogs = $result->fetch_assoc()['total_blogs'] ?? 0;
+
+                  $stmt->close();
+                  ?>
+
                 <div class="mt-4 mx-5 flex items-end justify-between">
                   <div>
                     <h4
                       class="text-title-md font-bold text-black dark:text-white"
                     >
-                      02
-                    </h4>
+                    <?php echo str_pad($totalBlogs, 2, '0', STR_PAD_LEFT); ?>                    </h4>
                     <span class="text-sm font-medium dark:text-white">Total blogs</span>
                   </div>
 

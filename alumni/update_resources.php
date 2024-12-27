@@ -8,13 +8,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $material_id = mysqli_real_escape_string($db, $_POST['material_id']);
 
     // Get POST data and sanitize
-    $resources_title = mysqli_real_escape_string($db, $_POST['title']);
+    $title = mysqli_real_escape_string($db, $_POST['title']);
     $type = mysqli_real_escape_string($db, $_POST['type']);
     $description = mysqli_real_escape_string($db, $_POST['content']);
 
     // Create SQL query to update job information
     $sql = "UPDATE resources
-            SET title = '$resources_title',
+            SET title = '$title',
                 type = '$type',
                 content = '$description'
              WHERE material_id = '$material_id' AND u_id = '$alumni_id'";

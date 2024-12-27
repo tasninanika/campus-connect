@@ -755,7 +755,7 @@
                                                     </div>
                                                     <div class="p-5">
                                                     <form action="update_resources.php" method="POST" enctype="multipart/form-data">
-                                                    <input type="hidden" name="resources_id" value="<?php echo $material_id; ?>"> <!-- Pass the resources_id -->
+                                                    <input type="hidden" name="material_id" value="<?php echo $material_id; ?>"> <!-- Pass the resources_id -->
                                                             <!-- first -->
                                                             <div class="mb-6">
                                                             <label

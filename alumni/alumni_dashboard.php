@@ -209,9 +209,9 @@
             </a>
             
             <details class="group relative">
-              <summary class="flex items-center justify-between text-white py-2 px-4 mx-4 my-2 nav-item cursor-pointer">
-                <i class="fas fa-align-left mr-3"></i>
-                <span class="flex-1">Job</span>
+              <summary class="flex items-center justify-between text-white py-2 px-3 mx-4 my-2 nav-item cursor-pointer gap-2.5">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 25 25" width="20" height="20"><defs><style>.cls-1{fill:white}</style></defs><g id="briefcase_2" data-name="briefcase 2"><path class="cls-1" d="M23.5 13.53a.5.5 0 0 0-.5.5v7.26a.7.7 0 0 1-.21.52.61.61 0 0 1-.45.2L2.64 22a.7.7 0 0 1-.64-.77v-7.1a.5.5 0 0 0-.5-.5.5.5 0 0 0-.5.5v7.09A1.71 1.71 0 0 0 2.64 23h19.67a1.62 1.62 0 0 0 1.18-.51 1.73 1.73 0 0 0 .51-1.2V14a.5.5 0 0 0-.5-.47zM22.37 6H2.69A1.66 1.66 0 0 0 1 7.61V12a1 1 0 0 0 1 1h2.54a.5.5 0 0 0 0-1H2V7.61A.66.66 0 0 1 2.68 7h19.68a.67.67 0 0 1 .66.67v4.34L20.5 12a.5.5 0 0 0 0 1H23a1 1 0 0 0 .67-.28.92.92 0 0 0 .29-.68V7.68A1.67 1.67 0 0 0 22.37 6zM8.5 5.23a.5.5 0 0 0 .5-.5A1.74 1.74 0 0 1 10.74 3h3.52A1.74 1.74 0 0 1 16 4.73a.5.5 0 0 0 1 0A2.74 2.74 0 0 0 14.26 2h-3.52A2.74 2.74 0 0 0 8 4.73a.5.5 0 0 0 .5.5z"/><path class="cls-1" d="M18 15a1 1 0 0 0 1-1v-2a1 1 0 0 0-1-1h-1a1 1 0 0 0-1 1v2a1 1 0 0 0 1 1zm0-3v2h-1v-2zM8 15a1 1 0 0 0 1-1v-2a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1v2a1 1 0 0 0 1 1zm0-3v2H7v-2zM14.5 13a.5.5 0 0 0 0-1h-4a.5.5 0 0 0 0 1z"/></g></svg>                
+              <span class="flex-1">Job</span>
                 <svg
                   class="ml-auto fill-current transition-transform group-open:rotate-180"
                   width="20"
@@ -237,9 +237,17 @@
               </ul>
             </details>
             <details class="group relative">
-              <summary class="flex items-center justify-between text-white py-2 px-4 mx-4 my-2 nav-item cursor-pointer">
-                <i class="fas fa-align-left mr-3"></i>
-                <span class="flex-1">Blogs</span>
+              <summary class="flex items-center justify-between text-white gap-2.5 py-2 px-3 mx-4 my-2 nav-item cursor-pointer">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 25 25" width="20" height="20">
+                <defs>
+                  <style>.cls-1{fill:white}</style>
+                </defs>
+                <g id="paper">
+                  <path class="cls-1" d="M19.5 1h-16a.5.5 0 0 0-.5.5v22a.5.5 0 0 0 .5.5h10.71a.49.49 0 0 0 .46-.3l5.17-4.84a.52.52 0 0 0 .16-.37V1.5a.5.5 0 0 0-.5-.5zM4 2h15v15.78h-4.77a.5.5 0 0 0-.5.5V23H4zm14.46 16.78-3.74 3.51v-3.51z"/>
+                  <path class="cls-1" d="M6.5 6h7a.5.5 0 0 0 0-1h-7a.5.5 0 0 0 0 1zM6.5 9h8a.5.5 0 0 0 0-1h-8a.5.5 0 0 0 0 1zM11.5 14h-5a.5.5 0 0 0 0 1h5a.5.5 0 0 0 0-1zM6.5 12h10a.5.5 0 0 0 0-1h-10a.5.5 0 0 0 0 1z"/>
+                </g>
+              </svg>
+              <span class="flex-1">Blogs</span>
                 <svg
                   class="ml-auto fill-current transition-transform group-open:rotate-180"
                   width="20"
@@ -652,14 +660,33 @@
                 <?php
                   $alumni_id = $_SESSION['alumni_id'];
                   // Query to count the number of blog posts
-                  $query = "SELECT COUNT(*) as total_blogs FROM blog WHERE u_id = ?";
-                  $stmt = $db->prepare($query);
-                  $stmt->bind_param("i", $alumni_id);
-                  $stmt->execute();
-                  $result = $stmt->get_result();
+                  $query = "SELECT COUNT(*) as total_blogs FROM blog JOIN alumni ON blog.u_id = alumni.alumni_id WHERE alumni.alumni_id = ?";
+                  $stmtBlogs = $db->prepare($query);
+                  $stmtBlogs->bind_param("s", $alumni_id);
+                  $stmtBlogs->execute();
+                  $result = $stmtBlogs->get_result();
                   $totalBlogs = $result->fetch_assoc()['total_blogs'] ?? 0;
 
-                  $stmt->close();
+                  $stmtBlogs->close();
+                  // job posts
+
+                  $queryJobs = "SELECT COUNT(*) as total_jobs 
+                  FROM job 
+                  JOIN alumni ON job.u_id = alumni.alumni_id 
+                  WHERE alumni.alumni_id = ?";                 
+                  $stmtJobs = $db->prepare($queryJobs);
+                  $stmtJobs->bind_param("s", $alumni_id);
+                  $stmtJobs->execute();
+                  $totalJobs = $stmtJobs->get_result()->fetch_assoc()['total_jobs'] ?? 0;
+                  $stmtJobs->close();
+
+                  // Query to count the number of resources
+                  $queryResources = "SELECT COUNT(*) as total_resources FROM resources JOIN alumni ON resources.u_id = alumni.alumni_id WHERE alumni.alumni_id = ?";
+                  $stmtResources = $db->prepare($queryResources);
+                  $stmtResources->bind_param("s", $alumni_id);
+                  $stmtResources->execute();
+                  $totalResources = $stmtResources->get_result()->fetch_assoc()['total_resources'] ?? 0;
+                  $stmtResources->close();
                   ?>
 
                 <div class="mt-4 mx-5 flex items-end justify-between">
@@ -695,7 +722,7 @@
                     <h4
                       class="text-title-md font-bold text-black dark:text-white"
                     >
-                      01
+                    <?php echo str_pad($totalJobs, 2, '0', STR_PAD_LEFT); ?>                    </h4>
                     </h4>
                     <span class="text-sm font-medium dark:text-white">Total Post</span>
                   </div>
@@ -724,7 +751,7 @@
                     <h4
                       class="text-title-md font-bold text-black dark:text-white"
                     >
-                      02
+                    <?php echo str_pad($totalResources, 2, '0', STR_PAD_LEFT); ?>                    </h4>
                     </h4>
                     <span class="text-sm dark:text-white font-medium">Total resources</span>
                   </div>

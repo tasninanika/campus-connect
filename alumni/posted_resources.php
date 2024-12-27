@@ -687,7 +687,7 @@
                     $file = $rows['file'];
                     $created_at = $rows['created_at']; ?>
                           <!-- Card 1 -->
-                          <div class="flex items-center rounded-xl border border-gray-300  px-6 dark:border-gray-400 py-4 relative dark:bg-gray-800">
+                          <div class="flex items-center rounded-xl bg-white border border-gray-300  px-6 dark:border-gray-400 py-4 relative dark:bg-gray-800">
                               <!-- Content Section -->
                               <div class="flex-grow flex items-center text-gray-600 dark:text-gray-100">
                                   <div class="flex-grow flex justify-between items-center">

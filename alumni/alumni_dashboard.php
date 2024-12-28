@@ -157,6 +157,8 @@
   .dark .dark\:text-purple-400 {
     color: rgb(216 180 254);
   }
+  .dark .dark\:stroke-black {
+    stroke: rgb(0, 0, 0);  }
     </style>
 </head>
 <body class="bg-slate-100 font-family-karla flex" x-data="setup()" :class="{ 'dark': isDark }">
@@ -210,7 +212,7 @@
             
             <details class="group relative">
               <summary class="flex items-center justify-between text-white py-2 px-3 mx-4 my-2 nav-item cursor-pointer gap-2.5">
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 25 25" width="20" height="20"><defs><style>.cls-1{fill:white}</style></defs><g id="briefcase_2" data-name="briefcase 2"><path class="cls-1" d="M23.5 13.53a.5.5 0 0 0-.5.5v7.26a.7.7 0 0 1-.21.52.61.61 0 0 1-.45.2L2.64 22a.7.7 0 0 1-.64-.77v-7.1a.5.5 0 0 0-.5-.5.5.5 0 0 0-.5.5v7.09A1.71 1.71 0 0 0 2.64 23h19.67a1.62 1.62 0 0 0 1.18-.51 1.73 1.73 0 0 0 .51-1.2V14a.5.5 0 0 0-.5-.47zM22.37 6H2.69A1.66 1.66 0 0 0 1 7.61V12a1 1 0 0 0 1 1h2.54a.5.5 0 0 0 0-1H2V7.61A.66.66 0 0 1 2.68 7h19.68a.67.67 0 0 1 .66.67v4.34L20.5 12a.5.5 0 0 0 0 1H23a1 1 0 0 0 .67-.28.92.92 0 0 0 .29-.68V7.68A1.67 1.67 0 0 0 22.37 6zM8.5 5.23a.5.5 0 0 0 .5-.5A1.74 1.74 0 0 1 10.74 3h3.52A1.74 1.74 0 0 1 16 4.73a.5.5 0 0 0 1 0A2.74 2.74 0 0 0 14.26 2h-3.52A2.74 2.74 0 0 0 8 4.73a.5.5 0 0 0 .5.5z"/><path class="cls-1" d="M18 15a1 1 0 0 0 1-1v-2a1 1 0 0 0-1-1h-1a1 1 0 0 0-1 1v2a1 1 0 0 0 1 1zm0-3v2h-1v-2zM8 15a1 1 0 0 0 1-1v-2a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1v2a1 1 0 0 0 1 1zm0-3v2H7v-2zM14.5 13a.5.5 0 0 0 0-1h-4a.5.5 0 0 0 0 1z"/></g></svg>                
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 25 25" width="20" height="20"><defs><style>.cls-2{fill:white}</style></defs><g id="briefcase_2" data-name="briefcase 2"><path class="cls-2" d="M23.5 13.53a.5.5 0 0 0-.5.5v7.26a.7.7 0 0 1-.21.52.61.61 0 0 1-.45.2L2.64 22a.7.7 0 0 1-.64-.77v-7.1a.5.5 0 0 0-.5-.5.5.5 0 0 0-.5.5v7.09A1.71 1.71 0 0 0 2.64 23h19.67a1.62 1.62 0 0 0 1.18-.51 1.73 1.73 0 0 0 .51-1.2V14a.5.5 0 0 0-.5-.47zM22.37 6H2.69A1.66 1.66 0 0 0 1 7.61V12a1 1 0 0 0 1 1h2.54a.5.5 0 0 0 0-1H2V7.61A.66.66 0 0 1 2.68 7h19.68a.67.67 0 0 1 .66.67v4.34L20.5 12a.5.5 0 0 0 0 1H23a1 1 0 0 0 .67-.28.92.92 0 0 0 .29-.68V7.68A1.67 1.67 0 0 0 22.37 6zM8.5 5.23a.5.5 0 0 0 .5-.5A1.74 1.74 0 0 1 10.74 3h3.52A1.74 1.74 0 0 1 16 4.73a.5.5 0 0 0 1 0A2.74 2.74 0 0 0 14.26 2h-3.52A2.74 2.74 0 0 0 8 4.73a.5.5 0 0 0 .5.5z"/><path class="cls-2" d="M18 15a1 1 0 0 0 1-1v-2a1 1 0 0 0-1-1h-1a1 1 0 0 0-1 1v2a1 1 0 0 0 1 1zm0-3v2h-1v-2zM8 15a1 1 0 0 0 1-1v-2a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1v2a1 1 0 0 0 1 1zm0-3v2H7v-2zM14.5 13a.5.5 0 0 0 0-1h-4a.5.5 0 0 0 0 1z"/></g></svg>                
               <span class="flex-1">Job</span>
                 <svg
                   class="ml-auto fill-current transition-transform group-open:rotate-180"
@@ -240,11 +242,11 @@
               <summary class="flex items-center justify-between text-white gap-2.5 py-2 px-3 mx-4 my-2 nav-item cursor-pointer">
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 25 25" width="20" height="20">
                 <defs>
-                  <style>.cls-1{fill:white}</style>
+                  <style>.cls-2{fill:white}</style>
                 </defs>
                 <g id="paper">
-                  <path class="cls-1" d="M19.5 1h-16a.5.5 0 0 0-.5.5v22a.5.5 0 0 0 .5.5h10.71a.49.49 0 0 0 .46-.3l5.17-4.84a.52.52 0 0 0 .16-.37V1.5a.5.5 0 0 0-.5-.5zM4 2h15v15.78h-4.77a.5.5 0 0 0-.5.5V23H4zm14.46 16.78-3.74 3.51v-3.51z"/>
-                  <path class="cls-1" d="M6.5 6h7a.5.5 0 0 0 0-1h-7a.5.5 0 0 0 0 1zM6.5 9h8a.5.5 0 0 0 0-1h-8a.5.5 0 0 0 0 1zM11.5 14h-5a.5.5 0 0 0 0 1h5a.5.5 0 0 0 0-1zM6.5 12h10a.5.5 0 0 0 0-1h-10a.5.5 0 0 0 0 1z"/>
+                  <path class="cls-2" d="M19.5 1h-16a.5.5 0 0 0-.5.5v22a.5.5 0 0 0 .5.5h10.71a.49.49 0 0 0 .46-.3l5.17-4.84a.52.52 0 0 0 .16-.37V1.5a.5.5 0 0 0-.5-.5zM4 2h15v15.78h-4.77a.5.5 0 0 0-.5.5V23H4zm14.46 16.78-3.74 3.51v-3.51z"/>
+                  <path class="cls-2" d="M6.5 6h7a.5.5 0 0 0 0-1h-7a.5.5 0 0 0 0 1zM6.5 9h8a.5.5 0 0 0 0-1h-8a.5.5 0 0 0 0 1zM11.5 14h-5a.5.5 0 0 0 0 1h5a.5.5 0 0 0 0-1zM6.5 12h10a.5.5 0 0 0 0-1h-10a.5.5 0 0 0 0 1z"/>
                 </g>
               </svg>
               <span class="flex-1">Blogs</span>
@@ -272,14 +274,19 @@
                 </li>
               </ul>
             </details> 
-            <a href="alumni_announcement.php" class="flex items-center text-white py-2 px-3 ml-4 mr-4 my-1 nav-item">
-                <i class="fas fa-solid fa-question mr-3"></i>    
-                Announcement 
+            <a href="alumni_announcement.php" class="flex items-center text-white py-2 px-3 ml-4 mr-4 my-1 nav-item gap-2.5">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.5" height="20" width="20">
+                <path d="M9,8.087,21,3V21L9,15.913V21H5V15.913a2,2,0,0,1-2-2V10.087a2,2,0,0,1,2-2Z"/>
+              </svg>Announcement 
             </a> 
             <details class="group relative">
-              <summary class="flex items-center justify-between text-white py-2 px-4 mx-4 my-2 nav-item cursor-pointer">
-                <i class="fas fa-align-left mr-3"></i>
-                <span class="flex-1">Resources</span>
+              <summary class="flex items-center justify-between text-white py-2 px-3 mx-4 my-2 nav-item cursor-pointer gap-2.5">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" width="20" height="20" stroke="white" fill="none" stroke-width="3">
+              <path d="M107.477 116.614c.052-.022.1-.052.149-.078a1.607 1.607 0 0 0 .152-.083 1.7 1.7 0 0 0 .2-.162c.021-.019.045-.033.066-.054s.014-.018.022-.026a1.825 1.825 0 0 0 .2-.241 1.519 1.519 0 0 0 .078-.143 1.7 1.7 0 0 0 .083-.158 1.672 1.672 0 0 0 .058-.186c.014-.047.032-.092.042-.141a1.8 1.8 0 0 0 .035-.344v-.013a1.723 1.723 0 0 0-.033-.329c-.009-.048-.027-.092-.04-.138a1.814 1.814 0 0 0-.059-.19 1.629 1.629 0 0 0-.079-.149c-.027-.051-.05-.1-.082-.152a1.735 1.735 0 0 0-.163-.2c-.019-.021-.033-.045-.053-.065a12.225 12.225 0 0 1-3.147-7.942 12.4 12.4 0 0 1 3.145-7.94v-.005c.011-.011.018-.024.029-.036a1.8 1.8 0 0 0 .186-.23c.025-.038.042-.079.064-.118a1.586 1.586 0 0 0 .1-.183c.021-.051.033-.1.049-.156s.038-.111.05-.17a1.762 1.762 0 0 0 .026-.262c0-.026.008-.05.008-.076V6.307a1.75 1.75 0 0 0-1.75-1.75H25.9a6.467 6.467 0 0 0-6.46 6.46v99.271a6.467 6.467 0 0 0 6.46 6.46h5.047v4.945a1.75 1.75 0 0 0 2.987 1.238l3.883-3.883 3.883 3.883a1.746 1.746 0 0 0 1.237.512 1.749 1.749 0 0 0 1.75-1.75v-4.945h62.116a1.711 1.711 0 0 0 .342-.035 1.258 1.258 0 0 0 .14-.041 1.774 1.774 0 0 0 .192-.058zm-2.42-21.721H34.451V8.057h70.606zM25.9 8.057h5.047v86.836H25.9a6.415 6.415 0 0 0-2.96.724v-84.6a2.963 2.963 0 0 1 2.96-2.96zm0 105.191a2.963 2.963 0 0 1-2.96-2.96v-8.935a2.963 2.963 0 0 1 2.96-2.96h77.5a15.572 15.572 0 0 0-1.888 5.677H32.7a1.749 1.749 0 0 0-1.75 1.75v7.428zm15.287 4.221-2.133-2.133a1.749 1.749 0 0 0-2.475 0l-2.132 2.133v-9.9h6.74zm3.5-9.9h56.826a15.577 15.577 0 0 0 1.888 5.678h-58.71z"/>
+              <path d="M50.452 46.461h38.6a1.75 1.75 0 0 0 1.75-1.75V24.058a1.75 1.75 0 0 0-1.75-1.75h-38.6a1.749 1.749 0 0 0-1.75 1.75v20.653a1.749 1.749 0 0 0 1.75 1.75zM52.2 25.808h35.1v17.153H52.2z"/>
+            </svg>
+
+          <span class="flex-1">Resources</span>
                 <svg
                   class="ml-auto fill-current transition-transform group-open:rotate-180"
                   width="20"
@@ -653,10 +660,29 @@
                 class="rounded-sm border bg-white px-7.5 py-6 shadow dark:bg-gray-800 dark:border-gray-700"
                 >
                 <div
-                  class="flex h-14 w-10 items-center justify-center rounded-full bg-meta-2 dark:bg-meta-4"
-                >
+                  class="flex h-16 w-16 ml-4 items-center justify-center rounded-full bg-meta-2 dark:bg-meta-4"
+                  >
                   <!-- svg -->
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 25 25" class="svg-icon">
+                    <defs>
+                      <style>
+                        /* Default fill color (light mode) */
+                        .svg-icon .cls-1 {
+                          fill: black;
+                        }
+                        /* Dark mode fill color */
+                        .dark .svg-icon .cls-1 {
+                          fill: white;
+                        }
+                      </style>
+                    </defs>
+                    <g id="paper">
+                      <path class="cls-1" d="M19.5 1h-16a.5.5 0 0 0-.5.5v22a.5.5 0 0 0 .5.5h10.71a.49.49 0 0 0 .46-.3l5.17-4.84a.52.52 0 0 0 .16-.37V1.5a.5.5 0 0 0-.5-.5zM4 2h15v15.78h-4.77a.5.5 0 0 0-.5.5V23H4zm14.46 16.78-3.74 3.51v-3.51z"/>
+                      <path class="cls-1" d="M6.5 6h7a.5.5 0 0 0 0-1h-7a.5.5 0 0 0 0 1zM6.5 9h8a.5.5 0 0 0 0-1h-8a.5.5 0 0 0 0 1zM11.5 14h-5a.5.5 0 0 0 0 1h5a.5.5 0 0 0 0-1zM6.5 12h10a.5.5 0 0 0 0-1h-10a.5.5 0 0 0 0 1z"/>
+                    </g>
+                  </svg>
                 </div>
+
                 <?php
                   $alumni_id = $_SESSION['alumni_id'];
                   // Query to count the number of blog posts
@@ -711,11 +737,28 @@
               <div
                 class="rounded-sm border bg-white px-7.5 py-6 shadow dark:border-gray-700 dark:bg-gray-800"
                 >
-                <div
-                  class="flex h-14 w-10 items-center justify-center rounded-full bg-meta-2 dark:bg-meta-4"
-                  >
+                <div class="flex h-16 w-16 items-center justify-center rounded-full bg-meta-2 dark:bg-meta-4 ml-4">
                   <!-- svg -->
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 25 25">
+                    <defs>
+                      <style>
+                        /* Default fill color for light mode */
+                        .cls-1 {
+                          fill: black;
+                        }
+                        /* Fill color for dark mode */
+                        .dark .cls-1 {
+                          fill: white;
+                        }
+                      </style>
+                    </defs>
+                    <g id="briefcase_2" data-name="briefcase 2">
+                      <path class="cls-1" d="M23.5 13.53a.5.5 0 0 0-.5.5v7.26a.7.7 0 0 1-.21.52.61.61 0 0 1-.45.2L2.64 22a.7.7 0 0 1-.64-.77v-7.1a.5.5 0 0 0-.5-.5.5.5 0 0 0-.5.5v7.09A1.71 1.71 0 0 0 2.64 23h19.67a1.62 1.62 0 0 0 1.18-.51 1.73 1.73 0 0 0 .51-1.2V14a.5.5 0 0 0-.5-.47zM22.37 6H2.69A1.66 1.66 0 0 0 1 7.61V12a1 1 0 0 0 1 1h2.54a.5.5 0 0 0 0-1H2V7.61A.66.66 0 0 1 2.68 7h19.68a.67.67 0 0 1 .66.67v4.34L20.5 12a.5.5 0 0 0 0 1H23a1 1 0 0 0 .67-.28.92.92 0 0 0 .29-.68V7.68A1.67 1.67 0 0 0 22.37 6zM8.5 5.23a.5.5 0 0 0 .5-.5A1.74 1.74 0 0 1 10.74 3h3.52A1.74 1.74 0 0 1 16 4.73a.5.5 0 0 0 1 0A2.74 2.74 0 0 0 14.26 2h-3.52A2.74 2.74 0 0 0 8 4.73a.5.5 0 0 0 .5.5z"/>
+                      <path class="cls-1" d="M18 15a1 1 0 0 0 1-1v-2a1 1 0 0 0-1-1h-1a1 1 0 0 0-1 1v2a1 1 0 0 0 1 1zm0-3v2h-1v-2zM8 15a1 1 0 0 0 1-1v-2a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1v2a1 1 0 0 0 1 1zm0-3v2H7v-2zM14.5 13a.5.5 0 0 0 0-1h-4a.5.5 0 0 0 0 1z"/>
+                    </g>
+                  </svg>
                 </div>
+
 
                 <div class="mt-4 mx-5 flex items-end justify-between">
                   <div>
@@ -740,12 +783,32 @@
               <div
                 class="rounded-sm border bg-white px-7.5 py-6 shadow- dark:border-gray-700 dark:bg-gray-800"
                 >
-                <div
-                  class="flex h-14 w-10 items-center justify-center rounded-full bg-meta-2 dark:bg-meta-4"
-                >
+                <div class="flex h-16 w-16 items-center justify-center rounded-full bg-meta-2 dark:bg-meta-4 ml-3">
                   <!-- svg -->
+                  <div class="flex h-16 w-24 items-center justify-center rounded-full bg-meta-2 dark:bg-meta-4 ml-3">
+                  <!-- svg -->
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512">
+                    <defs>
+                      <style>
+                        /* Default stroke color for light mode */
+                        .cls-3 {
+                          stroke: black;
+                          stroke-width: 32;
+                          fill: none;
+                        }
+                        /* Stroke color for dark mode */
+                        .dark .cls-3 {
+                          stroke: white;
+                        }
+                      </style>
+                    </defs>
+                    <path
+                      class="cls-3"
+                      d="M249.6 471.5c10.8 3.8 22.4-4.1 22.4-15.5l0-377.4c0-4.2-1.6-8.4-5-11C247.4 52 202.4 32 144 32C93.5 32 46.3 45.3 18.1 56.1C6.8 60.5 0 71.7 0 83.8L0 454.1c0 11.9 12.8 20.2 24.1 16.5C55.6 460.1 105.5 448 144 448c33.9 0 79 14 105.6 23.5zm76.8 0C353 462 398.1 448 432 448c38.5 0 88.4 12.1 119.9 22.6c11.3 3.8 24.1-4.6 24.1-16.5l0-370.3c0-12.1-6.8-23.3-18.1-27.6C529.7 45.3 482.5 32 432 32c-58.4 0-103.4 20-123 35.6c-3.3 2.6-5 6.8-5 11L304 456c0 11.4 11.7 19.3 22.4 15.5z"
+                    />
+                  </svg>
                 </div>
-
+                </div>
                 <div class="mt-4 mx-5 flex items-end justify-between">
                   <div>
                     <h4

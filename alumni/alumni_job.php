@@ -940,7 +940,7 @@
                             Cancel
                           </button>
                           <button
-                            class="flex justify-center rounded-lg bg-gradient-to-r from-purple-400 to-black px-8 py-2 font-medium text-white hover:bg-opacity-90"
+                            class="flex justify-center rounded-lg bg-gradient-to-r from-purple-500 to-black px-6 py-2 font-medium text-white hover:bg-opacity-90"
                             type="submit">
                             Create
                           </button>

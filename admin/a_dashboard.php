@@ -1,7 +1,7 @@
 <?php
 	session_start();
     // include("../navbar.php");
-	if ($_SESSION['login'] == TRUE) {
+	if ($_SESSION['login'] == TRUE && $_SESSION['status'] == 'Active') {
 		include("../db_con/dbCon.php");
         
 	?>
@@ -165,23 +165,12 @@
     <aside class="relative h-screen w-[350px] hidden sm:block shadow-xl bg-gray-800">
         <div class="p-8 mb-5 ">
             <a class="text-white text-base font-bold font-garamond hover:text-gray-300">Welcome,</a>
-            <?php
-			    $a=$_SESSION['administrator_id'];
-							
-				$result = mysqli_query($db,"SELECT * FROM user, administrator WHERE user.u_id=administrator.administrator_id  AND user.u_id='$a'");
-							
-				if($row = mysqli_fetch_array($result)) {
-							?>
-                    <h1 class="text-4xl font-garamond font-bold text-white dark:text-white">
-                    <?php echo $row['first_Name'];?></h1>
-                <?php
-							}
-				?>           
+            <h1 class="text-4xl font-garamond font-bold text-white">Admin</h1>           
         </div>
         <nav class="text-white text-base  pt-3">
             <h3 class="mb-4 ml-7 text-base font-medium text-slate-400">MENU</h3>
             
-            <a href="a_dashboard.php" class="flex items-center text-white gap-2.5 py-2 px-3 ml-4 mr-4 my-1 active-nav-link">
+            <a href="alumni_dashboard.php" class="flex items-center text-white gap-2.5 py-2 px-3 ml-4 mr-4 my-1 active-nav-link">
                 <svg
                     class="fill-current"
                     width="18"
@@ -665,181 +654,6 @@
         <!-- main start -->
         <main>
           <div class="mx-auto max-w-screen-2xl p-4 md:p-6 2xl:p-10 lg:mt-5 lg:ml-5">
-            <div
-              class="grid grid-cols-1 gap-4 md:grid-cols-2 md:gap-6 xl:grid-cols-4 2xl:gap-10"
-            >
-              <!-- Card Item Start -->
-              <div
-                class="rounded-sm border bg-white px-7.5 py-6 shadow dark:bg-gray-800 dark:border-gray-700"
-                >
-                <div
-                  class="flex h-16 w-16 ml-4 items-center justify-center rounded-full bg-meta-2 dark:bg-meta-4"
-                  >
-                  <!-- svg -->
-                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 25 25" class="svg-icon">
-                    <defs>
-                      <style>
-                        /* Default fill color (light mode) */
-                        .svg-icon .cls-1 {
-                          fill: black;
-                        }
-                        /* Dark mode fill color */
-                        .dark .svg-icon .cls-1 {
-                          fill: white;
-                        }
-                      </style>
-                    </defs>
-                    <g id="paper">
-                      <path class="cls-1" d="M19.5 1h-16a.5.5 0 0 0-.5.5v22a.5.5 0 0 0 .5.5h10.71a.49.49 0 0 0 .46-.3l5.17-4.84a.52.52 0 0 0 .16-.37V1.5a.5.5 0 0 0-.5-.5zM4 2h15v15.78h-4.77a.5.5 0 0 0-.5.5V23H4zm14.46 16.78-3.74 3.51v-3.51z"/>
-                      <path class="cls-1" d="M6.5 6h7a.5.5 0 0 0 0-1h-7a.5.5 0 0 0 0 1zM6.5 9h8a.5.5 0 0 0 0-1h-8a.5.5 0 0 0 0 1zM11.5 14h-5a.5.5 0 0 0 0 1h5a.5.5 0 0 0 0-1zM6.5 12h10a.5.5 0 0 0 0-1h-10a.5.5 0 0 0 0 1z"/>
-                    </g>
-                  </svg>
-                </div>
-
-                <?php
-                  $alumni_id = $_SESSION['alumni_id'];
-                  // Query to count the number of blog posts
-                  $query = "SELECT COUNT(*) as total_blogs FROM blog JOIN alumni ON blog.u_id = alumni.alumni_id WHERE alumni.alumni_id = ?";
-                  $stmtBlogs = $db->prepare($query);
-                  $stmtBlogs->bind_param("s", $alumni_id);
-                  $stmtBlogs->execute();
-                  $result = $stmtBlogs->get_result();
-                  $totalBlogs = $result->fetch_assoc()['total_blogs'] ?? 0;
-
-                  $stmtBlogs->close();
-                  // job posts
-
-                  $queryJobs = "SELECT COUNT(*) as total_jobs 
-                  FROM job 
-                  JOIN alumni ON job.u_id = alumni.alumni_id 
-                  WHERE alumni.alumni_id = ?";                 
-                  $stmtJobs = $db->prepare($queryJobs);
-                  $stmtJobs->bind_param("s", $alumni_id);
-                  $stmtJobs->execute();
-                  $totalJobs = $stmtJobs->get_result()->fetch_assoc()['total_jobs'] ?? 0;
-                  $stmtJobs->close();
-
-                  // Query to count the number of resources
-                  $queryResources = "SELECT COUNT(*) as total_resources FROM resources JOIN alumni ON resources.u_id = alumni.alumni_id WHERE alumni.alumni_id = ?";
-                  $stmtResources = $db->prepare($queryResources);
-                  $stmtResources->bind_param("s", $alumni_id);
-                  $stmtResources->execute();
-                  $totalResources = $stmtResources->get_result()->fetch_assoc()['total_resources'] ?? 0;
-                  $stmtResources->close();
-                  ?>
-
-                <div class="mt-4 mx-5 flex items-end justify-between">
-                  <div>
-                    <h4
-                      class="text-title-md font-bold text-black dark:text-white"
-                    >
-                    <?php echo str_pad($totalBlogs, 2, '0', STR_PAD_LEFT); ?>                    </h4>
-                    <span class="text-sm font-medium dark:text-white">Total blogs</span>
-                  </div>
-                  <span 
-                    class="flex items-center gap-1 text-sm font-medium text-meta-3 dark:text-white"
-                    > <a href="posted_blogs.php">
-                    More Info <i class="fas fa-solid fa-arrow-right fa-sm"></i>
-                      </a></span>
-                </div>
-              </div>
-              <!-- Card Item End -->
-
-              <!-- Card Item Start -->
-              <div
-                class="rounded-sm border bg-white px-7.5 py-6 shadow dark:border-gray-700 dark:bg-gray-800"
-                >
-                <div class="flex h-16 w-16 items-center justify-center rounded-full bg-meta-2 dark:bg-meta-4 ml-4">
-                  <!-- svg -->
-                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 25 25">
-                    <defs>
-                      <style>
-                        /* Default fill color for light mode */
-                        .cls-1 {
-                          fill: black;
-                        }
-                        /* Fill color for dark mode */
-                        .dark .cls-1 {
-                          fill: white;
-                        }
-                      </style>
-                    </defs>
-                    <g id="briefcase_2" data-name="briefcase 2">
-                      <path class="cls-1" d="M23.5 13.53a.5.5 0 0 0-.5.5v7.26a.7.7 0 0 1-.21.52.61.61 0 0 1-.45.2L2.64 22a.7.7 0 0 1-.64-.77v-7.1a.5.5 0 0 0-.5-.5.5.5 0 0 0-.5.5v7.09A1.71 1.71 0 0 0 2.64 23h19.67a1.62 1.62 0 0 0 1.18-.51 1.73 1.73 0 0 0 .51-1.2V14a.5.5 0 0 0-.5-.47zM22.37 6H2.69A1.66 1.66 0 0 0 1 7.61V12a1 1 0 0 0 1 1h2.54a.5.5 0 0 0 0-1H2V7.61A.66.66 0 0 1 2.68 7h19.68a.67.67 0 0 1 .66.67v4.34L20.5 12a.5.5 0 0 0 0 1H23a1 1 0 0 0 .67-.28.92.92 0 0 0 .29-.68V7.68A1.67 1.67 0 0 0 22.37 6zM8.5 5.23a.5.5 0 0 0 .5-.5A1.74 1.74 0 0 1 10.74 3h3.52A1.74 1.74 0 0 1 16 4.73a.5.5 0 0 0 1 0A2.74 2.74 0 0 0 14.26 2h-3.52A2.74 2.74 0 0 0 8 4.73a.5.5 0 0 0 .5.5z"/>
-                      <path class="cls-1" d="M18 15a1 1 0 0 0 1-1v-2a1 1 0 0 0-1-1h-1a1 1 0 0 0-1 1v2a1 1 0 0 0 1 1zm0-3v2h-1v-2zM8 15a1 1 0 0 0 1-1v-2a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1v2a1 1 0 0 0 1 1zm0-3v2H7v-2zM14.5 13a.5.5 0 0 0 0-1h-4a.5.5 0 0 0 0 1z"/>
-                    </g>
-                  </svg>
-                </div>
-
-
-                <div class="mt-4 mx-5 flex items-end justify-between">
-                  <div>
-                    <h4
-                      class="text-title-md font-bold text-black dark:text-white"
-                    >
-                    <?php echo str_pad($totalJobs, 2, '0', STR_PAD_LEFT); ?>                    </h4>
-                    </h4>
-                    <span class="text-sm font-medium dark:text-white">Total Post</span>
-                  </div>
-
-                  <span
-                    class="flex items-center gap-1 text-sm font-medium text-meta-3 dark:text-white"
-                    ><a href="posted_job.php">
-                    More Info <i class="fas fa-solid fa-arrow-right fa-sm"></i></a>
-                  </span>
-                </div>
-              </div>
-              <!-- Card Item End -->
-
-              <!-- Card Item Start -->
-              <div
-                class="rounded-sm border bg-white px-7.5 py-6 shadow- dark:border-gray-700 dark:bg-gray-800"
-                >
-                <div class="flex h-16 w-16 items-center justify-center rounded-full bg-meta-2 dark:bg-meta-4 ml-3">
-                  <!-- svg -->
-                  <div class="flex h-16 w-24 items-center justify-center rounded-full bg-meta-2 dark:bg-meta-4 ml-3">
-                  <!-- svg -->
-                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512">
-                    <defs>
-                      <style>
-                        /* Default stroke color for light mode */
-                        .cls-3 {
-                          stroke: black;
-                          stroke-width: 32;
-                          fill: none;
-                        }
-                        /* Stroke color for dark mode */
-                        .dark .cls-3 {
-                          stroke: white;
-                        }
-                      </style>
-                    </defs>
-                    <path
-                      class="cls-3"
-                      d="M249.6 471.5c10.8 3.8 22.4-4.1 22.4-15.5l0-377.4c0-4.2-1.6-8.4-5-11C247.4 52 202.4 32 144 32C93.5 32 46.3 45.3 18.1 56.1C6.8 60.5 0 71.7 0 83.8L0 454.1c0 11.9 12.8 20.2 24.1 16.5C55.6 460.1 105.5 448 144 448c33.9 0 79 14 105.6 23.5zm76.8 0C353 462 398.1 448 432 448c38.5 0 88.4 12.1 119.9 22.6c11.3 3.8 24.1-4.6 24.1-16.5l0-370.3c0-12.1-6.8-23.3-18.1-27.6C529.7 45.3 482.5 32 432 32c-58.4 0-103.4 20-123 35.6c-3.3 2.6-5 6.8-5 11L304 456c0 11.4 11.7 19.3 22.4 15.5z"
-                    />
-                  </svg>
-                </div>
-                </div>
-                <div class="mt-4 mx-5 flex items-end justify-between">
-                  <div>
-                    <h4
-                      class="text-title-md font-bold text-black dark:text-white"
-                    >
-                    <?php echo str_pad($totalResources, 2, '0', STR_PAD_LEFT); ?>                    </h4>
-                    </h4>
-                    <span class="text-sm dark:text-white font-medium">Total resources</span>
-                  </div>
-
-                  <span
-                    class="flex items-center gap-1 text-sm font-medium text-meta-3 dark:text-white"
-                  ><a href="posted_resources.php">
-                    More Info <i class="fas fa-solid fa-arrow-right fa-sm"></i></a>
-                  </span>
-                </div>
-              </div>
-              <!-- Card Item End -->
-            </div>
       <div class="grid grid-cols-1 lg:grid-cols-2 pt-8 gap-4">
     
           <!-- Recent Activities part1 -->

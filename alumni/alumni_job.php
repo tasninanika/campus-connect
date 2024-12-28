@@ -895,7 +895,7 @@
                             >Logo</label
                           >
                           <input
-                              class="w-full text-gray-400 font-semibold text-sm bg-white border file:cursor-pointer cursor-pointer file:border-0 file:py-3 file:px-4 file:mr-4 file:bg-gray-100 file:hover:bg-gray-200 file:text-gray-500 rounded dark:text-gray-400 dark:bg-gray-800 dark:file:bg-gray-700 dark:file:hover:bg-gray-800 dark:border-gray-600 dark:file:text-gray-300" required
+                              class="w-full text-gray-400 font-semibold text-sm bg-white border file:cursor-pointer cursor-pointer file:border-0 file:py-3 file:px-4 file:mr-4 file:bg-gray-100 file:hover:bg-gray-200 file:text-gray-500 rounded-lg dark:text-gray-400 dark:bg-gray-800 dark:file:bg-gray-500 dark:file:hover:bg-gray-800 dark:border-gray-600 dark:file:text-gray-300" required
                               type="file"
                               name="fileToUpload"
                               id="logo"
@@ -909,7 +909,7 @@
                             >Job URL</label
                           >
                           <input
-                              class="w-full rounded-lg border border-stroke bg-gray px-5 pl-4 py-2 font-medium text-black focus:border-gray-800 focus-visible:outline-none dark:border-strokedark dark:bg-meta-4 dark:text-white dark:focus:border-primary" required
+                              class="w-full rounded-lg border border-stroke bg-gray px-5 pl-4 py-2 font-medium text-black focus:border-gray-800 focus-visible:outline-none dark:border-gray-700 dark:bg-gray-800 dark:text-white dark:focus:border-primary" required
                               type="text"
                               name="apply_info"
                               id="apply_info"
@@ -936,11 +936,11 @@
                           <button
                             class="flex justify-center rounded-lg border border-stroke px-6 py-2 font-medium text-black hover:shadow-1 dark:border-strokedark dark:text-white"
                             type="submit"
-                          ><svg class="w-5 h-6 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+                          >
                             Cancel
                           </button>
                           <button
-                            class="flex justify-center rounded-lg bg-gradient-to-r from-[#0E675C] to-black px-8 py-2 font-medium text-white hover:bg-opacity-90"
+                            class="flex justify-center rounded-lg bg-gradient-to-r from-purple-400 to-black px-8 py-2 font-medium text-white hover:bg-opacity-90"
                             type="submit">
                             Create
                           </button>

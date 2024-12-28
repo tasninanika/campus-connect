@@ -167,7 +167,7 @@
     </style>
 </head>
 <body class="bg-gray-100 font-family-karla flex" x-data="setup()" :class="{ 'dark': isDark }">
-<aside class="relative h-screen w-[350px] hidden sm:block shadow-xl bg-gray-800">
+    <aside class="relative h-screen w-[350px] hidden sm:block shadow-xl bg-gray-800">
         <div class="p-8 mb-5 ">
             <a class="text-white text-base font-bold font-garamond hover:text-gray-300">Welcome,</a>
             <?php
@@ -776,9 +776,7 @@
 													}
 												}
 											}
-										?>
-										
-										
+										?>																				
 											<form autocomplete="off" method="post" action="alumni_changePass.php" class="mt-6">				  
 												<!-- current -->
                         <div class="mb-6">                          
@@ -788,7 +786,7 @@
                               >Current Password</label
                             >
                               <input
-                                class="w-full rounded-lg border border-stroke bg-gray py-2 pl-4 pr-4.5 font-medium text-black focus:border-gray-800 focus-visible:outline-none dark:border-gray-700 dark:bg-gray-500 dark:text-white dark:focus:border-primary"
+                                class="w-full rounded-lg border border-stroke bg-gray py-2 pl-4 pr-4.5 font-medium text-black focus:border-gray-800 focus-visible:outline-none dark:border-gray-700 dark:bg-gray-800 dark:text-white dark:focus:border-primary"
                                 type="password" name="current"  required id="inputPassword" 
                                 />                                                       
                           </div>                        
@@ -800,7 +798,7 @@
                             >New Password</label
                           >
                           <input
-                              class="w-full rounded-lg border border-stroke bg-gray px-5 py-2 pl-4 font-medium text-black focus:border-gray-800 focus-visible:outline-none dark:border-strokedark dark:bg-meta-4 dark:text-white dark:focus:border-primary"
+                              class="w-full rounded-lg border border-stroke bg-gray px-5 py-2 pl-4 font-medium text-black focus:border-gray-800 focus-visible:outline-none dark:border-gray-700 dark:bg-gray-800 dark:text-white dark:focus:border-primary"
                               type="password"
                               name="new_password"
                               onblur="checkLength(this)"
@@ -816,7 +814,7 @@
                             >Confirm Password</label
                           >
                             <input
-                              class="w-full rounded-lg border border-stroke bg-gray py-2 pl-4 pr-4.5 font-medium text-black focus:border-gray-800 focus-visible:outline-none dark:border-strokedark dark:bg-meta-4 dark:text-white dark:focus:border-primary"
+                              class="w-full rounded-lg border border-stroke bg-gray py-2 pl-4 pr-4.5 font-medium text-black focus:border-gray-800 focus-visible:outline-none dark:border-gray-700 dark:bg-gray-800 dark:text-white dark:focus:border-primary"
                               type="password"
                               name="confirm_password"
                               id='confirm_password'
@@ -832,7 +830,7 @@
                             Cancel
                           </button>
                           <button
-                            class="flex justify-center rounded bg-gradient-to-r from-[#0E675C] to-black px-6 py-2 font-medium text-white hover:bg-opacity-90"
+                            class="flex justify-center rounded bg-gradient-to-r from-purple-500 to-black px-6 py-2 font-medium text-white hover:bg-opacity-90"
                             type="submit"  name="update" value="Update" 
                           >
                             Update

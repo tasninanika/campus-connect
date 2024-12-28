@@ -217,9 +217,9 @@
             </a>
             
             <details class="group relative">
-              <summary class="flex items-center justify-between text-white py-2 px-4 mx-4 my-2 active-nav-link cursor-pointer">
-                <i class="fas fa-align-left mr-3"></i>
-                <span class="flex-1">Job</span>
+              <summary class="flex items-center justify-between text-white py-2 px-3 mx-4 my-2 active-nav-link cursor-pointer gap-2.5">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 25 25" width="20" height="20"><defs><style>.cls-2{fill:white}</style></defs><g id="briefcase_2" data-name="briefcase 2"><path class="cls-2" d="M23.5 13.53a.5.5 0 0 0-.5.5v7.26a.7.7 0 0 1-.21.52.61.61 0 0 1-.45.2L2.64 22a.7.7 0 0 1-.64-.77v-7.1a.5.5 0 0 0-.5-.5.5.5 0 0 0-.5.5v7.09A1.71 1.71 0 0 0 2.64 23h19.67a1.62 1.62 0 0 0 1.18-.51 1.73 1.73 0 0 0 .51-1.2V14a.5.5 0 0 0-.5-.47zM22.37 6H2.69A1.66 1.66 0 0 0 1 7.61V12a1 1 0 0 0 1 1h2.54a.5.5 0 0 0 0-1H2V7.61A.66.66 0 0 1 2.68 7h19.68a.67.67 0 0 1 .66.67v4.34L20.5 12a.5.5 0 0 0 0 1H23a1 1 0 0 0 .67-.28.92.92 0 0 0 .29-.68V7.68A1.67 1.67 0 0 0 22.37 6zM8.5 5.23a.5.5 0 0 0 .5-.5A1.74 1.74 0 0 1 10.74 3h3.52A1.74 1.74 0 0 1 16 4.73a.5.5 0 0 0 1 0A2.74 2.74 0 0 0 14.26 2h-3.52A2.74 2.74 0 0 0 8 4.73a.5.5 0 0 0 .5.5z"/><path class="cls-2" d="M18 15a1 1 0 0 0 1-1v-2a1 1 0 0 0-1-1h-1a1 1 0 0 0-1 1v2a1 1 0 0 0 1 1zm0-3v2h-1v-2zM8 15a1 1 0 0 0 1-1v-2a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1v2a1 1 0 0 0 1 1zm0-3v2H7v-2zM14.5 13a.5.5 0 0 0 0-1h-4a.5.5 0 0 0 0 1z"/></g></svg>                
+              <span class="flex-1">Job</span>
                 <svg
                   class="ml-auto fill-current transition-transform group-open:rotate-180"
                   width="20"
@@ -245,9 +245,17 @@
               </ul>
             </details>
             <details class="group relative">
-              <summary class="flex items-center justify-between text-white py-2 px-4 mx-4 my-2 nav-item cursor-pointer">
-                <i class="fas fa-align-left mr-3"></i>
-                <span class="flex-1">Blogs</span>
+              <summary class="flex items-center justify-between text-white gap-2.5 py-2 px-3 mx-4 my-2 nav-item cursor-pointer">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 25 25" width="20" height="20">
+                <defs>
+                  <style>.cls-2{fill:white}</style>
+                </defs>
+                <g id="paper">
+                  <path class="cls-2" d="M19.5 1h-16a.5.5 0 0 0-.5.5v22a.5.5 0 0 0 .5.5h10.71a.49.49 0 0 0 .46-.3l5.17-4.84a.52.52 0 0 0 .16-.37V1.5a.5.5 0 0 0-.5-.5zM4 2h15v15.78h-4.77a.5.5 0 0 0-.5.5V23H4zm14.46 16.78-3.74 3.51v-3.51z"/>
+                  <path class="cls-2" d="M6.5 6h7a.5.5 0 0 0 0-1h-7a.5.5 0 0 0 0 1zM6.5 9h8a.5.5 0 0 0 0-1h-8a.5.5 0 0 0 0 1zM11.5 14h-5a.5.5 0 0 0 0 1h5a.5.5 0 0 0 0-1zM6.5 12h10a.5.5 0 0 0 0-1h-10a.5.5 0 0 0 0 1z"/>
+                </g>
+              </svg>
+              <span class="flex-1">Blogs</span>
                 <svg
                   class="ml-auto fill-current transition-transform group-open:rotate-180"
                   width="20"
@@ -268,18 +276,36 @@
                   <a href="alumni_blog.php" class="text-white opacity-75 hover:opacity-100 py-2 block">Write blogs</a>
                 </li>
                 <li>
-                  <a href="posted_blog.php" class="text-white opacity-75 hover:opacity-100 py-2 block">Posted blogs</a>
+                  <a href="posted_blogs.php" class="text-white opacity-75 hover:opacity-100 py-2 block">Posted blogs</a>
                 </li>
               </ul>
             </details> 
-            <a href="alumni_announcement.php" class="flex items-center text-white py-2 px-3 ml-4 mr-4 my-1 nav-item">
-                <i class="fas fa-solid fa-question mr-3"></i>    
-                See Announcement 
+            <a href="alumni_announcement.php" class="flex items-center text-white py-2 px-3 ml-4 mr-4 my-1 nav-item gap-2.5">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.5" height="20" width="20">
+                <path d="M9,8.087,21,3V21L9,15.913V21H5V15.913a2,2,0,0,1-2-2V10.087a2,2,0,0,1,2-2Z"/>
+              </svg>Announcement 
             </a> 
             <details class="group relative">
-              <summary class="flex items-center justify-between text-white py-2 px-4 mx-4 my-2 nav-item cursor-pointer">
-                <i class="fas fa-align-left mr-3"></i>
-                <span class="flex-1">Resources</span>
+              <summary class="flex items-center justify-between text-white py-2 px-3 mx-4 my-2 nav-item cursor-pointer gap-2.5">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512" width="20" height="20">
+                  <defs>
+                    <style>
+                      /* Stroke color set to white for both light and dark modes */
+                      .cls-4 {
+                        stroke: white;
+                        stroke-width: 32;
+                        fill: none;
+                      }
+                    </style>
+                  </defs>
+                  <path
+                    class="cls-4"
+                    d="M249.6 471.5c10.8 3.8 22.4-4.1 22.4-15.5l0-377.4c0-4.2-1.6-8.4-5-11C247.4 52 202.4 32 144 32C93.5 32 46.3 45.3 18.1 56.1C6.8 60.5 0 71.7 0 83.8L0 454.1c0 11.9 12.8 20.2 24.1 16.5C55.6 460.1 105.5 448 144 448c33.9 0 79 14 105.6 23.5zm76.8 0C353 462 398.1 448 432 448c38.5 0 88.4 12.1 119.9 22.6c11.3 3.8 24.1-4.6 24.1-16.5l0-370.3c0-12.1-6.8-23.3-18.1-27.6C529.7 45.3 482.5 32 432 32c-58.4 0-103.4 20-123 35.6c-3.3 2.6-5 6.8-5 11L304 456c0 11.4 11.7 19.3 22.4 15.5z"
+                  />
+                </svg>
+
+
+              <span class="flex-1">Resources</span>
                 <svg
                   class="ml-auto fill-current transition-transform group-open:rotate-180"
                   width="20"
@@ -328,7 +354,7 @@
                 Profile
             </a>
             <details class="group relative">
-              <summary class="flex items-center justify-between text-white py-2 px-4 mx-4 my-2 nav-item cursor-pointer">
+              <summary class="flex items-center justify-between text-white py-2 px-3.5 mx-4 my-2 nav-item cursor-pointer">
                 <i class="fas fa-align-left mr-3"></i>
                 <span class="flex-1">Pages</span>
                 <svg
@@ -358,6 +384,7 @@
       </div>
         </nav>       
     </aside> 
+
 
     <div class="w-full flex flex-col h-screen overflow-y-auto overflow-x-hidden dark:bg-gray-900">
         <!-- Desktop Header -->

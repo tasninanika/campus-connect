@@ -59,8 +59,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $description = mysqli_real_escape_string($db, $_POST['description']);
 
     // Insert data into the database
-    $sql = "INSERT INTO `blog` (`blog_id`, `title`, `type`, `description`, `blog_picture`, `u_id`) 
-            VALUES ('$blog_id', '$title', '$type', '$description', '$newName', '$alumni_id')";
+    $sql = "INSERT INTO `blog` (`blog_id`, `title`, `type`, `description`, `blog_picture`, `u_id`, `status`) 
+            VALUES ('$blog_id', '$title', '$type', '$description', '$newName', '$alumni_id', 'Pending')";
 
     if (mysqli_query($db, $sql)) {
         header("location:alumni_blog.php");

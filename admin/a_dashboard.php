@@ -666,11 +666,11 @@
               </div> -->
             <div class="block w-full overflow-x-auto">
               <div class="px-4 bg-gray-100 dark:bg-gray-600 text-gray-500 dark:text-gray-100 align-middle border border-solid border-gray-200 dark:border-gray-500 py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left">
-                 Requests
+                 Alumni Requests
                 </div>
                 <?php
                 include_once '../db_con/dbCon.php';
-                $result = mysqli_query($db, "SELECT * FROM user INNER JOIN alumni ON user.u_id=alumni.alumni_id AND user.status = 'Pending'");
+                $result = mysqli_query($db, "SELECT * FROM user INNER JOIN alumni ON user.u_id=alumni.alumni_id AND user.status = 'Pending' ORDER BY created_at DESC LIMIT 3");
                 // Ensure PHP timezone is set
                 date_default_timezone_set('Asia/Dhaka');
 
@@ -705,7 +705,6 @@
                             }
                         }                                        
                 ?>
-
                         <ul class="my-1">
                             <li class="flex px-4">
                                 <div class="flex-shrink-0 my-2 mr-3">
@@ -719,14 +718,9 @@
                                             </h3>
                                             <?php echo $displayDate; ?>
                                         </div>
-                                        <div class="flex-shrink-0 ml-2 mt-20">
-                                            <a class="flex items-center font-medium text-purple-500 hover:text-blue-600 dark:text-purple-400 dark:hover:text-blue-500" href="posted_blogs.php" style="outline: none;">
-                                                <span>
-                                                    <svg xmlns="http://www.w3.org/2000/svg" height="14" width="14" viewBox="0 0 512 512" class="mr-1">
-                                                        <path fill="#B197FC" d="M441 58.9L453.1 71c9.4 9.4 9.4 24.6 0 33.9L424 134.1 377.9 88 407 58.9c9.4-9.4 24.6-9.4 33.9 0zM209.8 256.2L344 121.9 390.1 168 255.8 302.2c-2.9 2.9-6.5 5-10.4 6.1l-58.5 16.7 16.7-58.5c1.1-3.9 3.2-7.5 6.1-10.4zM373.1 25L175.8 222.2c-8.7 8.7-15 19.4-18.3 31.1l-28.6 100c-2.4 8.4-.1 17.4 6.1 23.6s15.2 8.5 23.6 6.1l100-28.6c11.8-3.4 22.5-9.7 31.1-18.3L487 138.9c28.1-28.1 28.1-73.7 0-101.8L474.9 25C446.8-3.1 401.2-3.1 373.1 25zM88 64C39.4 64 0 103.4 0 152L0 424c0 48.6 39.4 88 88 88l272 0c48.6 0 88-39.4 88-88l0-112c0-13.3-10.7-24-24-24s-24 10.7-24 24l0 112c0 22.1-17.9 40-40 40L88 464c-22.1 0-40-17.9-40-40l0-272c0-22.1 17.9-40 40-40l112 0c13.3 0 24-10.7 24-24s-10.7-24-24-24L88 64z"/>
-                                                    </svg>
-                                                </span>
-                                                Edit
+                                        <div class="flex-shrink-0 ml-2 mt-">
+                                            <a class="flex items-center font-medium text-purple-500 hover:text-blue-600 dark:text-purple-400 dark:hover:text-blue-500" href="pending_alumni.php" style="outline: none;">
+                                            Details<span><svg width="20" height="20" viewBox="0 0 20 20" fill="currentColor" class="transform transition-transform duration-500 ease-in-out"><path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd"></path></svg></span>
                                             </a>
                                         </div>
                                     </div>
@@ -740,18 +734,64 @@
                     // If no job posts exist, display a message
                     ?>
                     <div class="text-center py-4 text-gray-500 dark:text-gray-400">
-                        <p>No posts available. Create a new post to get started.</p>
+                        <p>No requests are pending.</p>
                     </div>
                     <?php
                 }
                 ?>
+                <!-- pending blogs -->
+                <div class="px-4 bg-gray-100 dark:bg-gray-600 text-gray-500 dark:text-gray-100 align-middle border border-solid border-gray-200 dark:border-gray-500 py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left">
+                  Pending Blogs
+                </div>
+                <?php
+                    $a = $_SESSION['alumni_id'];
+
+                    // Fetch jobs only for the currently logged-in alumni
+                    $result = mysqli_query($db, "SELECT * FROM blogs WHERE u_id = '$a' ORDER BY created_at DESC LIMIT 3");
+
+                    if (mysqli_num_rows($result) > 0) {
+                        // If there are job posts, display them
+                        while ($row = mysqli_fetch_array($result)) {
+                            ?>
+                            <ul class="my-1">
+                              <li class="flex px-4">
+                                <div class="flex-shrink-0 my-2 mr-3">
+                                  <img src="../upload/images/<?php echo $row["logo"]; ?>" alt="User Image" class="h-9 w-9 rounded-full">
+                                </div>
+                                <div class="flex-grow flex items-center border-gray-100 dark:border-gray-400 text-sm text-gray-600 dark:text-gray-100 py-2">
+                                  <div class="flex-grow flex justify-between items-center">
+                                    <div class="self-center">
+                                      <h3 class="font-medium text-gray-800 hover:text-gray-900 dark:text-gray-50 dark:hover:text-gray-100" style="outline: none;"><?php echo $row["title"]; ?></h3> 
+                                      <?php echo date('d M, Y', strtotime($row["created_at"])); ?>
+                                    </div>
+                                    <div class="flex-shrink-0 ml-2 mt-5">
+                                      <a class="flex items-center font-medium text-purple-500 hover:text-blue-600 dark:text-purple-400 dark:hover:text-blue-500" href="posted_job.php" style="outline: none;">
+                                      <span><svg xmlns="http://www.w3.org/2000/svg" height="14" width="14" viewBox="0 0 512 512" class="mr-1"><!--!Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--><path fill="#B197FC" d="M441 58.9L453.1 71c9.4 9.4 9.4 24.6 0 33.9L424 134.1 377.9 88 407 58.9c9.4-9.4 24.6-9.4 33.9 0zM209.8 256.2L344 121.9 390.1 168 255.8 302.2c-2.9 2.9-6.5 5-10.4 6.1l-58.5 16.7 16.7-58.5c1.1-3.9 3.2-7.5 6.1-10.4zM373.1 25L175.8 222.2c-8.7 8.7-15 19.4-18.3 31.1l-28.6 100c-2.4 8.4-.1 17.4 6.1 23.6s15.2 8.5 23.6 6.1l100-28.6c11.8-3.4 22.5-9.7 31.1-18.3L487 138.9c28.1-28.1 28.1-73.7 0-101.8L474.9 25C446.8-3.1 401.2-3.1 373.1 25zM88 64C39.4 64 0 103.4 0 152L0 424c0 48.6 39.4 88 88 88l272 0c48.6 0 88-39.4 88-88l0-112c0-13.3-10.7-24-24-24s-24 10.7-24 24l0 112c0 22.1-17.9 40-40 40L88 464c-22.1 0-40-17.9-40-40l0-272c0-22.1 17.9-40 40-40l112 0c13.3 0 24-10.7 24-24s-10.7-24-24-24L88 64z"/></svg></span>
+                                      Edit
+                                      </a>
+                                    </div>
+                                  </div>
+                                </div>
+                              </li>
+                            </ul>
+                            <?php
+                        }
+                    } else {
+                        // If no job posts exist, display a message
+                        ?>
+                        <div class="text-center py-4 text-gray-500 dark:text-gray-400">
+                            <p>No posts available. Create a new post to get started.</p>
+                        </div>
+                        <?php
+                    }
+                    ?>
 
               </div>
             </div>
           </div>
           <!-- end -->
     
-          <!-- Recent Activities part 2 -->
+          <!-- Notifications part 2 -->
         <div class="relative flex flex-col min-w-0 break-words bg-gray-50 dark:bg-gray-800 w-full shadow-lg rounded">
             <div class="rounded-t mb-0 px-0 border-0">
               <div class="block w-full">

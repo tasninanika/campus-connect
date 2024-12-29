@@ -529,7 +529,7 @@
                   class="relative z-10 w-12 h-12 rounded-full overflow-hidden border-2 border-gray-700 hover:border-gray-300 focus:outline-none"
                 >
                   <img
-                    src="../upload/images/<?php echo $row['id_photo']; ?>"
+                    src="../images/icons/user-solid.svg"
                     alt="User Profile"
                     class="w-full h-full object-cover"
                   />

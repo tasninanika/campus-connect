@@ -666,22 +666,18 @@
               </div> -->
             <div class="block w-full overflow-x-auto">
               <div class="px-4 bg-gray-100 dark:bg-gray-600 text-gray-500 dark:text-gray-100 align-middle border border-solid border-gray-200 dark:border-gray-500 py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left">
-                  Blogs
+                 Requests
                 </div>
                 <?php
-                    $a = $_SESSION['alumni_id'];
-
-                    // Fetch jobs only for the currently logged-in alumni
-                    $result = mysqli_query($db, "SELECT * FROM blog WHERE u_id = '$a' ORDER BY created_at DESC LIMIT 3");
-
-                    if (mysqli_num_rows($result) > 0) {
-                        // If there are job posts, display them
-                        while ($row = mysqli_fetch_array($result)) {
-                            ?>
+								include_once '../db_con/dbCon.php';
+								$result = mysqli_query($db,"SELECT * FROM user INNER JOIN alumni ON user.u_id=alumni.alumni_id AND user.status = 'Pending'");
+                if (mysqli_num_rows($result) > 0) {
+								while($row = mysqli_fetch_array($result)) {
+							?>
                             <ul class="my-1">
                               <li class="flex px-4">
                                 <div class="flex-shrink-0 my-2 mr-3">
-                                  <img src="../upload/images/<?php echo $row["blog_picture"]; ?>" alt="User Image" class="h-9 w-9 rounded-full">
+                                  <img src="../upload/images/<?php echo $row["id_photo"]; ?>" alt="User Image" class="h-9 w-9 rounded-full">
                                 </div>
                                 <div class="flex-grow flex items-center border-gray-100 dark:border-gray-400 text-sm text-gray-600 dark:text-gray-100 py-2">
                                   <div class="flex-grow flex justify-between items-center">

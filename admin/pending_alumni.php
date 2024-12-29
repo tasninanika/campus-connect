@@ -620,357 +620,123 @@
         </header>
         <!-- main start -->
         <main>
-          <div class="mx-auto max-w-screen-2xl p-4 md:p-6 2xl:p-10 lg:mt-5 lg:ml-5">
-          <h3 class="font-semibold text-xl text-gray-900 dark:text-gray-50">Notifications</h3>
-      <div class="grid grid-cols-1 lg:grid-cols-2 pt-8 gap-4">
-          <!-- Recent Activities part1 -->
-          <div class="relative flex flex-col min-w-0 mb-4 lg:mb-0 break-words bg-gray-50 dark:bg-gray-800 w-full shadow-lg rounded">
-            <div class="rounded-t mb-0 px-0 border-0">
-            <div class="block w-full overflow-x-auto">
-              <div class="px-4 bg-gray-100 dark:bg-gray-600 text-gray-500 dark:text-gray-100 align-middle border border-solid border-gray-200 dark:border-gray-500 py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left">
-                 Alumni Requests
-                </div>
-                <?php
-                include_once '../db_con/dbCon.php';
-                $result = mysqli_query($db, "SELECT * FROM user INNER JOIN alumni ON user.u_id=alumni.alumni_id AND user.status = 'Pending' ORDER BY created_at DESC LIMIT 5");
-                // Ensure PHP timezone is set
-                date_default_timezone_set('Asia/Dhaka');
+            <div class="lg:mx-10 mx-auto max-w-screen-2xl my-5 p-4 md:p-6 2xl:p-10">
+                <div class="mx-auto max-w-242.5">
+                    <!-- Breadcrumb Start -->
+                    <div class="mb-6 flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
+                        <h2 class="text-title-md2 font-bold text-black dark:text-white">
+                            Member requests
+                        </h2>
 
-                // Fetch rows from the database
-                if (mysqli_num_rows($result) > 0) {
-                    while ($row = mysqli_fetch_array($result)) {
-                        if (isset($row['created_at']) && !is_null($row['created_at'])) {
-                            $posted_date = $row['created_at'];
-
-                            // Convert database UTC time to Asia/Dhaka time
-                            $postedDate = new DateTime($posted_date, new DateTimeZone('UTC'));
-                            $postedDate->setTimezone(new DateTimeZone('Asia/Dhaka'));
-
-                            $currentDate = new DateTime('now', new DateTimeZone('Asia/Dhaka'));
-
-                            // Calculate total difference in seconds
-                            $totalSeconds = $currentDate->getTimestamp() - $postedDate->getTimestamp();
-
-                            if ($totalSeconds >= 30 * 24 * 60 * 60) { // More than 30 days
-                                $displayDate = "30+ days ago";
-                            } elseif ($totalSeconds >= 24 * 60 * 60) { // More than 1 day
-                                $days = floor($totalSeconds / (24 * 60 * 60));
-                                $displayDate = $days === 1 ? "1 day ago" : "{$days} days ago";
-                            } elseif ($totalSeconds >= 60 * 60) { // More than 1 hour
-                                $hours = floor($totalSeconds / (60 * 60));
-                                $displayDate = $hours === 1 ? "1 hour ago" : "{$hours} hours ago";
-                            } elseif ($totalSeconds >= 60) { // More than 1 minute
-                                $minutes = floor($totalSeconds / 60);
-                                $displayDate = $minutes === 1 ? "1 minute ago" : "{$minutes} minutes ago";
-                            } else { // Less than 1 minute
-                                $displayDate = "Just now";
-                            }
-                        }                                        
-                ?>
-                        <ul class="my-1">
-                            <li class="flex px-4">
-                                <div class="flex-shrink-0 my-2 mr-3">
-                                    <img src="../upload/images/<?php echo $row["id_photo"]; ?>" alt="User Image" class="h-9 w-9 rounded-full">
-                                </div>
-                                <div class="flex-grow flex items-center border-gray-100 dark:border-gray-400 text-sm text-gray-600 dark:text-gray-100 py-2">
-                                    <div class="flex-grow flex justify-between items-center">
-                                        <div class="self-center">
-                                            <h3 class="font-medium text-gray-800 hover:text-gray-900 dark:text-gray-50 dark:hover:text-gray-100" style="outline: none;">
-                                                <span class="font-extrabold"><?php echo $row["first_Name"]; ?> <?php echo $row["last_Name"]; ?></span> wants to join our community.
-                                            </h3>
-                                            <?php echo $displayDate; ?>
-                                        </div>
-                                        <div class="flex-shrink-0 ml-2 mt-6">
-                                            <a class="flex items-center font-medium text-purple-500 hover:text-blue-600 dark:text-purple-400 dark:hover:text-blue-500" href="pending_alumni.php" style="outline: none;">
-                                            Details<span><svg width="20" height="20" viewBox="0 0 20 20" fill="currentColor" class="transform transition-transform duration-500 ease-in-out"><path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd"></path></svg></span>
-                                            </a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </li>
-                        </ul>
-
-                <?php
-                    }
-                } else {
-                    // If no requests exist, display a message
-                    ?>
-                    <div class="text-center py-4 text-gray-500 dark:text-gray-400">
-                        <p>No requests are pending.</p>
+                        <nav>
+                            <ol class="flex items-center gap-2">
+                                <li>
+                                    <a class="font-medium dark:text-white" href="a_dashboard.php">Dashboard /</a>
+                                </li>
+                                <li class="text-purple-400 dark:text-white">Alumni</li>
+                            </ol>
+                        </nav>
                     </div>
-                    <?php
-                }
-                ?>
-                <!-- pending blogs -->
-                <div class="px-4 bg-gray-100 dark:bg-gray-600 text-gray-500 dark:text-gray-100 align-middle border border-solid border-gray-200 dark:border-gray-500 py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left">
-                  Pending Blogs
+                    <!-- Breadcrumb End -->
+
                 </div>
-                <?php
-                    // Fetch jobs only for the currently logged-in alumni
-                    $result = mysqli_query($db, "SELECT * FROM blog WHERE status = 'Pending' ORDER BY created_at DESC LIMIT 3");
-
-                    if (mysqli_num_rows($result) > 0) {
-                        // If there are job posts, display them
-                        while ($row = mysqli_fetch_array($result)) {
-                          $description = $row['description'];
-                          if (isset($row['created_at']) && !is_null($row['created_at'])) {
-                            $posted_date = $row['created_at'];
-
-                            // Convert database UTC time to Asia/Dhaka time
-                            $postedDate = new DateTime($posted_date, new DateTimeZone('UTC'));
-                            $postedDate->setTimezone(new DateTimeZone('Asia/Dhaka'));
-
-                            $currentDate = new DateTime('now', new DateTimeZone('Asia/Dhaka'));
-
-                            // Calculate total difference in seconds
-                            $totalSeconds = $currentDate->getTimestamp() - $postedDate->getTimestamp();
-
-                            if ($totalSeconds >= 30 * 24 * 60 * 60) { // More than 30 days
-                                $displayDate = "30+ days ago";
-                            } elseif ($totalSeconds >= 24 * 60 * 60) { // More than 1 day
-                                $days = floor($totalSeconds / (24 * 60 * 60));
-                                $displayDate = $days === 1 ? "1 day ago" : "{$days} days ago";
-                            } elseif ($totalSeconds >= 60 * 60) { // More than 1 hour
-                                $hours = floor($totalSeconds / (60 * 60));
-                                $displayDate = $hours === 1 ? "1 hour ago" : "{$hours} hours ago";
-                            } elseif ($totalSeconds >= 60) { // More than 1 minute
-                                $minutes = floor($totalSeconds / 60);
-                                $displayDate = $minutes === 1 ? "1 minute ago" : "{$minutes} minutes ago";
-                            } else { // Less than 1 minute
-                                $displayDate = "Just now";
-                            }
-                        }  
-                            ?>
-                            <ul class="my-1">
-                              <li class="flex px-4">
-                                <div class="flex-grow flex items-center border-gray-100 dark:border-gray-400 text-sm text-gray-600 dark:text-gray-100 py-2">
-                                  <div class="flex-grow flex justify-between items-center">
-                                    <div class="self-center">
-                                      <h3 class="font-bold text-gray-800 hover:text-gray-900 dark:text-gray-50 dark:hover:text-gray-100" style="outline: none;"><?php echo $row["title"]; ?></h3>
-                                      <?php
-                                      $characterLimit = 100; // Approximate character count for 2 lines
-                                          $isLongDescription = strlen($description) > $characterLimit;
-
-                                          // Prepare truncated text for the first 2 lines
-                                          $truncatedDescription = $isLongDescription ? substr($description, 0, $characterLimit) . '...' : $description;
-                                      ?>
-
-                                      <p class="line-clamp-2">
-                                          <?php echo $isLongDescription ? $truncatedDescription : $description; ?>
-                                      </p>
-
-                                      <?php if ($isLongDescription): ?>
-                                      <a href="resources.php?resources_id=<?php echo $material_id; ?>" 
-                                        class="text-blue-500 hover:text-blue-600 dark:text-blue-400 dark:hover:text-blue-500 text-sm font-medium  block mb-1">
-                                        Read More
-                                      </a>
-                                      <?php endif; ?>
-                                      <?php echo $displayDate; ?>
-                                    </div>
-                                    <div class="flex-shrink-0 ml-2">
-                                      <a class="flex items-center font-medium text-purple-500 hover:text-blue-600 dark:text-purple-400 dark:hover:text-blue-500 mt-12" href="pending_blogs.php" style="outline: none;">
-                                            Details<span><svg width="20" height="20" viewBox="0 0 20 20" fill="currentColor" class="transform transition-transform duration-500 ease-in-out"><path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd"></path></svg></span>
-                                      </a>
-                                    </div>
-                                  </div>
-                                </div>
-                              </li>
-                            </ul>
+                <!-- Alumni -->
+                <div
+                    class="rounded-sm border border-stroke bg-white px-5 pb-2.5 pt-6 shadow-default dark:border-gray-700 sm:px-7.5 xl:pb-1 dark:bg-gray-800">
+                    <!-- <h4 class="mb-6 text-lg font-bold text-black dark:text-white">
+                        Registered Alumni
+                    </h4> -->
+                    <div class="overflow-x-auto">
+                        <table class="table font-family-karla text-center">
+                            <!-- head -->
+                            <thead>
+                                <tr class="text-base">
+                                    <th>Picture</th>
+                                    <th>Student ID</th>
+                                    <th>Name</th>
+                                    <th>Email</th>
+                                    <th>Class ID</th>
+                                    <th>Batch</th>
+                                    <th>Department</th>
+                                    <th>Contact Number</th>
+                                    <th>Address</th>
+                                    <th>City</th>
+                                    <th>Passing Year</th>
+                                    <th>Status</th>
+                                    <th>Action</th>
+                                </tr>
+                            </thead>
                             <?php
-                        }
-                    } else {
-                        // If no blog posts exist, display a message
-                        ?>
-                        <div class="text-center py-4 text-gray-500 dark:text-gray-400">
-                            <p>No requests are pending.</p>
-                        </div>
-                        <?php
-                    }
-                    ?>
+								include_once '../db_con/dbCon.php';
+								$result = mysqli_query($db,"SELECT * FROM user INNER JOIN alumni on user.u_id=alumni.alumni_id");
+								$counter = 0;
+								while($row = mysqli_fetch_array($result)) {
+							?>
+                            <tbody id="myTable">
+                                <!-- row 1 -->
+                                <tr>
+                                    <td>
+                                        <img src="../images/upload/<?php echo $row["id_photo"]; ?>" alt="Avatar"
+                                            class="mask mask-circle h-14 w-14" />
+                                    </td>
+                                    <td><?php echo $row["u_id"]; ?></td>
+                                    <td><?php echo $row["first_Name"]; ?> <?php echo $row["last_Name"]; ?></td>
+                                    <td><?php echo $row["email"]; ?></td>
+                                    <td><?php echo $row["class_id"]; ?></td>
+                                    <td><?php echo $row["batch"]; ?></td>
+                                    <td><?php echo $row["department"]; ?></td>
+                                    <td>+88<?php echo $row["contact_number"]; ?></td>
+                                    <td><?php echo $row["full_address"]; ?></td>
+                                    <td><?php echo $row["city"]; ?></td>
+                                    <td><?php echo $row["passing_year"]; ?></td>
+                                    <?php if ($row['status']=='Active'){ ?>
+                                    <td>Active</td>
+                                    <?php }
+						else{?>
+                                    <td>
+                                        <button
+                                            class="btn btn-sm btn-warning bg-yellow-400 flex items-center justify-center">
+                                            <a class="flex items-center text-gray-700 py-2"
+                                                href="approve_alumni.php?unblock_id=<?=$row['u_id']?>">
+                                                <i class="fas fa-hourglass"></i>&nbsp;<span>Pending</span>
+                                            </a>
+                                        </button>
+                                    </td>
+                                    <?php }?>
+                                    <?php if ($row['status']=='Active'){ ?>
+                                    <td>
+                                        <button
+                                            class="btn btn-sm btn-block bg-red-600 flex items-center justify-center">
+                                            <a class="flex items-center text-white py-2"
+                                                href="a_alumnus.php?block_id=<?=$row['u_id']?>">
+                                                <i class="fas fa-ban t"></i>&nbsp;<span>Block</span>
+                                            </a>
+                                        </button>
+                                    </td>
 
-              </div>
+                                    <?php }
+						else{?>
+                                    <td>
+                                        <button
+                                            class="btn btn-sm btn-block bg-yellow-400 flex items-center justify-center">
+                                            <a class="flex items-center text-gray-700 py-2"
+                                                href="a_alumnus.php?unblock_id=<?=$row['u_id']?>">
+                                                <i class="fas fa-unlock"></i>&nbsp;<span>UnBlock</span>
+                                            </a>
+                                        </button>
+
+                                    </td>
+
+                                    <?php }?>
+                                </tr>
+                                <?php
+						}
+					?>
+                        </table>
+                    </div>
+                </div>
+
             </div>
-          </div>
-          <!-- end -->
-    
-          <!-- Notifications part 2 -->
-        <div class="relative flex flex-col min-w-0 break-words bg-gray-50 dark:bg-gray-800 w-full shadow-lg rounded">
-            <div class="rounded-t mb-0 px-0 border-0">
-              <div class="block w-full">
-                <!-- job -->
-                <div class="px-4 bg-gray-100 dark:bg-gray-600 text-gray-500 dark:text-gray-100 align-middle border border-solid border-gray-200 dark:border-gray-500 py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left">
-                  Job Post
-                </div>
-                <?php
-                    // Fetch jobs only for the currently logged-in alumni
-                    $result = mysqli_query($db, "SELECT * FROM job WHERE status='Pending' ORDER BY created_at DESC LIMIT 3");
-
-                    if (mysqli_num_rows($result) > 0) {
-                        // If there are job posts, display them
-                        while ($row = mysqli_fetch_array($result)) {
-                          if (isset($row['created_at']) && !is_null($row['created_at'])) {
-                            $posted_date = $row['created_at'];
-
-                            // Convert database UTC time to Asia/Dhaka time
-                            $postedDate = new DateTime($posted_date, new DateTimeZone('UTC'));
-                            $postedDate->setTimezone(new DateTimeZone('Asia/Dhaka'));
-
-                            $currentDate = new DateTime('now', new DateTimeZone('Asia/Dhaka'));
-
-                            // Calculate total difference in seconds
-                            $totalSeconds = $currentDate->getTimestamp() - $postedDate->getTimestamp();
-
-                            if ($totalSeconds >= 30 * 24 * 60 * 60) { // More than 30 days
-                                $displayDate = "30+ days ago";
-                            } elseif ($totalSeconds >= 24 * 60 * 60) { // More than 1 day
-                                $days = floor($totalSeconds / (24 * 60 * 60));
-                                $displayDate = $days === 1 ? "1 day ago" : "{$days} days ago";
-                            } elseif ($totalSeconds >= 60 * 60) { // More than 1 hour
-                                $hours = floor($totalSeconds / (60 * 60));
-                                $displayDate = $hours === 1 ? "1 hour ago" : "{$hours} hours ago";
-                            } elseif ($totalSeconds >= 60) { // More than 1 minute
-                                $minutes = floor($totalSeconds / 60);
-                                $displayDate = $minutes === 1 ? "1 minute ago" : "{$minutes} minutes ago";
-                            } else { // Less than 1 minute
-                                $displayDate = "Just now";
-                            }
-                        }  
-                            ?>
-                            <ul class="my-1">
-                              <li class="flex px-4">
-                                <div class="flex-shrink-0 my-2 mr-3">
-                                  <img src="../upload/images/<?php echo $row["logo"]; ?>" alt="User Image" class="h-9 w-9 rounded-full">
-                                </div>
-                                <div class="flex-grow flex items-center border-gray-100 dark:border-gray-400 text-sm text-gray-600 dark:text-gray-100 py-2">
-                                  <div class="flex-grow flex justify-between items-center">
-                                    <div class="self-center">
-                                      <h3 class="font-bold text-gray-800 hover:text-gray-900 dark:text-gray-50 dark:hover:text-gray-100" style="outline: none;"><?php echo $row["title"]; ?></h3> 
-                                      <?php echo $displayDate; ?>
-                                    </div>
-                                    <div class="flex-shrink-0 ml-2 mt-5">
-                                      <a class="flex items-center font-medium text-purple-500 hover:text-blue-600 dark:text-purple-400 dark:hover:text-blue-500" href="posted_job.php" style="outline: none;">
-                                            Details<span><svg width="20" height="20" viewBox="0 0 20 20" fill="currentColor" class="transform transition-transform duration-500 ease-in-out"><path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd"></path></svg></span>
-                                      </a>
-                                    </div>
-                                  </div>
-                                </div>
-                              </li>
-                            </ul>
-                            <?php
-                        }
-                    } else {
-                        // If no job posts exist, display a message
-                        ?>
-                        <div class="text-center py-4 text-gray-500 dark:text-gray-400">
-                            <p>No requests are pending.</p>
-                        </div>
-                        <?php
-                    }
-                    ?>
-                <!-- resource -->
-                <div class="px-4 bg-gray-100 dark:bg-gray-600 text-gray-500 dark:text-gray-100 align-middle border border-solid border-gray-200 dark:border-gray-500 py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left">
-                  Resources
-                </div>
-                <?php
-                    // Fetch jobs only for the currently logged-in alumni
-                    $result = mysqli_query($db, "SELECT * FROM resources WHERE status = 'Pending' ORDER BY created_at DESC LIMIT 2");
-
-                    if (mysqli_num_rows($result) > 0) {
-                        // If there are job posts, display them
-                        while ($row = mysqli_fetch_array($result)) {
-                          $description = $row['content'];
-                          if (isset($row['created_at']) && !is_null($row['created_at'])) {
-                            $posted_date = $row['created_at'];
-
-                            // Convert database UTC time to Asia/Dhaka time
-                            $postedDate = new DateTime($posted_date, new DateTimeZone('UTC'));
-                            $postedDate->setTimezone(new DateTimeZone('Asia/Dhaka'));
-
-                            $currentDate = new DateTime('now', new DateTimeZone('Asia/Dhaka'));
-
-                            // Calculate total difference in seconds
-                            $totalSeconds = $currentDate->getTimestamp() - $postedDate->getTimestamp();
-
-                            if ($totalSeconds >= 30 * 24 * 60 * 60) { // More than 30 days
-                                $displayDate = "30+ days ago";
-                            } elseif ($totalSeconds >= 24 * 60 * 60) { // More than 1 day
-                                $days = floor($totalSeconds / (24 * 60 * 60));
-                                $displayDate = $days === 1 ? "1 day ago" : "{$days} days ago";
-                            } elseif ($totalSeconds >= 60 * 60) { // More than 1 hour
-                                $hours = floor($totalSeconds / (60 * 60));
-                                $displayDate = $hours === 1 ? "1 hour ago" : "{$hours} hours ago";
-                            } elseif ($totalSeconds >= 60) { // More than 1 minute
-                                $minutes = floor($totalSeconds / 60);
-                                $displayDate = $minutes === 1 ? "1 minute ago" : "{$minutes} minutes ago";
-                            } else { // Less than 1 minute
-                                $displayDate = "Just now";
-                            }
-                        }  
-                            ?>
-                            <ul class="my-1">
-                              <li class="flex px-4">
-                                <div class="flex-grow flex items-center border-gray-100 dark:border-gray-400 text-sm text-gray-600 dark:text-gray-100 py-2">
-                                  <div class="flex-grow flex justify-between items-center">
-                                    <div class="self-center">
-                                      <h3 class="font-bold text-gray-800 hover:text-gray-900 dark:text-gray-50 dark:hover:text-gray-100" style="outline: none;"><?php echo $row["title"]; ?></h3> 
-                                      <?php
-                                      $characterLimit = 100; // Approximate character count for 2 lines
-                                          $isLongDescription = strlen($description) > $characterLimit;
-
-                                          // Prepare truncated text for the first 2 lines
-                                          $truncatedDescription = $isLongDescription ? substr($description, 0, $characterLimit) . '...' : $description;
-                                      ?>
-
-                                      <p class="line-clamp-2">
-                                          <?php echo $isLongDescription ? $truncatedDescription : $description; ?>
-                                      </p>
-
-                                      <?php if ($isLongDescription): ?>
-                                      <a href="resources.php?resources_id=<?php echo $material_id; ?>" 
-                                        class="text-blue-500 hover:text-blue-600 dark:text-blue-400 dark:hover:text-blue-500 text-sm font-medium  block mb-1">
-                                        Read More
-                                      </a>
-                                      <?php endif; ?>                                      <!-- Display file download link if file_path exists -->
-                                      <?php if (!empty($row["file"])) { 
-                                          $filePath = $row["file"];
-                                          $fileExtension = pathinfo($filePath, PATHINFO_EXTENSION); // Get the file extension
-
-                                          // Check if it's an image file
-                                          if (in_array(strtolower($fileExtension), ['jpg', 'jpeg', 'png', 'gif'])) { ?>
-                                              <a href="download.php?image=<?php echo urlencode(basename($filePath)); ?>" class="text-blue-500 hover:text-blue-600 dark:text-blue-400 dark:hover:text-blue-500">
-                                              <?php echo $row["file"]; ?>
-                                              </a>
-                                          <?php } else { ?>
-                                              <a href="download.php?file=<?php echo urlencode(basename($filePath)); ?>" class="text-blue-500 hover:text-blue-600 dark:text-blue-400 dark:hover:text-blue-500">
-                                              <?php echo $row["file"]; ?>                                              </a>
-                                          <?php } 
-                                      } ?>
-                                      <p><?php echo $displayDate; ?></p>
-                                    </div>
-                                    <div class="flex-shrink-0 ml-2">
-                                      <a class="flex items-center font-medium text-purple-500 hover:text-blue-600 dark:text-purple-400 dark:hover:text-blue-500 mt-16" href="posted_resources.php" style="outline: none;"> Details<span><svg width="20" height="20" viewBox="0 0 20 20" fill="currentColor" class="transform transition-transform duration-500 ease-in-out"><path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd"></path></svg></span>
-                                      </a>
-                                    </div>
-                                  </div>
-                                </div>
-                              </li>
-                            </ul>
-                            <?php
-                        }
-                    } else {
-                        // If no job posts exist, display a message
-                        ?>
-                        <div class="text-center py-4 text-gray-500 dark:text-gray-400">
-                            <p>No posts available. Create a new post to get started.</p>
-                        </div>
-                        <?php
-                    }
-                    ?>
-            </div>
-          </div>
-          <!-- ./Recent Activities -->
-        </div>
-          </div>
         </main>
          <!-- main end -->
     </div>

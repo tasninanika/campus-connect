@@ -623,7 +623,7 @@
                                     user.last_Name AS last_name, 
                                     alumni.id_photo AS creator_photo,
                                     resources.title AS resources_title, 
-                                    resources.content AS description,
+                                    resources.content AS description, resources.file AS uploaded_file,
                                     resources.created_at AS resources_created_at
                                 FROM 
                                     resources
@@ -678,7 +678,24 @@
                                   <div class="flex-grow flex justify-between items-center">
                                     <div class="self-center">
                                       <h3 class="text-gray-800 hover:text-gray-900 dark:text-gray-50 dark:hover:text-gray-100" style="outline: none;"><span class="font-bold"><?php echo $row['first_name']; ?> <?php echo $row['last_name']; ?></span> shared a resource.</h3>
-                                      <?php echo $displayDate; ?>
+                                      <p class="">
+                                          <?php echo $row['description']; ?>
+                                      </p>
+                                      <?php if (!empty($row['uploaded_file'])) { 
+                                          $filePath = $row['uploaded_file'];
+                                          $fileExtension = pathinfo($filePath, PATHINFO_EXTENSION); // Get the file extension
+
+                                          // Check if it's an image file
+                                          if (in_array(strtolower($fileExtension), ['jpg', 'jpeg', 'png', 'gif'])) { ?>
+                                              <a href="download.php?image=<?php echo urlencode(basename($filePath)); ?>" class="text-blue-500 hover:text-blue-600 dark:text-blue-400 dark:hover:text-blue-500">
+                                              <?php echo $row['uploaded_file']; ?>
+                                              </a>
+                                          <?php } else { ?>
+                                              <a href="download.php?file=<?php echo urlencode(basename($filePath)); ?>" class="text-blue-500 hover:text-blue-600 dark:text-blue-400 dark:hover:text-blue-500">
+                                              <?php echo $row['uploaded_file']; ?>                                              </a>
+                                          <?php } 
+                                      } ?>
+                                      <p><?php echo $displayDate; ?></p>
                                     </div>
                                   </div>
                                 </div>

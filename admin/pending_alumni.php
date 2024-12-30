@@ -647,7 +647,7 @@
                         <table class="table font-family-karla text-center">
                             <!-- head -->
                             <thead>
-                                <tr class="text-sm">
+                                <tr class="text-sm dark:text-white">
                                     <th>Picture</th>
                                     <th>Name</th>
                                     <th>Email</th>
@@ -670,7 +670,7 @@
 							?>
                             <tbody id="myTable">
                                 <!-- row 1 -->
-                                <tr>
+                                <tr class="dark:text-white dark:border-gray-700">
                                     <td>
                                         <img src="../upload/images/<?php echo $row["id_photo"]; ?>" alt="Avatar"
                                             class="mask mask-circle h-14 w-14" />

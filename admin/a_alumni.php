@@ -615,16 +615,16 @@
                 <div class="mx-auto max-w-242.5">
                     <!-- Breadcrumb Start -->
                     <div class="mb-6 flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
-                        <h2 class="text-title-md2 text-2xl font-bold text-black dark:text-white">
+                        <h2 class="text-title-md2 text-base font-bold text-black dark:text-white">
                             Alumni
                         </h2>
 
                         <nav>
                             <ol class="flex items-center gap-2">
                                 <li>
-                                    <a class="font-medium" href="a_dashboard.php">Dashboard /</a>
+                                    <a class="font-medium dark:text-white" href="a_dashboard.php">Dashboard /</a>
                                 </li>
-                                <li class="text-[#0E675C]">Alumni</li>
+                                <li class="text-purple-400">Alumni</li>
                             </ol>
                         </nav>
                     </div>
@@ -633,7 +633,7 @@
                 </div>
                 <!-- Alumni -->
                 <div
-                    class="rounded-sm border border-stroke bg-white px-5 pb-2.5 pt-6 shadow-default dark:border-strokedark dark:bg-boxdark sm:px-7.5 xl:pb-1">
+                    class="rounded-sm border border-stroke bg-white px-5 pb-2.5 pt-6 shadow-default dark:border-gray-700 dark:bg-gray-800 sm:px-7.5 xl:pb-1">
                     <h4 class="mb-6 text-xl font-bold text-black dark:text-white">
                         Registered Alumni
                     </h4>
@@ -642,8 +642,7 @@
                             <!-- head -->
                             <thead>
                                 <tr class="text-base">
-                                    <th>Image</th>
-                                    <th>Student ID</th>
+                                    <th>Picture</th>
                                     <th>Name</th>
                                     <th>Email</th>
                                     <th>Class ID</th>
@@ -667,10 +666,9 @@
                                 <!-- row 1 -->
                                 <tr>
                                     <td>
-                                        <img src="../images/upload/<?php echo $row["id_photo"]; ?>" alt="Avatar"
+                                        <img src="../upload/images/<?php echo $row["id_photo"]; ?>" alt="Avatar"
                                             class="mask mask-circle h-14 w-14" />
                                     </td>
-                                    <td><?php echo $row["u_id"]; ?></td>
                                     <td><?php echo $row["first_Name"]; ?> <?php echo $row["last_Name"]; ?></td>
                                     <td><?php echo $row["email"]; ?></td>
                                     <td><?php echo $row["class_id"]; ?></td>

@@ -6,7 +6,7 @@
 		
 		if(isset($_FILES["fileToUpload"]["name"]) && $_FILES["fileToUpload"]["name"] != ''){
 			//echo 123;exit;
-			$target_dir = "./images/upload/";
+			$target_dir = "./upload/images/";
 			$newName = date('YmdHis_');
 			$newName .= basename($_FILES["fileToUpload"]["name"]);
 			$target_file = $target_dir . $newName;
@@ -62,9 +62,8 @@
 		$city = $_REQUEST['city'];
 		
 		
-		$conn = connect();
 		//Check duplicate value
-        $duplicate=mysqli_query($conn,"select * from user where email='$email'");
+        $duplicate=mysqli_query($db,"select * from user where email='$email'");
         if (mysqli_num_rows($duplicate)>0)
         {
 			echo "<script type= 'text/javascript'>MyCheckFn();</script>";
@@ -74,15 +73,15 @@
         {
             // sql query for inserting data into database
             $sql = "INSERT INTO `user` (`u_id`,`first_Name`, `last_Name`, `email`, `password`, `status`, `role`) 
-			VALUES ('$u_id', '$first_Name', '$last_Name', '$email ', '$password', 'Pending', 'Student')";
+			VALUES ('$u_id', '$first_Name', '$last_Name', '$email ', '$password', 'Active', 'Student')";
           //echo $sql;exit;
-		   $result=mysqli_query($conn, $sql) or die(mysqli_error ($conn));
+		   $result=mysqli_query($db, $sql) or die(mysqli_error ($db));
             if($result==1)
             {
-                $sql2= "INSERT INTO `student` (`student_id`, `class_id` , `department`, `batch`, `contact_number`, `full_address`, `city`,  `image`) 
+                $sql2= "INSERT INTO `student` (`student_id`, `class_id` , `department`, `batch`, `contact_number`, `full_address`, `city`,  `id_photo`) 
 				VALUES ('$u_id', '$class_id', '$department', '$batch', '$contact_number', '$full_address', '$city',  '$newName')";
 				
-                $result2=mysqli_query($conn, $sql2) or die(mysqli_error ($conn));
+                $result2=mysqli_query($db, $sql2) or die(mysqli_error ($db));
                 if ($result2==1)
                 {
                     header("location:login.php");

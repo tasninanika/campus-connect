@@ -9,7 +9,7 @@
 			$id = $_GET['block_id'];
 			//echo $id;exit;
 			
-			$sql = "UPDATE user SET status='Pending' WHERE u_id='$id'";
+			$sql = "UPDATE user SET status='Block' WHERE u_id='$id'";
 			//echo $sql;
 			$db->query($sql);
 			header("Location:a_students.php");

@@ -697,10 +697,10 @@
                                       } ?>
                                     <p class="mt-1 dark:text-gray-400"><?php echo $displayDate; ?></p>
                                         <div class="flex justify-end items-center space-x-4">
-                                          <a class="btn flex items-center font-medium text-purple-500 hover:text-blue-600 dark:text-purple-400 dark:hover:text-blue-500 gap-1 btn-outline text-xs btn-ghost py-1 btn-sm">
+                                          <a class="btn flex items-center font-medium text-purple-500 hover:text-blue-600 dark:text-purple-400 dark:hover:text-blue-500 gap-1 btn-outline text-xs btn-ghost py-1 btn-sm" href="approve_resources.php?unblock_id=<?=$row['material_id']?>">
                                               Approve
                                           </a>
-                                          <a class="btn flex items-center font-medium text-red-500 hover:text-red-500 dark:text-red-500 dark:hover:text-red-500 gap-1 btn-outline text-xs btn-ghost btn-sm px-5" href="reject_resources.php?blog_id=<?php echo urlencode($material_id); ?>" 
+                                          <a class="btn flex items-center font-medium text-red-500 hover:text-red-500 dark:text-red-500 dark:hover:text-red-500 gap-1 btn-outline text-xs btn-ghost btn-sm px-5" href="reject_resources.php?material_id=<?php echo urlencode($material_id); ?>" 
                                           onclick="return confirm('Are you sure you want to delete this resource?');" style="outline: none;">
                                               Reject
                                           </a>

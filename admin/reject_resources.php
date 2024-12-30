@@ -17,7 +17,7 @@ if (isset($_GET['material_id']) && !empty($_GET['material_id'])) {
         // Execute the statement
         if (mysqli_stmt_execute($stmt)) {
             // Redirect to the blog list page with a success message
-            header("Location: posted_resources.php?msg=Resource deleted successfully");
+            header("Location: pending_resources.php?msg=Resource deleted successfully");
             exit; // Ensure no further code executes after redirect
         } else {
             // Handle execution error

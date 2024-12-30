@@ -701,7 +701,7 @@
             $a = $_SESSION['alumni_id'];
 
             // Fetch jobs only for the currently logged-in alumni
-                $sql = "SELECT * FROM resources WHERE u_id = '$a' ORDER BY created_at DESC";
+                $sql = "SELECT * FROM resources WHERE u_id = '$a' AND status='Approve' ORDER BY created_at DESC";
                 $query = mysqli_query($db, $sql);
 
                 if(mysqli_num_rows($query) > 0) {

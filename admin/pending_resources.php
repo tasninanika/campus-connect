@@ -598,23 +598,23 @@
               class="mb-6 flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between"
               >
               <h2 class="text-title-md2 font-bold text-black dark:text-white">
-                Pending Jobs
+                Pending Resources
               </h2>
               <nav>
                 <ol class="flex items-center gap-2">
                   <li>
                     <a class="font-medium dark:text-white" href="index.html">Dashboard /</a>
                   </li>
-                  <li class="font-medium text-purple-400">Job</li>
+                  <li class="font-medium text-purple-400">Resources</li>
                 </ol>
               </nav>
             </div>
             <!-- Breadcrumb End -->
 
             <!-- ====== announcement Section Start -->
-             <div class="shadow-lg">
+        <div class="shadow-lg">
             <div class="px-4 bg-gray-100 dark:bg-gray-600 text-gray-500 dark:text-gray-100 align-middle border border-solid border-gray-200 dark:border-gray-500 py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left">
-                   Blogs 
+                   Resources 
                 </div>
                 <?php
                     // Fetch jobs only for the currently logged-in alumni
@@ -678,7 +678,7 @@
                                   <div class="flex-grow flex justify-between items-center">
                                     <div class="self-center">
                                       <h3 class="text-gray-800 hover:text-gray-900 dark:text-gray-50 dark:hover:text-gray-100" style="outline: none;"><span class="font-bold"><?php echo $row['first_name']; ?> <?php echo $row['last_name']; ?></span> shared a resource.</h3>
-                                      <p class="">
+                                      <p class="text-justify my-2">
                                           <?php echo $row['description']; ?>
                                       </p>
                                       <?php if (!empty($row['uploaded_file'])) { 
@@ -695,7 +695,16 @@
                                               <?php echo $row['uploaded_file']; ?>                                              </a>
                                           <?php } 
                                       } ?>
-                                      <p><?php echo $displayDate; ?></p>
+                                    <p class="mt-1"><?php echo $displayDate; ?></p>
+                                    <div class="flex justify-end items-center space-x-4">
+                                          <a class="btn flex items-center font-medium text-purple-500 hover:text-blue-600 dark:text-purple-400 dark:hover:text-blue-500 gap-1 btn-outline text-xs btn-ghost py-1 btn-sm">
+                                              Approve
+                                          </a>
+                                          <a class="btn flex items-center font-medium text-red-500 hover:text-red-500 dark:text-red-500 dark:hover:text-red-500 gap-1 btn-outline text-xs btn-ghost btn-sm px-5" href="delete_blog.php?blog_id=<?php echo urlencode($blog_id); ?>" 
+                                          onclick="return confirm('Are you sure you want to delete this blog?');" style="outline: none;">
+                                              Reject
+                                          </a>
+                                        </div>
                                     </div>
                                   </div>
                                 </div>

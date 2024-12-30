@@ -633,7 +633,7 @@
                                 <li>
                                     <a class="font-medium dark:text-white" href="a_dashboard.php">Dashboard /</a>
                                 </li>
-                                <li class="text-purple-400 dark:text-white">Alumni</li>
+                                <li class="text-purple-500 dark:text-white">Alumni</li>
                             </ol>
                         </nav>
                     </div>
@@ -643,16 +643,12 @@
                 <!-- Alumni -->
                 <div
                     class="rounded-sm border border-stroke bg-white px-5 pb-2.5 pt-6 shadow-default dark:border-gray-700 sm:px-7.5 xl:pb-1 dark:bg-gray-800">
-                    <!-- <h4 class="mb-6 text-lg font-bold text-black dark:text-white">
-                        Registered Alumni
-                    </h4> -->
                     <div class="overflow-x-auto">
                         <table class="table font-family-karla text-center">
                             <!-- head -->
                             <thead>
-                                <tr class="text-base">
+                                <tr class="text-sm">
                                     <th>Picture</th>
-                                    <th>Student ID</th>
                                     <th>Name</th>
                                     <th>Email</th>
                                     <th>Class ID</th>
@@ -668,7 +664,7 @@
                             </thead>
                             <?php
 								include_once '../db_con/dbCon.php';
-								$result = mysqli_query($db,"SELECT * FROM user INNER JOIN alumni on user.u_id=alumni.alumni_id");
+								$result = mysqli_query($db,"SELECT * FROM user INNER JOIN alumni on user.u_id=alumni.alumni_id AND user.status = 'Pending' ORDER BY created_at DESC");
 								$counter = 0;
 								while($row = mysqli_fetch_array($result)) {
 							?>
@@ -676,10 +672,9 @@
                                 <!-- row 1 -->
                                 <tr>
                                     <td>
-                                        <img src="../images/upload/<?php echo $row["id_photo"]; ?>" alt="Avatar"
+                                        <img src="../upload/images/<?php echo $row["id_photo"]; ?>" alt="Avatar"
                                             class="mask mask-circle h-14 w-14" />
                                     </td>
-                                    <td><?php echo $row["u_id"]; ?></td>
                                     <td><?php echo $row["first_Name"]; ?> <?php echo $row["last_Name"]; ?></td>
                                     <td><?php echo $row["email"]; ?></td>
                                     <td><?php echo $row["class_id"]; ?></td>

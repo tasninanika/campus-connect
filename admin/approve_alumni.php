@@ -12,11 +12,10 @@
 			$password=$items['password'];
 			$email=$items['email'];
 		}
-		//include 'send_confirm_mail_lawyer.php';
 		
 		$sql = "UPDATE `user` SET `status`='Active' WHERE u_id='$id'";
 		//echo $sql;
 		$db->query($sql);
-		header("Location:a_alumnus.php");
+		header("Location:pending_alumni.php");
 	}
 ?>

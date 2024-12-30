@@ -703,7 +703,7 @@
                                         <button
                                             class="btn btn-sm btn-block bg-red-600 flex items-center justify-center">
                                             <a class="flex items-center text-white py-2"
-                                                href="a_alumnus.php?block_id=<?=$row['u_id']?>">
+                                                href="a_alumni.php?block_id=<?=$row['u_id']?>">
                                                 <i class="fas fa-ban t"></i>&nbsp;<span>Block</span>
                                             </a>
                                         </button>
@@ -715,7 +715,7 @@
                                         <button
                                             class="btn btn-sm btn-block bg-yellow-400 flex items-center justify-center">
                                             <a class="flex items-center text-gray-700 py-2"
-                                                href="a_alumnus.php?unblock_id=<?=$row['u_id']?>">
+                                                href="approve_alumni.php?unblock_id=<?=$row['u_id']?>">
                                                 <i class="fas fa-unlock"></i>&nbsp;<span>UnBlock</span>
                                             </a>
                                         </button>

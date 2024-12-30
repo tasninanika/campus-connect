@@ -495,7 +495,7 @@
               class="mb-6 flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between"
             >
               <h2 class="text-title-md2 font-bold text-black dark:text-white">
-                Announcement
+                Event
               </h2>
 
               <nav>
@@ -503,7 +503,7 @@
                   <li>
                     <a class="font-medium dark:text-white" href="index.html">Dashboard /</a>
                   </li>
-                  <li class="font-medium text-purple-400">Announcement</li>
+                  <li class="font-medium text-purple-400">Event</li>
                 </ol>
               </nav>
             </div>
@@ -520,7 +520,7 @@
                     class="border-b border-stroke px-4 py-4 dark:border-gray-700"
                   >
                     <h3 class="font-medium text-black dark:text-white">
-                     Write Announcement
+                     Create Event
                     </h3>
                   </div>
                   <div class="p-5">
@@ -550,7 +550,7 @@
                               class="w-full text-gray-400 font-semibold text-sm bg-white border file:cursor-pointer cursor-pointer file:border-0 file:py-3 file:px-4 file:mr-4 file:bg-gray-100 file:hover:bg-gray-200 file:text-gray-500 rounded-lg dark:text-gray-400 dark:bg-gray-800 dark:file:bg-gray-500 dark:file:hover:bg-gray-800 dark:border-gray-600 dark:file:text-gray-300" required
                               type="file"
                               name="fileToUpload"
-                              id="logo"
+                              id="banner"
                             />                                                     
                         </div>
                         <!-- first -->

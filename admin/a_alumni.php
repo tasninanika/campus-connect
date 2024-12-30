@@ -646,7 +646,7 @@
                     <!-- Breadcrumb Start -->
                     <div class="mb-6 flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
                         <h2 class="text-title-md2 text-base font-bold text-black dark:text-white">
-                            Alumni
+                            Registered Alumni
                         </h2>
 
                         <nav>
@@ -664,9 +664,6 @@
                 <!-- Alumni -->
                 <div
                     class="rounded-sm border border-stroke bg-white px-5 pb-2.5 pt-6 shadow-default dark:border-gray-700 dark:bg-gray-800 sm:px-7.5 xl:pb-1">
-                    <h4 class="mb-6 text-lg font-bold text-black dark:text-white">
-                        Registered Alumni
-                    </h4>
                     <div class="overflow-x-auto scrollbar-thin">
                         <table class="table font-family-karla text-center">
                             <!-- head -->

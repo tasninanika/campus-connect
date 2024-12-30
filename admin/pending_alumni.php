@@ -667,7 +667,7 @@
                                 <li>
                                     <a class="font-medium dark:text-white" href="a_dashboard.php">Dashboard /</a>
                                 </li>
-                                <li class="text-purple-500 dark:text-white">Alumni</li>
+                                <li class="text-purple-400">Alumni</li>
                             </ol>
                         </nav>
                     </div>

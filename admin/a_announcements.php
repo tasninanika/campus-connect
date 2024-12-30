@@ -1,33 +1,12 @@
 <?php
 	session_start();
-	if($_SESSION['login']==TRUE AND $_SESSION['status']=='Active'){
-		
-		//session_start();
+    // include("../navbar.php");
+	if ($_SESSION['login'] == TRUE && $_SESSION['status'] == 'Active') {
 		include("../db_con/dbCon.php");
-		if(isset($_GET['block_id'])){
-			
-			$id = $_GET['block_id'];
-			//echo $id;exit;
-			
-			$sql = "UPDATE user SET status='Block' WHERE u_id='$id'";
-			//echo $sql;
-			$db->query($sql);
-			header("Location:a_students.php");
-		}
-		if(isset($_GET['unblock_id'])){
-			
-			$id = $_GET['unblock_id'];
-			//echo $id;exit;
-			
-			$sql = "UPDATE user SET status='Active' WHERE u_id='$id'";
-			//echo $sql;
-			$db->query($sql);
-			header("Location:a_students.php");
-		}
+        
 	?>
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -180,40 +159,9 @@
   }
   .dark .dark\:stroke-black {
     stroke: rgb(0, 0, 0);  }
-    @tailwind components;
-    @tailwind utilities;
-
-    @layer utilities {
-      .scrollbar-thin {
-        scrollbar-width: thin; 
-      }
-
-      ::-webkit-scrollbar {
-        width: 1px; 
-        height: 1px; 
-      }
-
-      ::-webkit-scrollbar-thumb {
-        background-color: #9ca3af; 
-        border-radius: 8px;
-      }
-
-      ::-webkit-scrollbar-track {
-        background-color: #f3f4f6; 
-      }
-
-      .dark ::-webkit-scrollbar-thumb {
-        background-color: #000000; 
-      }
-
-      .dark ::-webkit-scrollbar-track {
-        background-color: #374151; 
-      }
-    }
     </style>
 </head>
-
-<body class="bg-gray-100 font-family-karla flex" x-data="setup()" :class="{ 'dark': isDark }">
+<body class="bg-slate-100 font-family-karla flex" x-data="setup()" :class="{ 'dark': isDark }">
     <aside class="relative h-screen w-[350px] hidden sm:block shadow-xl bg-gray-800">
         <div class="p-8 mb-5 ">
             <a class="text-white text-base font-bold font-garamond hover:text-gray-300">Welcome,</a>
@@ -280,7 +228,7 @@
                 </li>
               </ul>
             </details>
-            <a href="a_students.php" class="flex items-center text-white py-2 px-3 ml-4 mr-4 my-1 active-nav-link gap-2.5">
+            <a href="a_students.php" class="flex items-center text-white py-2 px-3 ml-4 mr-4 my-1 nav-item gap-2.5">
             <svg
                     class="fill-current"
                     width="18"
@@ -301,7 +249,7 @@
                 <path d="M9,8.087,21,3V21L9,15.913V21H5V15.913a2,2,0,0,1-2-2V10.087a2,2,0,0,1,2-2Z"/>
               </svg>Students
             </a>             
-            <a href="a_announcements.php" class="flex items-center text-white py-2 px-3 ml-4 mr-4 my-1 nav-item gap-2.5">
+            <a href="a_announcements.php" class="flex items-center text-white py-2 px-3 ml-4 mr-4 my-1 active-nav-link gap-2.5">
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.5" height="20" width="20">
                 <path d="M9,8.087,21,3V21L9,15.913V21H5V15.913a2,2,0,0,1-2-2V10.087a2,2,0,0,1,2-2Z"/>
               </svg>Announcement 
@@ -355,9 +303,38 @@
                 </style>
               <!--!Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--><path class="cls-1" d="M495.9 166.6c3.2 8.7 .5 18.4-6.4 24.6l-43.3 39.4c1.1 8.3 1.7 16.8 1.7 25.4s-.6 17.1-1.7 25.4l43.3 39.4c6.9 6.2 9.6 15.9 6.4 24.6c-4.4 11.9-9.7 23.3-15.8 34.3l-4.7 8.1c-6.6 11-14 21.4-22.1 31.2c-5.9 7.2-15.7 9.6-24.5 6.8l-55.7-17.7c-13.4 10.3-28.2 18.9-44 25.4l-12.5 57.1c-2 9.1-9 16.3-18.2 17.8c-13.8 2.3-28 3.5-42.5 3.5s-28.7-1.2-42.5-3.5c-9.2-1.5-16.2-8.7-18.2-17.8l-12.5-57.1c-15.8-6.5-30.6-15.1-44-25.4L83.1 425.9c-8.8 2.8-18.6 .3-24.5-6.8c-8.1-9.8-15.5-20.2-22.1-31.2l-4.7-8.1c-6.1-11-11.4-22.4-15.8-34.3c-3.2-8.7-.5-18.4 6.4-24.6l43.3-39.4C64.6 273.1 64 264.6 64 256s.6-17.1 1.7-25.4L22.4 191.2c-6.9-6.2-9.6-15.9-6.4-24.6c4.4-11.9 9.7-23.3 15.8-34.3l4.7-8.1c6.6-11 14-21.4 22.1-31.2c5.9-7.2 15.7-9.6 24.5-6.8l55.7 17.7c13.4-10.3 28.2-18.9 44-25.4l12.5-57.1c2-9.1 9-16.3 18.2-17.8C227.3 1.2 241.5 0 256 0s28.7 1.2 42.5 3.5c9.2 1.5 16.2 8.7 18.2 17.8l12.5 57.1c15.8 6.5 30.6 15.1 44 25.4l55.7-17.7c8.8-2.8 18.6-.3 24.5 6.8c8.1 9.8 15.5 20.2 22.1 31.2l4.7 8.1c6.1 11 11.4 22.4 15.8 34.3zM256 336a80 80 0 1 0 0-160 80 80 0 1 0 0 160z"/></svg>Settings
             </a>
+            <!-- <details class="group relative">
+              <summary class="flex items-center justify-between text-white py-2 px-3.5 mx-4 my-2 nav-item cursor-pointer">
+                <i class="fas fa-align-left mr-3"></i>
+                <span class="flex-1">Pages</span>
+                <svg
+                  class="ml-auto fill-current transition-transform group-open:rotate-180"
+                  width="20"
+                  height="20"
+                  viewBox="0 0 20 20"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    fill-rule="evenodd"
+                    clip-rule="evenodd"
+                    d="M4.41107 6.9107C4.73651 6.58527 5.26414 6.58527 5.58958 6.9107L10.0003 11.3214L14.4111 6.91071C14.7365 6.58527 15.2641 6.58527 15.5896 6.91071C15.915 7.23614 15.915 7.76378 15.5896 8.08922L10.5896 13.0892C10.2641 13.4147 9.73651 13.4147 9.41107 13.0892L4.41107 8.08922C4.08563 7.76378 4.08563 7.23614 4.41107 6.9107Z"
+                    fill="currentColor"
+                  />
+                </svg>
+              </summary>
+              <ul class="bg-gray-800 mt-2 pl-12 hidden group-open:block">
+                <li>
+                  <a href="alumni_settings.php" class="text-white opacity-75 hover:opacity-100 py-2 block">Edit profile</a>
+                </li>
+                <li>
+                  <a href="alumni_changePass.php" class="text-white opacity-75 hover:opacity-100 py-2 block">Change Password</a>
+                </li>
+              </ul>
+            </details> -->
       </div>
         </nav>       
     </aside> 
+
     <div class="w-full flex flex-col h-screen overflow-y-auto overflow-x-hidden dark:bg-gray-900">
         <!-- Desktop Header -->
         <header class="sticky top-0 z-999 w-full items-center bg-white dark:bg-gray-800 shadow pt-5 px-6  hidden sm:flex">
@@ -408,109 +385,7 @@
                 </svg>
               </button>
             </div>
-        <!-- Notification Dropdown -->
-        <div x-data="{ 
-            dropdownOpen: false, 
-            unreadCount: 0,
-            fetchUnreadCount() {
-                fetch('check_unread.php')
-                    .then(res => res.json())
-                    .then(data => {
-                        this.unreadCount = data.unread_count;
-                    });
-            },
-            markAsRead() {
-                fetch('mark_as_read.php', { method: 'POST' })
-                    .then(() => {
-                        this.unreadCount = 0; // Red dot hide
-                    });
-            }
-            }" x-init="fetchUnreadCount(); setInterval(fetchUnreadCount, 5000)" class="relative">
-            <a
-                class="relative flex h-9 w-9 items-center justify-center rounded-full top-2 border border-gray-300 bg-gray-100 hover:text-primary dark:border-strokedark dark:bg-meta-4 dark:text-white"
-                href="#"
-                @click.prevent="dropdownOpen = !dropdownOpen; notifying = false"
-            >
-            
-                <!-- Notification Bell -->
-                <a href="#" 
-                @click.prevent="dropdownOpen = !dropdownOpen; markAsRead();" 
-                class="relative flex h-9 w-9 -top-7 items-center justify-center rounded-full border border-gray-300 bg-gray-100 hover:text-primary dark:border-strokedark dark:bg-meta-4 dark:text-white">
 
-                  <!-- Notification Dot (Single Red Dot with Animation) -->
-                  <span 
-                      x-show="unreadCount > 0"
-                      class="absolute -top-1 right-0 z-10 h-2 w-2 rounded-full bg-red-500"
-                  >
-                      <span 
-                          class="absolute -z-1 inline-flex h-full w-full animate-ping rounded-full bg-red-500 opacity-75"
-                      ></span>
-                  </span>
-
-                  <!-- Bell Icon -->
-                  <svg
-                      class="fill-current duration-300 ease-in-out"
-                      width="18"
-                      height="18"
-                      viewBox="0 0 18 18"
-                      xmlns="http://www.w3.org/2000/svg"
-                  >
-                      <path
-                          d="M16.1999 14.9343L15.6374 14.0624C15.5249 13.8937 15.4687 13.7249 15.4687 13.528V7.67803C15.4687 6.01865 14.7655 4.47178 13.4718 3.31865C12.4312 2.39053 11.0812 1.7999 9.64678 1.6874V1.1249C9.64678 0.787402 9.36553 0.478027 8.9999 0.478027C8.6624 0.478027 8.35303 0.759277 8.35303 1.1249V1.65928C8.29678 1.65928 8.24053 1.65928 8.18428 1.6874C4.92178 2.05303 2.4749 4.66865 2.4749 7.79053V13.528C2.44678 13.8093 2.39053 13.9499 2.33428 14.0343L1.7999 14.9343C1.63115 15.2155 1.63115 15.553 1.7999 15.8343C1.96865 16.0874 2.2499 16.2562 2.55928 16.2562H8.38115V16.8749C8.38115 17.2124 8.6624 17.5218 9.02803 17.5218C9.36553 17.5218 9.6749 17.2405 9.6749 16.8749V16.2562H15.4687C15.778 16.2562 16.0593 16.0874 16.228 15.8343C16.3968 15.553 16.3968 15.2155 16.1999 14.9343ZM3.23428 14.9905L3.43115 14.653C3.5999 14.3718 3.68428 14.0343 3.74053 13.6405V7.79053C3.74053 5.31553 5.70928 3.23428 8.3249 2.95303C9.92803 2.78428 11.503 3.2624 12.6562 4.2749C13.6687 5.1749 14.2312 6.38428 14.2312 7.67803V13.528C14.2312 13.9499 14.3437 14.3437 14.5968 14.7374L14.7655 14.9905H3.23428Z"
-                          fill="purple"
-                      />
-                  </svg>
-              </a>
-
-
-            <!-- Notification Dropdown -->
-            <div
-                x-show="dropdownOpen"
-                @click.outside="dropdownOpen = false"
-                class="absolute right-0 mt-2 w-80 rounded-lg border border-gray-400 bg-white shadow-lg dark:border-gray-700 dark:bg-gray-800"
-                x-transition
-                >
-                <!-- Header -->
-                <div class="px-4 py-3 border-b border-gray-200 dark:border-gray-700">
-                    <h5 class="text-sm font-semibold text-gray-800 dark:text-gray-200">
-                        Notifications
-                    </h5>
-                </div>
-
-                <!-- Notification List -->
-                <ul class="max-h-56 overflow-y-auto divide-y divide-gray-200 dark:divide-gray-700">
-                    <?php 
-                    $sql = "SELECT * FROM announcement ORDER BY created_at DESC LIMIT 3";
-                    $query = mysqli_query($db, $sql);
-
-                    if(mysqli_num_rows($query) > 0) {
-                        while ($rows = mysqli_fetch_assoc($query)) {
-                            $announcement_title = $rows['title'];
-                            $posted_date = $rows['created_at']; 
-                    ?>
-                        <li>
-                            <a
-                                href="#"
-                                class="block px-4 py-3 transition-all hover:bg-gray-100 dark:hover:bg-gray-700"
-                            >
-                                <p class="text-sm font-medium text-gray-700 dark:text-gray-200">
-                                    <?php echo htmlspecialchars($announcement_title); ?>
-                                </p>
-                                <span class="block text-xs text-gray-500 dark:text-gray-400">
-                                    <?php echo date('d M, Y', strtotime($posted_date)); ?>
-                                </span>
-                            </a>
-                        </li>
-                    <?php
-                        }
-                    } else { ?>
-                        <li class="px-4 py-3 text-sm text-gray-500 dark:text-gray-400">
-                            No new notifications.
-                        </li>
-                    <?php } ?>
-                </ul>
-            </div>
-        </div>
         <!-- Profile Dropdown -->
         <div x-data="{ isOpen: false }" class="relative">
                 <button
@@ -552,6 +427,7 @@
               </div>
         </div>
       </header>
+
         <!-- Mobile Header & Nav -->
         <header x-data="{ isOpen: false }" class="w-full bg-gray-800 py-5 px-6 sm:hidden">
             <div class="flex items-center justify-between">
@@ -641,126 +517,102 @@
         </header>
         <!-- main start -->
         <main>
-            <div class="lg:mx-10 mx-auto max-w-screen-2xl my-5 p-4 md:p-6 2xl:p-10">
-                <div class="mx-auto max-w-242.5">
-                    <!-- Breadcrumb Start -->
-                    <div class="mb-6 flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
-                        <h2 class="text-title-md2 text-base font-bold text-black dark:text-white">
-                            Students
-                        </h2>
+          <div class="lg:mx-10 mx-auto max-w-screen-2xl my-5 p-4 md:p-6 2xl:p-10">
+            <!-- Breadcrumb Start -->
+            <div
+              class="mb-6 flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between"
+            >
+              <h2 class="text-title-md2 font-bold text-black dark:text-white">
+                Announcement
+              </h2>
 
-                        <nav>
-                            <ol class="flex items-center gap-2">
-                                <li>
-                                    <a class="font-medium dark:text-white" href="a_dashboard.php">Dashboard /</a>
-                                </li>
-                                <li class="text-purple-400">Students</li>
-                            </ol>
-                        </nav>
-                    </div>
-                    <!-- Breadcrumb End -->
-
-                </div>
-                <!-- Alumni -->
-                <div
-                    class="rounded-sm border border-stroke bg-white px-5 pb-2.5 pt-6 shadow-default dark:border-gray-700 dark:bg-gray-800 sm:px-7.5 xl:pb-1">
-                    <div class="overflow-x-auto scrollbar-thin">
-                        <table class="table font-family-karla text-center">
-                            <!-- head -->
-                            <thead>
-                                <tr class="text-base dark:text-white dark:border-gray-700">
-                                    <th>Picture</th>
-                                    <th>Name</th>
-                                    <th>Email</th>
-                                    <th>Class ID</th>
-                                    <th>Batch</th>
-                                    <th>Department</th>
-                                    <th>Contact Number</th>
-                                    <th>Address</th>
-                                    <th>City</th>
-                                    <th>Status</th>
-                                    <th>Action</th>
-                                </tr>
-                            </thead>
-                            <?php
-								include_once '../db_con/dbCon.php';
-								$result = mysqli_query($db,"SELECT * FROM user INNER JOIN student on user.u_id=student.student_id");
-								while($row = mysqli_fetch_array($result)) {
-							?>
-                            <tbody id="myTable">
-                                <!-- row 1 -->
-                                <tr class="dark:text-white dark:border-gray-700">
-                                    <td>
-                                        <img src="../upload/images/<?php echo $row["id_photo"]; ?>" alt="Avatar"
-                                            class="mask mask-circle h-14 w-14" />
-                                    </td>
-                                    <td><?php echo $row["first_Name"]; ?> <?php echo $row["last_Name"]; ?></td>
-                                    <td><?php echo $row["email"]; ?></td>
-                                    <td><?php echo $row["class_id"]; ?></td>
-                                    <td><?php echo $row["batch"]; ?></td>
-                                    <td><?php echo $row["department"]; ?></td>
-                                    <td>+88<?php echo $row["contact_number"]; ?></td>
-                                    <td><?php echo $row["full_address"]; ?></td>
-                                    <td><?php echo $row["city"]; ?></td>
-                                    <?php if ($row['status']=='Active'){ ?>
-                                    <td>Active</td>
-                                    <?php }
-						else{?>
-                                    <td>
-                                        <button
-                                            class="btn btn-sm btn-warning bg-yellow-400 flex items-center justify-center">
-                                            <a class="flex items-center text-gray-700 py-2"
-                                                href="approve_students.php?unblock_id=<?=$row['u_id']?>">
-                                                <i class="fas fa-hourglass"></i>&nbsp;<span>Pending</span>
-                                            </a>
-                                        </button>
-                                    </td>
-                                    <?php }?>
-                                    <?php if ($row['status']=='Active'){ ?>
-                                    <td>
-                                        <button
-                                            class="btn btn-sm btn-block bg-red-600 flex items-center justify-center">
-                                            <a class="flex items-center text-white py-2"
-                                                href="a_students.php?block_id=<?=$row['u_id']?>">
-                                                <i class="fas fa-ban t"></i>&nbsp;<span>Block</span>
-                                            </a>
-                                        </button>
-                                    </td>
-
-                                    <?php }
-						else{?>
-                                    <td>
-                                        <button
-                                            class="btn btn-sm btn-block bg-yellow-400 flex items-center justify-center">
-                                            <a class="flex items-center text-gray-700 py-2"
-                                                href="approve_students.php?unblock_id=<?=$row['u_id']?>">
-                                                <i class="fas fa-unlock"></i>&nbsp;<span>UnBlock</span>
-                                            </a>
-                                        </button>
-
-                                    </td>
-
-                                    <?php }?>
-                                </tr>
-                                <?php
-						}
-					?>
-                        </table>
-                    </div>
-                </div>
-
+              <nav>
+                <ol class="flex items-center gap-2">
+                  <li>
+                    <a class="font-medium dark:text-white" href="index.html">Dashboard /</a>
+                  </li>
+                  <li class="font-medium text-purple-400">Announcement</li>
+                </ol>
+              </nav>
             </div>
+            <!-- Breadcrumb End -->
+
+            <!-- ====== Form Elements Section Start -->
+            <div class="grid grid-cols-1 gap-9 sm:grid-cols-2">
+              <div class="grid grid-cols-1 gap-9">
+                <!-- Input Fields -->
+                <div
+                  class="rounded-sm border border-stroke bg-white shadow-default dark:border-gray-700 dark:bg-gray-800"
+                >
+                  <div
+                    class="border-b border-stroke px-4 py-4 dark:border-gray-700"
+                  >
+                    <h3 class="font-medium text-black dark:text-white">
+                     Write Announcement
+                    </h3>
+                  </div>
+                  <div class="p-5">
+                  <form action="post_announcement.php" method="POST" enctype="multipart/form-data">
+                        <!-- first -->
+                        <div class="mb-6">
+                          <label
+                            class="mb-3 block text-sm font-medium text-black dark:text-white"
+                            for=""
+                            >Title</label
+                          >
+                          <input
+                              class="w-full rounded-lg border border-stroke bg-gray px-5 py-2 font-medium text-black focus:border-gray-800 focus-visible:outline-none dark:border-gray-700 dark:bg-gray-800 dark:text-white dark:focus:border-primary"
+                              type="text"
+                              name="title"
+                              id="title"
+                            />                                                     
+                        </div>
+                        <!-- Description -->
+                        <div class="mb-6 flex flex-col gap-5 sm:flex-row">
+                            <div class="w-full">
+                            <label
+                            class="mb-3 block text-sm font-medium text-black dark:text-white"
+                            >
+                            Description
+                            </label>
+                            <textarea
+                            rows="6"
+                            name="content"
+                              id="content"
+                            class="w-full rounded-lg border-[1.5px] border-stroke bg-transparent px-5 py-3 font-normal text-black outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-gray-700 dark:bg-form-input dark:text-white dark:focus:border-primary"
+                            ></textarea>
+                            </div>
+                        </div>
+                        <!-- button -->
+                        <div class="flex justify-end gap-4">
+                          <button
+                            class="flex justify-center rounded-lg border border-stroke px-6 py-2 font-medium text-black hover:shadow-1 dark:border-strokedark dark:text-white"
+                            type="submit"
+                          >
+                            Cancel
+                          </button>
+                          <button
+                            class="flex justify-center rounded-lg bg-gradient-to-r from-purple-500 to-black px-6 py-2 font-medium text-white hover:bg-opacity-90"
+                            type="submit">
+                            Create
+                          </button>
+                        </div>
+                  </div>
+                </div>
+              </div>
+            </form>
+            </div>
+            <!-- ====== Form Elements Section End -->
+          </div>
         </main>
-        <!-- main end -->
+         <!-- main end -->
     </div>
 
     <!-- AlpineJS -->
     <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script>
     <!-- Font Awesome -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/js/all.min.js"
-        integrity="sha256-KzZiKy0DWYsnwMF+X1DvQngQ2/FxF7MF3Ff72XcpuPs=" crossorigin="anonymous"></script>
-
-        <script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/js/all.min.js" integrity="sha256-KzZiKy0DWYsnwMF+X1DvQngQ2/FxF7MF3Ff72XcpuPs=" crossorigin="anonymous"></script>
+  <script>
     const setup = () => {
       const getTheme = () => {
         if (window.localStorage.getItem('dark')) {
@@ -783,6 +635,25 @@
       }
     }
   </script>
+  <!-- dropdown -->
+  <script>
+  // Select all <details> elements
+    const dropdowns = document.querySelectorAll('.dropdown');
+
+    dropdowns.forEach((dropdown) => {
+        dropdown.addEventListener('toggle', (event) => {
+        if (dropdown.open) {
+            // Close all other dropdowns
+            dropdowns.forEach((otherDropdown) => {
+            if (otherDropdown !== dropdown && otherDropdown.open) {
+                otherDropdown.open = false;
+            }
+            });
+        }
+        });
+    });
+</script>
+
 </body>
 </html>
 <?php

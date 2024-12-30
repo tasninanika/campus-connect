@@ -170,7 +170,7 @@
         <nav class="text-white text-base  pt-3">
             <h3 class="mb-4 ml-7 text-base font-medium text-slate-400">MENU</h3>
             
-            <a href="alumni_dashboard.php" class="flex items-center text-white gap-2.5 py-2 px-3 ml-4 mr-4 my-1 active-nav-link">
+            <a href="a_dashboard.php" class="flex items-center text-white gap-2.5 py-2 px-3 ml-4 mr-4 my-1 active-nav-link">
                 <svg
                     class="fill-current"
                     width="18"
@@ -249,7 +249,7 @@
                 <path d="M9,8.087,21,3V21L9,15.913V21H5V15.913a2,2,0,0,1-2-2V10.087a2,2,0,0,1,2-2Z"/>
               </svg>Students
             </a>             
-            <a href="alumni_announcement.php" class="flex items-center text-white py-2 px-3 ml-4 mr-4 my-1 nav-item gap-2.5">
+            <a href="a_announcements.php" class="flex items-center text-white py-2 px-3 ml-4 mr-4 my-1 nav-item gap-2.5">
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.5" height="20" width="20">
                 <path d="M9,8.087,21,3V21L9,15.913V21H5V15.913a2,2,0,0,1-2-2V10.087a2,2,0,0,1,2-2Z"/>
               </svg>Announcement 

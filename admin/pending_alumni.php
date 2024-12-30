@@ -159,6 +159,40 @@
   }
   .dark .dark\:stroke-black {
     stroke: rgb(0, 0, 0);  }
+
+    @tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer utilities {
+  .scrollbar-thin {
+    scrollbar-width: thin; 
+  }
+
+  ::-webkit-scrollbar {
+    width: 1px; 
+    height: 1px; 
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background-color: #9ca3af; 
+    border-radius: 8px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background-color: #f3f4f6; 
+  }
+
+  .dark ::-webkit-scrollbar-thumb {
+    background-color: #000000; 
+  }
+
+  .dark ::-webkit-scrollbar-track {
+    background-color: #374151; 
+  }
+}
+
+
     </style>
 </head>
 <body class="bg-slate-100 font-family-karla flex" x-data="setup()" :class="{ 'dark': isDark }">
@@ -643,11 +677,11 @@
                 <!-- Alumni -->
                 <div
                     class="rounded-sm border border-stroke bg-white px-5 pb-2.5 pt-6 shadow-default dark:border-gray-700 sm:px-7.5 xl:pb-1 dark:bg-gray-800">
-                    <div class="overflow-x-auto">
+                    <div class="overflow-x-auto scrollbar-thin">
                         <table class="table font-family-karla text-center">
                             <!-- head -->
                             <thead>
-                                <tr class="text-sm dark:text-white">
+                                <tr class="text-sm dark:text-white dark:border-gray-700">
                                     <th>Picture</th>
                                     <th>Name</th>
                                     <th>Email</th>

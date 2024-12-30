@@ -634,14 +634,14 @@
                 <!-- Alumni -->
                 <div
                     class="rounded-sm border border-stroke bg-white px-5 pb-2.5 pt-6 shadow-default dark:border-gray-700 dark:bg-gray-800 sm:px-7.5 xl:pb-1">
-                    <h4 class="mb-6 text-xl font-bold text-black dark:text-white">
+                    <h4 class="mb-6 text-lg font-bold text-black dark:text-white">
                         Registered Alumni
                     </h4>
                     <div class="overflow-x-auto">
                         <table class="table font-family-karla text-center">
                             <!-- head -->
                             <thead>
-                                <tr class="text-base">
+                                <tr class="text-base dark:text-white dark:border-gray-700">
                                     <th>Picture</th>
                                     <th>Name</th>
                                     <th>Email</th>
@@ -664,7 +664,7 @@
 							?>
                             <tbody id="myTable">
                                 <!-- row 1 -->
-                                <tr>
+                                <tr class="dark:text-white dark:border-gray-700">
                                     <td>
                                         <img src="../upload/images/<?php echo $row["id_photo"]; ?>" alt="Avatar"
                                             class="mask mask-circle h-14 w-14" />

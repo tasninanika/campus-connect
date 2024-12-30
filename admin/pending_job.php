@@ -170,7 +170,7 @@
         <nav class="text-white text-base  pt-3">
             <h3 class="mb-4 ml-7 text-base font-medium text-slate-400">MENU</h3>
             
-            <a href="a_dashboard.php" class="flex items-center text-white gap-2.5 py-2 px-3 ml-4 mr-4 my-1 active-nav-link">
+            <a href="a_dashboard.php" class="flex items-center text-white gap-2.5 py-2 px-3 ml-4 mr-4 my-1 nav-item">
                 <svg
                     class="fill-current"
                     width="18"
@@ -257,7 +257,7 @@
             <a href="a_event.php" class="flex items-center text-white py-2 px-3 ml-4 mr-4 my-1 nav-item gap-2.5">
             <svg xmlns="http://www.w3.org/2000/svg" xml:space="preserve" width="22" height="22" style="shape-rendering:geometricPrecision;text-rendering:geometricPrecision;image-rendering:optimizeQuality;fill-rule:evenodd;clip-rule:evenodd" viewBox="0 0 6.827 6.827"><defs><style>.fil0{fill:white;fill-rule:nonzero}</style></defs><g id="Layer_x0020_1"><g id="_558167744"><path id="_558168296" class="fil0" d="M1.03 1.176h.655V1.4h.46V1.176H4.682V1.4h.46V1.176h.655a.176.176 0 0 1 .176.177v4.345a.176.176 0 0 1-.177.177H1.03a.176.176 0 0 1-.177-.177V1.353a.176.176 0 0 1 .177-.177zm.442.213h-.405v4.273H5.76V1.389h-.405v.065a.159.159 0 0 1-.16.16h-.567a.159.159 0 0 1-.16-.16V1.39h-2.11v.065a.159.159 0 0 1-.16.16h-.567a.159.159 0 0 1-.159-.16V1.39z"/><path id="_558168944" class="fil0" d="M1.631.951H2.2a.159.159 0 0 1 .16.16v.343a.159.159 0 0 1-.16.16h-.568a.158.158 0 0 1-.16-.16l.001-.343a.159.159 0 0 1 .16-.16zm.514.214h-.46V1.4h.46v-.235z"/><path id="_558168416" class="fil0" d="M4.628.951h.567a.159.159 0 0 1 .16.16v.343a.159.159 0 0 1-.16.16h-.567a.158.158 0 0 1-.16-.16v-.343a.159.159 0 0 1 .16-.16zm.513.214h-.46V1.4h.46v-.235z"/><path id="_558168992" class="fil0" d="M.96 1.96h4.907v.214H.96z"/><path id="_558168800" class="fil0" d="M1.507 2.41h.779v.886H1.4v-.887h.107zm.566.213h-.46v.46h.46v-.46z"/><path id="_558168032" class="fil0" d="M2.853 2.41h.779v.886h-.886v-.887h.107zm.566.213h-.46v.46h.46v-.46z"/><path id="_558167984" class="fil0" d="M1.507 3.755h.779v.887H1.4v-.887h.107zm.566.214h-.46v.46h.46v-.46z"/><path id="_558167696" class="fil0" d="M2.853 3.755h.779v.887h-.886v-.887h.107zm.566.214h-.46v.46h.46v-.46z"/><path id="_558167600" class="fil0" d="m4.747 2.703.521.213-.08.196-.521-.213z"/><path id="_558167960" class="fil0" d="m4.028 4.462.521.213-.08.197-.521-.213z"/><path id="_558167528" class="fil0" d="m4.581 4.84-.547.6-.169-.067.026-.815.007-.034.855-2.094a.27.27 0 0 1 .095-.12.17.17 0 0 1 .163-.022m-.943 2.827.358-.395.849-2.077a.08.08 0 0 0 .006-.035l-.328-.134a.077.077 0 0 0-.02.03L4.084 4.58l-.016.534zm.943-2.827.358.147c.112.045.126.182.085.281L4.581 4.84"/></g></g><path style="fill:none" d="M0 0h6.827v6.827H0z"/></svg>Event 
             </a> 
-            <a href="pending_job.php" class="flex items-center text-white py-2 px-3 ml-4 mr-4 my-1 nav-item gap-2.5">
+            <a href="pending_job.php" class="flex items-center text-white py-2 px-3 ml-4 mr-4 my-1 active-nav-link gap-2.5">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 25 25" width="20" height="20"><defs><style>.cls-2{fill:white}</style></defs><g id="briefcase_2" data-name="briefcase 2"><path class="cls-2" d="M23.5 13.53a.5.5 0 0 0-.5.5v7.26a.7.7 0 0 1-.21.52.61.61 0 0 1-.45.2L2.64 22a.7.7 0 0 1-.64-.77v-7.1a.5.5 0 0 0-.5-.5.5.5 0 0 0-.5.5v7.09A1.71 1.71 0 0 0 2.64 23h19.67a1.62 1.62 0 0 0 1.18-.51 1.73 1.73 0 0 0 .51-1.2V14a.5.5 0 0 0-.5-.47zM22.37 6H2.69A1.66 1.66 0 0 0 1 7.61V12a1 1 0 0 0 1 1h2.54a.5.5 0 0 0 0-1H2V7.61A.66.66 0 0 1 2.68 7h19.68a.67.67 0 0 1 .66.67v4.34L20.5 12a.5.5 0 0 0 0 1H23a1 1 0 0 0 .67-.28.92.92 0 0 0 .29-.68V7.68A1.67 1.67 0 0 0 22.37 6zM8.5 5.23a.5.5 0 0 0 .5-.5A1.74 1.74 0 0 1 10.74 3h3.52A1.74 1.74 0 0 1 16 4.73a.5.5 0 0 0 1 0A2.74 2.74 0 0 0 14.26 2h-3.52A2.74 2.74 0 0 0 8 4.73a.5.5 0 0 0 .5.5z"/><path class="cls-2" d="M18 15a1 1 0 0 0 1-1v-2a1 1 0 0 0-1-1h-1a1 1 0 0 0-1 1v2a1 1 0 0 0 1 1zm0-3v2h-1v-2zM8 15a1 1 0 0 0 1-1v-2a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1v2a1 1 0 0 0 1 1zm0-3v2H7v-2zM14.5 13a.5.5 0 0 0 0-1h-4a.5.5 0 0 0 0 1z"/></g></svg> Pending Job
             </a>
             <a href="pending_blogs.php" class="flex items-center text-white py-2 px-3 ml-4 mr-4 my-1 nav-item gap-2.5">
@@ -303,34 +303,6 @@
                 </style>
               <!--!Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--><path class="cls-1" d="M495.9 166.6c3.2 8.7 .5 18.4-6.4 24.6l-43.3 39.4c1.1 8.3 1.7 16.8 1.7 25.4s-.6 17.1-1.7 25.4l43.3 39.4c6.9 6.2 9.6 15.9 6.4 24.6c-4.4 11.9-9.7 23.3-15.8 34.3l-4.7 8.1c-6.6 11-14 21.4-22.1 31.2c-5.9 7.2-15.7 9.6-24.5 6.8l-55.7-17.7c-13.4 10.3-28.2 18.9-44 25.4l-12.5 57.1c-2 9.1-9 16.3-18.2 17.8c-13.8 2.3-28 3.5-42.5 3.5s-28.7-1.2-42.5-3.5c-9.2-1.5-16.2-8.7-18.2-17.8l-12.5-57.1c-15.8-6.5-30.6-15.1-44-25.4L83.1 425.9c-8.8 2.8-18.6 .3-24.5-6.8c-8.1-9.8-15.5-20.2-22.1-31.2l-4.7-8.1c-6.1-11-11.4-22.4-15.8-34.3c-3.2-8.7-.5-18.4 6.4-24.6l43.3-39.4C64.6 273.1 64 264.6 64 256s.6-17.1 1.7-25.4L22.4 191.2c-6.9-6.2-9.6-15.9-6.4-24.6c4.4-11.9 9.7-23.3 15.8-34.3l4.7-8.1c6.6-11 14-21.4 22.1-31.2c5.9-7.2 15.7-9.6 24.5-6.8l55.7 17.7c13.4-10.3 28.2-18.9 44-25.4l12.5-57.1c2-9.1 9-16.3 18.2-17.8C227.3 1.2 241.5 0 256 0s28.7 1.2 42.5 3.5c9.2 1.5 16.2 8.7 18.2 17.8l12.5 57.1c15.8 6.5 30.6 15.1 44 25.4l55.7-17.7c8.8-2.8 18.6-.3 24.5 6.8c8.1 9.8 15.5 20.2 22.1 31.2l4.7 8.1c6.1 11 11.4 22.4 15.8 34.3zM256 336a80 80 0 1 0 0-160 80 80 0 1 0 0 160z"/></svg>Settings
             </a>
-            <!-- <details class="group relative">
-              <summary class="flex items-center justify-between text-white py-2 px-3.5 mx-4 my-2 nav-item cursor-pointer">
-                <i class="fas fa-align-left mr-3"></i>
-                <span class="flex-1">Pages</span>
-                <svg
-                  class="ml-auto fill-current transition-transform group-open:rotate-180"
-                  width="20"
-                  height="20"
-                  viewBox="0 0 20 20"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    fill-rule="evenodd"
-                    clip-rule="evenodd"
-                    d="M4.41107 6.9107C4.73651 6.58527 5.26414 6.58527 5.58958 6.9107L10.0003 11.3214L14.4111 6.91071C14.7365 6.58527 15.2641 6.58527 15.5896 6.91071C15.915 7.23614 15.915 7.76378 15.5896 8.08922L10.5896 13.0892C10.2641 13.4147 9.73651 13.4147 9.41107 13.0892L4.41107 8.08922C4.08563 7.76378 4.08563 7.23614 4.41107 6.9107Z"
-                    fill="currentColor"
-                  />
-                </svg>
-              </summary>
-              <ul class="bg-gray-800 mt-2 pl-12 hidden group-open:block">
-                <li>
-                  <a href="alumni_settings.php" class="text-white opacity-75 hover:opacity-100 py-2 block">Edit profile</a>
-                </li>
-                <li>
-                  <a href="alumni_changePass.php" class="text-white opacity-75 hover:opacity-100 py-2 block">Change Password</a>
-                </li>
-              </ul>
-            </details> -->
       </div>
         </nav>       
     </aside> 
@@ -633,7 +605,7 @@
                   <li>
                     <a class="font-medium dark:text-white" href="index.html">Dashboard /</a>
                   </li>
-                  <li class="font-medium dark:text-white">Job</li>
+                  <li class="font-medium text-purple-400">Job</li>
                 </ol>
               </nav>
             </div>
@@ -652,7 +624,8 @@
                                     alumni.id_photo AS creator_photo, 
                                     job.title AS job_title, 
                                     job.company_name AS com_name, 
-                                    job.description AS content, 
+                                    job.description AS content,
+                                    job.job_id AS id, job.salary AS job_salary, job.location AS job_location, job.experience AS job_exp,
                                     job.created_at AS job_created_at
                                 FROM 
                                     job
@@ -699,20 +672,45 @@
                         }  
                             ?>
                             <ul class="my-1">
-                              <li class="flex px-4 border-b ">
-                                <div class="flex-shrink-0 my-2 mr-3">
+                              <li class="flex px-4 border-b dark:border-gray-700 ">
+                                <div class="flex-shrink-0 my-4 mr-3">
                                   <img src="../upload/images/<?php echo $row['creator_photo']; ?>" alt="User Image" class="h-9 w-9 rounded-full">
                                 </div>
-                                <div class="flex-grow flex items-center border-gray-100 dark:border-gray-400 text-sm text-gray-600 dark:text-gray-100 py-2">
+                                <div class="flex-grow flex items-center border-gray-100 dark:border-gray-400 text-sm text-gray-600 dark:text-gray-100 py-4">
                                   <div class="flex-grow flex justify-between items-center">
                                     <div class="self-center">
                                       <h3 class="text-gray-800 hover:text-gray-900 dark:text-gray-50 dark:hover:text-gray-100" style="outline: none;"><span class="font-bold"><?php echo $row['first_name']; ?> <?php echo $row['last_name']; ?></span> has created a <span class="font-bold"><?php echo $row['job_title']; ?></span> job post.</h3>
                                       <?php echo $displayDate; ?>
                                     </div>
                                     <div class="flex-shrink-0 ml-2 mt-5">
-                                      <a class="flex items-center font-medium text-purple-500 hover:text-blue-600 dark:text-purple-400 dark:hover:text-blue-500" href="posted_job.php" style="outline: none;">
+                                      <a class="flex items-center font-medium text-purple-500 hover:text-blue-600 dark:text-purple-400 dark:hover:text-blue-500" style="outline: none;" onclick="document.getElementById('modal_<?php echo $row['id']; ?>').showModal()">
                                             Details<span><svg width="20" height="20" viewBox="0 0 20 20" fill="currentColor" class="transform transition-transform duration-500 ease-in-out"><path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd"></path></svg></span>
                                       </a>
+                                        <dialog id="modal_<?php echo $row['id']; ?>" class="modal">
+                                            <div class="modal-box dark:bg-gray-800">
+                                                <form method="dialog">
+                                                    <button class="btn btn-sm btn-circle btn-ghost absolute right-2 top-2">✕</button>
+                                                </form>
+                                                <h3 class="text-lg font-bold dark:text-white pb-2">Job Details</h3>
+                                                <p class="py-1 text-black font-semibold dark:text-white"><?php echo $row['job_title']; ?></p>
+                                                <p class="py-1 dark:text-white text-black"><?php echo $row['com_name']; ?></p>
+                                                <p class="py-1 dark:text-white text-black"><?php echo $row['content']; ?></p>
+                                                <div class="flex items-center gap-2">
+                                              <svg xmlns="http://www.w3.org/2000/svg" height="12" width="12" viewBox="0 0 384 512">
+                                                  <path fill="#2d3748" dark="#fff" d="M215.7 499.2C267 435 384 279.4 384 192C384 86 298 0 192 0S0 86 0 192c0 87.4 117 243 168.3 307.2c12.3 15.3 35.1 15.3 47.4 0zM192 128a64 64 0 1 1 0 128 64 64 0 1 1 0-128z" />
+                                              </svg>
+                                              <span class="text-sm mt-1 dark:text-white text-black"><?php echo $row['job_location']; ?></span>
+                                          </div>
+
+                                          <!-- Second Icon with Text -->
+                                          <div class="flex items-center gap-2">
+                                              <svg xmlns="http://www.w3.org/2000/svg" height="12" width="12" viewBox="0 0 576 512">
+                                                  <path fill="#2d3748" d="M256 0l64 0c17.7 0 32 14.3 32 32l0 64c0 17.7-14.3 32-32 32l-64 0c-17.7 0-32-14.3-32-32l0-64c0-17.7 14.3-32 32-32zM64 64l128 0 0 48c0 26.5 21.5 48 48 48l96 0c26.5 0 48-21.5 48-48l0-48 128 0c35.3 0 64 28.7 64 64l0 320c0 35.3-28.7 64-64 64L64 512c-35.3 0-64-28.7-64-64L0 128C0 92.7 28.7 64 64 64zM176 437.3c0 5.9 4.8 10.7 10.7 10.7l202.7 0c5.9 0 10.7-4.8 10.7-10.7c0-29.5-23.9-53.3-53.3-53.3l-117.3 0c-29.5 0-53.3 23.9-53.3 53.3zM288 352a64 64 0 1 0 0-128 64 64 0 1 0 0 128z" />
+                                              </svg>
+                                              <span class="text-sm mt-1 dark:text-white text-black"><?php echo $row['job_exp']; ?></span>
+                                          </div>
+                                            </div>
+                                        </dialog>
                                     </div>
                                   </div>
                                 </div>

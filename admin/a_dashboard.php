@@ -622,7 +622,7 @@
         <main>
           <div class="mx-auto max-w-screen-2xl p-4 md:p-6 2xl:p-10 lg:mt-5 lg:ml-5">
           <h3 class="font-semibold text-xl text-gray-900 dark:text-gray-50">Notifications</h3>
-      <div class="grid grid-cols-1 lg:grid-cols-2 pt-8 gap-4">
+          <div class="grid grid-cols-1 lg:grid-cols-2 pt-8 gap-4">
           <!-- Recent Activities part1 -->
           <div class="relative flex flex-col min-w-0 mb-4 lg:mb-0 break-words bg-gray-50 dark:bg-gray-800 w-full shadow-lg rounded">
             <div class="rounded-t mb-0 px-0 border-0">

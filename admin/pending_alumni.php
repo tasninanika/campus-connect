@@ -35,7 +35,7 @@
           }
         }
     </script>
-    <style>
+  <style>
         .font-garamond{
             font-family: "EB Garamond", serif;
         }
@@ -161,36 +161,36 @@
     stroke: rgb(0, 0, 0);  }
 
     @tailwind base;
-@tailwind components;
-@tailwind utilities;
+    @tailwind components;
+    @tailwind utilities;
 
-@layer utilities {
-  .scrollbar-thin {
-    scrollbar-width: thin; 
-  }
+    @layer utilities {
+      .scrollbar-thin {
+        scrollbar-width: thin; 
+      }
 
-  ::-webkit-scrollbar {
-    width: 1px; 
-    height: 1px; 
-  }
+      ::-webkit-scrollbar {
+        width: 1px; 
+        height: 1px; 
+      }
 
-  ::-webkit-scrollbar-thumb {
-    background-color: #9ca3af; 
-    border-radius: 8px;
-  }
+      ::-webkit-scrollbar-thumb {
+        background-color: #9ca3af; 
+        border-radius: 8px;
+      }
 
-  ::-webkit-scrollbar-track {
-    background-color: #f3f4f6; 
-  }
+      ::-webkit-scrollbar-track {
+        background-color: #f3f4f6; 
+      }
 
-  .dark ::-webkit-scrollbar-thumb {
-    background-color: #000000; 
-  }
+      .dark ::-webkit-scrollbar-thumb {
+        background-color: #000000; 
+      }
 
-  .dark ::-webkit-scrollbar-track {
-    background-color: #374151; 
-  }
-}
+      .dark ::-webkit-scrollbar-track {
+        background-color: #374151; 
+      }
+    }
 
 
     </style>

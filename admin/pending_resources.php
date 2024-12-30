@@ -4,6 +4,19 @@
 	if ($_SESSION['login'] == TRUE && $_SESSION['status'] == 'Active') {
 		include("../db_con/dbCon.php");
         
+        //session_start();
+		include("../db_con/dbCon.php");
+		if(isset($_GET['unblock_id'])){
+			
+			$material_id = $_GET['unblock_id'];
+			//echo $id;exit;
+			
+			$sql = "UPDATE resources SET status='Approve' WHERE material_id='$material_id'";
+			//echo $sql;
+			$db->query($sql);
+			header("Location:pending_resources.php");
+		}
+        
 	?>
 <!DOCTYPE html>
 <html lang="en">
@@ -624,7 +637,7 @@
                                     alumni.id_photo AS creator_photo,
                                     resources.title AS resources_title, 
                                     resources.content AS description, resources.file AS uploaded_file,
-                                    resources.created_at AS resources_created_at
+                                    resources.created_at AS resources_created_at, resources.material_id AS id
                                 FROM 
                                     resources
                                 INNER JOIN 
@@ -695,12 +708,13 @@
                                               <?php echo $row['uploaded_file']; ?>                                              </a>
                                           <?php } 
                                       } ?>
+                                      
                                     <p class="mt-1 dark:text-gray-400"><?php echo $displayDate; ?></p>
                                         <div class="flex justify-end items-center space-x-4">
-                                          <a class="btn flex items-center font-medium text-purple-500 hover:text-blue-600 dark:text-purple-400 dark:hover:text-blue-500 gap-1 btn-outline text-xs btn-ghost py-1 btn-sm" href="approve_resources.php?unblock_id=<?=$row['material_id']?>">
-                                              Approve
+                                          <a class="btn flex items-center font-medium text-purple-500 hover:text-blue-600 dark:text-purple-400 dark:hover:text-blue-500 gap-1 btn-outline text-xs btn-ghost py-1 btn-sm"
+                                          href="approve_resources.php?unblock_id=<?=$row['id']?>">Approve
                                           </a>
-                                          <a class="btn flex items-center font-medium text-red-500 hover:text-red-500 dark:text-red-500 dark:hover:text-red-500 gap-1 btn-outline text-xs btn-ghost btn-sm px-5" href="reject_resources.php?material_id=<?php echo urlencode($material_id); ?>" 
+                                          <a class="btn flex items-center font-medium text-red-500 hover:text-red-500 dark:text-red-500 dark:hover:text-red-500 gap-1 btn-outline text-xs btn-ghost btn-sm px-5" href="reject_resources.php?id=<?=$row['id']?>" 
                                           onclick="return confirm('Are you sure you want to delete this resource?');" style="outline: none;">
                                               Reject
                                           </a>

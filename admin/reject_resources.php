@@ -3,8 +3,8 @@ session_start();
 include("../db_con/dbCon.php");
 
 // Check if material_id is passed in the URL
-if (isset($_GET['material_id']) && !empty($_GET['material_id'])) {
-    $material_id = $_GET['material_id']; // Use the material_id as a string
+if (isset($_GET['id']) && !empty($_GET['id'])) {
+    $material_id = $_GET['id']; // Use the material_id as a string
 
     // Prepare the DELETE query
     $sql = "DELETE FROM resources WHERE material_id = ?";

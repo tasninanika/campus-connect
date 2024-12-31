@@ -214,7 +214,7 @@
                 <path d="M9,8.087,21,3V21L9,15.913V21H5V15.913a2,2,0,0,1-2-2V10.087a2,2,0,0,1,2-2Z"/>
               </svg>Announcement 
             </a> 
-            <a href="student_resources.php" class="flex items-center text-white py-2 px-3 ml-4 mr-4 my-1 nav-item gap-2.5">
+            <a href="student_resources.php" class="flex items-center text-white py-2 px-3 ml-4 mr-4 my-1 active-nav-link gap-2.5">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512" width="20" height="20">
                   <defs>
                     <style>
@@ -235,7 +235,7 @@
             <!-- Others Group -->
       <div>
         <h3 class="mb-4 ml-7 mt-6 text-base font-medium text-slate-400">OTHERS</h3>
-            <a href="student_profile.php" class="flex items-center text-white gap-2.5 py-2 px-3 ml-4 mr-4 my-1 active-nav-link">
+            <a href="student_profile.php" class="flex items-center text-white gap-2.5 py-2 px-3 ml-4 mr-4 my-1 nav-item">
                 <svg
                     class="fill-current"
                     width="18"
@@ -571,140 +571,213 @@
             </nav>
         </header>
         <!-- main start -->
-        <main class="overflow-y-auto overflow-x-hidden">
+        <main>
           <div class="lg:mx-10 mx-auto max-w-screen-2xl my-5 p-4 md:p-6 2xl:p-10">
-            <div class="mx-auto max-w-242.5">
-              <!-- Breadcrumb Start -->
-              <div
-                class="mb-6 flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between"
-              >
-                <h2 class="text-title-md2 font-bold text-black dark:text-white">
-                  Profile
-                </h2>
+            <!-- Breadcrumb Start -->
+            <div
+              class="mb-6 flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between"
+            >
+              <h2 class="text-title-md2 font-bold text-black dark:text-white">
+                Settings
+              </h2>
 
-                <nav>
-                  <ol class="flex items-center gap-2">
-                    <li>
-                      <a class="font-medium dark:text-white" href="user_dashboard.php">Dashboard /</a>
-                    </li>
-                    <li class="dark:text-white">Profile</li>
-                  </ol>
-                </nav>
-              </div>
-              <!-- Breadcrumb End -->
-
-              <!-- ====== Profile Section Start -->
-              <div
-                class="overflow-hidden rounded-sm border border-stroke bg-white shadow-default dark:border-gray-700 dark:bg-gray-800"
-                >
-                <div class="relative z-1 h-72 md:h-65">
-                  <img
-                    src="../images/cover.png"
-                    alt="profile cover"
-                    class="h-full w-full rounded-tl-sm rounded-tr-sm object-cover object-center"
-                  />
-                  <div
-                    class="absolute bottom-1 right-1 z-10 xsm:bottom-4 xsm:right-4"
-                  >
-                    <label
-                      for="cover"
-                      class="flex cursor-pointer items-center justify-center gap-2 rounded px-2 py-1 text-sm font-medium text-white hover:bg-opacity-80 xsm:px-4 bg-[#0E675C]"
-                    >
-                      <input
-                        type="file"
-                        name="fileToUpload"
-                        id="cover"
-                        class="sr-only"
-                      />
-                      <span class="update_profile">
-                        <svg
-                          class="fill-current"
-                          width="14"
-                          height="14"
-                          viewBox="0 0 14 14"
-                          fill="none"
-                          xmlns="http://www.w3.org/2000/svg"
-                          >
-                          <path
-                            fill-rule="evenodd"
-                            clip-rule="evenodd"
-                            d="M4.76464 1.42638C4.87283 1.2641 5.05496 1.16663 5.25 1.16663H8.75C8.94504 1.16663 9.12717 1.2641 9.23536 1.42638L10.2289 2.91663H12.25C12.7141 2.91663 13.1592 3.101 13.4874 3.42919C13.8156 3.75738 14 4.2025 14 4.66663V11.0833C14 11.5474 13.8156 11.9925 13.4874 12.3207C13.1592 12.6489 12.7141 12.8333 12.25 12.8333H1.75C1.28587 12.8333 0.840752 12.6489 0.512563 12.3207C0.184375 11.9925 0 11.5474 0 11.0833V4.66663C0 4.2025 0.184374 3.75738 0.512563 3.42919C0.840752 3.101 1.28587 2.91663 1.75 2.91663H3.77114L4.76464 1.42638ZM5.56219 2.33329L4.5687 3.82353C4.46051 3.98582 4.27837 4.08329 4.08333 4.08329H1.75C1.59529 4.08329 1.44692 4.14475 1.33752 4.25415C1.22812 4.36354 1.16667 4.51192 1.16667 4.66663V11.0833C1.16667 11.238 1.22812 11.3864 1.33752 11.4958C1.44692 11.6052 1.59529 11.6666 1.75 11.6666H12.25C12.4047 11.6666 12.5531 11.6052 12.6625 11.4958C12.7719 11.3864 12.8333 11.238 12.8333 11.0833V4.66663C12.8333 4.51192 12.7719 4.36354 12.6625 4.25415C12.5531 4.14475 12.4047 4.08329 12.25 4.08329H9.91667C9.72163 4.08329 9.53949 3.98582 9.4313 3.82353L8.43781 2.33329H5.56219Z"
-                            fill="white"
-                          />
-                          <path
-                            fill-rule="evenodd"
-                            clip-rule="evenodd"
-                            d="M6.99992 5.83329C6.03342 5.83329 5.24992 6.61679 5.24992 7.58329C5.24992 8.54979 6.03342 9.33329 6.99992 9.33329C7.96642 9.33329 8.74992 8.54979 8.74992 7.58329C8.74992 6.61679 7.96642 5.83329 6.99992 5.83329ZM4.08325 7.58329C4.08325 5.97246 5.38909 4.66663 6.99992 4.66663C8.61075 4.66663 9.91659 5.97246 9.91659 7.58329C9.91659 9.19412 8.61075 10.5 6.99992 10.5C5.38909 10.5 4.08325 9.19412 4.08325 7.58329Z"
-                            fill="white"
-                          />
-                        </svg>
-                      </span>
-                      <span>Edit</span>
-                    </label>
-                  </div>
-                </div>
-                <div class="px-4 pb-6 text-center lg:pb-8 xl:pb-11.5">
-                  <div
-                    class="relative z-30 mx-auto lg:-mt-24 h-30 w-full max-w-30 rounded-full bg-white/20 p-1 backdrop-blur sm:h-44 sm:max-w-44 sm:p-3"
-                    >
-                    <div class="relative drop-shadow-2">
-                    <img src="../upload/images/<?php echo $row["id_photo"]; ?>" alt="User Image" class="lg:-mt-3 lg:-ml-3 rounded-full object-cover h-44 w-44 max-w-sm">
-                    <label
-                        for="profile"
-                        class="absolute bottom-0 right-0 flex h-8.5 w-8.5 cursor-pointer items-center justify-center rounded-full bg-primary text-white hover:bg-opacity-90 sm:bottom-2 sm:right-2"
-                        ><svg
-      
-                          class="fill-current bg-[#0E675C] cursor-pointer "
-                          width="14"
-                          height="14"
-                          viewBox="0 0 14 14"
-                          fill="none"
-                          xmlns="http://www.w3.org/2000/svg"
-                          >
-                          <path
-                              fill-rule="evenodd"
-                              clip-rule="evenodd"
-                              d="M4.76464 1.42638C4.87283 1.2641 5.05496 1.16663 5.25 1.16663H8.75C8.94504 1.16663 9.12717 1.2641 9.23536 1.42638L10.2289 2.91663H12.25C12.7141 2.91663 13.1592 3.101 13.4874 3.42919C13.8156 3.75738 14 4.2025 14 4.66663V11.0833C14 11.5474 13.8156 11.9925 13.4874 12.3207C13.1592 12.6489 12.7141 12.8333 12.25 12.8333H1.75C1.28587 12.8333 0.840752 12.6489 0.512563 12.3207C0.184375 11.9925 0 11.5474 0 11.0833V4.66663C0 4.2025 0.184374 3.75738 0.512563 3.42919C0.840752 3.101 1.28587 2.91663 1.75 2.91663H3.77114L4.76464 1.42638ZM5.56219 2.33329L4.5687 3.82353C4.46051 3.98582 4.27837 4.08329 4.08333 4.08329H1.75C1.59529 4.08329 1.44692 4.14475 1.33752 4.25415C1.22812 4.36354 1.16667 4.51192 1.16667 4.66663V11.0833C1.16667 11.238 1.22812 11.3864 1.33752 11.4958C1.44692 11.6052 1.59529 11.6666 1.75 11.6666H12.25C12.4047 11.6666 12.5531 11.6052 12.6625 11.4958C12.7719 11.3864 12.8333 11.238 12.8333 11.0833V4.66663C12.8333 4.51192 12.7719 4.36354 12.6625 4.25415C12.5531 4.14475 12.4047 4.08329 12.25 4.08329H9.91667C9.72163 4.08329 9.53949 3.98582 9.4313 3.82353L8.43781 2.33329H5.56219Z"
-                              fill=""
-                          />
-                          <path
-                              fill-rule="evenodd"
-                              clip-rule="evenodd"
-                              d="M7.00004 5.83329C6.03354 5.83329 5.25004 6.61679 5.25004 7.58329C5.25004 8.54979 6.03354 9.33329 7.00004 9.33329C7.96654 9.33329 8.75004 8.54979 8.75004 7.58329C8.75004 6.61679 7.96654 5.83329 7.00004 5.83329ZM4.08337 7.58329C4.08337 5.97246 5.38921 4.66663 7.00004 4.66663C8.61087 4.66663 9.91671 5.97246 9.91671 7.58329C9.91671 9.19412 8.61087 10.5 7.00004 10.5C5.38921 10.5 4.08337 9.19412 4.08337 7.58329Z"
-                              fill=""
-                          />
-                      </svg>                       
-                    </label>   
-                  </div>
-                </div>
-                  <?php
+              <nav>
+                <ol class="flex items-center gap-2">
+                  <li>
+                    <a class="font-medium dark:text-white" href="index.html">Dashboard /</a>
+                  </li>
+                  <li class="font-medium dark:text-white">Settings</li>
+                </ol>
+              </nav>
+            </div>
+            <!-- Breadcrumb End -->
+             <!-- ====== Settings Section Start -->
+             <div class="grid grid-cols-5 gap-8">
+               <?php if(isset($_GET['ok'])){
+							echo "<div class='alert alert-success alert-dismissible fade show'>
+							<button type='button' class='close' data-dismiss='alert' aria-label='Close'><span aria-hidden='true'>&times;</span></button>
+							<strong>Sucessfully!</strong> update your Profile.
+							</div>";
+						  }?>
+              <?php
 							$a=$_SESSION['student_id'];
 							
 							$result = mysqli_query($db,"SELECT * FROM user,student WHERE user.u_id=student.student_id AND user.status='Active' AND user.u_id='$a'");
 							
-							if($row = mysqli_fetch_array($result)) {
+							while($row = mysqli_fetch_array($result)) {
 							?>
-                  <div class="mt-4">
-                    <h3
-                      class="mb-1.5 text-3xl font-bold text-gray-800 dark:text-white"
-                    > <?php echo $row['first_Name'];?> <?php echo $row['last_Name'];?>
-                    </h3>
-                    <p class="font-medium dark:text-white">ID: <?php echo $row['class_id'];?></p>
-                    <p class="font-medium dark:text-white">Batch: <?php echo $row['batch'];?></p>
-                    <p class="font-medium dark:text-white">Department: <?php echo $row['department'];?></p>
-                    <p class="font-medium dark:text-white">Email: <?php echo $_SESSION['email'];?></p>
-                    <p class="font-medium dark:text-white">Contact No: <?php echo $row['contact_number'];?></p>
-                    <p class="font-medium dark:text-white">City: <?php echo $row['city'];?></p>
-                    <p class="font-medium dark:text-white">Address: <?php echo $row['full_address'];?></p>
-                      <?php
-							}
-						?>
+                <div class="col-span-5 xl:col-span-3">
+                  <div
+                    class="rounded-sm border border-stroke bg-white shadow-default dark:border-gray-700 dark:bg-gray-800"
+                  >
+                    <div
+                      class="border-b border-gray-200 px-7 py-4 dark:border-gray-700"
+                    >
+                      <h3 class="font-medium dark:text-white">
+                        Personal Information
+                      </h3>
+                    </div>
+                    <div class="p-7">
+                    <form action="update_profile.php" method="POST">
+                        <!-- f name -->
+                        <div class="mb-6 flex flex-col gap-5 sm:flex-row">
+                          <div class="w-full sm:w-1/2">
+                            <label
+                              class="mb-3 block text-sm font-medium text-black dark:text-white"
+                              for="fname"
+                              >First Name</label
+                            >
+                            <div class="relative">
+                              <input
+                                class="w-full rounded-lg border border-stroke bg-gray py-2 pl-4 pr-4.5 font-medium text-black focus:border-gray-800 focus-visible:outline-none dark:border-gray-700 dark:bg-gray-800 dark:text-white dark:focus:border-primary"
+                                type="text"
+                                name="first_Name"
+                                id="first_Name"
+                                placeholder="First Name"
+                                value="<?php echo $row["first_Name"]; ?>"
+                                />                             
+                            </div>
+                          </div>
+                          <!-- l name -->
+                          <div class="w-full sm:w-1/2">
+                            <label
+                              class="mb-3 block text-sm font-medium text-black dark:text-white"
+                              for="lname"
+                              >Last Name</label
+                            >
+                              <input
+                                class="w-full rounded-lg border border-stroke bg-gray py-2 pl-4 pr-4.5 font-medium text-black focus:border-gray-800 focus-visible:outline-none dark:border-gray-700 dark:bg-gray-800 dark:text-white dark:focus:border-primary"
+                                type="text"
+                                name="last_Name"
+                                id="last_Name"
+                                placeholder="Last Name" 
+                                value="<?php echo $row["last_Name"]; ?>"                               
+                              />                          
+                            
+                          </div>
+                        </div>
+                        <!-- class id -->
+                        <div class="mb-6 flex flex-col gap-5 sm:flex-row">
+                          <div class="w-full sm:w-1/2">
+                            <label
+                              class="mb-3 block text-sm font-medium text-black dark:text-white"
+                              for="classId"
+                              >Class ID</label
+                            >
+                            <div class="relative">
+                              <input
+                                class="w-full rounded-lg border border-stroke bg-gray py-2 pl-4 pr-4.5 font-medium text-black focus:border-gray-800 focus-visible:outline-none dark:border-gray-700 dark:bg-gray-800 dark:text-white dark:focus:border-primary"
+                                type="text"
+                                name="class_id"
+                                id="class_id"
+                                value="<?php echo $row["class_id"]; ?>"
+                                />                             
+                            </div>
+                          </div>
+                          <!-- department -->
+                          <div class="w-full sm:w-1/2">
+                            <label
+                              class="mb-3 block text-sm font-medium text-black dark:text-white"
+                              for="department"
+                              >Department</label
+                              >
+                              <input
+                                class="w-full rounded-lg border border-stroke bg-gray py-2 pl-4 pr-4.5 font-medium text-black focus:border-gray-800 focus-visible:outline-none dark:border-gray-700 dark:bg-gray-800 dark:text-white dark:focus:border-primary"
+                                type="text"
+                                name="department"
+                                id="department"
+                                value="<?php echo $row["department"]; ?>"                               
+                              />                                                     
+                          </div>
+                        </div>
+                        <!-- batch -->
+                        <div class="mb-6 flex flex-col gap-5 sm:flex-row">
+                        <div class="w-full sm:w-1/2">
+                          <label
+                            class="mb-3 block text-sm font-medium text-black dark:text-white"
+                            for="num"
+                            >Contact Number</label
+                          >
+                          <input
+                              class="w-full rounded-lg border border-stroke bg-gray px-5 pl-4 py-2 font-medium text-black focus:border-gray-800 focus-visible:outline-none dark:border-gray-700 dark:bg-gray-800 dark:text-white dark:focus:border-primary"
+                              type="text"
+                              name="contact_number"
+                              id="contact_number"
+                              placeholder="+880 123456789"
+                              value="<?php echo $row["contact_number"]; ?>"
+                            />                                                     
+                        </div>
+                        <div class="w-full sm:w-1/2">
+                            <label
+                              class="mb-3 block text-sm font-medium text-black dark:text-white"
+                              for="batch"
+                              >Batch</label
+                            >
+                              <input
+                                class="w-full rounded-lg border border-stroke bg-gray py-2 pl-4 pr-4.5 font-medium text-black focus:border-gray-800 focus-visible:outline-none dark:border-gray-700 dark:bg-gray-800 dark:text-white dark:focus:border-primary"
+                                type="text"
+                                name="batch"
+                                id="batch" 
+                                value="<?php echo $row["batch"]; ?>"                               
+                              />                                                     
+                          </div>
+                        </div>
+                        <!-- contact -->
+                        <div class="mb-6 flex flex-col gap-5 sm:flex-row">
+                        <!-- address -->
+                        <div class="w-full sm:w-1/2">
+                          <label
+                            class="mb-3 block text-sm font-medium text-black dark:text-white"
+                            for="address"
+                            >Address</label
+                          >
+                            <input
+                              class="w-full rounded-lg border border-stroke bg-gray py-2 pl-4 pr-4.5 font-medium text-black focus:border-gray-800 focus-visible:outline-none dark:border-gray-700 dark:bg-gray-800 dark:text-white dark:focus:border-primary"
+                              type="text"
+                              name="full_address"
+                              id="full_address"
+                              value="<?php echo $row["full_address"]; ?>"
+                            />
+                        </div>
+                        <div class="w-full sm:w-1/2">
+                            <label class="mb-3 block text-sm font-medium text-black dark:text-white"
+                              for="city">City</label>
+                              <select id="city" name="city" class="w-full rounded-lg border border-stroke bg-gray px-5 py-2 pl-4   font-medium text-black focus:border-gray-800 focus-visible:outline-none dark:border-gray-700 dark:bg-gray-800 dark:text-white dark:focus:border-primary">
+                                <option value="" selected>Choose...</option>
+                                <option value="Dhaka" <?php if ($row['city']=='Dhaka'){echo "selected";}?>>Dhaka</option>
+                                <option value="Chittagong" <?php if ($row['city']=='Chittagong'){echo "selected";}?>>Chittagong</option>
+                                <option value="Sylhet" <?php if ($row['city']=='Sylhet'){echo "selected";}?>>Sylhet</option>
+                                <option value="Barishal" <?php if ($row['city']=='Barishal'){echo "selected";}?>>Barishal</option>
+                                <option value="Khulna" <?php if ($row['city']=='Khulna'){echo "selected";}?>>Khulna</option>
+                                <option value="Mymensingh" <?php if ($row['city']=='Mymensingh'){echo "selected";}?>>Mymensingh</option>
+                                <option value="Rajshahi" <?php if ($row['city']=='Rajshahi'){echo "selected";}?>>Rajshahi</option>
+                                <option value="Rangpur" <?php if ($row['city']=='Rangpur'){echo "selected";}?>>Rangpur</option>
+                              </select>
+                          </div>
+                        </div>
+                        <div class="flex justify-end gap-4">
+                          <button
+                            class="flex justify-center rounded border border-stroke px-6 py-2 font-medium text-black hover:shadow-1 dark:border-strokedark dark:text-white"
+                            type="submit"
+                          >
+                            Cancel
+                          </button>
+                          <button
+                            class="flex justify-center rounded bg-gradient-to-r from-purple-500 to-black px-6 py-2 font-medium text-white hover:bg-opacity-90"
+                            type="submit"
+                          >
+                            Update
+                          </button>
+                        </div>
+                      </form>
                     </div>
                   </div>
                 </div>
+                <?php
+							}
+						?>
               </div>
-              <!-- ====== Profile Section End -->
-            </div>
+              <!-- ====== Settings Section End -->
           </div>
         </main>
          <!-- main end -->
@@ -739,21 +812,21 @@
   </script>
   <!-- dropdown -->
   <script>
-    // Select all <details> elements
-    const dropdowns = document.querySelectorAll('.dropdown');
+  // Select all <details> elements
+  const dropdowns = document.querySelectorAll('.dropdown');
 
-    dropdowns.forEach((dropdown) => {
-        dropdown.addEventListener('toggle', (event) => {
-        if (dropdown.open) {
-            // Close all other dropdowns
-            dropdowns.forEach((otherDropdown) => {
-            if (otherDropdown !== dropdown && otherDropdown.open) {
-                otherDropdown.open = false;
-            }
-            });
-        }
+  dropdowns.forEach((dropdown) => {
+    dropdown.addEventListener('toggle', (event) => {
+      if (dropdown.open) {
+        // Close all other dropdowns
+        dropdowns.forEach((otherDropdown) => {
+          if (otherDropdown !== dropdown && otherDropdown.open) {
+            otherDropdown.open = false;
+          }
         });
+      }
     });
+  });
 </script>
 
 </body>

@@ -21,7 +21,7 @@ if (isset($_GET['id']) && !empty($_GET['id'])) {
             exit; // Ensure no further code executes after redirect
         } else {
             // Handle execution error
-            echo "Error deleting resource: " . mysqli_error($db);
+            echo "Error deleting blog: " . mysqli_error($db);
         }
 
         // Close the statement

@@ -337,7 +337,7 @@
 
     <div class="w-full flex flex-col h-screen overflow-y-auto overflow-x-hidden dark:bg-gray-900">
         <!-- Desktop Header -->
-        <header class="sticky top-0 z-999 w-full items-center bg-white dark:bg-gray-800 shadow pt-5 px-6  hidden sm:flex">
+        <header class="sticky top-0 z-999 w-full items-center bg-white dark:bg-gray-800 shadow py-2 px-6  hidden sm:flex">
             <div class="w-1/2">
             <h1 class="mb-36 lg:mb-0 -ml-10 lg:-ml-0 lg:text-4xl font-garamond flex dark:text-white multicolor-text"><img src="images/logo (2).png" alt="" class="lg:w-14 w-14 -mt-1"></h1>
             </div>
@@ -385,109 +385,6 @@
                 </svg>
               </button>
             </div>
-        <!-- Notification Dropdown -->
-        <div x-data="{ 
-            dropdownOpen: false, 
-            unreadCount: 0,
-            fetchUnreadCount() {
-                fetch('check_unread.php')
-                    .then(res => res.json())
-                    .then(data => {
-                        this.unreadCount = data.unread_count;
-                    });
-            },
-            markAsRead() {
-                fetch('mark_as_read.php', { method: 'POST' })
-                    .then(() => {
-                        this.unreadCount = 0; // Red dot hide
-                    });
-            }
-            }" x-init="fetchUnreadCount(); setInterval(fetchUnreadCount, 5000)" class="relative">
-            <a
-                class="relative flex h-9 w-9 items-center justify-center rounded-full top-2 border border-gray-300 bg-gray-100 hover:text-primary dark:border-strokedark dark:bg-meta-4 dark:text-white"
-                href="#"
-                @click.prevent="dropdownOpen = !dropdownOpen; notifying = false"
-            >
-            
-                <!-- Notification Bell -->
-                <a href="#" 
-                @click.prevent="dropdownOpen = !dropdownOpen; markAsRead();" 
-                class="relative flex h-9 w-9 -top-7 items-center justify-center rounded-full border border-gray-300 bg-gray-100 hover:text-primary dark:border-strokedark dark:bg-meta-4 dark:text-white">
-
-                  <!-- Notification Dot (Single Red Dot with Animation) -->
-                  <span 
-                      x-show="unreadCount > 0"
-                      class="absolute -top-1 right-0 z-10 h-2 w-2 rounded-full bg-red-500"
-                  >
-                      <span 
-                          class="absolute -z-1 inline-flex h-full w-full animate-ping rounded-full bg-red-500 opacity-75"
-                      ></span>
-                  </span>
-
-                  <!-- Bell Icon -->
-                  <svg
-                      class="fill-current duration-300 ease-in-out"
-                      width="18"
-                      height="18"
-                      viewBox="0 0 18 18"
-                      xmlns="http://www.w3.org/2000/svg"
-                  >
-                      <path
-                          d="M16.1999 14.9343L15.6374 14.0624C15.5249 13.8937 15.4687 13.7249 15.4687 13.528V7.67803C15.4687 6.01865 14.7655 4.47178 13.4718 3.31865C12.4312 2.39053 11.0812 1.7999 9.64678 1.6874V1.1249C9.64678 0.787402 9.36553 0.478027 8.9999 0.478027C8.6624 0.478027 8.35303 0.759277 8.35303 1.1249V1.65928C8.29678 1.65928 8.24053 1.65928 8.18428 1.6874C4.92178 2.05303 2.4749 4.66865 2.4749 7.79053V13.528C2.44678 13.8093 2.39053 13.9499 2.33428 14.0343L1.7999 14.9343C1.63115 15.2155 1.63115 15.553 1.7999 15.8343C1.96865 16.0874 2.2499 16.2562 2.55928 16.2562H8.38115V16.8749C8.38115 17.2124 8.6624 17.5218 9.02803 17.5218C9.36553 17.5218 9.6749 17.2405 9.6749 16.8749V16.2562H15.4687C15.778 16.2562 16.0593 16.0874 16.228 15.8343C16.3968 15.553 16.3968 15.2155 16.1999 14.9343ZM3.23428 14.9905L3.43115 14.653C3.5999 14.3718 3.68428 14.0343 3.74053 13.6405V7.79053C3.74053 5.31553 5.70928 3.23428 8.3249 2.95303C9.92803 2.78428 11.503 3.2624 12.6562 4.2749C13.6687 5.1749 14.2312 6.38428 14.2312 7.67803V13.528C14.2312 13.9499 14.3437 14.3437 14.5968 14.7374L14.7655 14.9905H3.23428Z"
-                          fill="purple"
-                      />
-                  </svg>
-              </a>
-
-
-            <!-- Notification Dropdown -->
-            <div
-                x-show="dropdownOpen"
-                @click.outside="dropdownOpen = false"
-                class="absolute right-0 mt-2 w-80 rounded-lg border border-gray-400 bg-white shadow-lg dark:border-gray-700 dark:bg-gray-800"
-                x-transition
-            >
-                <!-- Header -->
-                <div class="px-4 py-3 border-b border-gray-200 dark:border-gray-700">
-                    <h5 class="text-sm font-semibold text-gray-800 dark:text-gray-200">
-                        Notifications
-                    </h5>
-                </div>
-
-                <!-- Notification List -->
-                <ul class="max-h-56 overflow-y-auto divide-y divide-gray-200 dark:divide-gray-700">
-                    <?php 
-                    $sql = "SELECT * FROM announcement ORDER BY created_at DESC LIMIT 3";
-                    $query = mysqli_query($db, $sql);
-
-                    if(mysqli_num_rows($query) > 0) {
-                        while ($rows = mysqli_fetch_assoc($query)) {
-                            $announcement_title = $rows['title'];
-                            $posted_date = $rows['created_at']; 
-                    ?>
-                        <li>
-                            <a
-                                href="#"
-                                class="block px-4 py-3 transition-all hover:bg-gray-100 dark:hover:bg-gray-700"
-                            >
-                                <p class="text-sm font-medium text-gray-700 dark:text-gray-200">
-                                    <?php echo htmlspecialchars($announcement_title); ?>
-                                </p>
-                                <span class="block text-xs text-gray-500 dark:text-gray-400">
-                                    <?php echo date('d M, Y', strtotime($posted_date)); ?>
-                                </span>
-                            </a>
-                        </li>
-                    <?php
-                        }
-                    } else { ?>
-                        <li class="px-4 py-3 text-sm text-gray-500 dark:text-gray-400">
-                            No new notifications.
-                        </li>
-                    <?php } ?>
-                </ul>
-            </div>
-        </div>
 
         <!-- Profile Dropdown -->
         <div x-data="{ isOpen: false }" class="relative">
@@ -669,14 +566,14 @@
                 ?>
                         <ul class="my-1">
                             <li class="flex px-4">
-                                <div class="flex-shrink-0 my-2 mr-3">
+                                <div class="flex-shrink-0 my-4 mr-3">
                                     <img src="../upload/images/<?php echo $row["id_photo"]; ?>" alt="User Image" class="h-9 w-9 rounded-full">
                                 </div>
                                 <div class="flex-grow flex items-center border-gray-100 dark:border-gray-400 text-sm text-gray-600 dark:text-gray-100 py-2">
                                     <div class="flex-grow flex justify-between items-center">
                                         <div class="self-center">
                                             <h3 class="font-medium text-gray-800 hover:text-gray-900 dark:text-gray-50 dark:hover:text-gray-100" style="outline: none;">
-                                                <span class="font-extrabold"><?php echo $row["first_Name"]; ?> <?php echo $row["last_Name"]; ?></span> wants to join our community.
+                                                <span class="font-bold"><?php echo $row["first_Name"]; ?> <?php echo $row["last_Name"]; ?></span> wants to join our community.
                                             </h3>
                                             <?php echo $displayDate; ?>
                                         </div>
@@ -707,12 +604,28 @@
                 </div>
                 <?php
                     // Fetch jobs only for the currently logged-in alumni
-                    $result = mysqli_query($db, "SELECT * FROM blog WHERE status = 'Pending' ORDER BY created_at DESC LIMIT 3");
+                    $result = mysqli_query($db, "SELECT 
+                                    user.first_Name AS first_name, 
+                                    user.last_Name AS last_name, 
+                                    alumni.id_photo AS creator_photo, blog.blog_id AS id,
+                                    blog.title AS blog_title, 
+                                    blog.description AS content,
+                                    blog.created_at AS blog_created_at
+                                FROM 
+                                    blog
+                                INNER JOIN 
+                                    alumni ON blog.u_id = alumni.alumni_id
+                                INNER JOIN 
+                                    user ON alumni.alumni_id = user.u_id
+                                WHERE 
+                                    blog.status = 'Pending'
+                                ORDER BY 
+                                    blog.created_at DESC LIMIT 3
+                            ");
 
                     if (mysqli_num_rows($result) > 0) {
                         // If there are job posts, display them
                         while ($row = mysqli_fetch_array($result)) {
-                          $description = $row['description'];
                           if (isset($row['created_at']) && !is_null($row['created_at'])) {
                             $posted_date = $row['created_at'];
 
@@ -743,32 +656,17 @@
                             ?>
                             <ul class="my-1">
                               <li class="flex px-4">
-                                <div class="flex-grow flex items-center border-gray-100 dark:border-gray-400 text-sm text-gray-600 dark:text-gray-100 py-2">
+                              <div class="flex-shrink-0 my-4 mr-3">
+                                  <img src="../upload/images/<?php echo $row['creator_photo']; ?>" alt="User Image" class="h-9 w-9 rounded-full">
+                                </div>
+                                <div class="flex-grow flex items-center border-gray-100 dark:border-gray-400 text-sm text-gray-600 dark:text-gray-100">
                                   <div class="flex-grow flex justify-between items-center">
                                     <div class="self-center">
-                                      <h3 class="font-bold text-gray-800 hover:text-gray-900 dark:text-gray-50 dark:hover:text-gray-100" style="outline: none;"><?php echo $row["title"]; ?></h3>
-                                      <?php
-                                      $characterLimit = 100; // Approximate character count for 2 lines
-                                          $isLongDescription = strlen($description) > $characterLimit;
-
-                                          // Prepare truncated text for the first 2 lines
-                                          $truncatedDescription = $isLongDescription ? substr($description, 0, $characterLimit) . '...' : $description;
-                                      ?>
-
-                                      <p class="line-clamp-2">
-                                          <?php echo $isLongDescription ? $truncatedDescription : $description; ?>
-                                      </p>
-
-                                      <?php if ($isLongDescription): ?>
-                                      <a href="resources.php?resources_id=<?php echo $material_id; ?>" 
-                                        class="text-blue-500 hover:text-blue-600 dark:text-blue-400 dark:hover:text-blue-500 text-sm font-medium  block mb-1">
-                                        Read More
-                                      </a>
-                                      <?php endif; ?>
+                                      <h3 class="text-gray-800 hover:text-gray-900 dark:text-gray-50 dark:hover:text-gray-100" style="outline: none;"><span class="font-bold"><?php echo $row['first_name']; ?> <?php echo $row['last_name']; ?></span> has created a <span class="font-bold"><?php echo $row['blog_title']; ?></span> blog.</h3>
                                       <?php echo $displayDate; ?>
                                     </div>
-                                    <div class="flex-shrink-0 ml-2">
-                                      <a class="flex items-center font-medium text-purple-500 hover:text-blue-600 dark:text-purple-400 dark:hover:text-blue-500 mt-12" href="pending_blogs.php" style="outline: none;">
+                                    <div class="flex-shrink-0 ml-2 mt-5">
+                                      <a class="flex items-center font-medium text-purple-500 hover:text-blue-600 dark:text-purple-400 dark:hover:text-blue-500" href="pending_blogs.php" style="outline: none;">
                                             Details<span><svg width="20" height="20" viewBox="0 0 20 20" fill="currentColor" class="transform transition-transform duration-500 ease-in-out"><path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd"></path></svg></span>
                                       </a>
                                     </div>
@@ -803,7 +701,26 @@
                 </div>
                 <?php
                     // Fetch jobs only for the currently logged-in alumni
-                    $result = mysqli_query($db, "SELECT * FROM job WHERE status='Pending' ORDER BY created_at DESC LIMIT 3");
+                    $result = mysqli_query($db, "SELECT 
+                                    user.first_Name AS first_name, 
+                                    user.last_Name AS last_name, 
+                                    alumni.id_photo AS creator_photo, 
+                                    job.title AS job_title, 
+                                    job.company_name AS com_name, 
+                                    job.description AS content,
+                                    job.job_id AS id, job.salary AS job_salary, job.location AS job_location, job.experience AS job_exp,
+                                    job.created_at AS job_created_at
+                                FROM 
+                                    job
+                                INNER JOIN 
+                                    alumni ON job.u_id = alumni.alumni_id
+                                INNER JOIN 
+                                    user ON alumni.alumni_id = user.u_id
+                                WHERE 
+                                    job.status = 'Pending'
+                                ORDER BY 
+                                    job.created_at DESC LIMIT 3
+                            ");
 
                     if (mysqli_num_rows($result) > 0) {
                         // If there are job posts, display them
@@ -838,17 +755,17 @@
                             ?>
                             <ul class="my-1">
                               <li class="flex px-4">
-                                <div class="flex-shrink-0 my-2 mr-3">
-                                  <img src="../upload/images/<?php echo $row["logo"]; ?>" alt="User Image" class="h-9 w-9 rounded-full">
+                              <div class="flex-shrink-0 my-4 mr-3">
+                                  <img src="../upload/images/<?php echo $row['creator_photo']; ?>" alt="User Image" class="h-9 w-9 rounded-full">
                                 </div>
-                                <div class="flex-grow flex items-center border-gray-100 dark:border-gray-400 text-sm text-gray-600 dark:text-gray-100 py-2">
+                                <div class="flex-grow flex items-center border-gray-100 dark:border-gray-400 text-sm text-gray-600 dark:text-gray-100">
                                   <div class="flex-grow flex justify-between items-center">
                                     <div class="self-center">
-                                      <h3 class="font-bold text-gray-800 hover:text-gray-900 dark:text-gray-50 dark:hover:text-gray-100" style="outline: none;"><?php echo $row["title"]; ?></h3> 
+                                      <h3 class="text-gray-800 hover:text-gray-900 dark:text-gray-50 dark:hover:text-gray-100" style="outline: none;"><span class="font-bold"><?php echo $row['first_name']; ?> <?php echo $row['last_name']; ?></span> has created a <span class="font-bold"><?php echo $row['job_title']; ?></span> job post.</h3>
                                       <?php echo $displayDate; ?>
                                     </div>
                                     <div class="flex-shrink-0 ml-2 mt-5">
-                                      <a class="flex items-center font-medium text-purple-500 hover:text-blue-600 dark:text-purple-400 dark:hover:text-blue-500" href="posted_job.php" style="outline: none;">
+                                      <a class="flex items-center font-medium text-purple-500 hover:text-blue-600 dark:text-purple-400 dark:hover:text-blue-500" href="pending_job.php" style="outline: none;">
                                             Details<span><svg width="20" height="20" viewBox="0 0 20 20" fill="currentColor" class="transform transition-transform duration-500 ease-in-out"><path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd"></path></svg></span>
                                       </a>
                                     </div>
@@ -873,12 +790,27 @@
                 </div>
                 <?php
                     // Fetch jobs only for the currently logged-in alumni
-                    $result = mysqli_query($db, "SELECT * FROM resources WHERE status = 'Pending' ORDER BY created_at DESC LIMIT 2");
+                    $result = mysqli_query($db, "SELECT 
+                                    user.first_Name AS first_name, 
+                                    user.last_Name AS last_name, 
+                                    alumni.id_photo AS creator_photo, resources.material_id AS id,
+                                    resources.title AS resource_title, 
+                                    resources.created_at AS resource_created_at
+                                FROM 
+                                    resources
+                                INNER JOIN 
+                                    alumni ON resources.u_id = alumni.alumni_id
+                                INNER JOIN 
+                                    user ON alumni.alumni_id = user.u_id
+                                WHERE 
+                                    resources.status = 'Pending'
+                                ORDER BY 
+                                    resources.created_at DESC LIMIT 3
+                            ");
 
                     if (mysqli_num_rows($result) > 0) {
                         // If there are job posts, display them
                         while ($row = mysqli_fetch_array($result)) {
-                          $description = $row['content'];
                           if (isset($row['created_at']) && !is_null($row['created_at'])) {
                             $posted_date = $row['created_at'];
 
@@ -909,46 +841,18 @@
                             ?>
                             <ul class="my-1">
                               <li class="flex px-4">
-                                <div class="flex-grow flex items-center border-gray-100 dark:border-gray-400 text-sm text-gray-600 dark:text-gray-100 py-2">
+                              <div class="flex-shrink-0 my-4 mr-3">
+                                  <img src="../upload/images/<?php echo $row['creator_photo']; ?>" alt="User Image" class="h-9 w-9 rounded-full">
+                                </div>
+                                <div class="flex-grow flex items-center border-gray-100 dark:border-gray-400 text-sm text-gray-600 dark:text-gray-100">
                                   <div class="flex-grow flex justify-between items-center">
                                     <div class="self-center">
-                                      <h3 class="font-bold text-gray-800 hover:text-gray-900 dark:text-gray-50 dark:hover:text-gray-100" style="outline: none;"><?php echo $row["title"]; ?></h3> 
-                                      <?php
-                                      $characterLimit = 100; // Approximate character count for 2 lines
-                                          $isLongDescription = strlen($description) > $characterLimit;
-
-                                          // Prepare truncated text for the first 2 lines
-                                          $truncatedDescription = $isLongDescription ? substr($description, 0, $characterLimit) . '...' : $description;
-                                      ?>
-
-                                      <p class="line-clamp-2">
-                                          <?php echo $isLongDescription ? $truncatedDescription : $description; ?>
-                                      </p>
-
-                                      <?php if ($isLongDescription): ?>
-                                      <a href="resources.php?resources_id=<?php echo $material_id; ?>" 
-                                        class="text-blue-500 hover:text-blue-600 dark:text-blue-400 dark:hover:text-blue-500 text-sm font-medium  block mb-1">
-                                        Read More
-                                      </a>
-                                      <?php endif; ?>                                      <!-- Display file download link if file_path exists -->
-                                      <?php if (!empty($row["file"])) { 
-                                          $filePath = $row["file"];
-                                          $fileExtension = pathinfo($filePath, PATHINFO_EXTENSION); // Get the file extension
-
-                                          // Check if it's an image file
-                                          if (in_array(strtolower($fileExtension), ['jpg', 'jpeg', 'png', 'gif'])) { ?>
-                                              <a href="download.php?image=<?php echo urlencode(basename($filePath)); ?>" class="text-blue-500 hover:text-blue-600 dark:text-blue-400 dark:hover:text-blue-500">
-                                              <?php echo $row["file"]; ?>
-                                              </a>
-                                          <?php } else { ?>
-                                              <a href="download.php?file=<?php echo urlencode(basename($filePath)); ?>" class="text-blue-500 hover:text-blue-600 dark:text-blue-400 dark:hover:text-blue-500">
-                                              <?php echo $row["file"]; ?>                                              </a>
-                                          <?php } 
-                                      } ?>
-                                      <p><?php echo $displayDate; ?></p>
+                                      <h3 class="text-gray-800 hover:text-gray-900 dark:text-gray-50 dark:hover:text-gray-100" style="outline: none;"><span class="font-bold"><?php echo $row['first_name']; ?> <?php echo $row['last_name']; ?></span> shared a <span class="font-bold"><?php echo $row['resource_title']; ?></span> resource.</h3>
+                                      <?php echo $displayDate; ?>
                                     </div>
-                                    <div class="flex-shrink-0 ml-2">
-                                      <a class="flex items-center font-medium text-purple-500 hover:text-blue-600 dark:text-purple-400 dark:hover:text-blue-500 mt-16" href="posted_resources.php" style="outline: none;"> Details<span><svg width="20" height="20" viewBox="0 0 20 20" fill="currentColor" class="transform transition-transform duration-500 ease-in-out"><path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd"></path></svg></span>
+                                    <div class="flex-shrink-0 ml-2 mt-5">
+                                      <a class="flex items-center font-medium text-purple-500 hover:text-blue-600 dark:text-purple-400 dark:hover:text-blue-500" href="pending_resources.php" style="outline: none;">
+                                            Details<span><svg width="20" height="20" viewBox="0 0 20 20" fill="currentColor" class="transform transition-transform duration-500 ease-in-out"><path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd"></path></svg></span>
                                       </a>
                                     </div>
                                   </div>

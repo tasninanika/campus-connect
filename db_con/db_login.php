@@ -29,7 +29,7 @@ if (isset($_POST['login'])) {
         $_SESSION['status'] = $row['status'];
         $_SESSION['image'] = $row['image'];
         $_SESSION['login'] = TRUE;
-        header("Location:../student_dashboard.php?done");
+        header("Location:../student/student_dashboard.php?done");
     } else if ($row = mysqli_fetch_array($result3)) {
         $_SESSION['email'] = $email;
         $_SESSION['first_Name'] = $row['first_Name'];

@@ -235,7 +235,7 @@
             <!-- Others Group -->
       <div>
         <h3 class="mb-4 ml-7 mt-6 text-base font-medium text-slate-400">OTHERS</h3>
-            <a href="alumni_profile.php" class="flex items-center text-white gap-2.5 py-2 px-3 ml-4 mr-4 my-1 nav-item">
+            <a href="student_profile.php" class="flex items-center text-white gap-2.5 py-2 px-3 ml-4 mr-4 my-1 nav-item">
                 <svg
                     class="fill-current"
                     width="18"
@@ -265,7 +265,7 @@
                   height="20"
                   viewBox="0 0 20 20"
                   xmlns="http://www.w3.org/2000/svg"
-                >
+                    >
                   <path
                     fill-rule="evenodd"
                     clip-rule="evenodd"
@@ -276,10 +276,10 @@
               </summary>
               <ul class="bg-gray-800 mt-2 pl-12 hidden group-open:block">
                 <li>
-                  <a href="alumni_settings.php" class="text-white opacity-75 hover:opacity-100 py-2 block">Edit profile</a>
+                  <a href="student_settings.php" class="text-white opacity-75 hover:opacity-100 py-2 block">Edit profile</a>
                 </li>
                 <li>
-                  <a href="alumni_changePass.php" class="text-white opacity-75 hover:opacity-100 py-2 block">Change Password</a>
+                  <a href="student_changePass.php" class="text-white opacity-75 hover:opacity-100 py-2 block">Change Password</a>
                 </li>
               </ul>
             </details>
@@ -573,226 +573,61 @@
         <!-- main start -->
         <main>
           <div class="mx-auto max-w-screen-2xl p-4 md:p-6 2xl:p-10 lg:mt-5 lg:ml-5">
-            <div
-              class="grid grid-cols-1 gap-4 md:grid-cols-2 md:gap-6 xl:grid-cols-4 2xl:gap-10"
-            >
-              <!-- Card Item Start -->
-              <div
-                class="rounded-sm border bg-white px-7.5 py-6 shadow dark:bg-gray-800 dark:border-gray-700"
-                >
-                <div
-                  class="flex h-16 w-16 ml-4 items-center justify-center rounded-full bg-meta-2 dark:bg-meta-4"
-                  >
-                  <!-- svg -->
-                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 25 25" class="svg-icon">
-                    <defs>
-                      <style>
-                        /* Default fill color (light mode) */
-                        .svg-icon .cls-1 {
-                          fill: black;
-                        }
-                        /* Dark mode fill color */
-                        .dark .svg-icon .cls-1 {
-                          fill: white;
-                        }
-                      </style>
-                    </defs>
-                    <g id="paper">
-                      <path class="cls-1" d="M19.5 1h-16a.5.5 0 0 0-.5.5v22a.5.5 0 0 0 .5.5h10.71a.49.49 0 0 0 .46-.3l5.17-4.84a.52.52 0 0 0 .16-.37V1.5a.5.5 0 0 0-.5-.5zM4 2h15v15.78h-4.77a.5.5 0 0 0-.5.5V23H4zm14.46 16.78-3.74 3.51v-3.51z"/>
-                      <path class="cls-1" d="M6.5 6h7a.5.5 0 0 0 0-1h-7a.5.5 0 0 0 0 1zM6.5 9h8a.5.5 0 0 0 0-1h-8a.5.5 0 0 0 0 1zM11.5 14h-5a.5.5 0 0 0 0 1h5a.5.5 0 0 0 0-1zM6.5 12h10a.5.5 0 0 0 0-1h-10a.5.5 0 0 0 0 1z"/>
-                    </g>
-                  </svg>
-                </div>
-
-                <?php
-                  $alumni_id = $_SESSION['alumni_id'];
-                  // Query to count the number of blog posts
-                  $query = "SELECT COUNT(*) as total_blogs FROM blog JOIN alumni ON blog.u_id = alumni.alumni_id WHERE alumni.alumni_id = ?";
-                  $stmtBlogs = $db->prepare($query);
-                  $stmtBlogs->bind_param("s", $alumni_id);
-                  $stmtBlogs->execute();
-                  $result = $stmtBlogs->get_result();
-                  $totalBlogs = $result->fetch_assoc()['total_blogs'] ?? 0;
-
-                  $stmtBlogs->close();
-                  // job posts
-
-                  $queryJobs = "SELECT COUNT(*) as total_jobs 
-                  FROM job 
-                  JOIN alumni ON job.u_id = alumni.alumni_id 
-                  WHERE alumni.alumni_id = ?";                 
-                  $stmtJobs = $db->prepare($queryJobs);
-                  $stmtJobs->bind_param("s", $alumni_id);
-                  $stmtJobs->execute();
-                  $totalJobs = $stmtJobs->get_result()->fetch_assoc()['total_jobs'] ?? 0;
-                  $stmtJobs->close();
-
-                  // Query to count the number of resources
-                  $queryResources = "SELECT COUNT(*) as total_resources FROM resources JOIN alumni ON resources.u_id = alumni.alumni_id WHERE alumni.alumni_id = ?";
-                  $stmtResources = $db->prepare($queryResources);
-                  $stmtResources->bind_param("s", $alumni_id);
-                  $stmtResources->execute();
-                  $totalResources = $stmtResources->get_result()->fetch_assoc()['total_resources'] ?? 0;
-                  $stmtResources->close();
-                  ?>
-
-                <div class="mt-4 mx-5 flex items-end justify-between">
-                  <div>
-                    <h4
-                      class="text-title-md font-bold text-black dark:text-white"
-                    >
-                    <?php echo str_pad($totalBlogs, 2, '0', STR_PAD_LEFT); ?>                    </h4>
-                    <span class="text-sm font-medium dark:text-white">Total blogs</span>
-                  </div>
-                  <span 
-                    class="flex items-center gap-1 text-sm font-medium text-meta-3 dark:text-white"
-                    > <a href="posted_blogs.php">
-                    More Info <i class="fas fa-solid fa-arrow-right fa-sm"></i>
-                      </a></span>
-                </div>
-              </div>
-              <!-- Card Item End -->
-
-              <!-- Card Item Start -->
-              <div
-                class="rounded-sm border bg-white px-7.5 py-6 shadow dark:border-gray-700 dark:bg-gray-800"
-                >
-                <div class="flex h-16 w-16 items-center justify-center rounded-full bg-meta-2 dark:bg-meta-4 ml-4">
-                  <!-- svg -->
-                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 25 25">
-                    <defs>
-                      <style>
-                        /* Default fill color for light mode */
-                        .cls-1 {
-                          fill: black;
-                        }
-                        /* Fill color for dark mode */
-                        .dark .cls-1 {
-                          fill: white;
-                        }
-                      </style>
-                    </defs>
-                    <g id="briefcase_2" data-name="briefcase 2">
-                      <path class="cls-1" d="M23.5 13.53a.5.5 0 0 0-.5.5v7.26a.7.7 0 0 1-.21.52.61.61 0 0 1-.45.2L2.64 22a.7.7 0 0 1-.64-.77v-7.1a.5.5 0 0 0-.5-.5.5.5 0 0 0-.5.5v7.09A1.71 1.71 0 0 0 2.64 23h19.67a1.62 1.62 0 0 0 1.18-.51 1.73 1.73 0 0 0 .51-1.2V14a.5.5 0 0 0-.5-.47zM22.37 6H2.69A1.66 1.66 0 0 0 1 7.61V12a1 1 0 0 0 1 1h2.54a.5.5 0 0 0 0-1H2V7.61A.66.66 0 0 1 2.68 7h19.68a.67.67 0 0 1 .66.67v4.34L20.5 12a.5.5 0 0 0 0 1H23a1 1 0 0 0 .67-.28.92.92 0 0 0 .29-.68V7.68A1.67 1.67 0 0 0 22.37 6zM8.5 5.23a.5.5 0 0 0 .5-.5A1.74 1.74 0 0 1 10.74 3h3.52A1.74 1.74 0 0 1 16 4.73a.5.5 0 0 0 1 0A2.74 2.74 0 0 0 14.26 2h-3.52A2.74 2.74 0 0 0 8 4.73a.5.5 0 0 0 .5.5z"/>
-                      <path class="cls-1" d="M18 15a1 1 0 0 0 1-1v-2a1 1 0 0 0-1-1h-1a1 1 0 0 0-1 1v2a1 1 0 0 0 1 1zm0-3v2h-1v-2zM8 15a1 1 0 0 0 1-1v-2a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1v2a1 1 0 0 0 1 1zm0-3v2H7v-2zM14.5 13a.5.5 0 0 0 0-1h-4a.5.5 0 0 0 0 1z"/>
-                    </g>
-                  </svg>
-                </div>
-
-
-                <div class="mt-4 mx-5 flex items-end justify-between">
-                  <div>
-                    <h4
-                      class="text-title-md font-bold text-black dark:text-white"
-                    >
-                    <?php echo str_pad($totalJobs, 2, '0', STR_PAD_LEFT); ?>                    </h4>
-                    </h4>
-                    <span class="text-sm font-medium dark:text-white">Total Post</span>
-                  </div>
-
-                  <span
-                    class="flex items-center gap-1 text-sm font-medium text-meta-3 dark:text-white"
-                    ><a href="posted_job.php">
-                    More Info <i class="fas fa-solid fa-arrow-right fa-sm"></i></a>
-                  </span>
-                </div>
-              </div>
-              <!-- Card Item End -->
-
-              <!-- Card Item Start -->
-              <div
-                class="rounded-sm border bg-white px-7.5 py-6 shadow- dark:border-gray-700 dark:bg-gray-800"
-                >
-                <div class="flex h-16 w-16 items-center justify-center rounded-full bg-meta-2 dark:bg-meta-4 ml-3">
-                  <!-- svg -->
-                  <div class="flex h-16 w-24 items-center justify-center rounded-full bg-meta-2 dark:bg-meta-4 ml-3">
-                  <!-- svg -->
-                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512">
-                    <defs>
-                      <style>
-                        /* Default stroke color for light mode */
-                        .cls-3 {
-                          stroke: black;
-                          stroke-width: 32;
-                          fill: none;
-                        }
-                        /* Stroke color for dark mode */
-                        .dark .cls-3 {
-                          stroke: white;
-                        }
-                      </style>
-                    </defs>
-                    <path
-                      class="cls-3"
-                      d="M249.6 471.5c10.8 3.8 22.4-4.1 22.4-15.5l0-377.4c0-4.2-1.6-8.4-5-11C247.4 52 202.4 32 144 32C93.5 32 46.3 45.3 18.1 56.1C6.8 60.5 0 71.7 0 83.8L0 454.1c0 11.9 12.8 20.2 24.1 16.5C55.6 460.1 105.5 448 144 448c33.9 0 79 14 105.6 23.5zm76.8 0C353 462 398.1 448 432 448c38.5 0 88.4 12.1 119.9 22.6c11.3 3.8 24.1-4.6 24.1-16.5l0-370.3c0-12.1-6.8-23.3-18.1-27.6C529.7 45.3 482.5 32 432 32c-58.4 0-103.4 20-123 35.6c-3.3 2.6-5 6.8-5 11L304 456c0 11.4 11.7 19.3 22.4 15.5z"
-                    />
-                  </svg>
-                </div>
-                </div>
-                <div class="mt-4 mx-5 flex items-end justify-between">
-                  <div>
-                    <h4
-                      class="text-title-md font-bold text-black dark:text-white"
-                    >
-                    <?php echo str_pad($totalResources, 2, '0', STR_PAD_LEFT); ?>                    </h4>
-                    </h4>
-                    <span class="text-sm dark:text-white font-medium">Total resources</span>
-                  </div>
-
-                  <span
-                    class="flex items-center gap-1 text-sm font-medium text-meta-3 dark:text-white"
-                  ><a href="posted_resources.php">
-                    More Info <i class="fas fa-solid fa-arrow-right fa-sm"></i></a>
-                  </span>
-                </div>
-              </div>
-              <!-- Card Item End -->
-            </div>
-      <div class="grid grid-cols-1 lg:grid-cols-2 pt-8 gap-4">
-    
+          <h3 class="font-semibold text-xl text-gray-900 dark:text-gray-50">Notifications</h3>
+          <div class="grid grid-cols-1 pt-8">
           <!-- Recent Activities part1 -->
           <div class="relative flex flex-col min-w-0 mb-4 lg:mb-0 break-words bg-gray-50 dark:bg-gray-800 w-full shadow-lg rounded">
             <div class="rounded-t mb-0 px-0 border-0">
-              <div class="flex flex-wrap items-center px-4 py-2">
-                <div class="relative w-full max-w-full flex-grow flex-1">
-                  <h3 class="font-semibold text-base text-gray-900 dark:text-gray-50">Recent Activities</h3>
-                </div>
-              </div>
             <div class="block w-full overflow-x-auto">
-              <div class="px-4 bg-gray-100 dark:bg-gray-600 text-gray-500 dark:text-gray-100 align-middle border border-solid border-gray-200 dark:border-gray-500 py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left">
-                  Blogs
+            <div class="px-4 bg-gray-100 dark:bg-gray-600 text-gray-500 dark:text-gray-100  py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left">
+                 New Announcement
                 </div>
                 <?php
-                    $a = $_SESSION['alumni_id'];
-
                     // Fetch jobs only for the currently logged-in alumni
-                    $result = mysqli_query($db, "SELECT * FROM blog WHERE u_id = '$a' ORDER BY created_at DESC LIMIT 3");
+                    $sql = "SELECT * FROM announcement ORDER BY created_at DESC LIMIT 3";
+                $query = mysqli_query($db, $sql);
 
-                    if (mysqli_num_rows($result) > 0) {
+                    if (mysqli_num_rows($query) > 0) {
                         // If there are job posts, display them
-                        while ($row = mysqli_fetch_array($result)) {
+                        while ($rows = mysqli_fetch_array($query)) {
+                            $announcement_title = $rows['title'];
+                            $content = $rows['content'];
+                          if (isset($rows['created_at']) && !is_null($rows['created_at'])) {
+                            $posted_date = $rows['created_at'];
+
+                            // Convert database UTC time to Asia/Dhaka time
+                            $postedDate = new DateTime($posted_date, new DateTimeZone('UTC'));
+                            $postedDate->setTimezone(new DateTimeZone('Asia/Dhaka'));
+
+                            $currentDate = new DateTime('now', new DateTimeZone('Asia/Dhaka'));
+
+                            // Calculate total difference in seconds
+                            $totalSeconds = $currentDate->getTimestamp() - $postedDate->getTimestamp();
+
+                            if ($totalSeconds >= 30 * 24 * 60 * 60) { // More than 30 days
+                                $displayDate = "30+ days ago";
+                            } elseif ($totalSeconds >= 24 * 60 * 60) { // More than 1 day
+                                $days = floor($totalSeconds / (24 * 60 * 60));
+                                $displayDate = $days === 1 ? "1 day ago" : "{$days} days ago";
+                            } elseif ($totalSeconds >= 60 * 60) { // More than 1 hour
+                                $hours = floor($totalSeconds / (60 * 60));
+                                $displayDate = $hours === 1 ? "1 hour ago" : "{$hours} hours ago";
+                            } elseif ($totalSeconds >= 60) { // More than 1 minute
+                                $minutes = floor($totalSeconds / 60);
+                                $displayDate = $minutes === 1 ? "1 minute ago" : "{$minutes} minutes ago";
+                            } else { // Less than 1 minute
+                                $displayDate = "Just now";
+                            }
+                        }  
                             ?>
-                            <ul class="my-1">
-                              <li class="flex px-4">
-                                <div class="flex-shrink-0 my-2 mr-3">
-                                  <img src="../upload/images/<?php echo $row["blog_picture"]; ?>" alt="User Image" class="h-9 w-9 rounded-full">
-                                </div>
-                                <div class="flex-grow flex items-center border-gray-100 dark:border-gray-400 text-sm text-gray-600 dark:text-gray-100 py-2">
+                            <ul class="my-1 dark:bg-gray-800">
+                              <li class="flex px-4 border-b dark:border-gray-700 ">
+                                <div class="flex-grow flex items-center border-gray-100 dark:border-gray-400 text-sm text-gray-600 dark:text-gray-100 py-4">
                                   <div class="flex-grow flex justify-between items-center">
                                     <div class="self-center">
-                                      <h3 class="font-medium text-gray-800 hover:text-gray-900 dark:text-gray-50 dark:hover:text-gray-100" style="outline: none;"><?php echo $row["title"]; ?></h3>
-                                      <p class="line-clamp-2"><?php echo $row["description"]; ?></p>
-                                      <a href="description.php?blog_id=<?php echo $row['blog_id']; ?>" 
-                                        class="text-blue-500 hover:text-blue-600 dark:text-blue-400 dark:hover:text-blue-500 text-sm font-medium mt-1 block">
-                                        Read More
-                                      </a>
-                                      <?php echo date('d M, Y', strtotime($row["created_at"])); ?>
-                                    </div>
-                                    <div class="flex-shrink-0 ml-2 mt-20">
-                                      <a class="flex items-center font-medium text-purple-500 hover:text-blue-600 dark:text-purple-400 dark:hover:text-blue-500" href="posted_blogs.php" style="outline: none;"><span><svg xmlns="http://www.w3.org/2000/svg" height="14" width="14" viewBox="0 0 512 512" class="mr-1"><!--!Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--><path fill="#B197FC" d="M441 58.9L453.1 71c9.4 9.4 9.4 24.6 0 33.9L424 134.1 377.9 88 407 58.9c9.4-9.4 24.6-9.4 33.9 0zM209.8 256.2L344 121.9 390.1 168 255.8 302.2c-2.9 2.9-6.5 5-10.4 6.1l-58.5 16.7 16.7-58.5c1.1-3.9 3.2-7.5 6.1-10.4zM373.1 25L175.8 222.2c-8.7 8.7-15 19.4-18.3 31.1l-28.6 100c-2.4 8.4-.1 17.4 6.1 23.6s15.2 8.5 23.6 6.1l100-28.6c11.8-3.4 22.5-9.7 31.1-18.3L487 138.9c28.1-28.1 28.1-73.7 0-101.8L474.9 25C446.8-3.1 401.2-3.1 373.1 25zM88 64C39.4 64 0 103.4 0 152L0 424c0 48.6 39.4 88 88 88l272 0c48.6 0 88-39.4 88-88l0-112c0-13.3-10.7-24-24-24s-24 10.7-24 24l0 112c0 22.1-17.9 40-40 40L88 464c-22.1 0-40-17.9-40-40l0-272c0-22.1 17.9-40 40-40l112 0c13.3 0 24-10.7 24-24s-10.7-24-24-24L88 64z"/></svg></span>
-                                        Edit
-                                      </a>
-                                    </div>
+                                      <h3 class="text-gray-800 hover:text-gray-900 dark:text-gray-50 dark:hover:text-gray-100" style="outline: none;"><?php echo $announcement_title; ?></h3>
+                                      
+                                    <p class="mt-1 dark:text-gray-400"><?php echo $displayDate; ?></p>
                                   </div>
                                 </div>
                               </li>
@@ -808,46 +643,78 @@
                         <?php
                     }
                     ?>
-              </div>
-            </div>
-          </div>
-          <!-- end -->
+                
     
-          <!-- Recent Activities part 2 -->
-        <div class="relative flex flex-col min-w-0 break-words bg-gray-50 dark:bg-gray-800 w-full shadow-lg rounded">
-            <div class="rounded-t mb-0 px-0 border-0">
-              <div class="block w-full">
-                <!-- job -->
-                <div class="px-4 bg-gray-100 dark:bg-gray-600 text-gray-500 dark:text-gray-100 align-middle border border-solid border-gray-200 dark:border-gray-500 py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left">
-                  Job Post
+          
+        </div>
+              <div class="px-4 bg-gray-100 dark:bg-gray-600 text-gray-500 dark:text-gray-100 align-middle border border-solid border-gray-200 dark:border-gray-500 py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left">
+                 New Resources
                 </div>
                 <?php
-                    $a = $_SESSION['alumni_id'];
-
                     // Fetch jobs only for the currently logged-in alumni
-                    $result = mysqli_query($db, "SELECT * FROM job WHERE u_id = '$a' ORDER BY created_at DESC LIMIT 3");
+                    $result = mysqli_query($db, "SELECT 
+                                    user.first_Name AS first_name, 
+                                    user.last_Name AS last_name, 
+                                    alumni.id_photo AS creator_photo,
+                                    resources.title AS resources_title, 
+                                    resources.content AS description, resources.file AS uploaded_file,
+                                    resources.created_at AS resources_created_at, resources.material_id AS id
+                                FROM 
+                                    resources
+                                INNER JOIN 
+                                    alumni ON resources.u_id = alumni.alumni_id
+                                INNER JOIN 
+                                    user ON alumni.alumni_id = user.u_id
+                                WHERE 
+                                    resources.status = 'Approve'
+                                ORDER BY 
+                                    resources.created_at DESC
+                            ");
+
 
                     if (mysqli_num_rows($result) > 0) {
                         // If there are job posts, display them
                         while ($row = mysqli_fetch_array($result)) {
+                          if (isset($row['resources_created_at']) && !is_null($row['resources_created_at'])) {
+                            $posted_date = $row['resources_created_at'];
+
+                            // Convert database UTC time to Asia/Dhaka time
+                            $postedDate = new DateTime($posted_date, new DateTimeZone('UTC'));
+                            $postedDate->setTimezone(new DateTimeZone('Asia/Dhaka'));
+
+                            $currentDate = new DateTime('now', new DateTimeZone('Asia/Dhaka'));
+
+                            // Calculate total difference in seconds
+                            $totalSeconds = $currentDate->getTimestamp() - $postedDate->getTimestamp();
+
+                            if ($totalSeconds >= 30 * 24 * 60 * 60) { // More than 30 days
+                                $displayDate = "30+ days ago";
+                            } elseif ($totalSeconds >= 24 * 60 * 60) { // More than 1 day
+                                $days = floor($totalSeconds / (24 * 60 * 60));
+                                $displayDate = $days === 1 ? "1 day ago" : "{$days} days ago";
+                            } elseif ($totalSeconds >= 60 * 60) { // More than 1 hour
+                                $hours = floor($totalSeconds / (60 * 60));
+                                $displayDate = $hours === 1 ? "1 hour ago" : "{$hours} hours ago";
+                            } elseif ($totalSeconds >= 60) { // More than 1 minute
+                                $minutes = floor($totalSeconds / 60);
+                                $displayDate = $minutes === 1 ? "1 minute ago" : "{$minutes} minutes ago";
+                            } else { // Less than 1 minute
+                                $displayDate = "Just now";
+                            }
+                        }  
                             ?>
-                            <ul class="my-1">
-                              <li class="flex px-4">
-                                <div class="flex-shrink-0 my-2 mr-3">
-                                  <img src="../upload/images/<?php echo $row["logo"]; ?>" alt="User Image" class="h-9 w-9 rounded-full">
+                            <ul class="my-1 dark:bg-gray-800">
+                              <li class="flex px-4 border-b dark:border-gray-700 ">
+                                <div class="flex-shrink-0 my-4 mr-3">
+                                  <img src="../upload/images/<?php echo $row['creator_photo']; ?>" alt="User Image" class="h-9 w-9 rounded-full">
                                 </div>
-                                <div class="flex-grow flex items-center border-gray-100 dark:border-gray-400 text-sm text-gray-600 dark:text-gray-100 py-2">
+                                <div class="flex-grow flex items-center border-gray-100 dark:border-gray-400 text-sm text-gray-600 dark:text-gray-100 py-4">
                                   <div class="flex-grow flex justify-between items-center">
                                     <div class="self-center">
-                                      <h3 class="font-medium text-gray-800 hover:text-gray-900 dark:text-gray-50 dark:hover:text-gray-100" style="outline: none;"><?php echo $row["title"]; ?></h3> 
-                                      <?php echo date('d M, Y', strtotime($row["created_at"])); ?>
-                                    </div>
-                                    <div class="flex-shrink-0 ml-2 mt-5">
-                                      <a class="flex items-center font-medium text-purple-500 hover:text-blue-600 dark:text-purple-400 dark:hover:text-blue-500" href="posted_job.php" style="outline: none;">
-                                      <span><svg xmlns="http://www.w3.org/2000/svg" height="14" width="14" viewBox="0 0 512 512" class="mr-1"><!--!Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--><path fill="#B197FC" d="M441 58.9L453.1 71c9.4 9.4 9.4 24.6 0 33.9L424 134.1 377.9 88 407 58.9c9.4-9.4 24.6-9.4 33.9 0zM209.8 256.2L344 121.9 390.1 168 255.8 302.2c-2.9 2.9-6.5 5-10.4 6.1l-58.5 16.7 16.7-58.5c1.1-3.9 3.2-7.5 6.1-10.4zM373.1 25L175.8 222.2c-8.7 8.7-15 19.4-18.3 31.1l-28.6 100c-2.4 8.4-.1 17.4 6.1 23.6s15.2 8.5 23.6 6.1l100-28.6c11.8-3.4 22.5-9.7 31.1-18.3L487 138.9c28.1-28.1 28.1-73.7 0-101.8L474.9 25C446.8-3.1 401.2-3.1 373.1 25zM88 64C39.4 64 0 103.4 0 152L0 424c0 48.6 39.4 88 88 88l272 0c48.6 0 88-39.4 88-88l0-112c0-13.3-10.7-24-24-24s-24 10.7-24 24l0 112c0 22.1-17.9 40-40 40L88 464c-22.1 0-40-17.9-40-40l0-272c0-22.1 17.9-40 40-40l112 0c13.3 0 24-10.7 24-24s-10.7-24-24-24L88 64z"/></svg></span>
-                                      Edit
-                                      </a>
-                                    </div>
+                                      <h3 class="text-gray-800 hover:text-gray-900 dark:text-gray-50 dark:hover:text-gray-100" style="outline: none;"><span class="font-bold"><?php echo $row['first_name']; ?> <?php echo $row['last_name']; ?></span> shared a resource.</h3>
+                                      
+                                      
+                                    <p class="mt-1 dark:text-gray-400"><?php echo $displayDate; ?></p>
                                   </div>
                                 </div>
                               </li>
@@ -863,65 +730,10 @@
                         <?php
                     }
                     ?>
-                <!-- resource -->
-                <div class="px-4 bg-gray-100 dark:bg-gray-600 text-gray-500 dark:text-gray-100 align-middle border border-solid border-gray-200 dark:border-gray-500 py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left">
-                  Resources
-                </div>
-                <?php
-                    $a = $_SESSION['alumni_id'];
-
-                    // Fetch jobs only for the currently logged-in alumni
-                    $result = mysqli_query($db, "SELECT * FROM resources WHERE u_id = '$a' ORDER BY created_at DESC LIMIT 2");
-
-                    if (mysqli_num_rows($result) > 0) {
-                        // If there are job posts, display them
-                        while ($row = mysqli_fetch_array($result)) {
-                            ?>
-                            <ul class="my-1">
-                              <li class="flex px-4">
-                                <div class="flex-grow flex items-center border-gray-100 dark:border-gray-400 text-sm text-gray-600 dark:text-gray-100 py-2">
-                                  <div class="flex-grow flex justify-between items-center">
-                                    <div class="self-center">
-                                      <h3 class="font-medium text-gray-800 hover:text-gray-900 dark:text-gray-50 dark:hover:text-gray-100" style="outline: none;"><?php echo $row["title"]; ?></h3> 
-                                      <p class="line-clamp-2"><?php echo $row["content"]; ?></p>
-                                      <!-- Display file download link if file_path exists -->
-                                      <?php if (!empty($row["file"])) { 
-                                          $filePath = $row["file"];
-                                          $fileExtension = pathinfo($filePath, PATHINFO_EXTENSION); // Get the file extension
-
-                                          // Check if it's an image file
-                                          if (in_array(strtolower($fileExtension), ['jpg', 'jpeg', 'png', 'gif'])) { ?>
-                                              <a href="download.php?image=<?php echo urlencode(basename($filePath)); ?>" class="text-blue-500 hover:text-blue-600 dark:text-blue-400 dark:hover:text-blue-500">
-                                              <?php echo $row["file"]; ?>
-                                              </a>
-                                          <?php } else { ?>
-                                              <a href="download.php?file=<?php echo urlencode(basename($filePath)); ?>" class="text-blue-500 hover:text-blue-600 dark:text-blue-400 dark:hover:text-blue-500">
-                                              <?php echo $row["file"]; ?>                                              </a>
-                                          <?php } 
-                                      } ?>
-                                    </div>
-                                    <div class="flex-shrink-0 ml-2">
-                                      <a class="flex items-center font-medium text-purple-500 hover:text-blue-600 dark:text-purple-400 dark:hover:text-blue-500" href="posted_resources.php" style="outline: none;">  View<span><svg width="20" height="20" viewBox="0 0 20 20" fill="currentColor" class="transform transition-transform duration-500 ease-in-out"><path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd"></path></svg></span>
-                                      </a>
-                                    </div>
-                                  </div>
-                                </div>
-                              </li>
-                            </ul>
-                            <?php
-                        }
-                    } else {
-                        // If no job posts exist, display a message
-                        ?>
-                        <div class="text-center py-4 text-gray-500 dark:text-gray-400">
-                            <p>No posts available. Create a new post to get started.</p>
-                        </div>
-                        <?php
-                    }
-                    ?>
-            </div>
-          </div>
-          <!-- ./Recent Activities -->
+            
+                
+    
+          
         </div>
           </div>
         </main>

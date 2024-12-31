@@ -214,7 +214,7 @@
                 <path d="M9,8.087,21,3V21L9,15.913V21H5V15.913a2,2,0,0,1-2-2V10.087a2,2,0,0,1,2-2Z"/>
               </svg>Announcement 
             </a> 
-            <a href="student_resources.php" class="flex items-center text-white py-2 px-3 ml-4 mr-4 my-1 gap-2.5">
+            <a href="student_resources.php" class="flex items-center text-white py-2 px-3 ml-4 mr-4 my-1 active-nav-link gap-2.5">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512" width="20" height="20">
                   <defs>
                     <style>
@@ -256,7 +256,7 @@
                 Profile
             </a>
             <details class="group relative">
-              <summary class="flex items-center justify-between text-white py-2 px-3.5 mx-4 my-2 active-nav-link cursor-pointer">
+              <summary class="flex items-center justify-between text-white py-2 px-3.5 mx-4 my-2 active-nav-item cursor-pointer">
                 <i class="fas fa-align-left mr-3"></i>
                 <span class="flex-1">Pages</span>
                 <svg
@@ -591,170 +591,139 @@
               </nav>
             </div>
             <!-- Breadcrumb End -->
-             <!-- ====== Settings Section Start -->
+             <!-- change password Section Start -->
              <div class="grid grid-cols-5 gap-8">
-               <?php if(isset($_GET['ok'])){
-							echo "<div class='alert alert-success alert-dismissible fade show'>
-							<button type='button' class='close' data-dismiss='alert' aria-label='Close'><span aria-hidden='true'>&times;</span></button>
-							<strong>Sucessfully!</strong> update your Profile.
-							</div>";
-						  }?>
-              <?php
-							$a=$_SESSION['student_id'];
-							
-							$result = mysqli_query($db,"SELECT * FROM user,student WHERE user.u_id=student.student_id AND user.status='Active' AND user.u_id='$a'");
-							
-							while($row = mysqli_fetch_array($result)) {
-							?>
-                <div class="col-span-5 xl:col-span-3">
+						<div class="col-span-5 xl:col-span-3">
                   <div
                     class="rounded-sm border border-stroke bg-white shadow-default dark:border-gray-700 dark:bg-gray-800"
                   >
                     <div
-                      class="border-b border-gray-200 px-7 py-4 dark:border-gray-700"
+                      class="border-b border-stroke px-7 py-4 dark:border-gray-700"
                     >
-                      <h3 class="font-medium dark:text-white">
-                        Personal Information
+                      <h3 class="font-medium text-black dark:text-white">
+                        Change Password
                       </h3>
                     </div>
                     <div class="p-7">
-                    <form action="update_profile.php" method="POST">
-                        <!-- f name -->
-                        <div class="mb-6 flex flex-col gap-5 sm:flex-row">
-                          <div class="w-full sm:w-1/2">
+                    <script type="text/javascript">
+											$(document).ready(function() {
+												$('#example-progress-bar-hierarchy').strengthMeter('progressBar', {
+													container: $('#example-progress-bar-hierarchy-container'),
+													hierarchy: {
+														'0': 'progress-bar-danger',
+														'10': 'progress-bar-warning',
+														'15': 'progress-bar-success'
+													}
+												});
+											});
+										</script>
+										<?php
+											include_once '../db_con/dbCon.php';
+											if(isset($_POST['update'])){											
+												$email = $_SESSION['email'];
+												$password = mysqli_real_escape_string($db, $_POST['current']);
+												$new_password=$_POST['new_password'];
+												$p_length=strlen($new_password);
+												//echo $p_length;
+												if($p_length <=5){
+													echo "<div role='alert' class='alert alert-error'>					
+                                  <svg
+                                    xmlns='http://www.w3.org/2000/svg'
+                                    class='h-6 w-6 shrink-0 stroke-current'
+                                    fill='none'
+                                    viewBox='0 0 24 24'>
+                                    <path
+                                      stroke-linecap='round'
+                                      stroke-linejoin='round'
+                                      stroke-width='2'
+                                      d='M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z' />
+                                  </svg>
+                                  <span class='text-white'>Error! New password should be minimum 6 character.</span>
+                                </div>";
+							}else{
+                                $result = mysqli_query($db, "SELECT * FROM user WHERE email = '" . $email. "' and password = '" . $password. "' and role='Student'");
+                                if ($row = mysqli_fetch_array($result)) {													
+                                    $query="UPDATE user set password='$new_password' where email='$email'";
+                                    if(mysqli_query($db,$query)){
+                                        echo "<div role='alert' class='alert alert-success'>						
+                              <svg
+                                xmlns='http://www.w3.org/2000/svg'
+                                class='h-6 w-6 shrink-0 stroke-current'
+                                fill='none'
+                                viewBox='0 0 24 24'>
+                                <path
+                                  stroke-linecap='round'
+                                  stroke-linejoin='round'
+                                  stroke-width='2'
+                                  d='M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z' />
+                              </svg>
+                              <span>Password successfully updated!</span>
+                            </div>";
+														}
+														}else{
+														echo "<div role='alert' class='alert alert-warning'>
+                            <svg
+                              xmlns='http://www.w3.org/2000/svg'
+                              class='h-6 w-6 shrink-0 stroke-current'
+                              fill='none'
+                              viewBox='0 0 24 24'>
+                              <path
+                                stroke-linecap='round'
+                                stroke-linejoin='round'
+                                stroke-width='2'
+                                d='M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z' />
+                            </svg>
+                            <span>Warning: Invalid password!</span>
+                          </div>";
+													}
+												}
+											}
+										?>																				
+											<form autocomplete="off" method="post" action="student_changePass.php" class="mt-6">				  
+												<!-- current -->
+                        <div class="mb-6">                          
                             <label
                               class="mb-3 block text-sm font-medium text-black dark:text-white"
-                              for="fname"
-                              >First Name</label
+                              for="inputPassword"
+                              >Current Password</label
                             >
-                            <div class="relative">
                               <input
                                 class="w-full rounded-lg border border-stroke bg-gray py-2 pl-4 pr-4.5 font-medium text-black focus:border-gray-800 focus-visible:outline-none dark:border-gray-700 dark:bg-gray-800 dark:text-white dark:focus:border-primary"
-                                type="text"
-                                name="first_Name"
-                                id="first_Name"
-                                placeholder="First Name"
-                                value="<?php echo $row["first_Name"]; ?>"
-                                />                             
-                            </div>
-                          </div>
-                          <!-- l name -->
-                          <div class="w-full sm:w-1/2">
-                            <label
-                              class="mb-3 block text-sm font-medium text-black dark:text-white"
-                              for="lname"
-                              >Last Name</label
-                            >
-                              <input
-                                class="w-full rounded-lg border border-stroke bg-gray py-2 pl-4 pr-4.5 font-medium text-black focus:border-gray-800 focus-visible:outline-none dark:border-gray-700 dark:bg-gray-800 dark:text-white dark:focus:border-primary"
-                                type="text"
-                                name="last_Name"
-                                id="last_Name"
-                                placeholder="Last Name" 
-                                value="<?php echo $row["last_Name"]; ?>"                               
-                              />                          
-                            
-                          </div>
-                        </div>
-                        <!-- class id -->
-                        <div class="mb-6 flex flex-col gap-5 sm:flex-row">
-                          <div class="w-full sm:w-1/2">
-                            <label
-                              class="mb-3 block text-sm font-medium text-black dark:text-white"
-                              for="classId"
-                              >Class ID</label
-                            >
-                            <div class="relative">
-                              <input
-                                class="w-full rounded-lg border border-stroke bg-gray py-2 pl-4 pr-4.5 font-medium text-black focus:border-gray-800 focus-visible:outline-none dark:border-gray-700 dark:bg-gray-800 dark:text-white dark:focus:border-primary"
-                                type="text"
-                                name="class_id"
-                                id="class_id"
-                                value="<?php echo $row["class_id"]; ?>"
-                                />                             
-                            </div>
-                          </div>
-                          <!-- department -->
-                          <div class="w-full sm:w-1/2">
-                            <label
-                              class="mb-3 block text-sm font-medium text-black dark:text-white"
-                              for="department"
-                              >Department</label
-                              >
-                              <input
-                                class="w-full rounded-lg border border-stroke bg-gray py-2 pl-4 pr-4.5 font-medium text-black focus:border-gray-800 focus-visible:outline-none dark:border-gray-700 dark:bg-gray-800 dark:text-white dark:focus:border-primary"
-                                type="text"
-                                name="department"
-                                id="department"
-                                value="<?php echo $row["department"]; ?>"                               
-                              />                                                     
-                          </div>
-                        </div>
-                        <!-- batch -->
-                        <div class="mb-6 flex flex-col gap-5 sm:flex-row">
-                        <div class="w-full sm:w-1/2">
+                                type="password" name="current"  required id="inputPassword" 
+                                />                                                       
+                          </div>                        
+                        <!-- new -->
+                        <div class="mb-6">
                           <label
                             class="mb-3 block text-sm font-medium text-black dark:text-white"
-                            for="num"
-                            >Contact Number</label
+                            for="inputPassword"
+                            >New Password</label
                           >
                           <input
-                              class="w-full rounded-lg border border-stroke bg-gray px-5 pl-4 py-2 font-medium text-black focus:border-gray-800 focus-visible:outline-none dark:border-gray-700 dark:bg-gray-800 dark:text-white dark:focus:border-primary"
-                              type="text"
-                              name="contact_number"
-                              id="contact_number"
-                              placeholder="+880 123456789"
-                              value="<?php echo $row["contact_number"]; ?>"
+                              class="w-full rounded-lg border border-stroke bg-gray px-5 py-2 pl-4 font-medium text-black focus:border-gray-800 focus-visible:outline-none dark:border-gray-700 dark:bg-gray-800 dark:text-white dark:focus:border-primary"
+                              type="password"
+                              name="new_password"
+                              onblur="checkLength(this)"
+                              id='password'
+                              maxlength="30" required 
                             />                                                     
                         </div>
-                        <div class="w-full sm:w-1/2">
-                            <label
-                              class="mb-3 block text-sm font-medium text-black dark:text-white"
-                              for="batch"
-                              >Batch</label
-                            >
-                              <input
-                                class="w-full rounded-lg border border-stroke bg-gray py-2 pl-4 pr-4.5 font-medium text-black focus:border-gray-800 focus-visible:outline-none dark:border-gray-700 dark:bg-gray-800 dark:text-white dark:focus:border-primary"
-                                type="text"
-                                name="batch"
-                                id="batch" 
-                                value="<?php echo $row["batch"]; ?>"                               
-                              />                                                     
-                          </div>
-                        </div>
-                        <!-- contact -->
-                        <div class="mb-6 flex flex-col gap-5 sm:flex-row">
-                        <!-- address -->
-                        <div class="w-full sm:w-1/2">
+                        <!-- confirm -->
+                        <div class="mb-6">
                           <label
                             class="mb-3 block text-sm font-medium text-black dark:text-white"
-                            for="address"
-                            >Address</label
+                            for="inputPassword"
+                            >Confirm Password</label
                           >
                             <input
                               class="w-full rounded-lg border border-stroke bg-gray py-2 pl-4 pr-4.5 font-medium text-black focus:border-gray-800 focus-visible:outline-none dark:border-gray-700 dark:bg-gray-800 dark:text-white dark:focus:border-primary"
-                              type="text"
-                              name="full_address"
-                              id="full_address"
-                              value="<?php echo $row["full_address"]; ?>"
+                              type="password"
+                              name="confirm_password"
+                              id='confirm_password'
+                              required  
                             />
-                        </div>
-                        <div class="w-full sm:w-1/2">
-                            <label class="mb-3 block text-sm font-medium text-black dark:text-white"
-                              for="city">City</label>
-                              <select id="city" name="city" class="w-full rounded-lg border border-stroke bg-gray px-5 py-2 pl-4   font-medium text-black focus:border-gray-800 focus-visible:outline-none dark:border-gray-700 dark:bg-gray-800 dark:text-white dark:focus:border-primary">
-                                <option value="" selected>Choose...</option>
-                                <option value="Dhaka" <?php if ($row['city']=='Dhaka'){echo "selected";}?>>Dhaka</option>
-                                <option value="Chittagong" <?php if ($row['city']=='Chittagong'){echo "selected";}?>>Chittagong</option>
-                                <option value="Sylhet" <?php if ($row['city']=='Sylhet'){echo "selected";}?>>Sylhet</option>
-                                <option value="Barishal" <?php if ($row['city']=='Barishal'){echo "selected";}?>>Barishal</option>
-                                <option value="Khulna" <?php if ($row['city']=='Khulna'){echo "selected";}?>>Khulna</option>
-                                <option value="Mymensingh" <?php if ($row['city']=='Mymensingh'){echo "selected";}?>>Mymensingh</option>
-                                <option value="Rajshahi" <?php if ($row['city']=='Rajshahi'){echo "selected";}?>>Rajshahi</option>
-                                <option value="Rangpur" <?php if ($row['city']=='Rangpur'){echo "selected";}?>>Rangpur</option>
-                              </select>
-                          </div>
-                        </div>
+                        </div>                       
+                        <!-- button -->                     
                         <div class="flex justify-end gap-4">
                           <button
                             class="flex justify-center rounded border border-stroke px-6 py-2 font-medium text-black hover:shadow-1 dark:border-strokedark dark:text-white"
@@ -764,19 +733,31 @@
                           </button>
                           <button
                             class="flex justify-center rounded bg-gradient-to-r from-purple-500 to-black px-6 py-2 font-medium text-white hover:bg-opacity-90"
-                            type="submit"
+                            type="submit"  name="update" value="Update" 
                           >
                             Update
                           </button>
                         </div>
                       </form>
-                    </div>
-                  </div>
-                </div>
-                <?php
-							}
-						?>
-              </div>
+											<script>
+												var password = document.getElementById("password")
+												, confirm_password = document.getElementById("confirm_password");
+												
+												function validatePassword(){
+													if(password.value != confirm_password.value) {
+														confirm_password.setCustomValidity("Passwords Don't Match");
+														} else {
+														confirm_password.setCustomValidity('');
+													}
+												}											
+												password.onchange = validatePassword;
+												confirm_password.onkeyup = validatePassword;																								
+											</script>
+										</div>
+									</div>
+								</div>
+							</div>
+					</div>
               <!-- ====== Settings Section End -->
           </div>
         </main>

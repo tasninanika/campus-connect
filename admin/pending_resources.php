@@ -682,7 +682,7 @@
                             }
                         }  
                             ?>
-                            <ul class="my-1">
+                            <ul class="my-1 dark:bg-gray-800">
                               <li class="flex px-4 border-b dark:border-gray-700 ">
                                 <div class="flex-shrink-0 my-4 mr-3">
                                   <img src="../upload/images/<?php echo $row['creator_photo']; ?>" alt="User Image" class="h-9 w-9 rounded-full">

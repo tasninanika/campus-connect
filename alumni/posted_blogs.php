@@ -694,9 +694,7 @@
             <!-- Breadcrumb End -->
 
             <!-- ====== announcement Section Start -->
-            <!-- <h3 class="text-2xl text-gray-700 font-bold mb-6 ml-3 dark:text-white">My Posts</h3> -->
-            <div class="grid grid-cols-1 sm:grid-cols-2 gap-5 mt-5">
-
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-5 mt-5">
             <?php 
             $a = $_SESSION['alumni_id'];
 
@@ -826,14 +824,13 @@
                                   </div>
                               </div>
                           </div>
-                      
                         <?php
                 }
                 }
                 else {
                   // If no job posts exist, display a message
                   ?>
-                  <div class="flex justify-center block min-h-screen max-w-screen overflow-hidden text-gray-500 dark:text-gray-400">
+                  <div class="flex justify-center items-center min-h-screen max-w-screen text-gray-500 dark:text-gray-400">
                       <p>No posts available. Create a new post to get started.</p>
                   </div>
                   <?php

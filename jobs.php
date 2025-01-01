@@ -151,7 +151,7 @@
                     $job_title = $rows['title'];
                     $company = $rows['company_name'];
                     $experience = $rows['experience'];
-                    $sallary = $rows['sallary'];
+                    $sallary = $rows['salary'];
                     $location = $rows['location'];
                     $posted_date = $rows['created_at'];
 

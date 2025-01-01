@@ -117,13 +117,13 @@ include('./db_con/dbCon.php');
                     if ($result && mysqli_num_rows($result) > 0) {
                         $row = mysqli_fetch_assoc($result);
                         $id_photo = $row['id_photo'];
-                        $dashboard_link = ($role === 'Student') ? "student_dashboard.php" : 
+                        $dashboard_link = ($role === 'Student') ? "./student/student_dashboard.php" : 
                         (($role === 'Alumni') ? "./alumni/alumni_dashboard.php" : null);
                         ?>
             <div class="dropdown dropdown-end">
                 <div tabindex="0" class="btn btn-ghost btn-circle avatar">
                     <div class="w-10 rounded-full">
-                        <img src="./images/upload/<?php echo $id_photo ?>" alt="Profile Image">
+                        <img src="./upload/images/<?php echo $id_photo ?>" alt="Profile Image">
                     </div>
                 </div>
                 <ul tabindex="0"

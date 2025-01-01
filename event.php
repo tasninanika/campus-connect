@@ -169,7 +169,7 @@ include('navbar.php');
             <!-- Image Section -->
             <div class="flex justify-center">
                 <img
-                    src="./images/upload/<?php echo $eventBanner ?>"
+                    src="./upload/images/<?php echo $eventBanner ?>"
                     alt="Event Banner"
                     class="w-full h-auto object-contain border border-white rounded-lg">
             </div>
@@ -247,7 +247,7 @@ include('navbar.php');
                             <!-- Content Section -->
                             <div class="flex-1 flex justify-center items-center space-x-4">
                                 <img
-                                    src="./images/upload/<?php echo $eventBanner ?>"
+                                    src="./upload/images/<?php echo $eventBanner ?>"
                                     alt="Event Thumbnail"
                                     class="rounded-full w-16 h-16 object-cover" />
                                 <div>

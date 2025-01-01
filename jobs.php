@@ -1,4 +1,4 @@
-<?php
+<?php 
     include('db_con/dbCon.php');
     include('navbar.php');
 ?>
@@ -12,12 +12,43 @@
     <title>Find Jobs</title>
     <style>
     .job-bg {
-        background: url("https://static.wixstatic.com/media/fe4a5d_b4d288522a074d7c9a1af1f7b4da4d32~mv2.gif/v1/fill/w_768,h_432,al_c/fe4a5d_b4d288522a074d7c9a1af1f7b4da4d32~mv2.gif");
+        background: url("./images/background-video.gif");
         background-size: cover;
-        background-postion: center center;
+        background-position: center center;
         background-repeat: no-repeat;
         background-color: rgba(0, 0, 0, 0.547);
         background-blend-mode: multiply;
+    }
+
+    .job-filter {
+        background: url('https://i.pinimg.com/originals/87/91/00/8791009aad70b34896002122588a1876.jpg');
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center center;
+        background-color: rgba(0, 0, 0, 0.547);
+        background-blend-mode: multiply;
+        min-height: 150px;
+    }
+
+    .fade-in {
+        animation: fadeIn 0.5s ease-in;
+    }
+
+    @keyframes fadeIn {
+        from {
+            opacity: 0;
+        }
+
+        to {
+            opacity: 1;
+        }
+    }
+
+    .no-jobs-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
     }
     </style>
     <link rel="stylesheet" href="./CSS/common-styles.css">
@@ -25,124 +56,160 @@
 
 <body>
     <!-- Hero Section -->
-    <section class="w-[95%] mx-auto my-11 ">
-        <div class="job-bg h-96 rounded-lg  relative">
-            <nav class="absolute top-[50%] left-[50%] translate-x-[-50%]">
-                <ol class="flex justify-items-center items-center gap-2">
-                    <li>
-                        <a class="font-medium text-2xl text-white" href="index.php">Home /</a>
-                    </li>
-                    <li class="text-2xl text-white">Jobs</li>
-                </ol>
-            </nav>
+    <section class="w-[95%] mx-auto my-11">
+        <div class="job-bg h-96 rounded-lg flex justify-center items-center">
+            <div class="text-center text-white">
+                <h1 class="text-white">Jobs</h1>
+                <h3>Find your dream Job or Internship.</h3>
+            </div>
         </div>
     </section>
 
     <!-- Job Search Section -->
-    <div class="flex flex-col sm:flex-row items-center gap-4 w-full max-w-3xl mx-auto p-4">
-        <!-- Input Field 1 with Job Name Icon -->
-        <div class="relative flex-1">
-            <span class="absolute inset-y-0 left-3 flex items-center text-gray-500">
-                <!-- Job Name Icon -->
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24"
-                    stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                        d="M6 13V6a1 1 0 011-1h10a1 1 0 011 1v7M9 17h6m-3-3v6" />
-                </svg>
-            </span>
-            <input type="text" placeholder="Job Name"
-                class="w-full pl-10 pr-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-[#797DFC]" />
-        </div>
+    <?php
+        $sqlCount = "SELECT COUNT(*) AS total_rows FROM job";
+        $resultCount = mysqli_query($db, $sqlCount);
 
-        <!-- Input Field 2 with Icon at the End -->
-        <div class="relative flex-1">
-            <input type="text" placeholder="Enter details"
-                class="w-full pl-4 pr-10 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-[#797DFC]" />
-            <span class="absolute inset-y-0 right-3 flex items-center text-gray-500">
-                <!-- Icon for Input Field 2 -->
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24"
-                    stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 12h14M12 5l7 7-7 7" />
-                </svg>
-            </span>
-        </div>
+        if ($resultCount) {
+            $rowCount = mysqli_fetch_assoc($resultCount);
+            $totalRows = $rowCount['total_rows'];
+        } else {
+            $totalRows = 0;
+        }
 
-        <!-- Search Button -->
-        <button class="px-6 py-2 rounded-md hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
-            Search
-        </button>
+        $conditions = [];
+        if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+            if (!empty($_POST['department'])) {
+                $department = mysqli_real_escape_string($db, $_POST['department']);
+                $conditions[] = "department = '$department'";
+            }
+            if (!empty($_POST['location'])) {
+                $location = mysqli_real_escape_string($db, $_POST['location']);
+                $conditions[] = "location = '$location'";
+            }
+            if (!empty($_POST['type'])) {
+                $type = mysqli_real_escape_string($db, $_POST['type']);
+                $conditions[] = "type = '$type'";
+            }
+        }
+
+        $sql = "SELECT * FROM job";
+        if (count($conditions) > 0) {
+            $sql .= " WHERE " . implode(' AND ', $conditions);
+        }
+        $query = mysqli_query($db, $sql);
+    ?>
+
+    <div class="my-11">
+        <h2 class="text-center">There Are <span class="text-[#797DFC]"><?php echo $totalRows ?></span> Postings Here For you!</h2>
+        <p class="text-center">Find Jobs, Employment & Career Opportunities</p>
+    </div>
+
+    <!-- Job Filter Form -->
+    <div class="w-[95%] bg-green-700 mx-auto job-filter flex justify-center items-center rounded-lg">
+        <form method="POST" class="flex lg:flex-row flex-col items-center gap-4 w-full max-w-5xl mx-auto p-4">
+            <select name="department" class="select select-bordered w-full max-w-xs">
+                <option disabled selected>Select Department</option>
+                <option>CSE</option>
+                <option>EEE</option>
+                <option>CEN</option>
+                <option>ME</option>
+            </select>
+            <select name="location" class="select select-bordered w-full max-w-xs">
+                <option disabled selected>Select Location</option>
+                <option>Chattogram</option>
+                <option>Dhaka</option>
+                <option>Cumilla</option>
+                <option>Sylhet</option>
+                <option>Rajshahi</option>
+            </select>
+            <select name="type" class="select select-bordered w-full max-w-xs">
+                <option disabled selected>Select Type</option>
+                <option>Full-Time</option>
+                <option>Full-Time(Remote)</option>
+                <option>Part-Time</option>
+                <option>Part-Time(Remote)</option>
+                <option>Internship</option>
+            </select>
+            <button type="submit" class="px-6 py-3 rounded-md hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-blue-500 max-w-xs w-full">
+                Search
+            </button>
+        </form>
     </div>
 
     <!-- Job Posts -->
-    <section class="w-[95%] mx-auto my-5">
-        <div class="grid grid-cols-3 gap-5">
+    <section class="w-[95%] mx-auto my-16">
+        <div class="mt-8 mb-11 text-center">
+            <h1>Featured Jobs</h1>
+            <p>Know your worth and find the job that qualify your life</p>
+        </div>
+        <div id="job-container" class="grid grid-cols-1 lg:grid-cols-2 gap-8 fade-in ms-auto">
             <?php 
-    $sql = "SELECT * FROM job";
-    $query = mysqli_query($db, $sql);
+            if(mysqli_num_rows($query) > 0) {
+                while ($rows = mysqli_fetch_assoc($query)) {
+                    $job_id = $rows['job_id'];
+                    $job_title = $rows['title'];
+                    $company = $rows['company_name'];
+                    $experience = $rows['experience'];
+                    $sallary = $rows['sallary'];
+                    $location = $rows['location'];
+                    $posted_date = $rows['created_at'];
 
-    if(mysqli_num_rows($query) > 0) {
-      while ($rows = mysqli_fetch_assoc($query)) {
-        $job_title = $rows['title'];
-        $company = $rows['company_name'];
-        $experience = $rows['experience'];
-        $sallary = $rows['sallary'];
-        $location = $rows['location'];
-        $posted_date = $rows['created_at'];
+                    $postedDate = new DateTime($posted_date);
+                    $currentDate = new DateTime();
+                    $interval = $postedDate->diff($currentDate);
+                    $daysAgo = $interval->days;
 
-        // Calculate days ago
-        $postedDate = new DateTime($posted_date);
-        $currentDate = new DateTime();
-        $interval = $postedDate->diff($currentDate);
-        $daysAgo = $interval->days;
-
-        if ($daysAgo > 30) {
-            $displayDate = "30+ days ago";
-        } elseif ($daysAgo === 1) {
-            $displayDate = "1 day ago";
-        } else {
-            $displayDate = "$daysAgo days ago";
-        }
-        ?>
-            <div
-                class="flex flex-col gap-8 px-5 py-4 border border-1 border-[#797DFC] shadow-sm shadow-indigo-500/50 rounded-lg hover:skew-y-3 hover:ease-in-out hover:duration-300">
+                    $displayDate = $daysAgo > 30 ? "30+ days ago" : ($daysAgo === 1 ? "1 day ago" : "$daysAgo days ago");
+            ?>
+            <div class="flex flex-col gap-8 px-5 py-4 border border-1 border-[#797DFC] shadow-lg rounded-lg">
                 <div>
                     <h3><?php echo $job_title; ?></h3>
                     <p><?php echo $company; ?></p>
                 </div>
-                <!-- <hr class="mx-auto w-[200px] h-[0.5px] bg-[#797DFC] border-none"> -->
                 <div class="flex items-center gap-16">
                     <div class="flex items-center gap-x-2">
                         <img src="./images/icons/job-icon.png" alt="job-icon" class="w-5">
-                        <p>
-                            <span><?php echo $experience; ?></span>
-                        </p>
+                        <p><span><?php echo $experience; ?></span></p>
                     </div>
                     <div class="flex items-center gap-x-2">
                         <img src="./images/icons/salary-icon.png" alt="salary-icon" class="w-5">
-                        <p>
-                            <span>BDT. <?php echo $sallary; ?></span> TK.
-                        </p>
+                        <p><span>BDT. <?php echo $sallary; ?></span> TK.</p>
                     </div>
                 </div>
                 <div class="flex items-center gap-x-2">
                     <img src="./images/icons/location-icon.png" alt="location-icon" class="w-5">
-                    <p>
-                        <span><?php echo $location; ?></span>
-                    </p>
+                    <p><span><?php echo $location; ?></span></p>
                 </div>
-                <hr class=" h-[0.5px] bg-gray-400 border-none">
+                <hr class="h-[0.5px] bg-gray-400 border-none">
                 <div class="flex justify-between items-center">
                     <p>Posted: <?php echo $displayDate; ?></p>
-                    <button class="px-5 py-1 rounded-full">Apply</button>
+                    <button class="px-5 py-1 rounded-full">
+                        <?php echo '<a href="view-job.php?job_id='.$rows['job_id'].'">Apply</a>'; ?>
+                    </button>
                 </div>
             </div>
             <?php
-      }
-    }?>
+                }
+            } else {
+            ?>
+            <div class="">
+                <img src="https://cdni.iconscout.com/illustration/premium/thumb/no-data-found-illustration-download-in-svg-png-gif-file-formats--office-computer-digital-work-business-pack-illustrations-7265556.png" alt="No Data Found" class="w-40">
+                <h3>No jobs found matching your criteria</h3>
+                <button onclick="history.back()" class="mt-4 px-6 py-2 bg-[#797DFC] text-white rounded-full">Go Back</button>
+            </div>
+            <?php
+            }
+            ?>
         </div>
     </section>
-
-
+    <script>
+        document.querySelector("form").addEventListener("submit", function(e) {
+            setTimeout(() => {
+                document.querySelector("#job-container").scrollIntoView({ behavior: "smooth" });
+            }, 100); // Delay for smooth rendering
+        });
+    </script>
 </body>
 
 </html>

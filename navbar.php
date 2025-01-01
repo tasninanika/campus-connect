@@ -45,8 +45,8 @@ include('./db_con/dbCon.php');
                 <ul tabindex="0"
                     class="menu menu-sm dropdown-content bg-base-100 rounded-box z-[2] mt-3 w-52 p-2 shadow">
                     <li><a href="index.php">Home</a></li>
-                    <li><a href="about-us.php">About Us</a></li>
-                    <li><a href="contact-us.php">Contact Us</a></li>
+                    <li><a href="about.php">About Us</a></li>
+                    <li><a href="contact.php">Contact Us</a></li>
                     <li><a href="gallery.php">Gallery</a></li>
                     <li>
                         <details>
@@ -66,8 +66,8 @@ include('./db_con/dbCon.php');
         <div class="navbar-center hidden lg:flex z-[2]">
             <ul class="menu menu-horizontal px-1 text-md">
                 <li><a href="index.php">Home</a></li>
-                <li><a href="about-us.php">About Us</a></li>
-                <li><a href="contact-us.php">Contact Us</a></li>
+                <li><a href="about.php">About Us</a></li>
+                <li><a href="contact.php">Contact Us</a></li>
                 <li><a href="gallery.php">Gallery</a></li>
                 <li>
                     <details>

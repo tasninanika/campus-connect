@@ -92,7 +92,7 @@
                             <p class="text-black text-sm mb-6"><?php echo $limited_description ?></p>
                             <div class="flex items-center justify-center gap-5">
                                 <div class="flex items-center">
-                                    <img src="./images/upload/<?php echo $author_image ?>" alt="Author" class="w-8 h-8 rounded-full">
+                                    <img src="./upload/images/<?php echo $author_image ?>" alt="Author" class="w-8 h-8 rounded-full">
                                     <div class="ml-2">
                                         <p class="text-black text-sm font-medium"><?php echo $author_fname ?> <?php echo $author_lname ?></p>
                                     </div>

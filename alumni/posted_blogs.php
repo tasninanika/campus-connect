@@ -830,8 +830,8 @@
                 else {
                   // If no job posts exist, display a message
                   ?>
-                  <div class="flex justify-center items-center min-h-screen max-w-screen text-gray-500 dark:text-gray-400">
-                      <p>No posts available. Create a new post to get started.</p>
+                  <div class="flex justify-center items-center min-h-screen">
+                      <p class="text-gray-500 dark:text-gray-400">No posts available. Create a new post to get started.</p>
                   </div>
                   <?php
               }

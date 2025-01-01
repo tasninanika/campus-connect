@@ -52,7 +52,7 @@ include('./db_con/dbCon.php');
                         <details>
                             <summary>Explore</summary>
                             <ul class="bg-base-100 rounded-t-none p-2">
-                                <li><a href="blog.php">Blog</a></li>
+                                <li><a href="blogs.php">Blog</a></li>
                                 <li><a href="event.php">Event</a></li>
                                 <li><a href="jobs.php">Job</a></li>
                             </ul>
@@ -73,7 +73,7 @@ include('./db_con/dbCon.php');
                     <details>
                         <summary>Explore</summary>
                         <ul class="bg-base-100 rounded-t-none p-2">
-                            <li><a href="blog.php">Blog</a></li>
+                            <li><a href="blogs.php">Blog</a></li>
                             <li><a href="event.php">Event</a></li>
                             <li><a href="jobs.php">Job</a></li>
                         </ul>

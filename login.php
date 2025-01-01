@@ -114,9 +114,14 @@
                 <a href="#" class="block text-right text-sm hover:text-gray-500 text-[#797DFC]">Forgot Password?</a>
                 <button type="submit" name="login" class="mt-6 w-full h-12 bg-gradient-to-r from-[#797DFC] to-gray-700 text-white uppercase rounded-full cursor-pointer hover:to-[#797DFC] transition">Login</button>
                 <div class="mt-4">
-                    <p class="font-poppins text-gray-800 text-sm text-center">Don't have an account? <a href=" alumni_registration.php"
-                    class="font-poppins font-semibold hover:underline ml-1 whitespace-nowrap hover:text-gray-500 text-[#797DFC]" >Register here</a>  <a href=" student_registration.php"
-                    class="font-poppins font-semibold hover:underline ml-1 whitespace-nowrap hover:text-gray-500 text-[#797DFC]" >Register here</a></p>
+                    <p class="font-poppins text-gray-800 text-sm text-center">Don't have an account? <a href="alumni_registration.php"
+       class="font-poppins font-semibold hover:underline mt-2 hover:text-gray-500 text-[#797DFC] block">
+        Register as Alumni
+    </a>
+    <a href="student_registration.php"
+       class="font-poppins font-semibold hover:underline mt-2 hover:text-gray-500 text-[#797DFC] block">
+        Register as Student
+    </a></p>
                 </div>
             </form>
         </div>

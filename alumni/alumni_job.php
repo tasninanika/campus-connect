@@ -687,7 +687,7 @@
                   <li>
                     <a class="font-medium dark:text-white" href="index.html">Dashboard /</a>
                   </li>
-                  <li class="font-medium dark:text-white">Job</li>
+                  <li class="font-medium dark:text-purple-400">Job</li>
                 </ol>
               </nav>
             </div>
@@ -726,19 +726,17 @@
                         <!-- 2nd -->
                         <div class="mb-6 flex flex-col gap-5 sm:flex-row">
                           <div class="w-full sm:w-1/2">
-                            <label
-                              class="mb-3 block text-sm font-medium text-black dark:text-white"
-                              for="fname"
-                              >Type</label
-                            >
-                            <div class="relative">
-                              <input
-                                class="w-full rounded-lg border border-stroke bg-gray py-2 pl-4 pr-4.5 font-medium text-black focus:border-gray-800 focus-visible:outline-none dark:border-gray-700 dark:bg-gray-800 dark:text-white dark:focus:border-primary" required
-                                type="text"
-                                name="type"
-                                id="type"
-                                />                             
-                            </div>
+                            <label class="mb-3 block text-sm font-medium text-black dark:text-white"
+                            for="fname">Type</label>
+                              <select name="type"
+                              id="type" class="w-full rounded-lg border border-stroke bg-gray py-2 pl-4 pr-4.5 font-medium text-black focus:border-gray-800 focus-visible:outline-none dark:border-gray-700 dark:bg-gray-800 dark:text-white dark:focus:border-primary" required>
+                                <option value="" selected>Select..</option>
+                                <option value="Full-Time">Full-Time</option>
+                                <option value="Full-Time(Remote)">Full-Time(Remote)</option>
+                                <option value="Part-Time">Part-Time</option>
+                                <option value="Part-Time Remote">Part-Time Remote</option>
+                                <option value="Intern">Intern</option>
+                              </select>
                           </div>
                           <!-- type -->
                           <div class="w-full sm:w-1/2">
@@ -764,14 +762,18 @@
                               for="fname"
                               >Department</label
                             >
-                            <div class="relative">
-                              <input
-                                class="w-full rounded-lg border border-stroke bg-gray py-2 pl-4 pr-4.5 font-medium text-black focus:border-gray-800 focus-visible:outline-none dark:border-gray-700 dark:bg-gray-800 dark:text-white dark:focus:border-primary" required
-                                type="text"
-                                name="department"
-                                id="department"
-                                />                             
-                            </div>
+                              <select name="department"
+                              id="department" class="w-full rounded-lg border border-stroke bg-gray py-2 pl-4 pr-4.5 font-medium text-black focus:border-gray-800 focus-visible:outline-none dark:border-gray-700 dark:bg-gray-800 dark:text-white dark:focus:border-primary" required>
+                                <option value="" selected>Select..</option>
+                                <option value="CSE">CSE</option>
+                                <option value="EEE">EEE</option>
+                                <option value="CEN">CEN</option>
+                                <option value="BBA">BBA</option>
+                                <option value="ME">ME</option>
+                                <option value="LL.B. Hons.">LL.B. Hons.</option>
+                                <option value="B.A. Hons.">B.A. Hons.</option>
+                                <option value="B.S.S. Hons.">B.S.S. Hons.</option>
+                              </select>
                           </div>
                           <!-- department -->
                           <div class="w-full sm:w-1/2">
@@ -780,15 +782,14 @@
                               for="lname"
                               >Experience</label
                             >
-                              <input
-                                class="w-full rounded-lg border border-stroke bg-gray py-2 pl-4 pr-4.5 font-medium text-black focus:border-gray-800 focus-visible:outline-none dark:border-gray-700 dark:bg-gray-800 dark:text-white dark:focus:border-primary"
-                                type="text"
-                                name="experience"
-                                id="experience"
-                                placeholder="" 
-                                value=""                               
-                              />                          
-                            
+                            <select name="experience"
+                            id="experience" class="w-full rounded-lg border border-stroke bg-gray py-2 pl-4 pr-4.5 font-medium text-black focus:border-gray-800 focus-visible:outline-none dark:border-gray-700 dark:bg-gray-800 dark:text-white dark:focus:border-primary" required>
+                                <option value="" selected>Select..</option>
+                                <option value="0-1 Years">0-1 Years</option>
+                                <option value="1-2 Years">1-2 Years</option>
+                                <option value="3-5 Years">3-5 Years</option>
+                                <option value="6-More">6-More</option>
+                              </select>
                           </div>
                         </div>
                          <!-- 4th -->

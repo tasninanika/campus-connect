@@ -55,7 +55,7 @@ isset($_SESSION["email"]);
             $job_category = $job['category'];
             $company = $job['company_name'];
             $experience = $job['experience'];
-            $sallary = $job['sallary'];
+            $sallary = $job['salary'];
             $location = $job['location'];
             $description = $job['description'];
             $photo = $job['logo'];
@@ -97,7 +97,7 @@ isset($_SESSION["email"]);
             <div class="flex items-center gap-5 w-full">
                 <!-- Logo Section -->
                 <div class="bg-white p-3 rounded-full flex-shrink-0">
-                    <img src="<?php echo $photo; ?>" alt="Company Logo" class="w-[50px] md:w-[60px]">
+                    <img src="./upload/images/<?php echo $photo; ?>" alt="Company Logo" class="w-[50px] md:w-[60px]">
                 </div>
 
                 <!-- Job Details Section -->
@@ -199,7 +199,7 @@ isset($_SESSION["email"]);
                     <div class="max-w-sm mx-auto bg-[#797DFC] rounded-xl shadow-lg overflow-hidden job-post-owner">
                         <!-- Profile Picture -->
                         <div class="flex flex-col items-center py-6">
-                            <img src="./images/upload/<?php echo $alumni_image; ?>" alt="Profile Picture"
+                            <img src="./upload/images/<?php echo $alumni_image; ?>" alt="Profile Picture"
                                 class="w-40 h-40 rounded-full border-4 border-gray-200">
                         </div>
                         <!-- Content Section -->

@@ -866,13 +866,10 @@
                             ?>
                             <ul class="my-1">
                               <li class="flex px-4">
-                                <div class="flex-shrink-0 my-2 mr-3">
-                                  <img src="../upload/images/<?php echo $row["blog_picture"]; ?>" alt="User Image" class="h-9 w-9 rounded-full">
-                                </div>
                                 <div class="flex-grow flex items-center border-gray-100 dark:border-gray-400 text-sm text-gray-600 dark:text-gray-100 py-2">
                                   <div class="flex-grow flex justify-between items-center">
                                     <div class="self-center">
-                                      <h3 class="font-medium text-gray-800 hover:text-gray-900 dark:text-gray-50 dark:hover:text-gray-100" style="outline: none;"><?php echo $row["title"]; ?></h3>
+                                      <h3 class="font-medium text-purple-400 hover:text-gray-900 dark:text-purple-400 dark:hover:text-gray-100" style="outline: none;"><?php echo $row["title"]; ?></h3>
                                       <p class="line-clamp-2"><?php echo $row["description"]; ?></p>
                                       <a href="description.php?blog_id=<?php echo $row['blog_id']; ?>" 
                                         class="text-blue-500 hover:text-blue-600 dark:text-blue-400 dark:hover:text-blue-500 text-sm font-medium mt-1 block">
@@ -931,7 +928,7 @@
                                 <div class="flex-grow flex items-center border-gray-100 dark:border-gray-400 text-sm text-gray-600 dark:text-gray-100 py-2">
                                   <div class="flex-grow flex justify-between items-center">
                                     <div class="self-center">
-                                      <h3 class="font-medium text-gray-800 hover:text-gray-900 dark:text-gray-50 dark:hover:text-gray-100" style="outline: none;"><?php echo $row["title"]; ?></h3> 
+                                      <h3 class="font-medium text-purple-400 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-100" style="outline: none;"><?php echo $row["title"]; ?></h3> 
                                       <?php echo date('d M, Y', strtotime($row["created_at"])); ?>
                                     </div>
                                     <div class="flex-shrink-0 ml-2 mt-5">
@@ -974,7 +971,7 @@
                                 <div class="flex-grow flex items-center border-gray-100 dark:border-gray-400 text-sm text-gray-600 dark:text-gray-100 py-2">
                                   <div class="flex-grow flex justify-between items-center">
                                     <div class="self-center">
-                                      <h3 class="font-medium text-gray-800 hover:text-gray-900 dark:text-gray-50 dark:hover:text-gray-100" style="outline: none;"><?php echo $row["title"]; ?></h3> 
+                                      <h3 class="font-medium text-purple-400 hover:text-gray-900 dark:text-purple-400 dark:hover:text-gray-100" style="outline: none;"><?php echo $row["title"]; ?></h3> 
                                       <p class="line-clamp-2"><?php echo $row["content"]; ?></p>
                                       <!-- Display file download link if file_path exists -->
                                       <?php if (!empty($row["file"])) { 

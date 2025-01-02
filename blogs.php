@@ -26,7 +26,7 @@ include('./db_con/dbCon.php');
     include('./db_con/dbCon.php');
 
     // Fetch count of articles for each type
-    $type_count_sql = "SELECT type, COUNT(*) as count FROM blog GROUP BY type";
+    $type_count_sql = "SELECT type, COUNT(*) as count FROM blog WHERE status = 'Approve' GROUP BY type";
     $type_count_result = mysqli_query($db, $type_count_sql);
     $type_counts = [];
     while ($row = mysqli_fetch_assoc($type_count_result)) {
@@ -83,7 +83,7 @@ include('./db_con/dbCon.php');
     $total_blogs = $total_blogs_row['total'];
     $total_pages = ceil($total_blogs / $blogs_per_page);
 
-    $sql = "SELECT * FROM blog LIMIT $blogs_per_page OFFSET $offset";
+    $sql = "SELECT * FROM blog WHERE status = 'Approve' LIMIT $blogs_per_page OFFSET $offset";
     $query = mysqli_query($db, $sql);
     ?>
 

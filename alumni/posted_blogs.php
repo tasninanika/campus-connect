@@ -716,7 +716,7 @@
                                   <div class="flex-grow flex justify-between items-center">
                                       <!-- Title and Content -->
                                       <div class="self-start">
-                                      <h3 class="font-medium text-gray-800 hover:text-gray-900 dark:text-gray-50 dark:hover:text-gray-100" style="outline: none;"><?php echo $title; ?></h3>
+                                      <h3 class="font-medium text-purple-400 hover:text-gray-900 dark:text-purple-400 dark:hover:text-gray-100" style="outline: none;"><?php echo $title; ?></h3>
                                       <p class="line-clamp-3"><?php echo $description; ?></p>
                                       <a href="blog.php?blog_id=<?php echo $blog_id; ?>" 
                                         class="text-blue-500 hover:text-blue-600 dark:text-blue-400 dark:hover:text-blue-500 text-sm font-medium mt-1 block">

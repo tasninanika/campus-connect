@@ -33,7 +33,7 @@
     $total_pages = ceil($total_blogs / $blogs_per_page);
 
     // Get blogs for the current type and page
-    $sql = "SELECT * FROM blog WHERE type = '$type' LIMIT $blogs_per_page OFFSET $offset";
+    $sql = "SELECT * FROM blog WHERE type = '$type' AND status = 'Approve' LIMIT $blogs_per_page OFFSET $offset";
     $query = mysqli_query($db, $sql);
     ?>
 

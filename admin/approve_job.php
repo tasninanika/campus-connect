@@ -18,7 +18,7 @@
         }
 
         // Update the status of the resource to 'Active'
-        $sql = "UPDATE `job` SET `status`='Active' WHERE job_id='$job_id'";
+        $sql = "UPDATE `job` SET `status`='Approve' WHERE job_id='$job_id'";
         $db->query($sql);
 
         // Redirect to the resources management page

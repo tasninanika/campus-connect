@@ -684,7 +684,7 @@
                   <li>
                     <a class="font-medium dark:text-white" href="index.html">Dashboard /</a>
                   </li>
-                  <li class="font-medium dark:text-purple-400">Blog</li>
+                  <li class="font-medium text-purple-400">Blog</li>
                 </ol>
               </nav>
             </div>

@@ -17,7 +17,7 @@
         }
 
         // Update the status of the resource to 'Active'
-        $sql = "UPDATE `resources` SET `status`='Active' WHERE material_id='$material_id'";
+        $sql = "UPDATE `resources` SET `status`='Approve' WHERE material_id='$material_id'";
         $db->query($sql);
 
         // Redirect to the resources management page

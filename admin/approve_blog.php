@@ -16,7 +16,7 @@
         }
 
         // Update the status of the resource to 'Active'
-        $sql = "UPDATE `blog` SET `status`='Active' WHERE blog_id='$blog_id'";
+        $sql = "UPDATE `blog` SET `status`='Approve' WHERE blog_id='$blog_id'";
         $db->query($sql);
 
         // Redirect to the resources management page

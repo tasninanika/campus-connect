@@ -738,20 +738,6 @@
                                 <option value="Law">Law</option>
                               </select>                                                   
                         </div>
-                        <!-- 2nd -->
-                        <div class="mb-6">
-                          <label
-                            class="mb-3 block text-sm font-medium text-black dark:text-white"
-                            for=""
-                            >Picture</label
-                          >
-                          <input
-                              class="w-full text-gray-400 font-semibold text-sm bg-white border file:cursor-pointer cursor-pointer file:border-0 file:py-3 file:px-4 file:mr-4 file:bg-gray-100 dark:text-gray-400 dark:bg-gray-800 dark:file:bg-gray-500 dark:file:hover:bg-gray-800 dark:border-gray-600 dark:file:text-gray-300 file:hover:bg-gray-200 file:text-gray-500 rounded-lg"
-                              type="file"
-                              name="fileToUpload"
-                              id="fileToUpload"
-                            />                                                     
-                        </div>
                         <!-- Description -->
                         <div class="mb-6 flex flex-col gap-5 sm:flex-row">
                             <div class="w-full">

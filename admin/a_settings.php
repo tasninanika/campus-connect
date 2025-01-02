@@ -503,7 +503,7 @@
                   <li>
                     <a class="font-medium dark:text-white" href="index.html">Dashboard /</a>
                   </li>
-                  <li class="font-medium dark:text-white">Settings</li>
+                  <li class="font-medium dark:text-purple-400">Settings</li>
                 </ol>
               </nav>
             </div>

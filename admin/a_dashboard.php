@@ -543,25 +543,25 @@
                             $postedDate = new DateTime($posted_date, new DateTimeZone('UTC'));
                             $postedDate->setTimezone(new DateTimeZone('Asia/Dhaka'));
 
-                            $currentDate = new DateTime('now', new DateTimeZone('Asia/Dhaka'));
+                            // $currentDate = new DateTime('now', new DateTimeZone('Asia/Dhaka'));
 
-                            // Calculate total difference in seconds
-                            $totalSeconds = $currentDate->getTimestamp() - $postedDate->getTimestamp();
+                            // // Calculate total difference in seconds
+                            // $totalSeconds = $currentDate->getTimestamp() - $postedDate->getTimestamp();
 
-                            if ($totalSeconds >= 30 * 24 * 60 * 60) { // More than 30 days
-                                $displayDate = "30+ days ago";
-                            } elseif ($totalSeconds >= 24 * 60 * 60) { // More than 1 day
-                                $days = floor($totalSeconds / (24 * 60 * 60));
-                                $displayDate = $days === 1 ? "1 day ago" : "{$days} days ago";
-                            } elseif ($totalSeconds >= 60 * 60) { // More than 1 hour
-                                $hours = floor($totalSeconds / (60 * 60));
-                                $displayDate = $hours === 1 ? "1 hour ago" : "{$hours} hours ago";
-                            } elseif ($totalSeconds >= 60) { // More than 1 minute
-                                $minutes = floor($totalSeconds / 60);
-                                $displayDate = $minutes === 1 ? "1 minute ago" : "{$minutes} minutes ago";
-                            } else { // Less than 1 minute
-                                $displayDate = "Just now";
-                            }
+                            // if ($totalSeconds >= 30 * 24 * 60 * 60) { // More than 30 days
+                            //     $displayDate = "30+ days ago";
+                            // } elseif ($totalSeconds >= 24 * 60 * 60) { // More than 1 day
+                            //     $days = floor($totalSeconds / (24 * 60 * 60));
+                            //     $displayDate = $days === 1 ? "1 day ago" : "{$days} days ago";
+                            // } elseif ($totalSeconds >= 60 * 60) { // More than 1 hour
+                            //     $hours = floor($totalSeconds / (60 * 60));
+                            //     $displayDate = $hours === 1 ? "1 hour ago" : "{$hours} hours ago";
+                            // } elseif ($totalSeconds >= 60) { // More than 1 minute
+                            //     $minutes = floor($totalSeconds / 60);
+                            //     $displayDate = $minutes === 1 ? "1 minute ago" : "{$minutes} minutes ago";
+                            // } else { // Less than 1 minute
+                            //     $displayDate = "Just now";
+                            // }
                         }                                        
                 ?>
                         <ul class="my-1">
@@ -575,7 +575,7 @@
                                             <h3 class="font-medium text-gray-800 hover:text-gray-900 dark:text-gray-50 dark:hover:text-gray-100" style="outline: none;">
                                                 <span class="font-bold"><?php echo $row["first_Name"]; ?> <?php echo $row["last_Name"]; ?></span> wants to join our community.
                                             </h3>
-                                            <?php echo $displayDate; ?>
+                                            <p class="time-difference" data-timestamp="{$postedDate->getTimestamp()}">Just now</p>
                                         </div>
                                         <div class="flex-shrink-0 ml-2 mt-6">
                                             <a class="flex items-center font-medium text-purple-500 hover:text-blue-600 dark:text-purple-400 dark:hover:text-blue-500" href="pending_alumni.php" style="outline: none;">
@@ -865,7 +865,7 @@
                         // If no job posts exist, display a message
                         ?>
                         <div class="text-center py-4 text-gray-500 dark:text-gray-400">
-                            <p>No posts available. Create a new post to get started.</p>
+                            <p>No requests are pending.</p>
                         </div>
                         <?php
                     }
@@ -924,7 +924,42 @@
     });
   });
 </script>
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    function updateTimeDifferences() {
+        const elements = document.querySelectorAll('.time-difference');
+        const now = Math.floor(Date.now() / 1000); // Current timestamp in seconds
 
+        elements.forEach(el => {
+            const timestamp = parseInt(el.getAttribute('data-timestamp'), 10);
+            const totalSeconds = now - timestamp;
+
+            let displayText;
+            if (totalSeconds >= 30 * 24 * 60 * 60) {
+                displayText = "30+ days ago";
+            } else if (totalSeconds >= 24 * 60 * 60) {
+                const days = Math.floor(totalSeconds / (24 * 60 * 60));
+                displayText = days === 1 ? "1 day ago" : `${days} days ago`;
+            } else if (totalSeconds >= 60 * 60) {
+                const hours = Math.floor(totalSeconds / (60 * 60));
+                displayText = hours === 1 ? "1 hour ago" : `${hours} hours ago`;
+            } else if (totalSeconds >= 60) {
+                const minutes = Math.floor(totalSeconds / 60);
+                displayText = minutes === 1 ? "1 minute ago" : `${minutes} minutes ago`;
+            } else {
+                displayText = "Just now";
+            }
+
+            el.textContent = displayText;
+        });
+    }
+
+    // Update every 30 seconds
+    updateTimeDifferences();
+    setInterval(updateTimeDifferences, 30000);
+});
+
+</script>
 </body>
 </html>
 <?php

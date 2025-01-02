@@ -727,12 +727,16 @@
                             for=""
                             >Type</label
                           >
-                          <input
-                              class="w-full rounded-lg border border-stroke bg-gray px-5 py-2 font-medium text-black focus:border-gray-800 focus-visible:outline-none dark:border-gray-700 dark:bg-gray-800 dark:text-white dark:focus:border-primary"
-                              type="text"
-                              name="type"
-                              id="type"
-                            />                                                     
+                          <select name="type"
+                              id="type" class="w-full rounded-lg border border-stroke bg-gray py-2 pl-4 pr-4.5 font-medium text-black focus:border-gray-800 focus-visible:outline-none dark:border-gray-700 dark:bg-gray-800 dark:text-white dark:focus:border-primary" required>
+                                <option value="" selected>Select..</option>
+                                <option value="General">General</option>
+                                <option value="Technical & Engineering">Technical & Engineering</option>
+                                <option value="Business & Management">Business & Management</option>
+                                <option value="Media & Communication">Media & Communication</option>
+                                <option value="Language & Literature">Language & Literature</option>
+                                <option value="Law">Law</option>
+                              </select>                                                   
                         </div>
                         <!-- 2nd -->
                         <div class="mb-6">

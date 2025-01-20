@@ -214,7 +214,7 @@
                 <path d="M9,8.087,21,3V21L9,15.913V21H5V15.913a2,2,0,0,1-2-2V10.087a2,2,0,0,1,2-2Z"/>
               </svg>Announcement 
             </a> 
-            <a href="student_resources.php" class="flex items-center text-white py-2 px-3 ml-4 mr-4 my-1 active-nav-link gap-2.5">
+            <a href="student_resources.php" class="flex items-center text-white py-2 px-3 ml-4 mr-4 my-1 nav-item gap-2.5">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512" width="20" height="20">
                   <defs>
                     <style>
@@ -256,7 +256,7 @@
                 Profile
             </a>
             <details class="group relative">
-              <summary class="flex items-center justify-between text-white py-2 px-3.5 mx-4 my-2 active-nav-item cursor-pointer">
+              <summary class="flex items-center justify-between text-white py-2 px-3.5 mx-4 my-2 active-nav-link cursor-pointer">
                 <i class="fas fa-align-left mr-3"></i>
                 <span class="flex-1">Pages</span>
                 <svg

@@ -524,39 +524,11 @@
                 <?php
                 include_once '../db_con/dbCon.php';
                 $result = mysqli_query($db, "SELECT * FROM user INNER JOIN alumni ON user.u_id=alumni.alumni_id AND user.status = 'Pending' ORDER BY created_at DESC LIMIT 5");
-                // Ensure PHP timezone is set
-                date_default_timezone_set('Asia/Dhaka');
+
 
                 // Fetch rows from the database
                 if (mysqli_num_rows($result) > 0) {
-                    while ($row = mysqli_fetch_array($result)) {
-                        if (isset($row['created_at']) && !is_null($row['created_at'])) {
-                            $posted_date = $row['created_at'];
-
-                            // Convert database UTC time to Asia/Dhaka time
-                            $postedDate = new DateTime($posted_date, new DateTimeZone('UTC'));
-                            $postedDate->setTimezone(new DateTimeZone('Asia/Dhaka'));
-
-                            $currentDate = new DateTime('now', new DateTimeZone('Asia/Dhaka'));
-
-                            // Calculate total difference in seconds
-                            $totalSeconds = $currentDate->getTimestamp() - $postedDate->getTimestamp();
-
-                            if ($totalSeconds >= 30 * 24 * 60 * 60) { // More than 30 days
-                                $displayDate = "30+ days ago";
-                            } elseif ($totalSeconds >= 24 * 60 * 60) { // More than 1 day
-                                $days = floor($totalSeconds / (24 * 60 * 60));
-                                $displayDate = $days === 1 ? "1 day ago" : "{$days} days ago";
-                            } elseif ($totalSeconds >= 60 * 60) { // More than 1 hour
-                                $hours = floor($totalSeconds / (60 * 60));
-                                $displayDate = $hours === 1 ? "1 hour ago" : "{$hours} hours ago";
-                            } elseif ($totalSeconds >= 60) { // More than 1 minute
-                                $minutes = floor($totalSeconds / 60);
-                                $displayDate = $minutes === 1 ? "1 minute ago" : "{$minutes} minutes ago";
-                            } else { // Less than 1 minute
-                                $displayDate = "Just now";
-                            }
-                        }                                        
+                    while ($row = mysqli_fetch_array($result)) {                                     
                 ?>
                         <ul class="my-1">
                             <li class="flex px-4">
@@ -569,7 +541,7 @@
                                             <h3 class="font-medium text-gray-800 hover:text-gray-900 dark:text-gray-50 dark:hover:text-gray-100" style="outline: none;">
                                                 <span class="font-bold"><?php echo $row["first_Name"]; ?> <?php echo $row["last_Name"]; ?></span> wants to join our community.
                                             </h3>
-                                            <?php echo $displayDate; ?>
+                                            <?php echo date('d M, Y', strtotime($row['created_at'])); ?>
                                         </div>
                                         <div class="flex-shrink-0 ml-2 mt-6">
                                             <a class="flex items-center font-medium text-purple-500 hover:text-blue-600 dark:text-purple-400 dark:hover:text-blue-500" href="pending_alumni.php" style="outline: none;">
@@ -620,33 +592,7 @@
                     if (mysqli_num_rows($result) > 0) {
                         // If there are job posts, display them
                         while ($row = mysqli_fetch_array($result)) {
-                          if (isset($row['created_at']) && !is_null($row['created_at'])) {
-                            $posted_date = $row['created_at'];
-
-                            // Convert database UTC time to Asia/Dhaka time
-                            $postedDate = new DateTime($posted_date, new DateTimeZone('UTC'));
-                            $postedDate->setTimezone(new DateTimeZone('Asia/Dhaka'));
-
-                            $currentDate = new DateTime('now', new DateTimeZone('Asia/Dhaka'));
-
-                            // Calculate total difference in seconds
-                            $totalSeconds = $currentDate->getTimestamp() - $postedDate->getTimestamp();
-
-                            if ($totalSeconds >= 30 * 24 * 60 * 60) { // More than 30 days
-                                $displayDate = "30+ days ago";
-                            } elseif ($totalSeconds >= 24 * 60 * 60) { // More than 1 day
-                                $days = floor($totalSeconds / (24 * 60 * 60));
-                                $displayDate = $days === 1 ? "1 day ago" : "{$days} days ago";
-                            } elseif ($totalSeconds >= 60 * 60) { // More than 1 hour
-                                $hours = floor($totalSeconds / (60 * 60));
-                                $displayDate = $hours === 1 ? "1 hour ago" : "{$hours} hours ago";
-                            } elseif ($totalSeconds >= 60) { // More than 1 minute
-                                $minutes = floor($totalSeconds / 60);
-                                $displayDate = $minutes === 1 ? "1 minute ago" : "{$minutes} minutes ago";
-                            } else { // Less than 1 minute
-                                $displayDate = "Just now";
-                            }
-                        }  
+                          
                             ?>
                             <ul class="my-1">
                               <li class="flex px-4">
@@ -657,7 +603,7 @@
                                   <div class="flex-grow flex justify-between items-center">
                                     <div class="self-center">
                                       <h3 class="text-gray-800 hover:text-gray-900 dark:text-gray-50 dark:hover:text-gray-100" style="outline: none;"><span class="font-bold"><?php echo $row['first_name']; ?> <?php echo $row['last_name']; ?></span> has created a <span class="font-bold"><?php echo $row['blog_title']; ?></span> blog.</h3>
-                                      <?php echo $displayDate; ?>
+                                      <?php echo date('d M, Y', strtotime($row['blog_created_at'])); ?>
                                     </div>
                                     <div class="flex-shrink-0 ml-2 mt-5">
                                       <a class="flex items-center font-medium text-purple-500 hover:text-blue-600 dark:text-purple-400 dark:hover:text-blue-500" href="pending_blogs.php" style="outline: none;">
@@ -717,35 +663,8 @@
                             ");
 
                     if (mysqli_num_rows($result) > 0) {
-                        // If there are job posts, display them
-                        while ($row = mysqli_fetch_array($result)) {
-                          if (isset($row['created_at']) && !is_null($row['created_at'])) {
-                            $posted_date = $row['created_at'];
-
-                            // Convert database UTC time to Asia/Dhaka time
-                            $postedDate = new DateTime($posted_date, new DateTimeZone('UTC'));
-                            $postedDate->setTimezone(new DateTimeZone('Asia/Dhaka'));
-
-                            $currentDate = new DateTime('now', new DateTimeZone('Asia/Dhaka'));
-
-                            // Calculate total difference in seconds
-                            $totalSeconds = $currentDate->getTimestamp() - $postedDate->getTimestamp();
-
-                            if ($totalSeconds >= 30 * 24 * 60 * 60) { // More than 30 days
-                                $displayDate = "30+ days ago";
-                            } elseif ($totalSeconds >= 24 * 60 * 60) { // More than 1 day
-                                $days = floor($totalSeconds / (24 * 60 * 60));
-                                $displayDate = $days === 1 ? "1 day ago" : "{$days} days ago";
-                            } elseif ($totalSeconds >= 60 * 60) { // More than 1 hour
-                                $hours = floor($totalSeconds / (60 * 60));
-                                $displayDate = $hours === 1 ? "1 hour ago" : "{$hours} hours ago";
-                            } elseif ($totalSeconds >= 60) { // More than 1 minute
-                                $minutes = floor($totalSeconds / 60);
-                                $displayDate = $minutes === 1 ? "1 minute ago" : "{$minutes} minutes ago";
-                            } else { // Less than 1 minute
-                                $displayDate = "Just now";
-                            }
-                        }  
+                      
+                        while ($row = mysqli_fetch_array($result)) {  
                             ?>
                             <ul class="my-1">
                               <li class="flex px-4">
@@ -756,7 +675,7 @@
                                   <div class="flex-grow flex justify-between items-center">
                                     <div class="self-center">
                                       <h3 class="text-gray-800 hover:text-gray-900 dark:text-gray-50 dark:hover:text-gray-100" style="outline: none;"><span class="font-bold"><?php echo $row['first_name']; ?> <?php echo $row['last_name']; ?></span> has created a <span class="font-bold"><?php echo $row['job_title']; ?></span> job post.</h3>
-                                      <?php echo $displayDate; ?>
+                                      <?php echo date('d M, Y', strtotime($row['job_created_at'])); ?>
                                     </div>
                                     <div class="flex-shrink-0 ml-2 mt-5">
                                       <a class="flex items-center font-medium text-purple-500 hover:text-blue-600 dark:text-purple-400 dark:hover:text-blue-500" href="pending_job.php" style="outline: none;">
@@ -805,33 +724,6 @@
                     if (mysqli_num_rows($result) > 0) {
                         // If there are job posts, display them
                         while ($row = mysqli_fetch_array($result)) {
-                          if (isset($row['created_at']) && !is_null($row['created_at'])) {
-                            $posted_date = $row['created_at'];
-
-                            // Convert database UTC time to Asia/Dhaka time
-                            $postedDate = new DateTime($posted_date, new DateTimeZone('UTC'));
-                            $postedDate->setTimezone(new DateTimeZone('Asia/Dhaka'));
-
-                            $currentDate = new DateTime('now', new DateTimeZone('Asia/Dhaka'));
-
-                            // Calculate total difference in seconds
-                            $totalSeconds = $currentDate->getTimestamp() - $postedDate->getTimestamp();
-
-                            if ($totalSeconds >= 30 * 24 * 60 * 60) { // More than 30 days
-                                $displayDate = "30+ days ago";
-                            } elseif ($totalSeconds >= 24 * 60 * 60) { // More than 1 day
-                                $days = floor($totalSeconds / (24 * 60 * 60));
-                                $displayDate = $days === 1 ? "1 day ago" : "{$days} days ago";
-                            } elseif ($totalSeconds >= 60 * 60) { // More than 1 hour
-                                $hours = floor($totalSeconds / (60 * 60));
-                                $displayDate = $hours === 1 ? "1 hour ago" : "{$hours} hours ago";
-                            } elseif ($totalSeconds >= 60) { // More than 1 minute
-                                $minutes = floor($totalSeconds / 60);
-                                $displayDate = $minutes === 1 ? "1 minute ago" : "{$minutes} minutes ago";
-                            } else { // Less than 1 minute
-                                $displayDate = "Just now";
-                            }
-                        }  
                             ?>
                             <ul class="my-1">
                               <li class="flex px-4">
@@ -842,7 +734,7 @@
                                   <div class="flex-grow flex justify-between items-center">
                                     <div class="self-center">
                                       <h3 class="text-gray-800 hover:text-gray-900 dark:text-gray-50 dark:hover:text-gray-100" style="outline: none;"><span class="font-bold"><?php echo $row['first_name']; ?> <?php echo $row['last_name']; ?></span> shared a <span class="font-bold"><?php echo $row['resource_title']; ?></span> resource.</h3>
-                                      <?php echo $displayDate; ?>
+                                      <?php echo date('d M, Y', strtotime($row['resource_created_at'])); ?>
                                     </div>
                                     <div class="flex-shrink-0 ml-2 mt-5">
                                       <a class="flex items-center font-medium text-purple-500 hover:text-blue-600 dark:text-purple-400 dark:hover:text-blue-500" href="pending_resources.php" style="outline: none;">

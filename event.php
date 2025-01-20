@@ -280,7 +280,7 @@ include('navbar.php');
                                 </form>
                                 <h3 class="text-lg font-bold">Event Details</h3>
                                 <img
-                                    src="./images/upload/<?php echo $eventBanner ?>"
+                                    src="./upload/images/<?php echo $eventBanner ?>"
                                     alt="Event Banner"
                                     class="w-full h-auto object-contain border border-white rounded-lg">
                                 <p class="py-4"><strong>Date:</strong> <?php echo $eventDateDay . ' ' . $eventDateMonthName . ' ' . $eventDateYear; ?></p>

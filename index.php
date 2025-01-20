@@ -114,7 +114,7 @@ session_start();
                 <ul class="menu menu-horizontal px-1 text-md">
                     <li><a href="index.php" class="text-white hover:bg-white hover:text-black">Home</a></li>
                     <li><a href="about.php" class="text-white hover:bg-white hover:text-black">About Us</a></li>
-                    <li><a href="contact-us.php" class="text-white hover:bg-white hover:text-black">Contact Us</a></li>
+                    <li><a href="contact.php" class="text-white hover:bg-white hover:text-black">Contact Us</a></li>
                     <li><a href="gallery.php" class="text-white hover:bg-white hover:text-black">Gallery</a></li>
                     <li>
                         <details>
@@ -132,6 +132,7 @@ session_start();
             <!-- Login/Logout Section -->
             <div class="navbar-end ml-auto mr-5">
                 <?php
+                include('./db_con/dbCon.php');
                 if (isset($_SESSION["email"]) && !empty($_SESSION["email"])) {
                     $u_email = $_SESSION["email"];
 
@@ -164,12 +165,12 @@ session_start();
                         if ($result && mysqli_num_rows($result) > 0) {
                             $row = mysqli_fetch_assoc($result);
                             $id_photo = $row['id_photo'];
-                            $dashboard_link = ($role === 'Student') ? "student_dashboard.php" : (($role === 'Alumni') ? "alumni_dashboard.php" : null);
+                            $dashboard_link = ($role === 'Student') ? "student_dashboard.php" : (($role === 'Alumni') ? "./alumni/alumni_dashboard.php" : null);
                 ?>
                             <div class="dropdown dropdown-end">
                                 <div tabindex="0" class="btn btn-ghost btn-circle avatar">
                                     <div class="w-10 rounded-full">
-                                        <img src="./images/upload/<?php echo $id_photo ?>" alt="Profile Image">
+                                        <img src="./upload/images/<?php echo $id_photo ?>" alt="Profile Image">
                                     </div>
                                 </div>
                                 <ul tabindex="0"

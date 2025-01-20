@@ -413,12 +413,6 @@
                   x-transition
                   >
                   <a
-                    href="../index.php"
-                    class="block mx-2 px-2 my-1 py-1 rounded-lg text-sm dark:text-gray-200 hover:bg-gray-200 dark:hover:bg-gray-700"
-                  >
-                    Home
-                  </a>
-                  <a
                     href="../alumni/alumni_settings.php"
                     class="block mx-2 px-2 my-1 py-1 rounded-lg text-sm dark:text-gray-200 hover:bg-gray-200 dark:hover:bg-gray-700"
                   >

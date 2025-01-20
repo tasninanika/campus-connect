@@ -54,11 +54,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $type = mysqli_real_escape_string($db, $_POST['type']);
     $content = mysqli_real_escape_string($db, $_POST['content']);
 
-    $sql = "INSERT INTO `resources` (`material_id`, `title`, `type`, `content`, `file`, `u_id`) 
-            VALUES ('$resource_id', '$title', '$type', '$content', '$newName', '$alumni_id')";
+    $sql = "INSERT INTO `resources` (`material_id`, `title`, `type`, `content`, `file`, `u_id`, `status`) 
+            VALUES ('$resource_id', '$title', '$type', '$content', '$newName', '$alumni_id', 'Pending')";
 
     if (mysqli_query($db, $sql)) {
-        header("location:alumni_resource.php");
+        header("location:alumni_resources.php");
     } else {
         echo "Database Error: " . mysqli_error($db);
     }

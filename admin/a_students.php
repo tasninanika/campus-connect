@@ -427,12 +427,7 @@
                   class="absolute right-0 mt-2 w-48 rounded-xl border border-gray-400 dark:border-gray-700 bg-white shadow-lg dark:bg-gray-800"
                   x-transition
                   >
-                  <a
-                    href="../index.php"
-                    class="block mx-2 px-2 my-1 py-1 rounded-lg text-sm dark:text-gray-200 hover:bg-gray-200 dark:hover:bg-gray-700"
-                  >
-                    Home
-                  </a>
+                  
                   <a
                     href="../alumni/alumni_settings.php"
                     class="block mx-2 px-2 my-1 py-1 rounded-lg text-sm dark:text-gray-200 hover:bg-gray-200 dark:hover:bg-gray-700"

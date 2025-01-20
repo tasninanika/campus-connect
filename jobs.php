@@ -93,9 +93,9 @@
             }
         }
 
-        $sql = "SELECT * FROM job";
+        $sql = "SELECT * FROM job WHERE status = 'Approve'";
         if (count($conditions) > 0) {
-            $sql .= " WHERE " . implode(' AND ', $conditions);
+            $sql .= " AND " . implode(' AND ', $conditions);
         }
         $query = mysqli_query($db, $sql);
     ?>
@@ -193,7 +193,7 @@
                 }
             } else {
             ?>
-            <div class="">
+            <div class="no-jobs-container">
                 <img src="https://cdni.iconscout.com/illustration/premium/thumb/no-data-found-illustration-download-in-svg-png-gif-file-formats--office-computer-digital-work-business-pack-illustrations-7265556.png" alt="No Data Found" class="w-40">
                 <h3>No jobs found matching your criteria</h3>
                 <button onclick="history.back()" class="mt-4 px-6 py-2 bg-[#797DFC] text-white rounded-full">Go Back</button>

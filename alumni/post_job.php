@@ -68,8 +68,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $com_description = mysqli_real_escape_string($db, $_POST['com_description']);
 
     // Create SQL query to post job information
-    $sql = "INSERT INTO `job` (`job_id`, `title`,`type`, `category`, `department`, `company_name`, `logo`, `experience`, `qualification`, `location`, `salary`, `description`, `com_description`, `apply_info`, `u_id`) 
-			VALUES ('$job_id', '$title', '$type', '$category', '$department', '$company_name', '$newName', '$experience', '$qualification', '$location', '$salary', '$description', '$com_description', '$apply_info', '$alumni_id')";
+    $sql = "INSERT INTO `job` (`job_id`, `title`,`type`, `category`, `department`, `company_name`, `logo`, `experience`, `qualification`, `location`, `salary`, `description`, `com_description`, `apply_info`, `u_id`, `status`) 
+			VALUES ('$job_id', '$title', '$type', '$category', '$department', '$company_name', '$newName', '$experience', '$qualification', '$location', '$salary', '$description', '$com_description', '$apply_info', '$alumni_id', 'Pending')";
 
     if (mysqli_query($db, $sql)) {
         header("location:alumni_job.php");

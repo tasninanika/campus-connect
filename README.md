@@ -1,4 +1,4 @@
-# 🌐 Campus Connect
+# Campus Connect
 
 Campus Connect is a comprehensive platform designed to bridge the gap between alumni, students, and university administrators. It fosters networking, collaboration, and resource sharing within an academic community.
 
